@@ -1,0 +1,23 @@
+{
+	"name": "compression-webpack-plugin",
+	"version": "0.1.0",
+	"author": "Tobias Koppers @sokra",
+	"description": "Prepare compressed versions of assets to serve them with Content-Encoding",
+	"peerDependencies": {
+		"webpack": ">=0.11 <0.12"
+	},
+	"dependencies": {
+		"async": "0.2.x"
+	},
+	"homepage": "http://github.com/webpack/compression-webpack-plugin",
+	"repository": {
+		"type": "git",
+		"url": "http://github.com/webpack/compression-webpack-plugin.git"
+	},
+	"licenses": [
+		{
+			"type": "MIT",
+			"url": "http://www.opensource.org/licenses/mit-license.php"
+		}
+	]
+}
