@@ -10,7 +10,6 @@ function RawSource(value) {
 	Source.call(this);
 	this._value = value;
 }
-module.exports = RawSource;
 
 RawSource.prototype = Object.create(Source.prototype);
 RawSource.prototype._bake = function() {
