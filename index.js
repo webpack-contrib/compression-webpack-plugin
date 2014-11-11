@@ -35,7 +35,7 @@ function CompressionPlugin(options) {
 module.exports = CompressionPlugin;
 
 CompressionPlugin.prototype.apply = function(compiler) {
-	compiler.plugin("compilation", function(compilation) {
+	compiler.plugin("this-compilation", function(compilation) {
 		compilation.plugin("optimize-assets", function(assets, callback) {
 			async.forEach(Object.keys(assets), function(file, callback) {
 				if(this.regExp && !this.regExp.test(file)) return callback();
