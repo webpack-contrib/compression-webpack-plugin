@@ -1,6 +1,6 @@
 {
 	"name": "compression-webpack-plugin",
-	"version": "0.1.1",
+	"version": "0.1.2",
 	"author": "Tobias Koppers @sokra",
 	"description": "Prepare compressed versions of assets to serve them with Content-Encoding",
 	"peerDependencies": {
