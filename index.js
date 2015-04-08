@@ -4,19 +4,7 @@
 */
 var async = require("async");
 
-var Source = require("webpack/lib/Source");
-
-function RawSource(value) {
-	Source.call(this);
-	this._value = value;
-}
-
-RawSource.prototype = Object.create(Source.prototype);
-RawSource.prototype._bake = function() {
-	return {
-		source: this._value
-	};
-};
+var RawSource = require("webpack/lib/RawSource");
 
 function CompressionPlugin(options) {
 	options = options || {};
