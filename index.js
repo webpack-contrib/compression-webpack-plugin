@@ -3,6 +3,7 @@
 	Author Tobias Koppers @sokra
 */
 var async = require("async");
+var url = require('url');
 
 var RawSource = require("webpack/lib/RawSource");
 
@@ -36,7 +37,15 @@ CompressionPlugin.prototype.apply = function(compiler) {
 				this.algorithm(content, function(err, result) {
 					if(err) return callback(err);
 					if(result.length / originalSize > this.minRatio) return callback();
-					var newFile = this.asset.replace(/\{file\}/g, file);
+					var parse = url.parse(file);
+					var sub = {
+						file: file,
+						path: parse.pathname,
+						query: parse.query
+					}
+					var newFile = this.asset.replace(/\{(file|path|query)\}/g, function(p0,p1) {
+						return sub[p1];
+					});
 					assets[newFile] = new RawSource(result);
 					callback();
 				}.bind(this));
