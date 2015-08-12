@@ -42,7 +42,7 @@ CompressionPlugin.prototype.apply = function(compiler) {
 						file: file,
 						path: parse.pathname,
 						query: parse.query
-					}
+					};
 					var newFile = this.asset.replace(/\{(file|path|query)\}/g, function(p0,p1) {
 						return sub[p1];
 					});
