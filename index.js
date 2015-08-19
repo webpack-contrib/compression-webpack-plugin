@@ -11,10 +11,28 @@ function CompressionPlugin(options) {
 	this.asset = options.asset || "{file}.gz";
 	this.algorithm = options.algorithm || "gzip";
 	if(typeof this.algorithm === "string") {
-		var zlib = require("zlib");
-		this.algorithm = zlib[this.algorithm];
-		if(!this.algorithm) throw new Error("Algorithm not found in zlib");
-		this.algorithm = this.algorithm.bind(zlib);
+		if (this.algorithm === "zopfli") {
+			try {
+				var zopfli = require("node-zopfli");
+			} catch(err) {
+				throw new Error("node-zopfli not found");
+			}
+			this.algorithm = function (content, fn) {
+				zopfli.gzip(content, {
+					verbose: true,
+					verbose_more: false,
+					numiterations: 15,
+					blocksplitting: true,
+					blocksplittinglast: false,
+					blocksplittingmax: 15
+				}, fn);
+			};
+		} else {
+			var zlib = require("zlib");
+			this.algorithm = zlib[this.algorithm];
+			if(!this.algorithm) throw new Error("Algorithm not found in zlib");
+			this.algorithm = this.algorithm.bind(zlib);
+		}
 	}
 	this.regExp = options.regExp;
 	this.threshold = options.threshold || 0;
