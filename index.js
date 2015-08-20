@@ -19,12 +19,12 @@ function CompressionPlugin(options) {
 			}
 			this.algorithm = function (content, fn) {
 				zopfli.gzip(content, {
-					verbose: true,
-					verbose_more: false,
-					numiterations: 15,
-					blocksplitting: true,
-					blocksplittinglast: false,
-					blocksplittingmax: 15
+					verbose: options.verbose ? options.verbose : false,
+					verbose_more: options.verbose ? options.verbose : false,
+					numiterations: options.verbose ? options.verbose : 15,
+					blocksplitting: options.verbose ? options.verbose : true,
+					blocksplittinglast: options.verbose ? options.verbose : false,
+					blocksplittingmax: options.verbose ? options.verbose : 15
 				}, fn);
 			};
 		} else {
