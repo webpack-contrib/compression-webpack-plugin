@@ -10,6 +10,9 @@ function CompressionPlugin(options) {
 	options = options || {};
 	this.asset = options.asset || "{file}.gz";
 	this.algorithm = options.algorithm || "gzip";
+	this.algorithmOptions = {
+	 	level: options.level || 9 // maximum compression
+	}
 	if(typeof this.algorithm === "string") {
 		var zlib = require("zlib");
 		this.algorithm = zlib[this.algorithm];
@@ -33,7 +36,7 @@ CompressionPlugin.prototype.apply = function(compiler) {
 					content = new Buffer(content, "utf-8");
 				var originalSize = content.length;
 				if(originalSize < this.threshold) return callback();
-				this.algorithm(content, function(err, result) {
+				this.algorithm(content, this.algorithmOptions, function(err, result) {
 					if(err) return callback(err);
 					if(result.length / originalSize > this.minRatio) return callback();
 					var newFile = this.asset.replace(/\{file\}/g, file);
