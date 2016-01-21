@@ -20,10 +20,18 @@ module.exports = {
 Arguments:
 
 * `asset`: The target asset name. `{file}` is replaced with the original asset. Defaults to `"{file}.gz"`.
-* `algorithm`: Can be a `function(buf, callback)` or a string. For a string the algorithm is tacken from `zlib`. Defaults to `"gzip"`.
+* `algorithm`: Can be a `function(buf, callback)` or a string. For a string the algorithm is taken from `zlib` (or zopfli for `zopfli`). Defaults to `"gzip"`.
 * `regExp`: All assets matching this RegExp are processed. Defaults to every asset.
 * `threshold`: Only assets bigger than this size are processed. In bytes. Defaults to `0`.
 * `minRatio`: Only assets that compress better that this ratio are processed. Defaults to `0.8`.
+
+Option Arguments for Zopfli (see [node-zopfli](https://github.com/pierreinglebert/node-zopfli#options) doc for details):
+* verbose: Default: false,
+* verbose_more: Default: false,
+* numiterations: Default: 15,
+* blocksplitting: Default: true,
+* blocksplittinglast: Default: false,
+* blocksplittingmax: Default: 15
 
 ## License
 

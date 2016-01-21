@@ -12,10 +12,28 @@ function CompressionPlugin(options) {
 	this.asset = options.asset || "{file}.gz";
 	this.algorithm = options.algorithm || "gzip";
 	if(typeof this.algorithm === "string") {
-		var zlib = require("zlib");
-		this.algorithm = zlib[this.algorithm];
-		if(!this.algorithm) throw new Error("Algorithm not found in zlib");
-		this.algorithm = this.algorithm.bind(zlib);
+		if (this.algorithm === "zopfli") {
+			try {
+				var zopfli = require("node-zopfli");
+			} catch(err) {
+				throw new Error("node-zopfli not found");
+			}
+			this.algorithm = function (content, fn) {
+				zopfli.gzip(content, {
+					verbose: options.hasOwnProperty('verbose') ? options.verbose : false,
+					verbose_more: options.hasOwnProperty('verbose_more') ? options.verbose_more : false,
+					numiterations: options.numiterations ? options.numiterations : 15,
+					blocksplitting: options.hasOwnProperty('blocksplitting') ? options.blocksplitting : true,
+					blocksplittinglast: options.hasOwnProperty('blocksplittinglast') ? options.blocksplittinglast : false,
+					blocksplittingmax: options.blocksplittingmax ? options.blocksplittingmax : 15
+				}, fn);
+			};
+		} else {
+			var zlib = require("zlib");
+			this.algorithm = zlib[this.algorithm];
+			if(!this.algorithm) throw new Error("Algorithm not found in zlib");
+			this.algorithm = this.algorithm.bind(zlib);
+		}
 	}
 	this.regExp = options.regExp;
 	this.threshold = options.threshold || 0;
