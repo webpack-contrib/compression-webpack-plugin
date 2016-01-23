@@ -32,7 +32,15 @@ function CompressionPlugin(options) {
 			var zlib = require("zlib");
 			this.algorithm = zlib[this.algorithm];
 			if(!this.algorithm) throw new Error("Algorithm not found in zlib");
-			this.algorithm = this.algorithm.bind(zlib);
+			this.algorithm = this.algorithm.bind(zlib, {
+				level: options.level || 9,
+				flush: options.flush,
+				chunkSize: options.chunkSize,
+				windowBits: options.windowBits,
+				memLevel: options.memLevel,
+				strategy: options.strategy,
+				dictionary: options.dictionary
+			});
 		}
 	}
 	this.regExp = options.regExp;
