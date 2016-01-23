@@ -5,11 +5,11 @@
 var async = require("async");
 var url = require('url');
 
-var RawSource = require("webpack/lib/RawSource");
+var RawSource = require("webpack-sources/lib/RawSource");
 
 function CompressionPlugin(options) {
 	options = options || {};
-	this.asset = options.asset || "{file}.gz";
+	this.asset = options.asset || "[path].gz[query]";
 	this.algorithm = options.algorithm || "gzip";
 	if(typeof this.algorithm === "string") {
 		if (this.algorithm === "zopfli") {
@@ -43,7 +43,7 @@ function CompressionPlugin(options) {
 			});
 		}
 	}
-	this.regExp = options.regExp;
+	this.test = options.test || options.regExp;
 	this.threshold = options.threshold || 0;
 	this.minRatio = options.minRatio || 0.8;
 }
@@ -53,7 +53,12 @@ CompressionPlugin.prototype.apply = function(compiler) {
 	compiler.plugin("this-compilation", function(compilation) {
 		compilation.plugin("optimize-assets", function(assets, callback) {
 			async.forEach(Object.keys(assets), function(file, callback) {
-				if(this.regExp && !this.regExp.test(file)) return callback();
+				if(Array.isArray(this.test)) {
+					if(this.test.every(function(t) {
+						return !t.test(file);
+					})) return callback();
+				} else if(this.test && !this.test.test(file))
+					return callback();
 				var asset = assets[file];
 				var content = asset.source();
 				if(!Buffer.isBuffer(content))
@@ -67,9 +72,9 @@ CompressionPlugin.prototype.apply = function(compiler) {
 					var sub = {
 						file: file,
 						path: parse.pathname,
-						query: parse.query
+						query: parse.query || ""
 					};
-					var newFile = this.asset.replace(/\{(file|path|query)\}/g, function(p0,p1) {
+					var newFile = this.asset.replace(/\[(file|path|query)\]/g, function(p0,p1) {
 						return sub[p1];
 					});
 					assets[newFile] = new RawSource(result);

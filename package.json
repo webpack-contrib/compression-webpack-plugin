@@ -3,11 +3,9 @@
   "version": "0.2.0",
   "author": "Tobias Koppers @sokra",
   "description": "Prepare compressed versions of assets to serve them with Content-Encoding",
-  "peerDependencies": {
-    "webpack": ">=0.11 <2"
-  },
   "dependencies": {
-    "async": "0.2.x"
+    "async": "0.2.x",
+    "webpack-sources": "^0.1.0"
   },
   "optionalDependencies": {
     "node-zopfli": "^1.3.4"
