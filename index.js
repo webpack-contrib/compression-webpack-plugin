@@ -11,6 +11,9 @@ function CompressionPlugin(options) {
 	options = options || {};
 	this.asset = options.asset || "[path].gz[query]";
 	this.algorithm = options.algorithm || "gzip";
+	this.algorithmOptions = {
+	 	level: options.level || 9 // maximum compression
+	}
 	if(typeof this.algorithm === "string") {
 		if (this.algorithm === "zopfli") {
 			try {
@@ -65,7 +68,7 @@ CompressionPlugin.prototype.apply = function(compiler) {
 					content = new Buffer(content, "utf-8");
 				var originalSize = content.length;
 				if(originalSize < this.threshold) return callback();
-				this.algorithm(content, function(err, result) {
+				this.algorithm(content, this.algorithmOptions, function(err, result) {
 					if(err) return callback(err);
 					if(result.length / originalSize > this.minRatio) return callback();
 					var parse = url.parse(file);
