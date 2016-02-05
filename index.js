@@ -6,6 +6,7 @@ var async = require("async");
 var url = require('url');
 
 var RawSource = require("webpack-sources/lib/RawSource");
+var CompressionOptions = {};
 
 function CompressionPlugin(options) {
 	options = options || {};
@@ -18,21 +19,22 @@ function CompressionPlugin(options) {
 			} catch(err) {
 				throw new Error("node-zopfli not found");
 			}
-			this.algorithm = function (content, fn) {
-				zopfli.gzip(content, {
-					verbose: options.hasOwnProperty('verbose') ? options.verbose : false,
-					verbose_more: options.hasOwnProperty('verbose_more') ? options.verbose_more : false,
-					numiterations: options.numiterations ? options.numiterations : 15,
-					blocksplitting: options.hasOwnProperty('blocksplitting') ? options.blocksplitting : true,
-					blocksplittinglast: options.hasOwnProperty('blocksplittinglast') ? options.blocksplittinglast : false,
-					blocksplittingmax: options.blocksplittingmax ? options.blocksplittingmax : 15
-				}, fn);
+			CompressionOptions = {
+				verbose: options.hasOwnProperty('verbose') ? options.verbose : false,
+				verbose_more: options.hasOwnProperty('verbose_more') ? options.verbose_more : false,
+				numiterations: options.numiterations ? options.numiterations : 15,
+				blocksplitting: options.hasOwnProperty('blocksplitting') ? options.blocksplitting : true,
+				blocksplittinglast: options.hasOwnProperty('blocksplittinglast') ? options.blocksplittinglast : false,
+				blocksplittingmax: options.blocksplittingmax ? options.blocksplittingmax : 15
+			};
+			this.algorithm = function (content, options, fn) {
+				zopfli.gzip(content, options, fn);
 			};
 		} else {
 			var zlib = require("zlib");
 			this.algorithm = zlib[this.algorithm];
 			if(!this.algorithm) throw new Error("Algorithm not found in zlib");
-			this.algorithm = this.algorithm.bind(zlib, {
+			CompressionOptions = {
 				level: options.level || 9,
 				flush: options.flush,
 				chunkSize: options.chunkSize,
@@ -40,7 +42,7 @@ function CompressionPlugin(options) {
 				memLevel: options.memLevel,
 				strategy: options.strategy,
 				dictionary: options.dictionary
-			});
+			};
 		}
 	}
 	this.test = options.test || options.regExp;
@@ -65,7 +67,7 @@ CompressionPlugin.prototype.apply = function(compiler) {
 					content = new Buffer(content, "utf-8");
 				var originalSize = content.length;
 				if(originalSize < this.threshold) return callback();
-				this.algorithm(content, function(err, result) {
+				this.algorithm(content, CompressionOptions, function(err, result) {
 					if(err) return callback(err);
 					if(result.length / originalSize > this.minRatio) return callback();
 					var parse = url.parse(file);
