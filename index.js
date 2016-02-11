@@ -6,12 +6,12 @@ var async = require("async");
 var url = require('url');
 
 var RawSource = require("webpack-sources/lib/RawSource");
-var CompressionOptions = {};
 
 function CompressionPlugin(options) {
 	options = options || {};
 	this.asset = options.asset || "[path].gz[query]";
 	this.algorithm = options.algorithm || "gzip";
+	this.compressionOptions = {};
 	if(typeof this.algorithm === "string") {
 		if (this.algorithm === "zopfli") {
 			try {
@@ -19,7 +19,7 @@ function CompressionPlugin(options) {
 			} catch(err) {
 				throw new Error("node-zopfli not found");
 			}
-			CompressionOptions = {
+			this.compressionOptions = {
 				verbose: options.hasOwnProperty('verbose') ? options.verbose : false,
 				verbose_more: options.hasOwnProperty('verbose_more') ? options.verbose_more : false,
 				numiterations: options.numiterations ? options.numiterations : 15,
@@ -34,7 +34,7 @@ function CompressionPlugin(options) {
 			var zlib = require("zlib");
 			this.algorithm = zlib[this.algorithm];
 			if(!this.algorithm) throw new Error("Algorithm not found in zlib");
-			CompressionOptions = {
+			this.compressionOptions = {
 				level: options.level || 9,
 				flush: options.flush,
 				chunkSize: options.chunkSize,
@@ -67,7 +67,7 @@ CompressionPlugin.prototype.apply = function(compiler) {
 					content = new Buffer(content, "utf-8");
 				var originalSize = content.length;
 				if(originalSize < this.threshold) return callback();
-				this.algorithm(content, CompressionOptions, function(err, result) {
+				this.algorithm(content, this.compressionOptions, function(err, result) {
 					if(err) return callback(err);
 					if(result.length / originalSize > this.minRatio) return callback();
 					var parse = url.parse(file);
