@@ -12,27 +12,27 @@ function CompressionPlugin(options) {
 	this.asset = options.asset || "[path].gz[query]";
 	this.algorithm = options.algorithm || "gzip";
 	if(typeof this.algorithm === "string") {
+		var lib, algo;
 		if (this.algorithm === "zopfli") {
 			try {
-				var zopfli = require("node-zopfli");
+				lib = require("node-zopfli");
 			} catch(err) {
 				throw new Error("node-zopfli not found");
 			}
-			this.algorithm = function (content, fn) {
-				zopfli.gzip(content, {
-					verbose: options.hasOwnProperty('verbose') ? options.verbose : false,
-					verbose_more: options.hasOwnProperty('verbose_more') ? options.verbose_more : false,
-					numiterations: options.numiterations ? options.numiterations : 15,
-					blocksplitting: options.hasOwnProperty('blocksplitting') ? options.blocksplitting : true,
-					blocksplittinglast: options.hasOwnProperty('blocksplittinglast') ? options.blocksplittinglast : false,
-					blocksplittingmax: options.blocksplittingmax ? options.blocksplittingmax : 15
-				}, fn);
+			algo = lib.gzip;
+			options = {
+				verbose: options.hasOwnProperty('verbose') ? options.verbose : false,
+				verbose_more: options.hasOwnProperty('verbose_more') ? options.verbose_more : false,
+				numiterations: options.numiterations ? options.numiterations : 15,
+				blocksplitting: options.hasOwnProperty('blocksplitting') ? options.blocksplitting : true,
+				blocksplittinglast: options.hasOwnProperty('blocksplittinglast') ? options.blocksplittinglast : false,
+				blocksplittingmax: options.blocksplittingmax ? options.blocksplittingmax : 15
 			};
 		} else {
-			var zlib = require("zlib");
-			this.algorithm = zlib[this.algorithm];
-			if(!this.algorithm) throw new Error("Algorithm not found in zlib");
-			this.algorithm = this.algorithm.bind(zlib, {
+			lib = require("zlib");
+			algo = lib[this.algorithm];
+			if(!algo) throw new Error("Algorithm not found in zlib");
+			options = {
 				level: options.level || 9,
 				flush: options.flush,
 				chunkSize: options.chunkSize,
@@ -40,8 +40,11 @@ function CompressionPlugin(options) {
 				memLevel: options.memLevel,
 				strategy: options.strategy,
 				dictionary: options.dictionary
-			});
+			};
 		}
+		this.algorithm = function (buf, cb) {
+			algo.call(lib, buf, options, cb);
+		};
 	}
 	this.test = options.test || options.regExp;
 	this.threshold = options.threshold || 0;
