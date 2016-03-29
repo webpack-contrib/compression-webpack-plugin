@@ -7,25 +7,31 @@ var url = require('url');
 
 var RawSource = require("webpack-sources/lib/RawSource");
 
+var NON_COMPRESSION_OPTIONS = ['asset', 'algorithm', 'test', 'threshold', 'minRatio'];
+
 function CompressionPlugin(options) {
 	options = options || {};
 	this.asset = options.asset || "[path].gz[query]";
 	this.algorithm = options.algorithm || "gzip";
-	this.compressionOptions = {};
+	this.compressionOptions = Object.keys(options).reduce(function(o, k) {
+		if(NON_COMPRESSION_OPTIONS.indexOf(k) < 0) o[k] = options[k];
+		return o;
+	}, {});
 	if(typeof this.algorithm === "string") {
+		var defaultCompressionOptions;
 		if (this.algorithm === "zopfli") {
 			try {
 				var zopfli = require("node-zopfli");
 			} catch(err) {
 				throw new Error("node-zopfli not found");
 			}
-			this.compressionOptions = {
-				verbose: options.hasOwnProperty('verbose') ? options.verbose : false,
-				verbose_more: options.hasOwnProperty('verbose_more') ? options.verbose_more : false,
-				numiterations: options.numiterations ? options.numiterations : 15,
-				blocksplitting: options.hasOwnProperty('blocksplitting') ? options.blocksplitting : true,
-				blocksplittinglast: options.hasOwnProperty('blocksplittinglast') ? options.blocksplittinglast : false,
-				blocksplittingmax: options.blocksplittingmax ? options.blocksplittingmax : 15
+			defaultCompressionOptions = {
+				verbose: false,
+				verbose_more: false,
+				numiterations: 15,
+				blocksplitting: true,
+				blocksplittinglast: false,
+				blocksplittingmax: 15
 			};
 			this.algorithm = function (content, options, fn) {
 				zopfli.gzip(content, options, fn);
@@ -34,15 +40,14 @@ function CompressionPlugin(options) {
 			var zlib = require("zlib");
 			this.algorithm = zlib[this.algorithm];
 			if(!this.algorithm) throw new Error("Algorithm not found in zlib");
-			this.compressionOptions = {
-				level: options.level || 9,
-				flush: options.flush,
-				chunkSize: options.chunkSize,
-				windowBits: options.windowBits,
-				memLevel: options.memLevel,
-				strategy: options.strategy,
-				dictionary: options.dictionary
+			defaultCompressionOptions = {
+				level: 9
 			};
+		}
+		for(var k in defaultCompressionOptions) {
+			if(!this.compressionOptions.hasOwnProperty(k)) {
+				this.compressionOptions[k] = defaultCompressionOptions[k];
+			}
 		}
 	}
 	this.test = options.test || options.regExp;
