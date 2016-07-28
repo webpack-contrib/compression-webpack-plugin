@@ -1,6 +1,6 @@
 {
   "name": "compression-webpack-plugin",
-  "version": "0.3.1",
+  "version": "0.4.0",
   "author": "Tobias Koppers @sokra",
   "description": "Prepare compressed versions of assets to serve them with Content-Encoding",
   "dependencies": {
@@ -8,7 +8,8 @@
     "webpack-sources": "^0.1.0"
   },
   "optionalDependencies": {
-    "node-zopfli": "^1.3.4"
+    "node-zopfli": "^1.3.4",
+    "iltorb": "^1.0.12"
   },
   "homepage": "http://github.com/webpack/compression-webpack-plugin",
   "repository": {

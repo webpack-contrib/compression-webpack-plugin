@@ -30,6 +30,27 @@ function CompressionPlugin(options) {
 			this.algorithm = function (content, options, fn) {
 				zopfli.gzip(content, options, fn);
 			};
+		} else if (this.algorithm === "brotli") {
+			try {
+				var brotli = require("iltorb");
+			} catch (err) {
+				throw new Error("iltorb not found");
+			}
+
+			this.compressionOptions = {
+				mode: options.hasOwnProperty('mode') ? options.mode : 0,
+				quality: options.hasOwnProperty('quality') ? options.quality : 11,
+				lgwin: options.hasOwnProperty('lgwin') ? options.lgwin : 22,
+				lgblock: options.hasOwnProperty('lgblock') ? options.lgblock : 0,
+				enable_dictionary: options.hasOwnProperty('enable_dictionary') ? options.enable_dictionary : true,
+				enable_transforms: options.hasOwnProperty('enable_transforms') ? options.enable_transforms : false,
+				greedy_block_split: options.hasOwnProperty('greedy_block_split') ? options.greedy_block_split : false,
+				enable_context_modeling: options.hasOwnProperty('enable_context_modeling') ? options.enable_context_modeling : false
+			};
+
+			this.algorithm = function (content, options, fn) {
+				brotli.compress(content, options, fn);
+			};
 		} else {
 			var zlib = require("zlib");
 			this.algorithm = zlib[this.algorithm];
