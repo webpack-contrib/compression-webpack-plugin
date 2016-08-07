@@ -1,0 +1,21 @@
+{
+  "name": "base-compression-webpack-plugin",
+  "version": "1.0.0",
+  "author": "Jason Palmer @palmerj3",
+  "description": "Base object for webpack compression plugins",
+  "dependencies": {
+    "async": "0.2.x",
+    "webpack-sources": "^0.1.0"
+  },
+  "homepage": "http://github.com/webpack/compression-webpack-plugin",
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/webpack/compression-webpack-plugin.git"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://www.opensource.org/licenses/mit-license.php"
+    }
+  ]
+}
