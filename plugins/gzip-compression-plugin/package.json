@@ -1,0 +1,20 @@
+{
+  "name": "gzip-compression-webpack-plugin",
+  "version": "1.0.0",
+  "author": "Jason Palmer @palmerj3",
+  "description": "Prepare compressed versions of assets to serve them with Content-Encoding using gzip",
+  "dependencies": {
+    "base-compression-plugin": "file:../base-compression-plugin"
+  },
+  "homepage": "http://github.com/webpack/compression-webpack-plugin",
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/webpack/compression-webpack-plugin.git"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://www.opensource.org/licenses/mit-license.php"
+    }
+  ]
+}
