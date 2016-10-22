@@ -2,6 +2,12 @@
 
 ## Usage
 
+### zlib
+
+``` bash
+npm install --save-dev compression-webpack-plugin-zlib
+```
+
 ``` javascript
 var CompressionPlugin = require("compression-webpack-plugin");
 module.exports = {
@@ -24,6 +30,27 @@ Arguments:
 * `test`: All assets matching this RegExp are processed. Defaults to every asset.
 * `threshold`: Only assets bigger than this size are processed. In bytes. Defaults to `0`.
 * `minRatio`: Only assets that compress better that this ratio are processed. Defaults to `0.8`.
+
+
+### zopfli
+``` bash
+npm install --save-dev compression-webpack-plugin-zopfli
+```
+
+``` javascript
+var CompressionPlugin = require("compression-webpack-plugin");
+module.exports = {
+	plugins: [
+		new CompressionPlugin({
+			asset: "[path].gz[query]",
+			algorithm: "zopfli",
+			test: /\.js$|\.html$/,
+			threshold: 10240,
+			minRatio: 0.8
+		})
+	]
+}
+```
 
 Option Arguments for Zopfli (see [node-zopfli](https://github.com/pierreinglebert/node-zopfli#options) doc for details):
 * verbose: Default: false,

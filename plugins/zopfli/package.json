@@ -1,0 +1,37 @@
+{
+  "name": "compression-webpack-plugin-zopfli",
+  "version": "1.0.0",
+  "author": "Tobias Koppers @sokra",
+  "maintainers": [
+    "Jason Palmer @jsonp"
+  ],
+  "description": "Prepare compressed versions of assets to serve them with Content-Encoding",
+  "dependencies": {
+    "async": "0.2.x",
+    "webpack-sources": "^0.1.0",
+    "node-zopfli": "^2.0.0"
+  },
+  "peerDependencies": {
+    "webpack": ">=0.11 <2.0.0 || >=2.1.0-beta.13 <3.0.0"
+  },
+  "devDependencies": {
+    "mocha": "^2.3.2"
+  },
+  "scripts": {
+    "test": "mocha --reporter min 'test/**/*test*.js'"
+  },
+  "files": [
+    "index.js"
+  ],
+  "homepage": "http://github.com/webpack/compression-webpack-plugin",
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/webpack/compression-webpack-plugin.git"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://www.opensource.org/licenses/mit-license.php"
+    }
+  ]
+}
