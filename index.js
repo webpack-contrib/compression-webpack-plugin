@@ -48,6 +48,7 @@ function CompressionPlugin(options) {
 	this.test = options.test || options.regExp;
 	this.threshold = options.threshold || 0;
 	this.minRatio = options.minRatio || 0.8;
+	this.deleteOriginalAssets = options.deleteOriginalAssets || false;
 }
 module.exports = CompressionPlugin;
 
@@ -80,6 +81,9 @@ CompressionPlugin.prototype.apply = function(compiler) {
 						return sub[p1];
 					});
 					assets[newFile] = new RawSource(result);
+					if (this.deleteOriginalAssets) {
+						delete assets[file];
+					}
 					callback();
 				}.bind(this));
 			}.bind(this), callback);
