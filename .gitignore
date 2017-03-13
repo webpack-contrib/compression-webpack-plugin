@@ -1,1 +1,3 @@
 /node_modules
+plugins/zlib/node_modules
+plugins/zopfli/node_modules
