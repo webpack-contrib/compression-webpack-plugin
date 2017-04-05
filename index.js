@@ -11,6 +11,7 @@ function CompressionPlugin(options) {
 	options = options || {};
 	this.asset = options.asset || "[path].gz[query]";
 	this.algorithm = options.algorithm || "gzip";
+	this.changeNewFileName = options.changeNewFileName || false;
 	this.compressionOptions = {};
 	if(typeof this.algorithm === "string") {
 		if (this.algorithm === "zopfli") {
@@ -80,6 +81,9 @@ CompressionPlugin.prototype.apply = function(compiler) {
 					var newFile = this.asset.replace(/\[(file|path|query)\]/g, function(p0,p1) {
 						return sub[p1];
 					});
+					if (typeof this.changeNewFileName === 'function') {
+						newFile = this.changeNewFileName(newFile);
+					}					
 					assets[newFile] = new RawSource(result);
 					if (this.deleteOriginalAssets) {
 						delete assets[file];
