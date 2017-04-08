@@ -9,7 +9,7 @@ import RawSource from 'webpack-sources/lib/RawSource';
 class CompressionPlugin {
   constructor(options = {}) {
     this.asset = options.asset || '[path].gz[query]';
-    this.algorithm = options.algorithm || "'gzip'";
+    this.algorithm = options.algorithm || 'gzip';
     this.filename = options.filename || false;
     this.compressionOptions = {};
     if (typeof this.algorithm === 'string') {
