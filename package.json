@@ -1,6 +1,6 @@
 {
   "name": "compression-webpack-plugin",
-  "version": "0.3.2",
+  "version": "0.4.0",
   "author": "Tobias Koppers @sokra",
   "description": "Prepare compressed versions of assets to serve them with Content-Encoding",
   "scripts": {
@@ -21,5 +21,5 @@
     "type": "git",
     "url": "http://github.com/webpack/compression-webpack-plugin.git"
   },
-"license": "MIT"
+  "license": "MIT"
 }

@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="0.4.0"></a>
+# [0.4.0](https://github.com/webpack/compression-webpack-plugin/compare/v0.3.2...v0.4.0) (2017-04-08)
+
+
+### Features
+
+* add option to change the filename ([#51](https://github.com/webpack/compression-webpack-plugin/issues/51)) ([fb7bd81](https://github.com/webpack/compression-webpack-plugin/commit/fb7bd81))
+* add option to delete original assets ([#44](https://github.com/webpack/compression-webpack-plugin/issues/44)) ([24f15f2](https://github.com/webpack/compression-webpack-plugin/commit/24f15f2))
+
+
 
 <a name="0.3.2"></a>
 ## 0.3.2 (2016-09-13)
