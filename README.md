@@ -87,11 +87,11 @@ Option Arguments for Zopfli (see [node-zopfli](https://github.com/pierreingleber
 </table>
 
 
-[npm]: https://img.shields.io/npm/v/webpack-loader-seed.svg
-[npm-url]: https://npmjs.com/package/webpack-loader-seed
+[npm]: https://img.shields.io/npm/v/compression-webpack-plugin.svg
+[npm-url]: https://npmjs.com/package/compression-webpack-plugin
 
-[deps]: https://david-dm.org/webpack-contrib/webpack-loader-seed.svg
-[deps-url]: https://david-dm.org/webpack-contrib/webpack-loader-seed
+[deps]: https://david-dm.org/webpack-contrib/compression-webpack-plugin.svg
+[deps-url]: https://david-dm.org/webpack-contrib/compression-webpack-plugin
 
 [chat]: https://img.shields.io/badge/gitter-webpack%2Fwebpack-brightgreen.svg
 [chat-url]: https://gitter.im/webpack/webpack
