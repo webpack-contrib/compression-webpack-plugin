@@ -1,0 +1,10 @@
+{
+  "extends": "webpack",
+  "rules": {
+    "consistent-return": 1,
+    "global-require": 1,
+    "no-undef": 1,
+    "no-param-reassign": 1,
+    "import/no-extraneous-dependencies": 1
+  }
+}

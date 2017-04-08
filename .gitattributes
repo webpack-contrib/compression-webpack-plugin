@@ -1,1 +1,4 @@
 * text=auto
+
+yarn.lock -diff
+bin/* eol=lf
