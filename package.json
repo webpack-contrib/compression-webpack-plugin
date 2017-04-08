@@ -3,9 +3,15 @@
   "version": "0.3.2",
   "author": "Tobias Koppers @sokra",
   "description": "Prepare compressed versions of assets to serve them with Content-Encoding",
+  "scripts": {
+    "release": "standard-version"
+  },
   "dependencies": {
     "async": "0.2.x",
     "webpack-sources": "^0.1.0"
+  },
+  "devDependencies": {
+    "standard-version": "^4.0.0"
   },
   "optionalDependencies": {
     "node-zopfli": "^2.0.0"
@@ -15,10 +21,5 @@
     "type": "git",
     "url": "http://github.com/webpack/compression-webpack-plugin.git"
   },
-  "licenses": [
-    {
-      "type": "MIT",
-      "url": "http://www.opensource.org/licenses/mit-license.php"
-    }
-  ]
+"license": "MIT"
 }
