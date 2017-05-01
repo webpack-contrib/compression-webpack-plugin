@@ -3,15 +3,16 @@
   "version": "0.4.0",
   "author": "Tobias Koppers @sokra",
   "description": "Prepare compressed versions of assets to serve them with Content-Encoding",
+  "license": "MIT",
   "scripts": {
     "release": "yarn run standard-version",
     "webpack-defaults": "webpack-defaults",
-    "start": "yarn run serve:dev src",
+    "start": "yarn run build -- -w",
     "build": "cross-env NODE_ENV=production babel src -d dist --ignore 'src/**/*.test.js'",
     "clean:dist": "del-cli dist",
     "lint": "eslint --cache src test",
     "lint-staged": "lint-staged",
-    "prebuild": "yarn run clean:dist",
+    "prebuild": "yarn run clean",
     "prepublish": "yarn run build",
     "security": "nsp check",
     "serve:dev": "nodemon $2 --exec babel-node",
@@ -20,7 +21,8 @@
     "test:coverage": "jest --collectCoverageFrom='src/**/*.js' --coverage",
     "travis:coverage": "yarn run test:coverage",
     "travis:lint": "yarn run lint && yarn run security",
-    "travis:test": "yarn run test"
+    "travis:test": "yarn run test",
+    "clean": "del-cli dist"
   },
   "dependencies": {
     "async": "0.2.x",
@@ -43,7 +45,7 @@
     "nsp": "^2.6.3",
     "pre-commit": "^1.2.2",
     "standard-version": "^4.0.0",
-    "webpack-defaults": "^0.4.5"
+    "webpack-defaults": "^0.4.6"
   },
   "optionalDependencies": {
     "node-zopfli": "^2.0.0"
@@ -51,9 +53,11 @@
   "homepage": "http://github.com/webpack/compression-webpack-plugin",
   "repository": {
     "type": "git",
-    "url": "http://github.com/webpack/compression-webpack-plugin.git"
+    "url": "git+https://github.com/webpack-contrib/compression-webpack-plugin.git"
   },
-  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/webpack-contrib/compression-webpack-plugin/issues"
+  },
   "engines": {
     "node": ">= 4.3 < 5.0.0 || >= 5.10"
   },
