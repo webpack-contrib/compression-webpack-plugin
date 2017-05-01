@@ -12,6 +12,7 @@ class CompressionPlugin {
     this.algorithm = options.algorithm || 'gzip';
     this.filename = options.filename || false;
     this.compressionOptions = {};
+
     if (typeof this.algorithm === 'string') {
       if (this.algorithm === 'zopfli') {
         try {
@@ -33,7 +34,11 @@ class CompressionPlugin {
       } else {
         const zlib = require('zlib');
         this.algorithm = zlib[this.algorithm];
-        if (!this.algorithm) throw new Error('Algorithm not found in zlib');
+
+        if (!this.algorithm) {
+          throw new Error('Algorithm not found in zlib');
+        }
+
         this.compressionOptions = {
           level: options.level || 9,
           flush: options.flush,
@@ -54,25 +59,41 @@ class CompressionPlugin {
   apply(compiler) {
     compiler.plugin('this-compilation', (compilation) => {
       compilation.plugin('optimize-assets', (assets, callback) => {
-        async.forEach(Object.keys(assets), (file, callback) => {
+        async.forEach(Object.keys(assets), (file, cb) => {
           if (Array.isArray(this.test)) {
-            if (this.test.every(t => !t.test(file))) return callback();
-          } else if (this.test && !this.test.test(file)) return callback();
+            if (this.test.every(t => !t.test(file))) {
+              return cb();
+            }
+          } else if (this.test && !this.test.test(file)) {
+            return cb();
+          }
           const asset = assets[file];
           let content = asset.source();
-          if (!Buffer.isBuffer(content)) content = new Buffer(content, 'utf-8');
+
+          if (!Buffer.isBuffer(content)) {
+            content = new Buffer(content, 'utf-8');
+          }
+
           const originalSize = content.length;
-          if (originalSize < this.threshold) return callback();
+
+          if (originalSize < this.threshold) {
+            return cb();
+          }
+
           this.algorithm(content, this.compressionOptions, (err, result) => {
-            if (err) return callback(err);
-            if (result.length / originalSize > this.minRatio) return callback();
+            if (err) { return cb(err); }
+
+            if (result.length / originalSize > this.minRatio) { return cb(); }
+
             const parse = url.parse(file);
             const sub = {
               file,
               path: parse.pathname,
               query: parse.query || '',
             };
+
             let newFile = this.asset.replace(/\[(file|path|query)\]/g, (p0, p1) => sub[p1]);
+
             if (typeof this.filename === 'function') {
               newFile = this.filename(newFile);
             }
@@ -80,7 +101,7 @@ class CompressionPlugin {
             if (this.deleteOriginalAssets) {
               delete assets[file];
             }
-            callback();
+            cb();
           });
         }, callback);
       });
