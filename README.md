@@ -9,7 +9,7 @@
       src="https://cdn.rawgit.com/webpack/media/e7485eb2/logo/icon.svg">
   </a>
   <h1>Compression Plugin</h1>
-  <p>Compression plugin for Webpack.<p>
+  <p>Prepare compressed versions of assets to serve them with Content-Encoding.<p>
 </div>
 
 <h2 align="center">Install</h2>
