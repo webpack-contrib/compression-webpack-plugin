@@ -30,22 +30,22 @@
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",
-    "babel-jest": "^19.0.0",
+    "babel-jest": "^20.0.3",
     "babel-plugin-transform-object-rest-spread": "^6.23.0",
     "babel-polyfill": "^6.23.0",
-    "babel-preset-env": "^1.3.3",
+    "babel-preset-env": "^1.5.1",
     "cross-env": "^4.0.0",
     "del-cli": "^0.2.1",
     "eslint": "^3.19.0",
     "eslint-config-webpack": "^1.2.1",
     "eslint-plugin-import": "^2.2.0",
-    "jest": "^19.0.2",
+    "jest": "^20.0.4",
     "lint-staged": "^3.4.0",
     "nodemon": "^1.11.0",
     "nsp": "^2.6.3",
     "pre-commit": "^1.2.2",
     "standard-version": "^4.0.0",
-    "webpack-defaults": "^0.4.6"
+    "webpack-defaults": "^1.0.1"
   },
   "optionalDependencies": {
     "node-zopfli": "^2.0.0"
