@@ -15,7 +15,9 @@ function CompressionPlugin(options) {
 	this.compressionOptions = {};
 	if(typeof this.algorithm === "string") {
 		if (this.algorithm === "zopfli") {
-			throw new Error("This plugin doesn't support zopfli anymore.");	
+			throw new Error("This plugin doesn't support zopfli anymore.",
+							"This functionality has been separated into a separate npm module available at ",
+							"https://github.com/webpack-contrib/zopfli-webpack-plugin");	
 		} else {
 			var zlib = require("zlib");
 			this.algorithm = zlib[this.algorithm];
