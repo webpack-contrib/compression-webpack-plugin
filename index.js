@@ -15,22 +15,9 @@ function CompressionPlugin(options) {
 	this.compressionOptions = {};
 	if(typeof this.algorithm === "string") {
 		if (this.algorithm === "zopfli") {
-			try {
-				var zopfli = require("node-zopfli");
-			} catch(err) {
-				throw new Error("node-zopfli not found");
-			}
-			this.compressionOptions = {
-				verbose: options.hasOwnProperty('verbose') ? options.verbose : false,
-				verbose_more: options.hasOwnProperty('verbose_more') ? options.verbose_more : false,
-				numiterations: options.numiterations ? options.numiterations : 15,
-				blocksplitting: options.hasOwnProperty('blocksplitting') ? options.blocksplitting : true,
-				blocksplittinglast: options.hasOwnProperty('blocksplittinglast') ? options.blocksplittinglast : false,
-				blocksplittingmax: options.blocksplittingmax ? options.blocksplittingmax : 15
-			};
-			this.algorithm = function (content, options, fn) {
-				zopfli.gzip(content, options, fn);
-			};
+			throw new Error("This plugin doesn't support zopfli anymore.",
+							"This functionality has been separated into a separate npm module available at ",
+							"https://github.com/webpack-contrib/zopfli-webpack-plugin");	
 		} else {
 			var zlib = require("zlib");
 			this.algorithm = zlib[this.algorithm];
