@@ -3,30 +3,33 @@
   "version": "0.4.0",
   "author": "Tobias Koppers @sokra",
   "description": "Prepare compressed versions of assets to serve them with Content-Encoding",
+  "main": "dist/cjs.js",
+  "files": [
+    "dist"
+  ],
   "license": "MIT",
   "scripts": {
-    "release": "yarn run standard-version",
-    "webpack-defaults": "webpack-defaults",
-    "start": "yarn run build -- -w",
+    "start": "npm run build -- -w",
+    "appveyor:test": "npm run test",
     "build": "cross-env NODE_ENV=production babel src -d dist --ignore 'src/**/*.test.js'",
-    "clean:dist": "del-cli dist",
+    "clean": "del-cli dist",
     "lint": "eslint --cache src test",
     "lint-staged": "lint-staged",
-    "prebuild": "yarn run clean",
-    "prepublish": "yarn run build",
+    "prebuild": "npm run clean",
+    "prepublish": "npm run build",
+    "release": "standard-version",
     "security": "nsp check",
-    "serve:dev": "nodemon $2 --exec babel-node",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --collectCoverageFrom='src/**/*.js' --coverage",
-    "travis:coverage": "yarn run test:coverage",
-    "travis:lint": "yarn run lint && yarn run security",
-    "travis:test": "yarn run test",
-    "clean": "del-cli dist"
+    "travis:lint": "npm run lint && npm run security",
+    "travis:test": "npm run test -- --runInBand",
+    "travis:coverage": "npm run test:coverage -- --runInBand",
+    "webpack-defaults": "webpack-defaults"
   },
   "dependencies": {
-    "async": "0.2.x",
-    "webpack-sources": "^0.1.0"
+    "async": "2.4.1",
+    "webpack-sources": "^1.0.1"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",
@@ -45,10 +48,13 @@
     "nsp": "^2.6.3",
     "pre-commit": "^1.2.2",
     "standard-version": "^4.0.0",
-    "webpack-defaults": "^1.0.1"
+    "webpack-defaults": "^1.4.0"
   },
-  "optionalDependencies": {
-    "node-zopfli": "^2.0.0"
+  "peerDependencies": {
+    "webpack": "^2.0.0 || >= 3.0.0-rc.0 || ^3.0.0"
+  },
+  "engines": {
+    "node": ">= 4.3 < 5.0.0 || >= 5.10"
   },
   "homepage": "https://webpack.js.org",
   "repository": {
@@ -58,13 +64,6 @@
   "bugs": {
     "url": "https://github.com/webpack-contrib/compression-webpack-plugin/issues"
   },
-  "engines": {
-    "node": ">= 4.3 < 5.0.0 || >= 5.10"
-  },
-  "main": "dist/cjs.js",
-  "files": [
-    "dist"
-  ],
   "pre-commit": "lint-staged",
   "lint-staged": {
     "*.js": [

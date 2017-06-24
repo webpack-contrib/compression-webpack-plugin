@@ -2,3 +2,4 @@
 
 yarn.lock -diff
 bin/* eol=lf
+package-lock.json -diff
