@@ -15,8 +15,9 @@ class CompressionPlugin {
 
     if (typeof this.algorithm === 'string') {
       if (this.algorithm === 'zopfli') {
+        let zopfli;
         try {
-          const zopfli = require('node-zopfli'); // eslint-disable-line no-unused-vars
+          zopfli = require('node-zopfli'); // eslint-disable-line no-unused-vars
         } catch (err) {
           throw new Error('node-zopfli not found');
         }
