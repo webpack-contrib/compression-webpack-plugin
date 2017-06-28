@@ -14,41 +14,22 @@ class CompressionPlugin {
     this.compressionOptions = {};
 
     if (typeof this.algorithm === 'string') {
-      if (this.algorithm === 'zopfli') {
-        try {
-          const zopfli = require('node-zopfli'); // eslint-disable-line no-unused-vars
-        } catch (err) {
-          throw new Error('node-zopfli not found');
-        }
-        this.compressionOptions = {
-          verbose: hasOwnProperty.call(options, 'verbose') ? options.verbose : false,
-          verbose_more: hasOwnProperty.call(options, 'verbose_more') ? options.verbose_more : false,
-          numiterations: options.numiterations ? options.numiterations : 15,
-          blocksplitting: hasOwnProperty.call(options, 'blocksplitting') ? options.blocksplitting : true,
-          blocksplittinglast: hasOwnProperty.call(options, 'blocksplittinglast') ? options.blocksplittinglast : false,
-          blocksplittingmax: options.blocksplittingmax ? options.blocksplittingmax : 15,
-        };
-        this.algorithm = (content, options, fn) => {
-          zopfli.gzip(content, options, fn);
-        };
-      } else {
-        const zlib = require('zlib');
-        this.algorithm = zlib[this.algorithm];
+      const zlib = require('zlib');
+      this.algorithm = zlib[this.algorithm];
 
-        if (!this.algorithm) {
-          throw new Error('Algorithm not found in zlib');
-        }
-
-        this.compressionOptions = {
-          level: options.level || 9,
-          flush: options.flush,
-          chunkSize: options.chunkSize,
-          windowBits: options.windowBits,
-          memLevel: options.memLevel,
-          strategy: options.strategy,
-          dictionary: options.dictionary,
-        };
+      if (!this.algorithm) {
+        throw new Error('Algorithm not found in zlib');
       }
+
+      this.compressionOptions = {
+        level: options.level || 9,
+        flush: options.flush,
+        chunkSize: options.chunkSize,
+        windowBits: options.windowBits,
+        memLevel: options.memLevel,
+        strategy: options.strategy,
+        dictionary: options.dictionary,
+      };
     }
     this.test = options.test || options.regExp;
     this.threshold = options.threshold || 0;
