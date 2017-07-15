@@ -5,6 +5,21 @@ All notable changes to this project will be documented in this file. See [standa
 <a name="1.0.0"></a>
 # [1.0.0](https://github.com/webpack-contrib/compression-webpack-plugin/compare/v1.0.0-beta.1...v1.0.0) (2017-07-15)
 
+### Code Refactoring
+
+* apply webpack-defaults ([#54](https://github.com/webpack-contrib/compression-webpack-plugin/issues/54)) ([f6f8c6c](https://github.com/webpack-contrib/compression-webpack-plugin/commit/f6f8c6c))
+
+
+### BREAKING CHANGES
+
+* Enforces `peerDependencies` of `"webpack": ">= 3.0.0-rc.0 || ^3.0.0"`.
+* Enforces `engines` of `"node": ">=4.3.0 < 5.0.0 || >= 5.10`
+* Remove loose dependency on Node Zopfli, which has been extracted to it's own plugin https://github.com/webpack-contrib/zopfli-webpack-plugin
+
+Migration:
+
+- `npm i -D zopfli-webpack-plugin`
+- The Zopfli API has remained the same, those who were using the Zopfli option in this plugin should just need to switch plugins.
 
 
 <a name="1.0.0-beta.1"></a>
@@ -35,11 +50,11 @@ MIGRATION: Zopfli is now in it's own plugin the options have remained the same. 
 
 ### BREAKING CHANGES
 
-* Enforces `peerDependencies` of `"webpack": ">= 3.0.0-rc.0 || ^3.0.0"`. 
+* Enforces `peerDependencies` of `"webpack": ">= 3.0.0-rc.0 || ^3.0.0"`.
 * Enforces `engines` of `"node": ">=4.3.0 < 5.0.0 || >= 5.10`
 * Remove loose dependency on Node Zopfli, which has been extracted to it's own plugin https://github.com/webpack-contrib/zopfli-webpack-plugin
 
-Migration: 
+Migration:
 
 - `npm i -D zopfli-webpack-plugin`
 - The Zopfli API has remained the same, those who were using the Zopfli option in this plugin should just need to switch plugins.
