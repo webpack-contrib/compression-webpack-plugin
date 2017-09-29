@@ -6,6 +6,10 @@ All notable changes to this project will be documented in this file. See [standa
 ## [1.0.1](https://github.com/webpack-contrib/compression-webpack-plugin/compare/v1.0.0...v1.0.1) (2017-09-29)
 
 
+### Code Refactoring
+
+* Use emit event instead of this-compilation ([#71](https://github.com/webpack-contrib/compression-webpack-plugin/pull/71)) ([9ebc852](https://github.com/webpack-contrib/compression-webpack-plugin/commit/9ebc852))
+
 
 <a name="1.0.0"></a>
 # [1.0.0](https://github.com/webpack-contrib/compression-webpack-plugin/compare/v1.0.0-beta.1...v1.0.0) (2017-07-15)
