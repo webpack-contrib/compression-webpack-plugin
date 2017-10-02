@@ -1,0 +1,19 @@
+{
+  "type": "object",
+  "properties": {
+    "test": {},
+    "asset": {},
+    "filename": {},
+    "algorithm": {},
+    "threshold": {
+      "type": "number"
+    },
+    "minRatio": {
+      "type": "number"
+    },
+    "deleteOriginalAssets": {
+      "type": "boolean"
+    }
+  },
+  "additionalProperties": false
+}

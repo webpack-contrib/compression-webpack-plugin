@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Errors Validation Error 1`] = `
+"Validation Error
+
+Compression Plugin Invalid Options
+
+options.minRatio should be number
+"
+`;

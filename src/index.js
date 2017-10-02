@@ -5,9 +5,13 @@ Author Tobias Koppers @sokra
 import url from 'url';
 import async from 'async';
 import RawSource from 'webpack-sources/lib/RawSource';
+import validateOptions from 'schema-utils';
+import schema from './options.json';
 
 class CompressionPlugin {
   constructor(options = {}) {
+    validateOptions(schema, options, 'Compression Plugin');
+
     this.asset = options.asset || '[path].gz[query]';
     this.algorithm = options.algorithm || 'gzip';
     this.filename = options.filename || false;
