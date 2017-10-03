@@ -45,9 +45,11 @@
     "eslint-plugin-import": "^2.0.0",
     "jest": "^21.0.0",
     "lint-staged": "^4.0.0",
+    "memory-fs": "^0.4.0",
     "nsp": "^2.0.0",
     "pre-commit": "^1.0.0",
     "standard-version": "^4.0.0",
+    "webpack": "^3.0.0",
     "webpack-defaults": "^1.0.0"
   },
   "peerDependencies": {
