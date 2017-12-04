@@ -8,20 +8,41 @@ import RawSource from 'webpack-sources/lib/RawSource';
 
 class CompressionPlugin {
   constructor(options = {}) {
-    this.asset = options.asset || '[path].gz[query]';
-    this.algorithm = options.algorithm || 'gzip';
-    this.filename = options.filename || false;
-    this.compressionOptions = {};
+    const {
+      asset = '[path].gz[query]',
+      test,
+      regExp,
+      algorithm = 'gzip',
+      filename = false,
+      compressionOptions = {},
+      cache = false,
+      threshold = 0,
+      minRatio = 0.8,
+      deleteOriginalAssets = false,
+    } = options;
 
-    if (typeof this.algorithm === 'string') {
+    this.options = {
+      asset,
+      test,
+      regExp,
+      algorithm,
+      filename,
+      compressionOptions,
+      cache,
+      threshold,
+      minRatio,
+      deleteOriginalAssets,
+    };
+
+    if (typeof algorithm === 'string') {
       const zlib = require('zlib');
-      this.algorithm = zlib[this.algorithm];
+      this.options.algorithm = zlib[this.options.algorithm];
 
-      if (!this.algorithm) {
+      if (!this.options.algorithm) {
         throw new Error('Algorithm not found in zlib');
       }
 
-      this.compressionOptions = {
+      this.options.compressionOptions = {
         level: options.level || 9,
         flush: options.flush,
         chunkSize: options.chunkSize,
@@ -31,21 +52,17 @@ class CompressionPlugin {
         dictionary: options.dictionary,
       };
     }
-    this.test = options.test || options.regExp;
-    this.threshold = options.threshold || 0;
-    this.minRatio = options.minRatio || 0.8;
-    this.deleteOriginalAssets = options.deleteOriginalAssets || false;
   }
 
   apply(compiler) {
     compiler.plugin('emit', (compilation, callback) => {
       const assets = compilation.assets;
       async.forEach(Object.keys(assets), (file, cb) => {
-        if (Array.isArray(this.test)) {
-          if (this.test.every(t => !t.test(file))) {
+        if (Array.isArray(this.options.test)) {
+          if (this.options.test.every(t => !t.test(file))) {
             return cb();
           }
-        } else if (this.test && !this.test.test(file)) {
+        } else if (this.options.test && !this.options.test.test(file)) {
           return cb();
         }
         const asset = assets[file];
@@ -57,14 +74,14 @@ class CompressionPlugin {
 
         const originalSize = content.length;
 
-        if (originalSize < this.threshold) {
+        if (originalSize < this.options.threshold) {
           return cb();
         }
 
-        this.algorithm(content, this.compressionOptions, (err, result) => {
+        this.options.algorithm(content, this.options.compressionOptions, (err, result) => {
           if (err) { return cb(err); }
 
-          if (result.length / originalSize > this.minRatio) { return cb(); }
+          if (result.length / originalSize > this.options.minRatio) { return cb(); }
 
           const parse = url.parse(file);
           const sub = {
@@ -73,13 +90,13 @@ class CompressionPlugin {
             query: parse.query || '',
           };
 
-          let newFile = this.asset.replace(/\[(file|path|query)\]/g, (p0, p1) => sub[p1]);
+          let newFile = this.options.asset.replace(/\[(file|path|query)\]/g, (p0, p1) => sub[p1]);
 
-          if (typeof this.filename === 'function') {
-            newFile = this.filename(newFile);
+          if (typeof this.options.filename === 'function') {
+            newFile = this.options.filename(newFile);
           }
           assets[newFile] = new RawSource(result);
-          if (this.deleteOriginalAssets) {
+          if (this.options.deleteOriginalAssets) {
             delete assets[file];
           }
           cb();
