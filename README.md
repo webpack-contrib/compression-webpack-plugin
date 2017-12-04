@@ -37,14 +37,15 @@ module.exports = {
 
 |Name|Type|Default|Description|
 |:--:|:--:|:-----:|:----------|
-|**`test`**|`{RegExp}`|`.`|All assets matching this `{RegExp}` are processed|
+|**`test`**|`{RegExp\|Array<RegExp>}`|`.`|All assets matching this `{RegExp\|Array<RegExp>}` are processed|
+|**`include`**|`{RegExp\|Array<RegExp>}`|`undefined`|Files to `include`|
+|**`exclude`**|`{RegExp\|Array<RegExp>}`|`undefined`|Files to `exclude`|
 |**`asset`**|`{String}`|`[path].gz[query]`|The target asset name. `[file]` is replaced with the original asset. `[path]` is replaced with the path of the original asset and `[query]` with the query|
 |**`filename`**|`{Function}`|`false`|A `{Function}` `(asset) => asset` which receives the asset name (after processing `asset` option) and returns the new asset name|
-|**`algorithm`**|`{String\|Function}`|`gzip`|Can be `(buffer, cb) => cb(buffer)` or if a {String}` is used the algorithm is taken from `zlib`|
+|**`algorithm`**|`{String\|Function}`|`gzip`|Can be `(buffer, cb) => cb(buffer)` or if a `{String}` is used the algorithm is taken from `zlib`|
 |**`threshold`**|`{Number}`|`0`|Only assets bigger than this size are processed. In bytes.|
 |**`minRatio`**|`{Number}`|`0.8`|Only assets that compress better that this ratio are processed|
 |**`deleteOriginalAssets`**|`{Boolean}`|`false`|Whether to delete the original assets or not|
-
 
 ### `test`
 
@@ -53,6 +54,28 @@ module.exports = {
 [
   new CompressionPlugin({
     test: /\.js/
+  })
+]
+```
+
+### `include`
+
+**webpack.config.js**
+```js
+[
+  new CompressionPlugin({
+    include: /\/includes/
+  })
+]
+```
+
+### `exclude`
+
+**webpack.config.js**
+```js
+[
+  new CompressionPlugin({
+    exclude: /\/excludes/
   })
 ]
 ```
