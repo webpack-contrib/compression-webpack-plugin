@@ -47,14 +47,14 @@
     "nsp": "^2.8.1",
     "pre-commit": "^1.2.2",
     "standard-version": "^4.2.0",
-    "webpack": "^3.8.1",
+    "webpack": "^4.0.0-alpha.0",
     "webpack-defaults": "^1.6.0"
   },
   "peerDependencies": {
-    "webpack": "^2.0.0 || ^3.0.0"
+    "webpack": "^3.0.0 || ^4.0.0-alpha.0 || ^4.0.0"
   },
   "engines": {
-    "node": ">= 4.8 < 5.0.0 || >= 5.10"
+    "node": ">= 6.9.0 || >= 8.9.0"
   },
   "homepage": "https://webpack.js.org/plugins/compression-webpack-plugin/",
   "repository": {
