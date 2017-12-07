@@ -5,6 +5,7 @@ Author Tobias Koppers @sokra
 import url from 'url';
 import async from 'async';
 import RawSource from 'webpack-sources/lib/RawSource';
+import ModuleFilenameHelpers from 'webpack/lib/ModuleFilenameHelpers';
 
 class CompressionPlugin {
   constructor(options = {}) {
@@ -35,6 +36,7 @@ class CompressionPlugin {
     };
 
     if (typeof algorithm === 'string') {
+      // eslint-disable-next-line global-require
       const zlib = require('zlib');
       this.options.algorithm = zlib[this.options.algorithm];
 
@@ -56,15 +58,13 @@ class CompressionPlugin {
 
   apply(compiler) {
     compiler.plugin('emit', (compilation, callback) => {
-      const assets = compilation.assets;
+      const { assets } = compilation;
+      // eslint-disable-next-line consistent-return
       async.forEach(Object.keys(assets), (file, cb) => {
-        if (Array.isArray(this.options.test)) {
-          if (this.options.test.every(t => !t.test(file))) {
-            return cb();
-          }
-        } else if (this.options.test && !this.options.test.test(file)) {
+        if (!ModuleFilenameHelpers.matchObject(this, file)) {
           return cb();
         }
+
         const asset = assets[file];
         let content = asset.source();
 
@@ -95,11 +95,16 @@ class CompressionPlugin {
           if (typeof this.options.filename === 'function') {
             newFile = this.options.filename(newFile);
           }
+
           assets[newFile] = new RawSource(result);
+
           if (this.options.deleteOriginalAssets) {
             delete assets[file];
           }
+
           cb();
+
+          return null;
         });
       }, callback);
     });
