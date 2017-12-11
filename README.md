@@ -44,7 +44,7 @@ module.exports = {
 |**`filename`**|`{Function}`|`false`|A `{Function}` `(asset) => asset` which receives the asset name (after processing `asset` option) and returns the new asset name|
 |**`algorithm`**|`{String\|Function}`|`gzip`|Can be `(buffer, cb) => cb(buffer)` or if a `{String}` is used the algorithm is taken from `zlib`|
 |**`threshold`**|`{Number}`|`0`|Only assets bigger than this size are processed. In bytes.|
-|**`minRatio`**|`{Number}`|`0.8`|Only assets that compress better that this ratio are processed|
+|**`minRatio`**|`{Number}`|`0.8`|Only assets that compress better than this ratio are processed|
 |**`deleteOriginalAssets`**|`{Boolean}`|`false`|Whether to delete the original assets or not|
 
 ### `test`
