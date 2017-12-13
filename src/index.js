@@ -6,6 +6,10 @@ import url from 'url';
 import async from 'async';
 import RawSource from 'webpack-sources/lib/RawSource';
 import ModuleFilenameHelpers from 'webpack/lib/ModuleFilenameHelpers';
+import cacache from 'cacache';
+import findCacheDir from 'find-cache-dir';
+import serialize from 'serialize-javascript';
+import pkg from '../package.json';
 
 class CompressionPlugin {
   constructor(options = {}) {
@@ -58,6 +62,9 @@ class CompressionPlugin {
 
   apply(compiler) {
     compiler.plugin('emit', (compilation, callback) => {
+      const { cache, threshold, minRatio, asset: assetName, filename, deleteOriginalAssets } = this.options;
+      const cacheDir = cache === true ? findCacheDir({ name: 'compression-webpack-plugin' }) : cache;
+
       const { assets } = compilation;
       // eslint-disable-next-line consistent-return
       async.forEach(Object.keys(assets), (file, cb) => {
@@ -69,44 +76,84 @@ class CompressionPlugin {
         let content = asset.source();
 
         if (!Buffer.isBuffer(content)) {
-          content = new Buffer(content, 'utf-8');
+          content = new Buffer(content, 'utf8');
         }
 
         const originalSize = content.length;
 
-        if (originalSize < this.options.threshold) {
+        if (originalSize < threshold) {
           return cb();
         }
 
-        this.options.algorithm(content, this.options.compressionOptions, (err, result) => {
-          if (err) { return cb(err); }
+        return Promise
+          .resolve()
+          .then(() => {
+            if (cache) {
+              const cacheKey = serialize({
+                // Invalidate cache after upgrade `zlib` module (build-in in `nodejs`)
+                node: process.version,
+                'compression-webpack-plugin': pkg.version,
+                'compression-webpack-plugin-options': this.options,
+                file,
+                content,
+              });
 
-          if (result.length / originalSize > this.options.minRatio) { return cb(); }
+              return cacache
+                .get(cacheDir, cacheKey)
+                .then(
+                  result => JSON.parse(result.data),
+                  () => Promise
+                    .resolve()
+                    .then(() => this.compress(content))
+                    .then(
+                      data => cacache.put(cacheDir, cacheKey, JSON.stringify(data))
+                        .then(() => data),
+                    ),
+                );
+            }
 
-          const parse = url.parse(file);
-          const sub = {
-            file,
-            path: parse.pathname,
-            query: parse.query || '',
-          };
+            return this.compress(content);
+          })
+          .then((result) => {
+            if (result.length / originalSize > minRatio) { return cb(); }
 
-          let newFile = this.options.asset.replace(/\[(file|path|query)\]/g, (p0, p1) => sub[p1]);
+            const parse = url.parse(file);
+            const sub = {
+              file,
+              path: parse.pathname,
+              query: parse.query || '',
+            };
 
-          if (typeof this.options.filename === 'function') {
-            newFile = this.options.filename(newFile);
-          }
+            let newAssetName = assetName.replace(/\[(file|path|query)\]/g, (p0, p1) => sub[p1]);
 
-          assets[newFile] = new RawSource(result);
+            if (typeof filename === 'function') {
+              newAssetName = filename(newAssetName);
+            }
 
-          if (this.options.deleteOriginalAssets) {
-            delete assets[file];
-          }
+            assets[newAssetName] = new RawSource(result);
 
-          cb();
+            if (deleteOriginalAssets) {
+              delete assets[file];
+            }
 
-          return null;
-        });
+            return cb();
+          })
+          .catch(cb);
       }, callback);
+    });
+  }
+
+  compress(content) {
+    return new Promise((resolve, reject) => {
+      const { algorithm, compressionOptions } = this.options;
+
+      algorithm(content, compressionOptions, (error, result) => {
+        if (error) {
+          return reject(error);
+        }
+
+        return resolve(result);
+      });
     });
   }
 }
