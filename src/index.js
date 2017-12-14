@@ -68,7 +68,7 @@ class CompressionPlugin {
       const { assets } = compilation;
       // eslint-disable-next-line consistent-return
       async.forEach(Object.keys(assets), (file, cb) => {
-        if (!ModuleFilenameHelpers.matchObject(this, file)) {
+        if (!ModuleFilenameHelpers.matchObject(this.options, file)) {
           return cb();
         }
 
