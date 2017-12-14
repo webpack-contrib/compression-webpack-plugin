@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.1.0"></a>
+# [1.1.0](https://github.com/webpack-contrib/compression-webpack-plugin/compare/v1.0.1...v1.1.0) (2017-12-14)
+
+
+### Features
+
+* add `cache` option (`options.cache`) ([#86](https://github.com/webpack-contrib/compression-webpack-plugin/issues/86)) ([49a8a77](https://github.com/webpack-contrib/compression-webpack-plugin/commit/49a8a77))
+* add `include` and `exclude` options (`options.include|options.exclude`) ([#82](https://github.com/webpack-contrib/compression-webpack-plugin/issues/82)) ([1ce3024](https://github.com/webpack-contrib/compression-webpack-plugin/commit/1ce3024))
+
+
+
 <a name="1.0.1"></a>
 ## [1.0.1](https://github.com/webpack-contrib/compression-webpack-plugin/compare/v1.0.0...v1.0.1) (2017-09-29)
 
