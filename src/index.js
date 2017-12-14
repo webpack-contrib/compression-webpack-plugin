@@ -101,12 +101,12 @@ class CompressionPlugin {
               return cacache
                 .get(cacheDir, cacheKey)
                 .then(
-                  result => JSON.parse(result.data),
+                  result => result.data,
                   () => Promise
                     .resolve()
                     .then(() => this.compress(content))
                     .then(
-                      data => cacache.put(cacheDir, cacheKey, JSON.stringify(data))
+                      data => cacache.put(cacheDir, cacheKey, data.toString())
                         .then(() => data),
                     ),
                 );
