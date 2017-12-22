@@ -106,7 +106,7 @@ class CompressionPlugin {
                     .resolve()
                     .then(() => this.compress(content))
                     .then(
-                      data => cacache.put(cacheDir, cacheKey, data.toString())
+                      data => cacache.put(cacheDir, cacheKey, data)
                         .then(() => data),
                     ),
                 );
