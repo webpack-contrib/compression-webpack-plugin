@@ -16,7 +16,8 @@ class CompressionPlugin {
     const {
       asset = '[path].gz[query]',
       test,
-      regExp,
+      include,
+      exclude,
       algorithm = 'gzip',
       filename = false,
       compressionOptions = {},
@@ -29,7 +30,8 @@ class CompressionPlugin {
     this.options = {
       asset,
       test,
-      regExp,
+      include,
+      exclude,
       algorithm,
       filename,
       compressionOptions,
