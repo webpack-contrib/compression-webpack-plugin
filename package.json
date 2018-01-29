@@ -1,6 +1,6 @@
 {
   "name": "compression-webpack-plugin",
-  "version": "1.1.4",
+  "version": "1.1.5",
   "author": "Tobias Koppers @sokra",
   "description": "Prepare compressed versions of assets to serve them with Content-Encoding",
   "main": "dist/cjs.js",

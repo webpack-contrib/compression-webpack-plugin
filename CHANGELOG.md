@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.1.5"></a>
+## [1.1.5](https://github.com/webpack-contrib/compression-webpack-plugin/compare/v1.1.4...v1.1.5) (2018-01-29)
+
+
+### Bug Fixes
+
+* **package:** use `prepare` instead of `prepublish` for release ([0b90a71](https://github.com/webpack-contrib/compression-webpack-plugin/commit/0b90a71))
+
+
+
 <a name="1.1.4"></a>
 ## [1.1.4](https://github.com/webpack-contrib/compression-webpack-plugin/compare/v1.1.3...v1.1.4) (2018-01-29)
 
