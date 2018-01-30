@@ -2,6 +2,7 @@
 MIT License http://www.opensource.org/licenses/mit-license.php
 Author Tobias Koppers @sokra
 */
+import crypto from 'crypto';
 import url from 'url';
 import async from 'async';
 import RawSource from 'webpack-sources/lib/RawSource';
@@ -75,13 +76,13 @@ class CompressionPlugin {
         }
 
         const asset = assets[file];
-        let content = asset.source();
+        let input = asset.source();
 
-        if (!Buffer.isBuffer(content)) {
-          content = new Buffer(content, 'utf8');
+        if (!Buffer.isBuffer(input)) {
+          input = Buffer.from(input);
         }
 
-        const originalSize = content.length;
+        const originalSize = input.length;
 
         if (originalSize < threshold) {
           return cb();
@@ -96,8 +97,8 @@ class CompressionPlugin {
                 node: process.version,
                 'compression-webpack-plugin': pkg.version,
                 'compression-webpack-plugin-options': this.options,
-                file,
-                content,
+                path: compiler.outputPath ? `${compiler.outputPath}/${file}` : file,
+                hash: crypto.createHash('md5').update(input).digest('hex'),
               });
 
               return cacache
@@ -106,7 +107,7 @@ class CompressionPlugin {
                   result => result.data,
                   () => Promise
                     .resolve()
-                    .then(() => this.compress(content))
+                    .then(() => this.compress(input))
                     .then(
                       data => cacache.put(cacheDir, cacheKey, data)
                         .then(() => data),
@@ -114,7 +115,7 @@ class CompressionPlugin {
                 );
             }
 
-            return this.compress(content);
+            return this.compress(input);
           })
           .then((result) => {
             if (result.length / originalSize > minRatio) { return cb(); }
@@ -145,11 +146,11 @@ class CompressionPlugin {
     });
   }
 
-  compress(content) {
+  compress(input) {
     return new Promise((resolve, reject) => {
       const { algorithm, compressionOptions } = this.options;
 
-      algorithm(content, compressionOptions, (error, result) => {
+      algorithm(input, compressionOptions, (error, result) => {
         if (error) {
           return reject(error);
         }
