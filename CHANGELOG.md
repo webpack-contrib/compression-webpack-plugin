@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.1.7"></a>
+## [1.1.7](https://github.com/webpack-contrib/compression-webpack-plugin/compare/v1.1.6...v1.1.7) (2018-02-16)
+
+
+### Bug Fixes
+
+* **index:** reduce memory usage (`cacheKey.hash`) ([#97](https://github.com/webpack-contrib/compression-webpack-plugin/issues/97)) ([3c77d43](https://github.com/webpack-contrib/compression-webpack-plugin/commit/3c77d43))
+
+
+
 <a name="1.1.6"></a>
 ## [1.1.6](https://github.com/webpack-contrib/compression-webpack-plugin/compare/v1.1.5...v1.1.6) (2018-01-29)
 
