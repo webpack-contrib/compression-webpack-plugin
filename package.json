@@ -28,9 +28,9 @@
     "webpack-defaults": "webpack-defaults"
   },
   "dependencies": {
-    "async": "^2.4.1",
     "cacache": "^10.0.1",
     "find-cache-dir": "^1.0.0",
+    "neo-async": "^2.5.0",
     "serialize-javascript": "^1.4.0",
     "webpack-sources": "^1.0.1"
   },
