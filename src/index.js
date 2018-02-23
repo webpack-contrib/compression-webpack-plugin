@@ -64,7 +64,7 @@ class CompressionPlugin {
   }
 
   apply(compiler) {
-    compiler.plugin('emit', (compilation, callback) => {
+    const emit = (compilation, callback) => {
       const { cache, threshold, minRatio, asset: assetName, filename, deleteOriginalAssets } = this.options;
       const cacheDir = cache === true ? findCacheDir({ name: 'compression-webpack-plugin' }) : cache;
 
@@ -143,7 +143,14 @@ class CompressionPlugin {
           })
           .catch(cb);
       }, callback);
-    });
+    };
+
+    if (compiler.hooks) {
+      const plugin = { name: 'CompressionPlugin' };
+      compiler.hooks.emit.tapAsync(plugin, emit);
+    } else {
+      compiler.plugin('emit', emit);
+    }
   }
 
   compress(input) {
