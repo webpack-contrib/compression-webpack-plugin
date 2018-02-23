@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.1.8"></a>
+## [1.1.8](https://github.com/webpack-contrib/compression-webpack-plugin/compare/v1.1.7...v1.1.8) (2018-02-23)
+
+
+### Bug Fixes
+
+* **index:** `tapable` deprecation warnings (`webpack >= v4.0.0`) ([#100](https://github.com/webpack-contrib/compression-webpack-plugin/issues/100)) ([d6ccdc4](https://github.com/webpack-contrib/compression-webpack-plugin/commit/d6ccdc4))
+
+
+
 <a name="1.1.7"></a>
 ## [1.1.7](https://github.com/webpack-contrib/compression-webpack-plugin/compare/v1.1.6...v1.1.7) (2018-02-16)
 
