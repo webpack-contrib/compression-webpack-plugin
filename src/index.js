@@ -4,7 +4,7 @@ Author Tobias Koppers @sokra
 */
 import crypto from 'crypto';
 import url from 'url';
-import async from 'async';
+import async from 'neo-async';
 import RawSource from 'webpack-sources/lib/RawSource';
 import ModuleFilenameHelpers from 'webpack/lib/ModuleFilenameHelpers';
 import cacache from 'cacache';
