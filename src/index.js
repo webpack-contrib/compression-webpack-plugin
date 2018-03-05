@@ -98,7 +98,7 @@ class CompressionPlugin {
                 'compression-webpack-plugin': pkg.version,
                 'compression-webpack-plugin-options': this.options,
                 path: compiler.outputPath ? `${compiler.outputPath}/${file}` : file,
-                hash: crypto.createHash('md5').update(input).digest('hex'),
+                hash: crypto.createHash('md4').update(input).digest('hex'),
               });
 
               return cacache
