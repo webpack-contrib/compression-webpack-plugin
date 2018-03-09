@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.1.11"></a>
+## [1.1.11](https://github.com/webpack-contrib/compression-webpack-plugin/compare/v1.1.10...v1.1.11) (2018-03-09)
+
+
+### Performance Improvements
+
+* **index:** switch to `md4` for content hashing ([#103](https://github.com/webpack-contrib/compression-webpack-plugin/issues/103)) ([0eebc46](https://github.com/webpack-contrib/compression-webpack-plugin/commit/0eebc46))
+
+
+
 <a name="1.1.10"></a>
 ## [1.1.10](https://github.com/webpack-contrib/compression-webpack-plugin/compare/v1.1.9...v1.1.10) (2018-02-27)
 
