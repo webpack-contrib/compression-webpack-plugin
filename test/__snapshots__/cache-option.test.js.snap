@@ -1,0 +1,67 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`when applied with \`cache\` option matches snapshot for \`false\` value: assets 1`] = `
+Array [
+  "5b1f36bc41ab31f5b801d48ba1d65781.png",
+  "5b1f36bc41ab31f5b801d48ba1d65781.png.gz",
+  "96621d3c37d96ad3bf792fcc848d912f.svg",
+  "96621d3c37d96ad3bf792fcc848d912f.svg.gz",
+  "js.720413c709826cb2f7af.js",
+  "js.720413c709826cb2f7af.js.gz",
+]
+`;
+
+exports[`when applied with \`cache\` option matches snapshot for \`false\` value: errors 1`] = `Array []`;
+
+exports[`when applied with \`cache\` option matches snapshot for \`false\` value: warnings 1`] = `Array []`;
+
+exports[`when applied with \`cache\` option matches snapshot for \`true\` value: 5b1f36bc41ab31f5b801d48ba1d65781.png 1`] = `
+Array [
+  "5b1f36bc41ab31f5b801d48ba1d65781.png",
+  "09a1a1112c577c2794359715edfcb5ac",
+]
+`;
+
+exports[`when applied with \`cache\` option matches snapshot for \`true\` value: 96621d3c37d96ad3bf792fcc848d912f.svg 1`] = `
+Array [
+  "96621d3c37d96ad3bf792fcc848d912f.svg",
+  "23fc1d3ac606d117e05a140e0de79806",
+]
+`;
+
+exports[`when applied with \`cache\` option matches snapshot for \`true\` value: assets 1`] = `
+Array [
+  "5b1f36bc41ab31f5b801d48ba1d65781.png",
+  "5b1f36bc41ab31f5b801d48ba1d65781.png.gz",
+  "96621d3c37d96ad3bf792fcc848d912f.svg",
+  "96621d3c37d96ad3bf792fcc848d912f.svg.gz",
+  "js.720413c709826cb2f7af.js",
+  "js.720413c709826cb2f7af.js.gz",
+]
+`;
+
+exports[`when applied with \`cache\` option matches snapshot for \`true\` value: assets 2`] = `
+Array [
+  "5b1f36bc41ab31f5b801d48ba1d65781.png",
+  "5b1f36bc41ab31f5b801d48ba1d65781.png.gz",
+  "96621d3c37d96ad3bf792fcc848d912f.svg",
+  "96621d3c37d96ad3bf792fcc848d912f.svg.gz",
+  "js.720413c709826cb2f7af.js",
+  "js.720413c709826cb2f7af.js.gz",
+]
+`;
+
+exports[`when applied with \`cache\` option matches snapshot for \`true\` value: errors 1`] = `Array []`;
+
+exports[`when applied with \`cache\` option matches snapshot for \`true\` value: errors 2`] = `Array []`;
+
+exports[`when applied with \`cache\` option matches snapshot for \`true\` value: js.720413c709826cb2f7af.js 1`] = `
+Array [
+  "js.720413c709826cb2f7af.js",
+  "b8a2596e54d83f201bcb43553438c126",
+]
+`;
+
+exports[`when applied with \`cache\` option matches snapshot for \`true\` value: warnings 1`] = `Array []`;
+
+exports[`when applied with \`cache\` option matches snapshot for \`true\` value: warnings 2`] = `Array []`;

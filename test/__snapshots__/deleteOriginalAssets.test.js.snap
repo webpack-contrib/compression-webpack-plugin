@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`when applied with \`test\` option matches snapshot for \`false\` value: assets 1`] = `
+Array [
+  "5b1f36bc41ab31f5b801d48ba1d65781.png",
+  "5b1f36bc41ab31f5b801d48ba1d65781.png.gz",
+  "96621d3c37d96ad3bf792fcc848d912f.svg",
+  "96621d3c37d96ad3bf792fcc848d912f.svg.gz",
+  "js.720413c709826cb2f7af.js",
+  "js.720413c709826cb2f7af.js.gz",
+]
+`;
+
+exports[`when applied with \`test\` option matches snapshot for \`false\` value: errors 1`] = `Array []`;
+
+exports[`when applied with \`test\` option matches snapshot for \`false\` value: warnings 1`] = `Array []`;
+
+exports[`when applied with \`test\` option matches snapshot for \`true\` value: assets 1`] = `
+Array [
+  "5b1f36bc41ab31f5b801d48ba1d65781.png.gz",
+  "96621d3c37d96ad3bf792fcc848d912f.svg.gz",
+  "js.720413c709826cb2f7af.js.gz",
+]
+`;
+
+exports[`when applied with \`test\` option matches snapshot for \`true\` value: errors 1`] = `Array []`;
+
+exports[`when applied with \`test\` option matches snapshot for \`true\` value: warnings 1`] = `Array []`;

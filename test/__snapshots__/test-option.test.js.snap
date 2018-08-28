@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`when applied with \`test\` option matches snapshot for a single \`test\` value: assets 1`] = `
+Array [
+  "5b1f36bc41ab31f5b801d48ba1d65781.png",
+  "5b1f36bc41ab31f5b801d48ba1d65781.png.gz",
+  "96621d3c37d96ad3bf792fcc848d912f.svg",
+  "js.js?var=5a02b232684b82d96c60",
+]
+`;
+
+exports[`when applied with \`test\` option matches snapshot for a single \`test\` value: errors 1`] = `Array []`;
+
+exports[`when applied with \`test\` option matches snapshot for a single \`test\` value: warnings 1`] = `Array []`;
+
+exports[`when applied with \`test\` option matches snapshot for multiple \`test\` values: assets 1`] = `
+Array [
+  "5b1f36bc41ab31f5b801d48ba1d65781.png",
+  "5b1f36bc41ab31f5b801d48ba1d65781.png.gz",
+  "96621d3c37d96ad3bf792fcc848d912f.svg",
+  "96621d3c37d96ad3bf792fcc848d912f.svg.gz",
+  "js.js?var=5a02b232684b82d96c60",
+]
+`;
+
+exports[`when applied with \`test\` option matches snapshot for multiple \`test\` values: errors 1`] = `Array []`;
+
+exports[`when applied with \`test\` option matches snapshot for multiple \`test\` values: warnings 1`] = `Array []`;
+
+exports[`when applied with \`test\` option matches snapshot with empty value: assets 1`] = `
+Array [
+  "5b1f36bc41ab31f5b801d48ba1d65781.png",
+  "96621d3c37d96ad3bf792fcc848d912f.svg",
+  "96621d3c37d96ad3bf792fcc848d912f.svg.gz",
+  "js.js.gz?var=5a02b232684b82d96c60",
+  "js.js?var=5a02b232684b82d96c60",
+]
+`;
+
+exports[`when applied with \`test\` option matches snapshot with empty value: errors 1`] = `Array []`;
+
+exports[`when applied with \`test\` option matches snapshot with empty value: warnings 1`] = `Array []`;

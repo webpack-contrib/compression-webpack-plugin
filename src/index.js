@@ -124,7 +124,7 @@ class CompressionPlugin {
             const sub = {
               file,
               path: parse.pathname,
-              query: parse.query || '',
+              query: parse.query ? `?${parse.query}` : '',
             };
 
             let newAssetName = assetName.replace(/\[(file|path|query)\]/g, (p0, p1) => sub[p1]);
