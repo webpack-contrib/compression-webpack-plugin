@@ -8,7 +8,7 @@ describe('when applied with `threshold` option', () => {
     compiler = createCompiler({
       entry: {
         js: `${__dirname}/fixtures/entry.js`,
-      }
+      },
     });
   });
 

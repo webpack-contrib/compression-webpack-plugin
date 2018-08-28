@@ -2,18 +2,27 @@
 
 exports[`when applied with \`cache\` option matches snapshot for \`false\` value: assets 1`] = `
 Array [
+  "1.async.9ada34e1a37e6db8ef40.js",
+  "1.async.9ada34e1a37e6db8ef40.js.gz",
   "5b1f36bc41ab31f5b801d48ba1d65781.png",
   "5b1f36bc41ab31f5b801d48ba1d65781.png.gz",
   "96621d3c37d96ad3bf792fcc848d912f.svg",
   "96621d3c37d96ad3bf792fcc848d912f.svg.gz",
-  "js.720413c709826cb2f7af.js",
-  "js.720413c709826cb2f7af.js.gz",
+  "js.f0111e97a13538df48f2.js",
+  "js.f0111e97a13538df48f2.js.gz",
 ]
 `;
 
 exports[`when applied with \`cache\` option matches snapshot for \`false\` value: errors 1`] = `Array []`;
 
 exports[`when applied with \`cache\` option matches snapshot for \`false\` value: warnings 1`] = `Array []`;
+
+exports[`when applied with \`cache\` option matches snapshot for \`true\` value: 1.async.9ada34e1a37e6db8ef40.js 1`] = `
+Array [
+  "1.async.9ada34e1a37e6db8ef40.js",
+  "c19de9cd1850eadbe1cb6718a4fdf014",
+]
+`;
 
 exports[`when applied with \`cache\` option matches snapshot for \`true\` value: 5b1f36bc41ab31f5b801d48ba1d65781.png 1`] = `
 Array [
@@ -31,23 +40,27 @@ Array [
 
 exports[`when applied with \`cache\` option matches snapshot for \`true\` value: assets 1`] = `
 Array [
+  "1.async.9ada34e1a37e6db8ef40.js",
+  "1.async.9ada34e1a37e6db8ef40.js.gz",
   "5b1f36bc41ab31f5b801d48ba1d65781.png",
   "5b1f36bc41ab31f5b801d48ba1d65781.png.gz",
   "96621d3c37d96ad3bf792fcc848d912f.svg",
   "96621d3c37d96ad3bf792fcc848d912f.svg.gz",
-  "js.720413c709826cb2f7af.js",
-  "js.720413c709826cb2f7af.js.gz",
+  "js.f0111e97a13538df48f2.js",
+  "js.f0111e97a13538df48f2.js.gz",
 ]
 `;
 
 exports[`when applied with \`cache\` option matches snapshot for \`true\` value: assets 2`] = `
 Array [
+  "1.async.9ada34e1a37e6db8ef40.js",
+  "1.async.9ada34e1a37e6db8ef40.js.gz",
   "5b1f36bc41ab31f5b801d48ba1d65781.png",
   "5b1f36bc41ab31f5b801d48ba1d65781.png.gz",
   "96621d3c37d96ad3bf792fcc848d912f.svg",
   "96621d3c37d96ad3bf792fcc848d912f.svg.gz",
-  "js.720413c709826cb2f7af.js",
-  "js.720413c709826cb2f7af.js.gz",
+  "js.f0111e97a13538df48f2.js",
+  "js.f0111e97a13538df48f2.js.gz",
 ]
 `;
 
@@ -55,10 +68,10 @@ exports[`when applied with \`cache\` option matches snapshot for \`true\` value:
 
 exports[`when applied with \`cache\` option matches snapshot for \`true\` value: errors 2`] = `Array []`;
 
-exports[`when applied with \`cache\` option matches snapshot for \`true\` value: js.720413c709826cb2f7af.js 1`] = `
+exports[`when applied with \`cache\` option matches snapshot for \`true\` value: js.f0111e97a13538df48f2.js 1`] = `
 Array [
-  "js.720413c709826cb2f7af.js",
-  "b8a2596e54d83f201bcb43553438c126",
+  "js.f0111e97a13538df48f2.js",
+  "1c64a5f14981dc0e16e7e9ef6cb1d7e4",
 ]
 `;
 

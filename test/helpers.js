@@ -16,7 +16,9 @@ export function compile(compiler) {
 
 export function createCompiler(options = {}) {
   const compiler = webpack(
+    // eslint-disable-next-line multiline-ternary
     Array.isArray(options)
+      // eslint-disable-next-line multiline-ternary
       ? options
       : {
         module: {

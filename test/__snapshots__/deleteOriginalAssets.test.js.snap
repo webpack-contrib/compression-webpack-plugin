@@ -2,12 +2,14 @@
 
 exports[`when applied with \`test\` option matches snapshot for \`false\` value: assets 1`] = `
 Array [
+  "1.async.9ada34e1a37e6db8ef40.js",
+  "1.async.9ada34e1a37e6db8ef40.js.gz",
   "5b1f36bc41ab31f5b801d48ba1d65781.png",
   "5b1f36bc41ab31f5b801d48ba1d65781.png.gz",
   "96621d3c37d96ad3bf792fcc848d912f.svg",
   "96621d3c37d96ad3bf792fcc848d912f.svg.gz",
-  "js.720413c709826cb2f7af.js",
-  "js.720413c709826cb2f7af.js.gz",
+  "js.f0111e97a13538df48f2.js",
+  "js.f0111e97a13538df48f2.js.gz",
 ]
 `;
 
@@ -17,9 +19,10 @@ exports[`when applied with \`test\` option matches snapshot for \`false\` value:
 
 exports[`when applied with \`test\` option matches snapshot for \`true\` value: assets 1`] = `
 Array [
+  "1.async.9ada34e1a37e6db8ef40.js.gz",
   "5b1f36bc41ab31f5b801d48ba1d65781.png.gz",
   "96621d3c37d96ad3bf792fcc848d912f.svg.gz",
-  "js.720413c709826cb2f7af.js.gz",
+  "js.f0111e97a13538df48f2.js.gz",
 ]
 `;
 
