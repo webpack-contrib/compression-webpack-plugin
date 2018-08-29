@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`when applied with \`asset\` option matches snapshot for \`[path].compressed.gz[query]\` value: assets 1`] = `
+Array [
+  "1.async.js.compressed.gz?ver=1ea6f97e389bd951fd50",
+  "1.async.js?ver=1ea6f97e389bd951fd50",
+  "5b1f36bc41ab31f5b801d48ba1d65781.png",
+  "5b1f36bc41ab31f5b801d48ba1d65781.png.compressed.gz",
+  "96621d3c37d96ad3bf792fcc848d912f.svg",
+  "96621d3c37d96ad3bf792fcc848d912f.svg.compressed.gz",
+  "js.js.compressed.gz?var=1ea6f97e389bd951fd50",
+  "js.js?var=1ea6f97e389bd951fd50",
+]
+`;
+
+exports[`when applied with \`asset\` option matches snapshot for \`[path].compressed.gz[query]\` value: errors 1`] = `Array []`;
+
+exports[`when applied with \`asset\` option matches snapshot for \`[path].compressed.gz[query]\` value: warnings 1`] = `Array []`;

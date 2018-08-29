@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`when applied with \`function\` option matches snapshot for \`{Function}\` value: assets 1`] = `
+Array [
+  "1.async.js?ver=1ea6f97e389bd951fd50",
+  "5b1f36bc41ab31f5b801d48ba1d65781.png",
+  "96621d3c37d96ad3bf792fcc848d912f.svg",
+  "js.js?var=1ea6f97e389bd951fd50",
+  "path/to/my/1.async.js.gz?ver=1ea6f97e389bd951fd50",
+  "path/to/my/5b1f36bc41ab31f5b801d48ba1d65781.png.gz",
+  "path/to/my/96621d3c37d96ad3bf792fcc848d912f.svg.gz",
+  "path/to/my/js.js.gz?var=1ea6f97e389bd951fd50",
+]
+`;
+
+exports[`when applied with \`function\` option matches snapshot for \`{Function}\` value: errors 1`] = `Array []`;
+
+exports[`when applied with \`function\` option matches snapshot for \`{Function}\` value: warnings 1`] = `Array []`;
