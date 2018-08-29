@@ -18,37 +18,37 @@ export function createCompiler(options = {}) {
   const compiler = webpack(
     // eslint-disable-next-line multiline-ternary
     Array.isArray(options)
-      // eslint-disable-next-line multiline-ternary
-      ? options
+      ? // eslint-disable-next-line multiline-ternary
+        options
       : {
-        module: {
-          rules: [
-            {
-              test: /\.(png|jpg|gif|svg)$/i,
-              use: [
-                {
-                  loader: 'file-loader',
-                },
-              ],
-            },
-          ],
-        },
-        mode: 'production',
-        bail: true,
-        cache: false,
-        entry: `${__dirname}/fixtures/entry.js`,
-        optimization: {
-          minimize: false,
-        },
-        output: {
-          pathinfo: false,
-          path: `${__dirname}/dist`,
-          filename: '[name].[chunkhash].js',
-          chunkFilename: '[id].[name].[chunkhash].js',
-        },
-        plugins: [],
-        ...options,
-      },
+          module: {
+            rules: [
+              {
+                test: /\.(png|jpg|gif|svg)$/i,
+                use: [
+                  {
+                    loader: 'file-loader',
+                  },
+                ],
+              },
+            ],
+          },
+          mode: 'production',
+          bail: true,
+          cache: false,
+          entry: `${__dirname}/fixtures/entry.js`,
+          optimization: {
+            minimize: false,
+          },
+          output: {
+            pathinfo: false,
+            path: `${__dirname}/dist`,
+            filename: '[name].[chunkhash].js',
+            chunkFilename: '[id].[name].[chunkhash].js',
+          },
+          plugins: [],
+          ...options,
+        }
   );
 
   compiler.outputFileSystem = new MemoryFileSystem();

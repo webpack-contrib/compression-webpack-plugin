@@ -1,4 +1,5 @@
 import Plugin from '../src/index';
+
 import { cleanErrorStack, createCompiler, compile } from './helpers';
 
 describe('when applied with `algorithm` option', () => {
@@ -33,7 +34,9 @@ describe('when applied with `algorithm` option', () => {
 
       expect(errors).toMatchSnapshot('errors');
       expect(warnings).toMatchSnapshot('warnings');
-      expect(Object.keys(stats.compilation.assets).sort()).toMatchSnapshot('assets');
+      expect(Object.keys(stats.compilation.assets).sort()).toMatchSnapshot(
+        'assets'
+      );
     });
   });
 
@@ -49,7 +52,9 @@ describe('when applied with `algorithm` option', () => {
 
       expect(errors).toMatchSnapshot('errors');
       expect(warnings).toMatchSnapshot('warnings');
-      expect(Object.keys(stats.compilation.assets).sort()).toMatchSnapshot('assets');
+      expect(Object.keys(stats.compilation.assets).sort()).toMatchSnapshot(
+        'assets'
+      );
     });
   });
 });

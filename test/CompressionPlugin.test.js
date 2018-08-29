@@ -1,4 +1,5 @@
 import Plugin from '../src/index';
+
 import { cleanErrorStack, createCompiler, compile } from './helpers';
 
 describe('CompressionPlugin', () => {
@@ -26,7 +27,9 @@ describe('CompressionPlugin', () => {
 
       expect(errors).toMatchSnapshot('errors');
       expect(warnings).toMatchSnapshot('warnings');
-      expect(Object.keys(stats.compilation.assets).sort()).toMatchSnapshot('assets');
+      expect(Object.keys(stats.compilation.assets).sort()).toMatchSnapshot(
+        'assets'
+      );
     });
   });
 });

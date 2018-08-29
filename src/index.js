@@ -2,18 +2,26 @@
 MIT License http://www.opensource.org/licenses/mit-license.php
 Author Tobias Koppers @sokra
 */
+
 import crypto from 'crypto';
 import url from 'url';
+
 import async from 'neo-async';
 import RawSource from 'webpack-sources/lib/RawSource';
 import ModuleFilenameHelpers from 'webpack/lib/ModuleFilenameHelpers';
 import cacache from 'cacache';
 import findCacheDir from 'find-cache-dir';
 import serialize from 'serialize-javascript';
+import validateOptions from 'schema-utils';
+
 import pkg from '../package.json';
+
+import schema from './options.json';
 
 class CompressionPlugin {
   constructor(options = {}) {
+    validateOptions(schema, options, 'Terser Plugin');
+
     const {
       asset = '[path].gz[query]',
       test,
@@ -65,92 +73,107 @@ class CompressionPlugin {
 
   apply(compiler) {
     const emit = (compilation, callback) => {
-      const { cache, threshold, minRatio, asset: assetName, filename, deleteOriginalAssets } = this.options;
-      const cacheDir = cache === true ? findCacheDir({ name: 'compression-webpack-plugin' }) : cache;
+      const {
+        cache,
+        threshold,
+        minRatio,
+        asset: assetName,
+        filename,
+        deleteOriginalAssets,
+      } = this.options;
+      const cacheDir =
+        cache === true
+          ? findCacheDir({ name: 'compression-webpack-plugin' })
+          : cache;
 
       const { assets } = compilation;
       // eslint-disable-next-line consistent-return
-      async.forEach(Object.keys(assets), (file, cb) => {
-        if (!ModuleFilenameHelpers.matchObject(this.options, file)) {
-          return cb();
-        }
-
-        const asset = assets[file];
-        let input = asset.source();
-
-        if (!Buffer.isBuffer(input)) {
-          input = Buffer.from(input);
-        }
-
-        const originalSize = input.length;
-
-        if (originalSize < threshold) {
-          return cb();
-        }
-
-        return Promise
-          .resolve()
-          .then(() => {
-            if (cache) {
-              const cacheKey = serialize({
-                // Invalidate cache after upgrade `zlib` module (build-in in `nodejs`)
-                node: process.version,
-                'compression-webpack-plugin': pkg.version,
-                'compression-webpack-plugin-options': this.options,
-                path: compiler.outputPath ? `${compiler.outputPath}/${file}` : file,
-                hash: crypto.createHash('md4').update(input).digest('hex'),
-              });
-
-              return cacache
-                .get(cacheDir, cacheKey)
-                .then(
-                  result => result.data,
-                  () => Promise
-                    .resolve()
-                    .then(() => this.compress(input))
-                    .then(
-                      data => cacache.put(cacheDir, cacheKey, data)
-                        .then(() => data),
-                    ),
-                );
-            }
-
-            return this.compress(input);
-          })
-          .then((result) => {
-            if (result.length / originalSize > minRatio) { return cb(); }
-
-            const parse = url.parse(file);
-            const sub = {
-              file,
-              path: parse.pathname,
-              query: parse.query ? `?${parse.query}` : '',
-            };
-
-            let newAssetName = assetName.replace(/\[(file|path|query)\]/g, (p0, p1) => sub[p1]);
-
-            if (typeof filename === 'function') {
-              newAssetName = filename(newAssetName);
-            }
-
-            assets[newAssetName] = new RawSource(result);
-
-            if (deleteOriginalAssets) {
-              delete assets[file];
-            }
-
+      async.forEach(
+        Object.keys(assets),
+        (file, cb) => {
+          if (!ModuleFilenameHelpers.matchObject(this.options, file)) {
             return cb();
-          })
-          .catch(cb);
-      }, callback);
+          }
+
+          const asset = assets[file];
+          let input = asset.source();
+
+          if (!Buffer.isBuffer(input)) {
+            input = Buffer.from(input);
+          }
+
+          const originalSize = input.length;
+
+          if (originalSize < threshold) {
+            return cb();
+          }
+
+          return Promise.resolve()
+            .then(() => {
+              if (cache) {
+                const cacheKey = serialize({
+                  // Invalidate cache after upgrade `zlib` module (build-in in `nodejs`)
+                  node: process.version,
+                  'compression-webpack-plugin': pkg.version,
+                  'compression-webpack-plugin-options': this.options,
+                  path: compiler.outputPath
+                    ? `${compiler.outputPath}/${file}`
+                    : file,
+                  hash: crypto
+                    .createHash('md4')
+                    .update(input)
+                    .digest('hex'),
+                });
+
+                return cacache.get(cacheDir, cacheKey).then(
+                  (result) => result.data,
+                  () =>
+                    Promise.resolve()
+                      .then(() => this.compress(input))
+                      .then((data) =>
+                        cacache.put(cacheDir, cacheKey, data).then(() => data)
+                      )
+                );
+              }
+
+              return this.compress(input);
+            })
+            .then((result) => {
+              if (result.length / originalSize > minRatio) {
+                return cb();
+              }
+
+              const parse = url.parse(file);
+              const sub = {
+                file,
+                path: parse.pathname,
+                query: parse.query ? `?${parse.query}` : '',
+              };
+
+              let newAssetName = assetName.replace(
+                /\[(file|path|query)\]/g,
+                (p0, p1) => sub[p1]
+              );
+
+              if (typeof filename === 'function') {
+                newAssetName = filename(newAssetName);
+              }
+
+              assets[newAssetName] = new RawSource(result);
+
+              if (deleteOriginalAssets) {
+                delete assets[file];
+              }
+
+              return cb();
+            })
+            .catch(cb);
+        },
+        callback
+      );
     };
 
-    if (compiler.hooks) {
-      const plugin = { name: 'CompressionPlugin' };
-      compiler.hooks.emit.tapAsync(plugin, emit);
-    } else {
-      compiler.plugin('emit', emit);
-    }
+    compiler.hooks.emit.tapAsync({ name: 'CompressionPlugin' }, emit);
   }
 
   compress(input) {
