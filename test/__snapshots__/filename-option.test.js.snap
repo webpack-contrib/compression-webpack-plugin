@@ -1,9 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`when applied with \`function\` option matches snapshot for \`{Function}\` value: assets 1`] = `
+exports[`when applied with \`function\` option matches snapshot for \`[path].super-compressed.gz[query]\` value: assets 1`] = `
 Array [
   Array [
-    "1.async.9ada34e1a37e6db8ef40.js",
+    "1.async.js.super-compressed.gz?ver=1ea6f97e389bd951fd50",
+    117,
+  ],
+  Array [
+    "1.async.js?ver=1ea6f97e389bd951fd50",
     130,
   ],
   Array [
@@ -11,28 +15,65 @@ Array [
     78117,
   ],
   Array [
+    "5b1f36bc41ab31f5b801d48ba1d65781.png.super-compressed.gz",
+    73160,
+  ],
+  Array [
     "96621d3c37d96ad3bf792fcc848d912f.svg",
     672,
   ],
   Array [
-    "js.f0111e97a13538df48f2.js",
-    10212,
-  ],
-  Array [
-    "path/to/my/1.async.9ada34e1a37e6db8ef40.js.gz",
-    117,
-  ],
-  Array [
-    "path/to/my/5b1f36bc41ab31f5b801d48ba1d65781.png.gz",
-    73160,
-  ],
-  Array [
-    "path/to/my/96621d3c37d96ad3bf792fcc848d912f.svg.gz",
+    "96621d3c37d96ad3bf792fcc848d912f.svg.super-compressed.gz",
     393,
   ],
   Array [
-    "path/to/my/js.f0111e97a13538df48f2.js.gz",
-    2769,
+    "js.js.super-compressed.gz?var=1ea6f97e389bd951fd50",
+    2773,
+  ],
+  Array [
+    "js.js?var=1ea6f97e389bd951fd50",
+    10201,
+  ],
+]
+`;
+
+exports[`when applied with \`function\` option matches snapshot for \`[path].super-compressed.gz[query]\` value: errors 1`] = `Array []`;
+
+exports[`when applied with \`function\` option matches snapshot for \`[path].super-compressed.gz[query]\` value: warnings 1`] = `Array []`;
+
+exports[`when applied with \`function\` option matches snapshot for \`{Function}\` value: assets 1`] = `
+Array [
+  Array [
+    "1.async.js.gz?ver=1ea6f97e389bd951fd50",
+    117,
+  ],
+  Array [
+    "1.async.js?ver=1ea6f97e389bd951fd50",
+    130,
+  ],
+  Array [
+    "5b1f36bc41ab31f5b801d48ba1d65781.png",
+    78117,
+  ],
+  Array [
+    "5b1f36bc41ab31f5b801d48ba1d65781.png.gz",
+    73160,
+  ],
+  Array [
+    "96621d3c37d96ad3bf792fcc848d912f.svg",
+    672,
+  ],
+  Array [
+    "96621d3c37d96ad3bf792fcc848d912f.svg.gz",
+    393,
+  ],
+  Array [
+    "js.js.gz?var=1ea6f97e389bd951fd50",
+    2773,
+  ],
+  Array [
+    "js.js?var=1ea6f97e389bd951fd50",
+    10201,
   ],
 ]
 `;

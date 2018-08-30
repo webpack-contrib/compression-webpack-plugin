@@ -23,30 +23,28 @@ class CompressionPlugin {
     validateOptions(schema, options, 'Terser Plugin');
 
     const {
-      asset = '[path].gz[query]',
       test,
       include,
       exclude,
+      cache = false,
       algorithm = 'gzip',
-      filename = false,
       compressionOptions = {
         level: 9,
       },
-      cache = false,
+      filename = '[path].gz[query]',
       threshold = 0,
       minRatio = 0.8,
       deleteOriginalAssets = false,
     } = options;
 
     this.options = {
-      asset,
       test,
       include,
       exclude,
-      algorithm,
-      filename,
-      compressionOptions,
       cache,
+      algorithm,
+      compressionOptions,
+      filename,
       threshold,
       minRatio,
       deleteOriginalAssets,
@@ -70,7 +68,6 @@ class CompressionPlugin {
         cache,
         threshold,
         minRatio,
-        asset: assetName,
         filename,
         deleteOriginalAssets,
       } = this.options;
@@ -136,20 +133,19 @@ class CompressionPlugin {
               }
 
               const parse = url.parse(file);
-              const sub = {
+              const info = {
                 file,
                 path: parse.pathname,
                 query: parse.query ? `?${parse.query}` : '',
               };
 
-              let newAssetName = assetName.replace(
-                /\[(file|path|query)\]/g,
-                (p0, p1) => sub[p1]
-              );
-
-              if (typeof filename === 'function') {
-                newAssetName = filename(newAssetName);
-              }
+              const newAssetName =
+                typeof filename === 'function'
+                  ? filename(info)
+                  : filename.replace(
+                      /\[(file|path|query)\]/g,
+                      (p0, p1) => info[p1]
+                    );
 
               assets[newAssetName] = new RawSource(result);
 

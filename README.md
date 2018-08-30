@@ -41,8 +41,7 @@ module.exports = {
 |**[`include`](#include)**|`{RegExp\|Array<RegExp>}`|`undefined`|Files to `include`|
 |**[`exclude`](#exclude)**|`{RegExp\|Array<RegExp>}`|`undefined`|Files to `exclude`|
 |**[`cache`](#cache)**|`{Boolean\|String}`|`false`|Enable file caching|
-|**[`asset`](#asset)**|`{String}`|`[path].gz[query]`|The target asset name. `[file]` is replaced with the original asset. `[path]` is replaced with the path of the original asset and `[query]` with the query|
-|**[`filename`](#filename)**|`{Function}`|`false`|A `{Function}` `(asset) => asset` which receives the asset name (after processing `asset` option) and returns the new asset name|
+|**[`filename`](#filename)**|`{Function}`|`[path].gz[query]`|The target asset filename.|
 |**[`algorithm`](#algorithm)**|`{String\|Function}`|`gzip`|Can be `(buffer, cb) => cb(buffer)` or if a `{String}` is used the algorithm is taken from `zlib`|
 |**[`compressionOptions`](#compressionoptions)**|`{Object}`|`{ level: 9 }`|Compression options|
 |**[`threshold`](#threshold)**|`{Number}`|`0`|Only assets bigger than this size are processed. In bytes.|
@@ -108,7 +107,13 @@ Enable file caching and set path to cache directory.
 ]
 ```
 
-### `asset`
+### `filename`
+
+#### `{String}`
+
+`[file]` is replaced with the original asset filename. 
+`[path]` is replaced with the path of the original asset.
+`[query]` is replaced with the query.
 
 **webpack.config.js**
 ```js
@@ -119,15 +124,17 @@ Enable file caching and set path to cache directory.
 ]
 ```
 
-### `filename`
+#### `{Function}`
 
 **webpack.config.js**
 ```js
 [
   new CompressionPlugin({
-    filename (asset) {
-      asset = 'rename'
-      return asset
+    filename (info) {
+      // info.file is the original asset filename
+      // info.path is the path of the original asset
+      // info.query is the query
+      return `${info.path}.gz${info.query}`
     }
   })
 ]
