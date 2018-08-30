@@ -66,3 +66,9 @@ export function cleanErrorStack(error) {
     .slice(0, 2)
     .join('\n');
 }
+
+export function getAssetsInfo(assets) {
+  return Object.keys(assets)
+    .sort()
+    .map((assetName) => [assetName, assets[assetName].size()]);
+}

@@ -44,6 +44,7 @@ module.exports = {
 |**[`asset`](#asset)**|`{String}`|`[path].gz[query]`|The target asset name. `[file]` is replaced with the original asset. `[path]` is replaced with the path of the original asset and `[query]` with the query|
 |**[`filename`](#filename)**|`{Function}`|`false`|A `{Function}` `(asset) => asset` which receives the asset name (after processing `asset` option) and returns the new asset name|
 |**[`algorithm`](#algorithm)**|`{String\|Function}`|`gzip`|Can be `(buffer, cb) => cb(buffer)` or if a `{String}` is used the algorithm is taken from `zlib`|
+|**[`compressionOptions`](#compressionoptions)**|`{Object}`|`{ level: 9 }`|Compression options|
 |**[`threshold`](#threshold)**|`{Number}`|`0`|Only assets bigger than this size are processed. In bytes.|
 |**[`minRatio`](#minratio)**|`{Number}`|`0.8`|Only assets that compress better than this ratio are processed|
 |**[`deleteOriginalAssets`](#deleteoriginalassets)**|`{Boolean}`|`false`|Whether to delete the original assets or not|
@@ -124,6 +125,19 @@ module.exports = {
 [
   new CompressionPlugin({
     algorithm: 'gzip'
+  })
+]
+```
+
+### `compressionOptions`
+
+You can find all option here [zlib](https://nodejs.org/api/zlib.html).
+
+**webpack.config.js**
+```js
+[
+  new CompressionPlugin({
+    compressionOptions: { level: 1 }
   })
 ]
 ```

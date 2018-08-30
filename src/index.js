@@ -29,7 +29,9 @@ class CompressionPlugin {
       exclude,
       algorithm = 'gzip',
       filename = false,
-      compressionOptions = {},
+      compressionOptions = {
+        level: 9,
+      },
       cache = false,
       threshold = 0,
       minRatio = 0.8,
@@ -53,21 +55,12 @@ class CompressionPlugin {
     if (typeof algorithm === 'string') {
       // eslint-disable-next-line global-require
       const zlib = require('zlib');
+
       this.options.algorithm = zlib[this.options.algorithm];
 
       if (!this.options.algorithm) {
         throw new Error('Algorithm not found in zlib');
       }
-
-      this.options.compressionOptions = {
-        level: options.level || 9,
-        flush: options.flush,
-        chunkSize: options.chunkSize,
-        windowBits: options.windowBits,
-        memLevel: options.memLevel,
-        strategy: options.strategy,
-        dictionary: options.dictionary,
-      };
     }
   }
 
