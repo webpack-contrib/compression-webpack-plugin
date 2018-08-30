@@ -84,11 +84,26 @@ module.exports = {
 
 ### `cache`
 
+#### `{Boolean}`
+
 **webpack.config.js**
 ```js
 [
   new CompressionPlugin({
     cache: true
+  })
+]
+```
+
+#### `{String}`
+
+Enable file caching and set path to cache directory.
+
+**webpack.config.js**
+```js
+[
+  new CompressionPlugin({
+    cache: 'path/to/cache'
   })
 ]
 ```
