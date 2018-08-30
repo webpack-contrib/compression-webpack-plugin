@@ -5,10 +5,11 @@ unit_tests: &unit_tests
         key: dependency-cache-{{ checksum "package-lock.json" }}
     - run:
         name: Install Latest NPM.
-        command: npm i -g npm@latest
+        # npm@3 is buggy
+        command: if [[ $(npm -v | cut -c -1) > 3 ]] ; then npm i -g npm@latest; else echo "Skip npm updating"; fi
     - run:
         name: NPM Install.
-        command: npm i
+        command: npm ci || npm i
     - run:
         name: Run unit tests.
         command: npm run ci:test
@@ -22,13 +23,13 @@ canary_tests: &canary_tests
         command: npm i -g npm@latest
     - run:
         name: NPM Install.
-        command: npm i
+        command: npm ci
     - run:
         name: Install Webpack Canary.
         command: npm i --no-save webpack@next
     - run:
         name: Run unit tests.
-        command: if [[ $(compver --name webpack --gte next --lt latest) < 1 ]] ; then printf "Next is older than Latest - Skipping Canary Suite"; else npm run ci:test ; fi
+        command: if [[ $(compver --name webpack --gte next --lt latest) < 1 ]] ; then printf "Next is older than Latest - Skipping Canary Suite"; else npm run ci:test; fi
 
 version: 2
 jobs:
@@ -44,15 +45,22 @@ jobs:
           command: npm i -g npm@latest
       - run:
           name: NPM Install.
-          command: npm i
+          command: npm ci
       - save_cache:
           key: dependency-cache-{{ checksum "package-lock.json" }}
           paths:
             - ./node_modules
-
+  node6-latest:
+    docker:
+      - image: webpackcontrib/circleci-node6:latest
+    <<: *unit_tests
   node8-latest:
     docker:
       - image: webpackcontrib/circleci-node8:latest
+    <<: *unit_tests
+  node10-latest:
+    docker:
+      - image: webpackcontrib/circleci-node10:latest
     steps:
       - checkout
       - restore_cache:
@@ -62,7 +70,7 @@ jobs:
           command: npm i -g npm@latest
       - run:
           name: NPM Install.
-          command: npm i
+          command: npm ci
       - run:
           name: Run unit tests.
           command: npm run ci:coverage
@@ -70,14 +78,6 @@ jobs:
           name: Submit coverage data to codecov.
           command: bash <(curl -s https://codecov.io/bash)
           when: on_success
-  node6-latest:
-    docker:
-      - image: webpackcontrib/circleci-node6:latest
-    <<: *unit_tests
-  node10-latest:
-    docker:
-      - image: webpackcontrib/circleci-node10:latest
-    <<: *unit_tests
   node10-canary:
     docker:
       - image: webpackcontrib/circleci-node10:latest
@@ -94,7 +94,7 @@ jobs:
           command: npm i -g npm@latest
       - run:
           name: NPM Install.
-          command: npm i
+          command: npm ci
       - run:
           name: Run linting.
           command: npm run lint
@@ -110,13 +110,13 @@ workflows:
   validate-publish:
     jobs:
     - dependency_cache
-    - node6-latest:
+    - analysis:
         requires:
           - dependency_cache
         filters:
           tags:
             only: /.*/
-    - analysis:
+    - node6-latest:
         requires:
           - dependency_cache
         filters:
