@@ -104,14 +104,13 @@ class CompressionPlugin {
           return Promise.resolve()
             .then(() => {
               if (cache) {
+                const { outputPath } = compiler;
                 const cacheKey = serialize({
                   // Invalidate cache after upgrade `zlib` module (build-in in `nodejs`)
                   node: process.version,
                   'compression-webpack-plugin': pkg.version,
                   'compression-webpack-plugin-options': this.options,
-                  path: compiler.outputPath
-                    ? `${compiler.outputPath}/${file}`
-                    : file,
+                  path: `${outputPath ? `${outputPath}/` : ''}${file}`,
                   hash: crypto
                     .createHash('md4')
                     .update(input)
