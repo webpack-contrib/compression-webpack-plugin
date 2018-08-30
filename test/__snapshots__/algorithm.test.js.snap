@@ -2,14 +2,38 @@
 
 exports[`when applied with \`algorithm\` option matches snapshot for \`{Function}\` value: assets 1`] = `
 Array [
-  "1.async.9ada34e1a37e6db8ef40.js",
-  "1.async.9ada34e1a37e6db8ef40.js.gz",
-  "5b1f36bc41ab31f5b801d48ba1d65781.png",
-  "5b1f36bc41ab31f5b801d48ba1d65781.png.gz",
-  "96621d3c37d96ad3bf792fcc848d912f.svg",
-  "96621d3c37d96ad3bf792fcc848d912f.svg.gz",
-  "js.f0111e97a13538df48f2.js",
-  "js.f0111e97a13538df48f2.js.gz",
+  Array [
+    "1.async.9ada34e1a37e6db8ef40.js",
+    130,
+  ],
+  Array [
+    "1.async.9ada34e1a37e6db8ef40.js.gz",
+    130,
+  ],
+  Array [
+    "5b1f36bc41ab31f5b801d48ba1d65781.png",
+    78117,
+  ],
+  Array [
+    "5b1f36bc41ab31f5b801d48ba1d65781.png.gz",
+    78117,
+  ],
+  Array [
+    "96621d3c37d96ad3bf792fcc848d912f.svg",
+    672,
+  ],
+  Array [
+    "96621d3c37d96ad3bf792fcc848d912f.svg.gz",
+    672,
+  ],
+  Array [
+    "js.f0111e97a13538df48f2.js",
+    10212,
+  ],
+  Array [
+    "js.f0111e97a13538df48f2.js.gz",
+    10212,
+  ],
 ]
 `;
 
@@ -19,14 +43,38 @@ exports[`when applied with \`algorithm\` option matches snapshot for \`{Function
 
 exports[`when applied with \`algorithm\` option matches snapshot for \`gzip\` value: assets 1`] = `
 Array [
-  "1.async.9ada34e1a37e6db8ef40.js",
-  "1.async.9ada34e1a37e6db8ef40.js.gz",
-  "5b1f36bc41ab31f5b801d48ba1d65781.png",
-  "5b1f36bc41ab31f5b801d48ba1d65781.png.gz",
-  "96621d3c37d96ad3bf792fcc848d912f.svg",
-  "96621d3c37d96ad3bf792fcc848d912f.svg.gz",
-  "js.f0111e97a13538df48f2.js",
-  "js.f0111e97a13538df48f2.js.gz",
+  Array [
+    "1.async.9ada34e1a37e6db8ef40.js",
+    130,
+  ],
+  Array [
+    "1.async.9ada34e1a37e6db8ef40.js.gz",
+    117,
+  ],
+  Array [
+    "5b1f36bc41ab31f5b801d48ba1d65781.png",
+    78117,
+  ],
+  Array [
+    "5b1f36bc41ab31f5b801d48ba1d65781.png.gz",
+    73160,
+  ],
+  Array [
+    "96621d3c37d96ad3bf792fcc848d912f.svg",
+    672,
+  ],
+  Array [
+    "96621d3c37d96ad3bf792fcc848d912f.svg.gz",
+    393,
+  ],
+  Array [
+    "js.f0111e97a13538df48f2.js",
+    10212,
+  ],
+  Array [
+    "js.f0111e97a13538df48f2.js.gz",
+    2769,
+  ],
 ]
 `;
 

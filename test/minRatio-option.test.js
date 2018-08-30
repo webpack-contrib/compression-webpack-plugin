@@ -1,6 +1,11 @@
 import Plugin from '../src/index';
 
-import { cleanErrorStack, createCompiler, compile } from './helpers';
+import {
+  cleanErrorStack,
+  createCompiler,
+  compile,
+  getAssetsInfo,
+} from './helpers';
 
 describe('when applied with `minRatio` option', () => {
   let compiler;
@@ -9,11 +14,6 @@ describe('when applied with `minRatio` option', () => {
     compiler = createCompiler({
       entry: {
         js: `${__dirname}/fixtures/entry.js`,
-      },
-      output: {
-        path: `${__dirname}/dist`,
-        filename: '[name].js?var=[hash]',
-        chunkFilename: '[id].[name].js?ver=[hash]',
       },
     });
   });
@@ -29,9 +29,7 @@ describe('when applied with `minRatio` option', () => {
 
       expect(errors).toMatchSnapshot('errors');
       expect(warnings).toMatchSnapshot('warnings');
-      expect(Object.keys(stats.compilation.assets).sort()).toMatchSnapshot(
-        'assets'
-      );
+      expect(getAssetsInfo(stats.compilation.assets)).toMatchSnapshot('assets');
     });
   });
 
@@ -46,9 +44,7 @@ describe('when applied with `minRatio` option', () => {
 
       expect(errors).toMatchSnapshot('errors');
       expect(warnings).toMatchSnapshot('warnings');
-      expect(Object.keys(stats.compilation.assets).sort()).toMatchSnapshot(
-        'assets'
-      );
+      expect(getAssetsInfo(stats.compilation.assets)).toMatchSnapshot('assets');
     });
   });
 });

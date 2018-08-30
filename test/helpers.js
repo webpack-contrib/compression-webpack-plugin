@@ -1,4 +1,4 @@
-import MemoryFileSystem from 'memory-fs'; // eslint-disable-line import/no-extraneous-dependencies
+import MemoryFileSystem from 'memory-fs';
 import webpack from 'webpack';
 
 export function compile(compiler) {

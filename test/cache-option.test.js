@@ -5,7 +5,12 @@ import findCacheDir from 'find-cache-dir';
 
 import Plugin from '../src/index';
 
-import { createCompiler, compile, cleanErrorStack } from './helpers';
+import {
+  createCompiler,
+  compile,
+  cleanErrorStack,
+  getAssetsInfo,
+} from './helpers';
 
 const cacheDir = findCacheDir({ name: 'compression-webpack-plugin' });
 
@@ -36,9 +41,7 @@ describe('when applied with `cache` option', () => {
 
       expect(errors).toMatchSnapshot('errors');
       expect(warnings).toMatchSnapshot('warnings');
-      expect(Object.keys(stats.compilation.assets).sort()).toMatchSnapshot(
-        'assets'
-      );
+      expect(getAssetsInfo(stats.compilation.assets)).toMatchSnapshot('assets');
 
       // Cache disabled so we don't run `get` or `put`
       expect(cacache.get.mock.calls.length).toBe(0);
@@ -66,9 +69,7 @@ describe('when applied with `cache` option', () => {
 
       expect(errors).toMatchSnapshot('errors');
       expect(warnings).toMatchSnapshot('warnings');
-      expect(Object.keys(stats.compilation.assets).sort()).toMatchSnapshot(
-        'assets'
-      );
+      expect(getAssetsInfo(stats.compilation.assets)).toMatchSnapshot('assets');
 
       const countAssets = Object.keys(stats.compilation.assets).length;
 
@@ -111,9 +112,9 @@ describe('when applied with `cache` option', () => {
 
             expect(newErrors).toMatchSnapshot('errors');
             expect(newWarnings).toMatchSnapshot('warnings');
-            expect(
-              Object.keys(newStats.compilation.assets).sort()
-            ).toMatchSnapshot('assets');
+            expect(getAssetsInfo(stats.compilation.assets)).toMatchSnapshot(
+              'assets'
+            );
 
             const newCountAssets = Object.keys(newStats.compilation.assets)
               .length;
