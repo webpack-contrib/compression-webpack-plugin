@@ -11,7 +11,7 @@ unit_tests: &unit_tests
         name: NPM Install.
         command: npm ci || npm i
     - run:
-        name: Run unit tests.
+        name: Run Test.
         command: npm run ci:test
 canary_tests: &canary_tests
   steps:
@@ -28,7 +28,7 @@ canary_tests: &canary_tests
         name: Install Webpack Canary.
         command: npm i --no-save webpack@next
     - run:
-        name: Run unit tests.
+        name: Run Test.
         command: if [[ $(compver --name webpack --gte next --lt latest) < 1 ]] ; then printf "Next is older than Latest - Skipping Canary Suite"; else npm run ci:test; fi
 
 version: 2
@@ -72,7 +72,7 @@ jobs:
           name: NPM Install.
           command: npm ci
       - run:
-          name: Run unit tests.
+          name: Run Test.
           command: npm run ci:coverage
       - run:
           name: Submit coverage data to codecov.
@@ -107,7 +107,7 @@ jobs:
 
 workflows:
   version: 2
-  validate-publish:
+  test:
     jobs:
     - dependency_cache
     - analysis:
