@@ -83,3 +83,35 @@ Array [
 exports[`when applied with \`algorithm\` option matches snapshot for custom function ({Function}): errors 1`] = `Array []`;
 
 exports[`when applied with \`algorithm\` option matches snapshot for custom function ({Function}): warnings 1`] = `Array []`;
+
+exports[`when applied with \`algorithm\` option matches snapshot for custom function with error ({Function}): assets 1`] = `
+Array [
+  Array [
+    "1.async.9ada34e1a37e6db8ef40.js",
+    130,
+  ],
+  Array [
+    "5b1f36bc41ab31f5b801d48ba1d65781.png",
+    78117,
+  ],
+  Array [
+    "96621d3c37d96ad3bf792fcc848d912f.svg",
+    672,
+  ],
+  Array [
+    "js.f0111e97a13538df48f2.js",
+    10212,
+  ],
+]
+`;
+
+exports[`when applied with \`algorithm\` option matches snapshot for custom function with error ({Function}): errors 1`] = `
+Array [
+  "Error",
+  "Error",
+  "Error",
+  "Error",
+]
+`;
+
+exports[`when applied with \`algorithm\` option matches snapshot for custom function with error ({Function}): warnings 1`] = `Array []`;

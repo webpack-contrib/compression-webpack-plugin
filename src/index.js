@@ -155,7 +155,11 @@ class CompressionPlugin {
 
               return cb();
             })
-            .catch(cb);
+            .catch((error) => {
+              compilation.errors.push(error);
+
+              return cb();
+            });
         },
         callback
       );
