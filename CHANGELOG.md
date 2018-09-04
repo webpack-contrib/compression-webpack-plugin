@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="2.0.0"></a>
+## [2.0.0](https://github.com/webpack-contrib/compression-webpack-plugin/compare/v1.1.12...v2.0.0) (2018-09-04)
+
+### Features
+
+* `filename` option now accept `{String}` value
+* validation schema for plugin options
+
+### BREAKING CHANGES
+
+* enforces `peerDependencies` of `"webpack": "^4.3.0"`
+* enforces `engines` of `"node": ">= 6.9.0 <7.0.0 || >= 8.9.0`
+* compressed options (`options.level`, `options.flush`, `options.dictionary` and etc) grouped into `compressionOptions` option
+* `asset` option was removed (use `filename` option instead)
+* default value of `filename` option is now `[path].gz[query]`
+
+
+
 <a name="1.1.12"></a>
 ## [1.1.12](https://github.com/webpack-contrib/compression-webpack-plugin/compare/v1.1.11...v1.1.12) (2018-08-29)
 

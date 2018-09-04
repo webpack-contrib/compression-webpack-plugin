@@ -35,7 +35,7 @@ Then add the plugin to your `webpack` config. For example:
 ```js
 module.exports = {
   plugins: [
-    new CompressionPlugin(...options)
+    new CompressionPlugin()
   ]
 }
 ```
@@ -247,7 +247,7 @@ new CompressionPlugin({
 
 ### Using Zopfli
 
-Prepare compressed versions of assets with `zopfli` is a compression library.
+Prepare compressed versions of assets using `zopfli` library.
 
 > ℹ️ `@gfx/zopfli` require minimum `8` version of `node`.
 
