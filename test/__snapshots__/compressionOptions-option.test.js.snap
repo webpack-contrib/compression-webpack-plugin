@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`when applied with \`compressionOptions\` option matches snapshot for \`{ compressionOptions: { level: 1 } }\` value: assets 1`] = `
+exports[`when applied with \`compressionOptions\` option matches snapshot for custom options ({Object}): assets 1`] = `
 Array [
   Array [
     "1.async.9ada34e1a37e6db8ef40.js",
@@ -37,9 +37,9 @@ Array [
 ]
 `;
 
-exports[`when applied with \`compressionOptions\` option matches snapshot for \`{ compressionOptions: { level: 1 } }\` value: errors 1`] = `Array []`;
+exports[`when applied with \`compressionOptions\` option matches snapshot for custom options ({Object}): errors 1`] = `Array []`;
 
-exports[`when applied with \`compressionOptions\` option matches snapshot for \`{ compressionOptions: { level: 1 } }\` value: warnings 1`] = `Array []`;
+exports[`when applied with \`compressionOptions\` option matches snapshot for custom options ({Object}): warnings 1`] = `Array []`;
 
 exports[`when applied with \`compressionOptions\` option matches snapshot without values: assets 1`] = `
 Array [

@@ -18,7 +18,7 @@ describe('when applied with `minRatio` option', () => {
     });
   });
 
-  it('matches snapshot for `0` value', () => {
+  it('matches snapshot for `0` value ({Number})', () => {
     new Plugin({
       minRatio: 0,
     }).apply(compiler);
@@ -33,7 +33,7 @@ describe('when applied with `minRatio` option', () => {
     });
   });
 
-  it('matches snapshot for `1` value', () => {
+  it('matches snapshot for `1` value ({Number})', () => {
     new Plugin({
       minRatio: 1,
     }).apply(compiler);

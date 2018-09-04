@@ -27,7 +27,7 @@ describe('when applied with `algorithm` option', () => {
     }).toThrowErrorMatchingSnapshot();
   });
 
-  it('matches snapshot for `gzip` value', () => {
+  it('matches snapshot for `gzip` value ({String})', () => {
     new Plugin({
       minRatio: 1,
       algorithm: 'gzip',
@@ -43,7 +43,7 @@ describe('when applied with `algorithm` option', () => {
     });
   });
 
-  it('matches snapshot for `{Function}` value', () => {
+  it('matches snapshot for custom function ({Function})', () => {
     new Plugin({
       minRatio: 1,
       algorithm: (input, options, callback) => callback(null, input),

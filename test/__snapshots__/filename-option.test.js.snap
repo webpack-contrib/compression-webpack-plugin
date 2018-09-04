@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`when applied with \`function\` option matches snapshot for \`[path].super-compressed.gz[query]\` value: assets 1`] = `
+exports[`when applied with \`function\` option matches snapshot for \`[path].super-compressed.gz[query]\` value ({String}): assets 1`] = `
 Array [
   Array [
     "1.async.js.super-compressed.gz?ver=1ea6f97e389bd951fd50",
@@ -37,11 +37,11 @@ Array [
 ]
 `;
 
-exports[`when applied with \`function\` option matches snapshot for \`[path].super-compressed.gz[query]\` value: errors 1`] = `Array []`;
+exports[`when applied with \`function\` option matches snapshot for \`[path].super-compressed.gz[query]\` value ({String}): errors 1`] = `Array []`;
 
-exports[`when applied with \`function\` option matches snapshot for \`[path].super-compressed.gz[query]\` value: warnings 1`] = `Array []`;
+exports[`when applied with \`function\` option matches snapshot for \`[path].super-compressed.gz[query]\` value ({String}): warnings 1`] = `Array []`;
 
-exports[`when applied with \`function\` option matches snapshot for \`{Function}\` value: assets 1`] = `
+exports[`when applied with \`function\` option matches snapshot for custom function ({Function}): assets 1`] = `
 Array [
   Array [
     "1.async.js.gz?ver=1ea6f97e389bd951fd50",
@@ -78,6 +78,6 @@ Array [
 ]
 `;
 
-exports[`when applied with \`function\` option matches snapshot for \`{Function}\` value: errors 1`] = `Array []`;
+exports[`when applied with \`function\` option matches snapshot for custom function ({Function}): errors 1`] = `Array []`;
 
-exports[`when applied with \`function\` option matches snapshot for \`{Function}\` value: warnings 1`] = `Array []`;
+exports[`when applied with \`function\` option matches snapshot for custom function ({Function}): warnings 1`] = `Array []`;

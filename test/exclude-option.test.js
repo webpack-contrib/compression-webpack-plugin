@@ -23,7 +23,7 @@ describe('when applied with `exclude` option', () => {
     });
   });
 
-  it('matches snapshot for a single `exclude` value', () => {
+  it('matches snapshot for a single `exclude` value ({RegExp})', () => {
     new Plugin({
       exclude: /\.svg(\?.*)?$/i,
       minRatio: 1,
@@ -39,7 +39,7 @@ describe('when applied with `exclude` option', () => {
     });
   });
 
-  it('matches snapshot for multiple `exclude` values', () => {
+  it('matches snapshot for multiple `exclude` values ({Array<RegExp>})', () => {
     new Plugin({
       exclude: [/\.svg(\?.*)?$/i, /\.png(\?.*)?$/i],
       minRatio: 1,

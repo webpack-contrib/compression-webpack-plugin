@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`when applied with \`cache\` option matches snapshot for \`false\` value: assets 1`] = `
+exports[`when applied with \`cache\` option matches snapshot for \`false\` value ({Boolean}): assets 1`] = `
 Array [
   Array [
     "1.async.9ada34e1a37e6db8ef40.js",
@@ -37,32 +37,32 @@ Array [
 ]
 `;
 
-exports[`when applied with \`cache\` option matches snapshot for \`false\` value: errors 1`] = `Array []`;
+exports[`when applied with \`cache\` option matches snapshot for \`false\` value ({Boolean}): errors 1`] = `Array []`;
 
-exports[`when applied with \`cache\` option matches snapshot for \`false\` value: warnings 1`] = `Array []`;
+exports[`when applied with \`cache\` option matches snapshot for \`false\` value ({Boolean}): warnings 1`] = `Array []`;
 
-exports[`when applied with \`cache\` option matches snapshot for \`other-cache-directory\` value: 1.async.9ada34e1a37e6db8ef40.js 1`] = `
+exports[`when applied with \`cache\` option matches snapshot for \`other-cache-directory\` value ({String}): 1.async.9ada34e1a37e6db8ef40.js 1`] = `
 Array [
   "1.async.9ada34e1a37e6db8ef40.js",
   "c19de9cd1850eadbe1cb6718a4fdf014",
 ]
 `;
 
-exports[`when applied with \`cache\` option matches snapshot for \`other-cache-directory\` value: 5b1f36bc41ab31f5b801d48ba1d65781.png 1`] = `
+exports[`when applied with \`cache\` option matches snapshot for \`other-cache-directory\` value ({String}): 5b1f36bc41ab31f5b801d48ba1d65781.png 1`] = `
 Array [
   "5b1f36bc41ab31f5b801d48ba1d65781.png",
   "09a1a1112c577c2794359715edfcb5ac",
 ]
 `;
 
-exports[`when applied with \`cache\` option matches snapshot for \`other-cache-directory\` value: 96621d3c37d96ad3bf792fcc848d912f.svg 1`] = `
+exports[`when applied with \`cache\` option matches snapshot for \`other-cache-directory\` value ({String}): 96621d3c37d96ad3bf792fcc848d912f.svg 1`] = `
 Array [
   "96621d3c37d96ad3bf792fcc848d912f.svg",
   "23fc1d3ac606d117e05a140e0de79806",
 ]
 `;
 
-exports[`when applied with \`cache\` option matches snapshot for \`other-cache-directory\` value: assets 1`] = `
+exports[`when applied with \`cache\` option matches snapshot for \`other-cache-directory\` value ({String}): assets 1`] = `
 Array [
   Array [
     "1.async.9ada34e1a37e6db8ef40.js",
@@ -99,7 +99,7 @@ Array [
 ]
 `;
 
-exports[`when applied with \`cache\` option matches snapshot for \`other-cache-directory\` value: assets 2`] = `
+exports[`when applied with \`cache\` option matches snapshot for \`other-cache-directory\` value ({String}): assets 2`] = `
 Array [
   Array [
     "1.async.9ada34e1a37e6db8ef40.js",
@@ -136,43 +136,43 @@ Array [
 ]
 `;
 
-exports[`when applied with \`cache\` option matches snapshot for \`other-cache-directory\` value: errors 1`] = `Array []`;
+exports[`when applied with \`cache\` option matches snapshot for \`other-cache-directory\` value ({String}): errors 1`] = `Array []`;
 
-exports[`when applied with \`cache\` option matches snapshot for \`other-cache-directory\` value: errors 2`] = `Array []`;
+exports[`when applied with \`cache\` option matches snapshot for \`other-cache-directory\` value ({String}): errors 2`] = `Array []`;
 
-exports[`when applied with \`cache\` option matches snapshot for \`other-cache-directory\` value: js.f0111e97a13538df48f2.js 1`] = `
+exports[`when applied with \`cache\` option matches snapshot for \`other-cache-directory\` value ({String}): js.f0111e97a13538df48f2.js 1`] = `
 Array [
   "js.f0111e97a13538df48f2.js",
   "1c64a5f14981dc0e16e7e9ef6cb1d7e4",
 ]
 `;
 
-exports[`when applied with \`cache\` option matches snapshot for \`other-cache-directory\` value: warnings 1`] = `Array []`;
+exports[`when applied with \`cache\` option matches snapshot for \`other-cache-directory\` value ({String}): warnings 1`] = `Array []`;
 
-exports[`when applied with \`cache\` option matches snapshot for \`other-cache-directory\` value: warnings 2`] = `Array []`;
+exports[`when applied with \`cache\` option matches snapshot for \`other-cache-directory\` value ({String}): warnings 2`] = `Array []`;
 
-exports[`when applied with \`cache\` option matches snapshot for \`true\` value: 1.async.9ada34e1a37e6db8ef40.js 1`] = `
+exports[`when applied with \`cache\` option matches snapshot for \`true\` value ({Boolean}): 1.async.9ada34e1a37e6db8ef40.js 1`] = `
 Array [
   "1.async.9ada34e1a37e6db8ef40.js",
   "c19de9cd1850eadbe1cb6718a4fdf014",
 ]
 `;
 
-exports[`when applied with \`cache\` option matches snapshot for \`true\` value: 5b1f36bc41ab31f5b801d48ba1d65781.png 1`] = `
+exports[`when applied with \`cache\` option matches snapshot for \`true\` value ({Boolean}): 5b1f36bc41ab31f5b801d48ba1d65781.png 1`] = `
 Array [
   "5b1f36bc41ab31f5b801d48ba1d65781.png",
   "09a1a1112c577c2794359715edfcb5ac",
 ]
 `;
 
-exports[`when applied with \`cache\` option matches snapshot for \`true\` value: 96621d3c37d96ad3bf792fcc848d912f.svg 1`] = `
+exports[`when applied with \`cache\` option matches snapshot for \`true\` value ({Boolean}): 96621d3c37d96ad3bf792fcc848d912f.svg 1`] = `
 Array [
   "96621d3c37d96ad3bf792fcc848d912f.svg",
   "23fc1d3ac606d117e05a140e0de79806",
 ]
 `;
 
-exports[`when applied with \`cache\` option matches snapshot for \`true\` value: assets 1`] = `
+exports[`when applied with \`cache\` option matches snapshot for \`true\` value ({Boolean}): assets 1`] = `
 Array [
   Array [
     "1.async.9ada34e1a37e6db8ef40.js",
@@ -209,7 +209,7 @@ Array [
 ]
 `;
 
-exports[`when applied with \`cache\` option matches snapshot for \`true\` value: assets 2`] = `
+exports[`when applied with \`cache\` option matches snapshot for \`true\` value ({Boolean}): assets 2`] = `
 Array [
   Array [
     "1.async.9ada34e1a37e6db8ef40.js",
@@ -246,17 +246,17 @@ Array [
 ]
 `;
 
-exports[`when applied with \`cache\` option matches snapshot for \`true\` value: errors 1`] = `Array []`;
+exports[`when applied with \`cache\` option matches snapshot for \`true\` value ({Boolean}): errors 1`] = `Array []`;
 
-exports[`when applied with \`cache\` option matches snapshot for \`true\` value: errors 2`] = `Array []`;
+exports[`when applied with \`cache\` option matches snapshot for \`true\` value ({Boolean}): errors 2`] = `Array []`;
 
-exports[`when applied with \`cache\` option matches snapshot for \`true\` value: js.f0111e97a13538df48f2.js 1`] = `
+exports[`when applied with \`cache\` option matches snapshot for \`true\` value ({Boolean}): js.f0111e97a13538df48f2.js 1`] = `
 Array [
   "js.f0111e97a13538df48f2.js",
   "1c64a5f14981dc0e16e7e9ef6cb1d7e4",
 ]
 `;
 
-exports[`when applied with \`cache\` option matches snapshot for \`true\` value: warnings 1`] = `Array []`;
+exports[`when applied with \`cache\` option matches snapshot for \`true\` value ({Boolean}): warnings 1`] = `Array []`;
 
-exports[`when applied with \`cache\` option matches snapshot for \`true\` value: warnings 2`] = `Array []`;
+exports[`when applied with \`cache\` option matches snapshot for \`true\` value ({Boolean}): warnings 2`] = `Array []`;

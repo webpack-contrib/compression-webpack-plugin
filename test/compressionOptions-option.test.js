@@ -33,7 +33,7 @@ describe('when applied with `compressionOptions` option', () => {
     });
   });
 
-  it('matches snapshot for `{ compressionOptions: { level: 1 } }` value', () => {
+  it('matches snapshot for custom options ({Object})', () => {
     new Plugin({
       compressionOptions: {
         level: 1,

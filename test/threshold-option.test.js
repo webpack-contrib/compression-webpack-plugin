@@ -18,7 +18,7 @@ describe('when applied with `threshold` option', () => {
     });
   });
 
-  it('matches snapshot for `0` value', () => {
+  it('matches snapshot for `0` value ({Number})', () => {
     new Plugin({
       minRatio: 1,
       threshold: 0,
@@ -34,7 +34,7 @@ describe('when applied with `threshold` option', () => {
     });
   });
 
-  it('matches snapshot for `8192` value', () => {
+  it('matches snapshot for `8192` value ({Number})', () => {
     new Plugin({
       minRatio: 1,
       threshold: 8192,

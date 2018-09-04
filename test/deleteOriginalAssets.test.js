@@ -18,7 +18,7 @@ describe('when applied with `test` option', () => {
     });
   });
 
-  it('matches snapshot for `true` value', () => {
+  it('matches snapshot for `true` value ({Boolean})', () => {
     new Plugin({
       minRatio: 1,
       deleteOriginalAssets: true,
@@ -34,7 +34,7 @@ describe('when applied with `test` option', () => {
     });
   });
 
-  it('matches snapshot for `false` value', () => {
+  it('matches snapshot for `false` value ({Boolean})', () => {
     new Plugin({
       minRatio: 1,
       deleteOriginalAssets: false,

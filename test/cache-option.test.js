@@ -34,7 +34,7 @@ describe('when applied with `cache` option', () => {
   afterEach(() =>
     Promise.all([cacache.rm.all(cacheDir), cacache.rm.all(otherCacheDir)]));
 
-  it('matches snapshot for `false` value', () => {
+  it('matches snapshot for `false` value ({Boolean})', () => {
     new Plugin({ cache: false, minRatio: 1 }).apply(compiler);
 
     cacache.get = jest.fn(cacache.get);
@@ -62,7 +62,7 @@ describe('when applied with `cache` option', () => {
     });
   });
 
-  it('matches snapshot for `true` value', () => {
+  it('matches snapshot for `true` value ({Boolean})', () => {
     new Plugin({ cache: true, minRatio: 1 }).apply(compiler);
 
     cacache.get = jest.fn(cacache.get);
@@ -132,7 +132,7 @@ describe('when applied with `cache` option', () => {
     });
   });
 
-  it('matches snapshot for `other-cache-directory` value', () => {
+  it('matches snapshot for `other-cache-directory` value ({String})', () => {
     new Plugin({ cache: otherCacheDir, minRatio: 1 }).apply(compiler);
 
     cacache.get = jest.fn(cacache.get);

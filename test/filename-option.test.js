@@ -23,7 +23,7 @@ describe('when applied with `function` option', () => {
     });
   });
 
-  it('matches snapshot for `[path].super-compressed.gz[query]` value', () => {
+  it('matches snapshot for `[path].super-compressed.gz[query]` value ({String})', () => {
     new Plugin({
       minRatio: 1,
       filename: '[path].super-compressed.gz[query]',
@@ -39,7 +39,7 @@ describe('when applied with `function` option', () => {
     });
   });
 
-  it('matches snapshot for `{Function}` value', () => {
+  it('matches snapshot for custom function ({Function})', () => {
     new Plugin({
       minRatio: 1,
       filename(info) {
