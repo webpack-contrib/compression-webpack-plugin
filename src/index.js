@@ -20,7 +20,7 @@ import schema from './options.json';
 
 class CompressionPlugin {
   constructor(options = {}) {
-    validateOptions(schema, options, 'Terser Plugin');
+    validateOptions(schema, options, 'Compression Plugin');
 
     const {
       test,
