@@ -7,7 +7,7 @@ import {
   getAssetsInfo,
 } from './helpers';
 
-describe('when applied with `test` option', () => {
+describe('when applied with `compressionOptions` option', () => {
   let compiler;
 
   beforeEach(() => {
@@ -18,10 +18,9 @@ describe('when applied with `test` option', () => {
     });
   });
 
-  it('matches snapshot for `true` value ({Boolean})', () => {
+  it('matches snapshot without values', () => {
     new Plugin({
       minRatio: 1,
-      deleteOriginalAssets: true,
     }).apply(compiler);
 
     return compile(compiler).then((stats) => {
@@ -34,10 +33,12 @@ describe('when applied with `test` option', () => {
     });
   });
 
-  it('matches snapshot for `false` value ({Boolean})', () => {
+  it('matches snapshot for custom options ({Object})', () => {
     new Plugin({
+      compressionOptions: {
+        level: 1,
+      },
       minRatio: 1,
-      deleteOriginalAssets: false,
     }).apply(compiler);
 
     return compile(compiler).then((stats) => {

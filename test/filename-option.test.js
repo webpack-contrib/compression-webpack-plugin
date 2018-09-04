@@ -1,5 +1,11 @@
 import Plugin from '../src/index';
-import { cleanErrorStack, createCompiler, compile } from './helpers';
+
+import {
+  cleanErrorStack,
+  createCompiler,
+  compile,
+  getAssetsInfo,
+} from './helpers';
 
 describe('when applied with `function` option', () => {
   let compiler;
@@ -17,11 +23,27 @@ describe('when applied with `function` option', () => {
     });
   });
 
-  it('matches snapshot for `{Function}` value', () => {
+  it('matches snapshot for `[path].super-compressed.gz[query]` value ({String})', () => {
     new Plugin({
       minRatio: 1,
-      filename(newAssetName) {
-        return `path/to/my/${newAssetName}`;
+      filename: '[path].super-compressed.gz[query]',
+    }).apply(compiler);
+
+    return compile(compiler).then((stats) => {
+      const errors = stats.compilation.errors.map(cleanErrorStack);
+      const warnings = stats.compilation.warnings.map(cleanErrorStack);
+
+      expect(errors).toMatchSnapshot('errors');
+      expect(warnings).toMatchSnapshot('warnings');
+      expect(getAssetsInfo(stats.compilation.assets)).toMatchSnapshot('assets');
+    });
+  });
+
+  it('matches snapshot for custom function ({Function})', () => {
+    new Plugin({
+      minRatio: 1,
+      filename(info) {
+        return `${info.path}.gz${info.query}`;
       },
     }).apply(compiler);
 
@@ -31,7 +53,7 @@ describe('when applied with `function` option', () => {
 
       expect(errors).toMatchSnapshot('errors');
       expect(warnings).toMatchSnapshot('warnings');
-      expect(Object.keys(stats.compilation.assets).sort()).toMatchSnapshot('assets');
+      expect(getAssetsInfo(stats.compilation.assets)).toMatchSnapshot('assets');
     });
   });
 });

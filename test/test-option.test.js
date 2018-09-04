@@ -1,5 +1,11 @@
 import Plugin from '../src/index';
-import { cleanErrorStack, createCompiler, compile } from './helpers';
+
+import {
+  cleanErrorStack,
+  createCompiler,
+  compile,
+  getAssetsInfo,
+} from './helpers';
 
 describe('when applied with `test` option', () => {
   let compiler;
@@ -28,11 +34,11 @@ describe('when applied with `test` option', () => {
 
       expect(errors).toMatchSnapshot('errors');
       expect(warnings).toMatchSnapshot('warnings');
-      expect(Object.keys(stats.compilation.assets).sort()).toMatchSnapshot('assets');
+      expect(getAssetsInfo(stats.compilation.assets)).toMatchSnapshot('assets');
     });
   });
 
-  it('matches snapshot for a single `test` value', () => {
+  it('matches snapshot for a single `test` value ({RegExp})', () => {
     new Plugin({
       test: /\.(png|jpg|gif)$/i,
       minRatio: 1,
@@ -44,11 +50,11 @@ describe('when applied with `test` option', () => {
 
       expect(errors).toMatchSnapshot('errors');
       expect(warnings).toMatchSnapshot('warnings');
-      expect(Object.keys(stats.compilation.assets).sort()).toMatchSnapshot('assets');
+      expect(getAssetsInfo(stats.compilation.assets)).toMatchSnapshot('assets');
     });
   });
 
-  it('matches snapshot for multiple `test` values', () => {
+  it('matches snapshot for multiple `test` values ({Array<RegExp>})', () => {
     new Plugin({
       test: [/\.(png|jpg|gif)$/i, /\.svg/i],
       minRatio: 1,
@@ -60,7 +66,7 @@ describe('when applied with `test` option', () => {
 
       expect(errors).toMatchSnapshot('errors');
       expect(warnings).toMatchSnapshot('warnings');
-      expect(Object.keys(stats.compilation.assets).sort()).toMatchSnapshot('assets');
+      expect(getAssetsInfo(stats.compilation.assets)).toMatchSnapshot('assets');
     });
   });
 });

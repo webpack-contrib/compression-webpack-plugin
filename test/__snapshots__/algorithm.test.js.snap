@@ -1,37 +1,198 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`when applied with \`algorithm\` option matches snapshot for \`{Function}\` value: assets 1`] = `
+exports[`when applied with \`algorithm\` option matches snapshot for \`@gfx/zopfli\` library ({Function}): assets 1`] = `
 Array [
-  "1.async.9ada34e1a37e6db8ef40.js",
-  "1.async.9ada34e1a37e6db8ef40.js.gz",
-  "5b1f36bc41ab31f5b801d48ba1d65781.png",
-  "5b1f36bc41ab31f5b801d48ba1d65781.png.gz",
-  "96621d3c37d96ad3bf792fcc848d912f.svg",
-  "96621d3c37d96ad3bf792fcc848d912f.svg.gz",
-  "js.f0111e97a13538df48f2.js",
-  "js.f0111e97a13538df48f2.js.gz",
+  Array [
+    "1.async.9ada34e1a37e6db8ef40.js",
+    "size was skipped by test",
+  ],
+  Array [
+    "1.async.9ada34e1a37e6db8ef40.js.gz",
+    "size was skipped by test",
+  ],
+  Array [
+    "5b1f36bc41ab31f5b801d48ba1d65781.png",
+    "size was skipped by test",
+  ],
+  Array [
+    "5b1f36bc41ab31f5b801d48ba1d65781.png.gz",
+    "size was skipped by test",
+  ],
+  Array [
+    "96621d3c37d96ad3bf792fcc848d912f.svg",
+    "size was skipped by test",
+  ],
+  Array [
+    "96621d3c37d96ad3bf792fcc848d912f.svg.gz",
+    "size was skipped by test",
+  ],
+  Array [
+    "js.f0111e97a13538df48f2.js",
+    "size was skipped by test",
+  ],
+  Array [
+    "js.f0111e97a13538df48f2.js.gz",
+    "size was skipped by test",
+  ],
 ]
 `;
 
-exports[`when applied with \`algorithm\` option matches snapshot for \`{Function}\` value: errors 1`] = `Array []`;
+exports[`when applied with \`algorithm\` option matches snapshot for \`@gfx/zopfli\` library ({Function}): compressionOptions 1`] = `
+Object {
+  "numiterations": 15,
+}
+`;
 
-exports[`when applied with \`algorithm\` option matches snapshot for \`{Function}\` value: warnings 1`] = `Array []`;
+exports[`when applied with \`algorithm\` option matches snapshot for \`@gfx/zopfli\` library ({Function}): compressionOptions 2`] = `
+Object {
+  "numiterations": 15,
+}
+`;
 
-exports[`when applied with \`algorithm\` option matches snapshot for \`gzip\` value: assets 1`] = `
+exports[`when applied with \`algorithm\` option matches snapshot for \`@gfx/zopfli\` library ({Function}): compressionOptions 3`] = `
+Object {
+  "numiterations": 15,
+}
+`;
+
+exports[`when applied with \`algorithm\` option matches snapshot for \`@gfx/zopfli\` library ({Function}): compressionOptions 4`] = `
+Object {
+  "numiterations": 15,
+}
+`;
+
+exports[`when applied with \`algorithm\` option matches snapshot for \`@gfx/zopfli\` library ({Function}): errors 1`] = `Array []`;
+
+exports[`when applied with \`algorithm\` option matches snapshot for \`@gfx/zopfli\` library ({Function}): warnings 1`] = `Array []`;
+
+exports[`when applied with \`algorithm\` option matches snapshot for \`gzip\` value ({String}): assets 1`] = `
 Array [
-  "1.async.9ada34e1a37e6db8ef40.js",
-  "1.async.9ada34e1a37e6db8ef40.js.gz",
-  "5b1f36bc41ab31f5b801d48ba1d65781.png",
-  "5b1f36bc41ab31f5b801d48ba1d65781.png.gz",
-  "96621d3c37d96ad3bf792fcc848d912f.svg",
-  "96621d3c37d96ad3bf792fcc848d912f.svg.gz",
-  "js.f0111e97a13538df48f2.js",
-  "js.f0111e97a13538df48f2.js.gz",
+  Array [
+    "1.async.9ada34e1a37e6db8ef40.js",
+    130,
+  ],
+  Array [
+    "1.async.9ada34e1a37e6db8ef40.js.gz",
+    117,
+  ],
+  Array [
+    "5b1f36bc41ab31f5b801d48ba1d65781.png",
+    78117,
+  ],
+  Array [
+    "5b1f36bc41ab31f5b801d48ba1d65781.png.gz",
+    73160,
+  ],
+  Array [
+    "96621d3c37d96ad3bf792fcc848d912f.svg",
+    672,
+  ],
+  Array [
+    "96621d3c37d96ad3bf792fcc848d912f.svg.gz",
+    393,
+  ],
+  Array [
+    "js.f0111e97a13538df48f2.js",
+    10212,
+  ],
+  Array [
+    "js.f0111e97a13538df48f2.js.gz",
+    2769,
+  ],
 ]
 `;
 
-exports[`when applied with \`algorithm\` option matches snapshot for \`gzip\` value: errors 1`] = `Array []`;
+exports[`when applied with \`algorithm\` option matches snapshot for \`gzip\` value ({String}): errors 1`] = `Array []`;
 
-exports[`when applied with \`algorithm\` option matches snapshot for \`gzip\` value: warnings 1`] = `Array []`;
+exports[`when applied with \`algorithm\` option matches snapshot for \`gzip\` value ({String}): warnings 1`] = `Array []`;
 
 exports[`when applied with \`algorithm\` option matches snapshot for \`unknown\` value ({String}) 1`] = `"Algorithm not found in zlib"`;
+
+exports[`when applied with \`algorithm\` option matches snapshot for custom function ({Function}): assets 1`] = `
+Array [
+  Array [
+    "1.async.9ada34e1a37e6db8ef40.js",
+    130,
+  ],
+  Array [
+    "1.async.9ada34e1a37e6db8ef40.js.gz",
+    130,
+  ],
+  Array [
+    "5b1f36bc41ab31f5b801d48ba1d65781.png",
+    78117,
+  ],
+  Array [
+    "5b1f36bc41ab31f5b801d48ba1d65781.png.gz",
+    78117,
+  ],
+  Array [
+    "96621d3c37d96ad3bf792fcc848d912f.svg",
+    672,
+  ],
+  Array [
+    "96621d3c37d96ad3bf792fcc848d912f.svg.gz",
+    672,
+  ],
+  Array [
+    "js.f0111e97a13538df48f2.js",
+    10212,
+  ],
+  Array [
+    "js.f0111e97a13538df48f2.js.gz",
+    10212,
+  ],
+]
+`;
+
+exports[`when applied with \`algorithm\` option matches snapshot for custom function ({Function}): compressionOptions 1`] = `Object {}`;
+
+exports[`when applied with \`algorithm\` option matches snapshot for custom function ({Function}): compressionOptions 2`] = `Object {}`;
+
+exports[`when applied with \`algorithm\` option matches snapshot for custom function ({Function}): compressionOptions 3`] = `Object {}`;
+
+exports[`when applied with \`algorithm\` option matches snapshot for custom function ({Function}): compressionOptions 4`] = `Object {}`;
+
+exports[`when applied with \`algorithm\` option matches snapshot for custom function ({Function}): errors 1`] = `Array []`;
+
+exports[`when applied with \`algorithm\` option matches snapshot for custom function ({Function}): warnings 1`] = `Array []`;
+
+exports[`when applied with \`algorithm\` option matches snapshot for custom function with error ({Function}): assets 1`] = `
+Array [
+  Array [
+    "1.async.9ada34e1a37e6db8ef40.js",
+    130,
+  ],
+  Array [
+    "5b1f36bc41ab31f5b801d48ba1d65781.png",
+    78117,
+  ],
+  Array [
+    "96621d3c37d96ad3bf792fcc848d912f.svg",
+    672,
+  ],
+  Array [
+    "js.f0111e97a13538df48f2.js",
+    10212,
+  ],
+]
+`;
+
+exports[`when applied with \`algorithm\` option matches snapshot for custom function with error ({Function}): compressionOptions 1`] = `Object {}`;
+
+exports[`when applied with \`algorithm\` option matches snapshot for custom function with error ({Function}): compressionOptions 2`] = `Object {}`;
+
+exports[`when applied with \`algorithm\` option matches snapshot for custom function with error ({Function}): compressionOptions 3`] = `Object {}`;
+
+exports[`when applied with \`algorithm\` option matches snapshot for custom function with error ({Function}): compressionOptions 4`] = `Object {}`;
+
+exports[`when applied with \`algorithm\` option matches snapshot for custom function with error ({Function}): errors 1`] = `
+Array [
+  "Error",
+  "Error",
+  "Error",
+  "Error",
+]
+`;
+
+exports[`when applied with \`algorithm\` option matches snapshot for custom function with error ({Function}): warnings 1`] = `Array []`;

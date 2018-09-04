@@ -1,5 +1,11 @@
 import Plugin from '../src/index';
-import { cleanErrorStack, createCompiler, compile } from './helpers';
+
+import {
+  cleanErrorStack,
+  createCompiler,
+  compile,
+  getAssetsInfo,
+} from './helpers';
 
 describe('when applied with `include` option', () => {
   let compiler;
@@ -17,7 +23,7 @@ describe('when applied with `include` option', () => {
     });
   });
 
-  it('matches snapshot for a single `include` value', () => {
+  it('matches snapshot for a single `include` value ({RegExp})', () => {
     new Plugin({
       include: /\.js(\?.*)?$/i,
       minRatio: 1,
@@ -29,11 +35,11 @@ describe('when applied with `include` option', () => {
 
       expect(errors).toMatchSnapshot('errors');
       expect(warnings).toMatchSnapshot('warnings');
-      expect(Object.keys(stats.compilation.assets).sort()).toMatchSnapshot('assets');
+      expect(getAssetsInfo(stats.compilation.assets)).toMatchSnapshot('assets');
     });
   });
 
-  it('matches snapshot for multiple `include` values', () => {
+  it('matches snapshot for multiple `include` values ({Array<RegExp>})', () => {
     new Plugin({
       include: [/\.js(\?.*)?$/i, /\.svg(\?.*)?$/i],
       minRatio: 1,
@@ -45,7 +51,7 @@ describe('when applied with `include` option', () => {
 
       expect(errors).toMatchSnapshot('errors');
       expect(warnings).toMatchSnapshot('warnings');
-      expect(Object.keys(stats.compilation.assets).sort()).toMatchSnapshot('assets');
+      expect(getAssetsInfo(stats.compilation.assets)).toMatchSnapshot('assets');
     });
   });
 });

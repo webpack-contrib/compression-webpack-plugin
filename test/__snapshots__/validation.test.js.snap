@@ -1,0 +1,173 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`validation 1`] = `
+"Compression Plugin Invalid Options
+
+options.test should pass \\"instanceof\\" keyword validation
+options.test should be string
+options.test should match some schema in anyOf
+options.test should be array
+options.test should match some schema in anyOf
+"
+`;
+
+exports[`validation 2`] = `
+"Compression Plugin Invalid Options
+
+options.test should pass \\"instanceof\\" keyword validation
+options.test should be string
+options.test should match some schema in anyOf
+options.test.0 should pass \\"instanceof\\" keyword validation
+options.test.0 should be string
+options.test.0 should match some schema in anyOf
+options.test.0 should match some schema in anyOf
+options.test should match some schema in anyOf
+"
+`;
+
+exports[`validation 3`] = `
+"Compression Plugin Invalid Options
+
+options.test should pass \\"instanceof\\" keyword validation
+options.test should be string
+options.test should match some schema in anyOf
+options.test.2 should pass \\"instanceof\\" keyword validation
+options.test.2 should be string
+options.test.2 should match some schema in anyOf
+options.test.2 should match some schema in anyOf
+options.test should match some schema in anyOf
+"
+`;
+
+exports[`validation 4`] = `
+"Compression Plugin Invalid Options
+
+options.include should pass \\"instanceof\\" keyword validation
+options.include should be string
+options.include should match some schema in anyOf
+options.include should be array
+options.include should match some schema in anyOf
+"
+`;
+
+exports[`validation 5`] = `
+"Compression Plugin Invalid Options
+
+options.include should pass \\"instanceof\\" keyword validation
+options.include should be string
+options.include should match some schema in anyOf
+options.include.0 should pass \\"instanceof\\" keyword validation
+options.include.0 should be string
+options.include.0 should match some schema in anyOf
+options.include.0 should match some schema in anyOf
+options.include should match some schema in anyOf
+"
+`;
+
+exports[`validation 6`] = `
+"Compression Plugin Invalid Options
+
+options.include should pass \\"instanceof\\" keyword validation
+options.include should be string
+options.include should match some schema in anyOf
+options.include.2 should pass \\"instanceof\\" keyword validation
+options.include.2 should be string
+options.include.2 should match some schema in anyOf
+options.include.2 should match some schema in anyOf
+options.include should match some schema in anyOf
+"
+`;
+
+exports[`validation 7`] = `
+"Compression Plugin Invalid Options
+
+options.exclude should pass \\"instanceof\\" keyword validation
+options.exclude should be string
+options.exclude should match some schema in anyOf
+options.exclude should be array
+options.exclude should match some schema in anyOf
+"
+`;
+
+exports[`validation 8`] = `
+"Compression Plugin Invalid Options
+
+options.exclude should pass \\"instanceof\\" keyword validation
+options.exclude should be string
+options.exclude should match some schema in anyOf
+options.exclude.0 should pass \\"instanceof\\" keyword validation
+options.exclude.0 should be string
+options.exclude.0 should match some schema in anyOf
+options.exclude.0 should match some schema in anyOf
+options.exclude should match some schema in anyOf
+"
+`;
+
+exports[`validation 9`] = `
+"Compression Plugin Invalid Options
+
+options.exclude should pass \\"instanceof\\" keyword validation
+options.exclude should be string
+options.exclude should match some schema in anyOf
+options.exclude.2 should pass \\"instanceof\\" keyword validation
+options.exclude.2 should be string
+options.exclude.2 should match some schema in anyOf
+options.exclude.2 should match some schema in anyOf
+options.exclude should match some schema in anyOf
+"
+`;
+
+exports[`validation 10`] = `
+"Compression Plugin Invalid Options
+
+options.cache should be boolean
+options.cache should be string
+options.cache should match some schema in anyOf
+"
+`;
+
+exports[`validation 11`] = `
+"Compression Plugin Invalid Options
+
+options.filename should be string
+options.filename should pass \\"instanceof\\" keyword validation
+options.filename should match some schema in anyOf
+"
+`;
+
+exports[`validation 12`] = `
+"Compression Plugin Invalid Options
+
+options.algorithm should be string
+options.algorithm should pass \\"instanceof\\" keyword validation
+options.algorithm should match some schema in anyOf
+"
+`;
+
+exports[`validation 13`] = `
+"Compression Plugin Invalid Options
+
+options.compressionOptions should be object
+"
+`;
+
+exports[`validation 14`] = `
+"Compression Plugin Invalid Options
+
+options.threshold should be number
+"
+`;
+
+exports[`validation 15`] = `
+"Compression Plugin Invalid Options
+
+options.minRatio should be number
+"
+`;
+
+exports[`validation 16`] = `
+"Compression Plugin Invalid Options
+
+options.deleteOriginalAssets should be boolean
+"
+`;

@@ -1,5 +1,11 @@
 import Plugin from '../src/index';
-import { cleanErrorStack, createCompiler, compile } from './helpers';
+
+import {
+  cleanErrorStack,
+  createCompiler,
+  compile,
+  getAssetsInfo,
+} from './helpers';
 
 describe('when applied with `minRatio` option', () => {
   let compiler;
@@ -9,15 +15,10 @@ describe('when applied with `minRatio` option', () => {
       entry: {
         js: `${__dirname}/fixtures/entry.js`,
       },
-      output: {
-        path: `${__dirname}/dist`,
-        filename: '[name].js?var=[hash]',
-        chunkFilename: '[id].[name].js?ver=[hash]',
-      },
     });
   });
 
-  it('matches snapshot for `0` value', () => {
+  it('matches snapshot for `0` value ({Number})', () => {
     new Plugin({
       minRatio: 0,
     }).apply(compiler);
@@ -28,11 +29,11 @@ describe('when applied with `minRatio` option', () => {
 
       expect(errors).toMatchSnapshot('errors');
       expect(warnings).toMatchSnapshot('warnings');
-      expect(Object.keys(stats.compilation.assets).sort()).toMatchSnapshot('assets');
+      expect(getAssetsInfo(stats.compilation.assets)).toMatchSnapshot('assets');
     });
   });
 
-  it('matches snapshot for `1` value', () => {
+  it('matches snapshot for `1` value ({Number})', () => {
     new Plugin({
       minRatio: 1,
     }).apply(compiler);
@@ -43,7 +44,7 @@ describe('when applied with `minRatio` option', () => {
 
       expect(errors).toMatchSnapshot('errors');
       expect(warnings).toMatchSnapshot('warnings');
-      expect(Object.keys(stats.compilation.assets).sort()).toMatchSnapshot('assets');
+      expect(getAssetsInfo(stats.compilation.assets)).toMatchSnapshot('assets');
     });
   });
 });

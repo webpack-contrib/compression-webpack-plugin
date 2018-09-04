@@ -1,5 +1,11 @@
 import Plugin from '../src/index';
-import { cleanErrorStack, createCompiler, compile } from './helpers';
+
+import {
+  cleanErrorStack,
+  createCompiler,
+  compile,
+  getAssetsInfo,
+} from './helpers';
 
 describe('when applied with `threshold` option', () => {
   let compiler;
@@ -12,7 +18,7 @@ describe('when applied with `threshold` option', () => {
     });
   });
 
-  it('matches snapshot for `0` value', () => {
+  it('matches snapshot for `0` value ({Number})', () => {
     new Plugin({
       minRatio: 1,
       threshold: 0,
@@ -24,11 +30,11 @@ describe('when applied with `threshold` option', () => {
 
       expect(errors).toMatchSnapshot('errors');
       expect(warnings).toMatchSnapshot('warnings');
-      expect(Object.keys(stats.compilation.assets).sort()).toMatchSnapshot('assets');
+      expect(getAssetsInfo(stats.compilation.assets)).toMatchSnapshot('assets');
     });
   });
 
-  it('matches snapshot for `8192` value', () => {
+  it('matches snapshot for `8192` value ({Number})', () => {
     new Plugin({
       minRatio: 1,
       threshold: 8192,
@@ -40,7 +46,7 @@ describe('when applied with `threshold` option', () => {
 
       expect(errors).toMatchSnapshot('errors');
       expect(warnings).toMatchSnapshot('warnings');
-      expect(Object.keys(stats.compilation.assets).sort()).toMatchSnapshot('assets');
+      expect(getAssetsInfo(stats.compilation.assets)).toMatchSnapshot('assets');
     });
   });
 });

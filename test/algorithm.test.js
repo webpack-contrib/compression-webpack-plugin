@@ -1,5 +1,11 @@
 import Plugin from '../src/index';
-import { cleanErrorStack, createCompiler, compile } from './helpers';
+
+import {
+  cleanErrorStack,
+  createCompiler,
+  compile,
+  getAssetsInfo,
+} from './helpers';
 
 describe('when applied with `algorithm` option', () => {
   let compiler;
@@ -21,7 +27,7 @@ describe('when applied with `algorithm` option', () => {
     }).toThrowErrorMatchingSnapshot();
   });
 
-  it('matches snapshot for `gzip` value', () => {
+  it('matches snapshot for `gzip` value ({String})', () => {
     new Plugin({
       minRatio: 1,
       algorithm: 'gzip',
@@ -33,14 +39,18 @@ describe('when applied with `algorithm` option', () => {
 
       expect(errors).toMatchSnapshot('errors');
       expect(warnings).toMatchSnapshot('warnings');
-      expect(Object.keys(stats.compilation.assets).sort()).toMatchSnapshot('assets');
+      expect(getAssetsInfo(stats.compilation.assets)).toMatchSnapshot('assets');
     });
   });
 
-  it('matches snapshot for `{Function}` value', () => {
+  it('matches snapshot for custom function ({Function})', () => {
     new Plugin({
       minRatio: 1,
-      algorithm: (input, options, callback) => callback(null, input),
+      algorithm(input, compressionOptions, callback) {
+        expect(compressionOptions).toMatchSnapshot('compressionOptions');
+
+        return callback(null, input);
+      },
     }).apply(compiler);
 
     return compile(compiler).then((stats) => {
@@ -49,7 +59,60 @@ describe('when applied with `algorithm` option', () => {
 
       expect(errors).toMatchSnapshot('errors');
       expect(warnings).toMatchSnapshot('warnings');
-      expect(Object.keys(stats.compilation.assets).sort()).toMatchSnapshot('assets');
+      expect(getAssetsInfo(stats.compilation.assets)).toMatchSnapshot('assets');
+    });
+  });
+
+  it('matches snapshot for custom function with error ({Function})', () => {
+    new Plugin({
+      minRatio: 1,
+      algorithm(input, compressionOptions, callback) {
+        expect(compressionOptions).toMatchSnapshot('compressionOptions');
+
+        return callback('Error', input);
+      },
+    }).apply(compiler);
+
+    return compile(compiler).then((stats) => {
+      const errors = stats.compilation.errors.map(cleanErrorStack);
+      const warnings = stats.compilation.warnings.map(cleanErrorStack);
+
+      expect(errors).toMatchSnapshot('errors');
+      expect(warnings).toMatchSnapshot('warnings');
+      expect(getAssetsInfo(stats.compilation.assets)).toMatchSnapshot('assets');
+    });
+  });
+
+  it('matches snapshot for `@gfx/zopfli` library ({Function})', () => {
+    // eslint-disable-next-line global-require
+    let { gzip } = require('zlib');
+
+    if (typeof WebAssembly === 'object') {
+      // eslint-disable-next-line global-require
+      ({ gzip } = require('@gfx/zopfli'));
+    }
+
+    new Plugin({
+      minRatio: 1,
+      compressionOptions: {
+        numiterations: 15,
+      },
+      algorithm(input, compressionOptions, callback) {
+        expect(compressionOptions).toMatchSnapshot('compressionOptions');
+
+        return gzip(input, compressionOptions, callback);
+      },
+    }).apply(compiler);
+
+    return compile(compiler).then((stats) => {
+      const errors = stats.compilation.errors.map(cleanErrorStack);
+      const warnings = stats.compilation.warnings.map(cleanErrorStack);
+
+      expect(errors).toMatchSnapshot('errors');
+      expect(warnings).toMatchSnapshot('warnings');
+      expect(getAssetsInfo(stats.compilation.assets, false)).toMatchSnapshot(
+        'assets'
+      );
     });
   });
 });
