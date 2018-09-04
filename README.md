@@ -189,7 +189,7 @@ Default: `{ level: 9 }`
 If you use custom function for the `algorithm` option, the default value is `{}`.
 
 Compression options.
-You can find all options here [zlib](https://nodejs.org/api/zlib.html).
+You can find all options here [zlib](https://nodejs.org/api/zlib.html#zlib_class_options).
 
 ```js
 // in your webpack.config.js
@@ -217,7 +217,10 @@ new CompressionPlugin({
 Type: `Number`
 Default: `0.8`
 
-Only assets that compress better than this ratio are processed.
+Only assets that compress better than this ratio are processed (`minRatio = Compressed Size / Original Size`).
+Example: you have `image.png` file with 1024b size, compressed version of file has 768b size, so `minRation` equal `0.75`.
+In other words assets will be processed when the `Compressed Size / Original Size` value less `minRation` value.
+You can use `1` value to process all assets.
 
 ```js
 // in your webpack.config.js
