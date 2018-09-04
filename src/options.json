@@ -1,5 +1,112 @@
 {
-  "type": "object",
-  "properties": {},
-  "additionalProperties": true
+  "additionalProperties": false,
+  "definitions": {
+    "condition": {
+      "anyOf": [
+        {
+          "instanceof": "RegExp"
+        },
+        {
+          "type": "string"
+        }
+      ]
+    }
+  },
+  "properties": {
+    "test": {
+      "anyOf": [
+        {
+          "$ref": "#/definitions/condition"
+        },
+        {
+          "items": {
+            "anyOf": [
+              {
+                "$ref": "#/definitions/condition"
+              }
+            ]
+          },
+          "type": "array"
+        }
+      ]
+    },
+    "include": {
+      "anyOf": [
+        {
+          "$ref": "#/definitions/condition"
+        },
+        {
+          "items": {
+            "anyOf": [
+              {
+                "$ref": "#/definitions/condition"
+              }
+            ]
+          },
+          "type": "array"
+        }
+      ]
+    },
+    "exclude": {
+      "anyOf": [
+        {
+          "$ref": "#/definitions/condition"
+        },
+        {
+          "items": {
+            "anyOf": [
+              {
+                "$ref": "#/definitions/condition"
+              }
+            ]
+          },
+          "type": "array"
+        }
+      ]
+    },
+    "cache": {
+      "anyOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "string"
+        }
+      ]
+    },
+    "filename": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "instanceof": "Function"
+        }
+      ]
+    },
+    "algorithm": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "instanceof": "Function"
+        }
+      ]
+    },
+    "compressionOptions": {
+      "additionalProperties": true,
+      "type": "object"
+    },
+    "threshold": {
+      "type": "number"
+    },
+    "minRatio": {
+      "type": "number"
+    },
+    "deleteOriginalAssets": {
+      "type": "boolean"
+    }
+  },
+  "type": "object"
 }

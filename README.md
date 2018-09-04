@@ -46,7 +46,7 @@ And run `webpack` via your preferred method.
 
 ### `test`
 
-Type: `String|RegExp|Array<RegExp>`
+Type: `String|RegExp|Array<RegExp|String>`
 Default: `undefined`
 
 Test to match files against.
@@ -60,7 +60,7 @@ new CompressionPlugin({
 
 ### `include`
 
-Type: `String|RegExp|Array<RegExp>`
+Type: `String|RegExp|Array<RegExp|String>`
 Default: `undefined`
 
 Files to include.
@@ -74,7 +74,7 @@ new CompressionPlugin({
 
 ### `exclude`
 
-Type: `String|RegExp|Array<RegExp>`
+Type: `String|RegExp|Array<RegExp|String>`
 Default: `undefined`
 
 Files to exclude.
@@ -218,8 +218,8 @@ Type: `Number`
 Default: `0.8`
 
 Only assets that compress better than this ratio are processed (`minRatio = Compressed Size / Original Size`).
-Example: you have `image.png` file with 1024b size, compressed version of file has 768b size, so `minRation` equal `0.75`.
-In other words assets will be processed when the `Compressed Size / Original Size` value less `minRation` value.
+Example: you have `image.png` file with 1024b size, compressed version of file has 768b size, so `minRatio` equal `0.75`.
+In other words assets will be processed when the `Compressed Size / Original Size` value less `minRatio` value.
 You can use `1` value to process all assets.
 
 ```js
