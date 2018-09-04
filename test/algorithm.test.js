@@ -1,5 +1,3 @@
-import { gzip } from '@gfx/zopfli';
-
 import Plugin from '../src/index';
 
 import {
@@ -86,6 +84,14 @@ describe('when applied with `algorithm` option', () => {
   });
 
   it('matches snapshot for `@gfx/zopfli` library ({Function})', () => {
+    // eslint-disable-next-line global-require
+    let { gzip } = require('zlib');
+
+    if (typeof WebAssembly === 'object') {
+      // eslint-disable-next-line global-require
+      ({ gzip } = require('@gfx/zopfli'));
+    }
+
     new Plugin({
       minRatio: 1,
       compressionOptions: {
@@ -104,7 +110,9 @@ describe('when applied with `algorithm` option', () => {
 
       expect(errors).toMatchSnapshot('errors');
       expect(warnings).toMatchSnapshot('warnings');
-      expect(getAssetsInfo(stats.compilation.assets)).toMatchSnapshot('assets');
+      expect(getAssetsInfo(stats.compilation.assets, false)).toMatchSnapshot(
+        'assets'
+      );
     });
   });
 });

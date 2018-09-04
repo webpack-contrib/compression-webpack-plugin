@@ -67,8 +67,11 @@ export function cleanErrorStack(error) {
     .join('\n');
 }
 
-export function getAssetsInfo(assets) {
+export function getAssetsInfo(assets, size = true) {
   return Object.keys(assets)
     .sort()
-    .map((assetName) => [assetName, assets[assetName].size()]);
+    .map((assetName) => [
+      assetName,
+      size ? assets[assetName].size() : 'size was skipped by test',
+    ]);
 }

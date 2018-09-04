@@ -46,7 +46,7 @@ And run `webpack` via your preferred method.
 
 ### `test`
 
-Type: `String|RegExp|Array<RegExp|String>`
+Type: `String|RegExp|Array<String|RegExp>`
 Default: `undefined`
 
 Test to match files against.
@@ -60,7 +60,7 @@ new CompressionPlugin({
 
 ### `include`
 
-Type: `String|RegExp|Array<RegExp|String>`
+Type: `String|RegExp|Array<String|RegExp>`
 Default: `undefined`
 
 Files to include.
@@ -74,7 +74,7 @@ new CompressionPlugin({
 
 ### `exclude`
 
-Type: `String|RegExp|Array<RegExp|String>`
+Type: `String|RegExp|Array<String|RegExp>`
 Default: `undefined`
 
 Files to exclude.
@@ -92,7 +92,7 @@ Type: `Boolean|String`
 Default: `false`
 
 Enable file caching.
-Default path to cache directory: `node_modules/.cache/compression-webpack-plugin`.
+The default path to cache directory: `node_modules/.cache/compression-webpack-plugin`.
 
 #### `Boolean`
 
@@ -155,7 +155,7 @@ new CompressionPlugin({
 Type: `String|Function`
 Default: `gzip`
 
-Compression algorithm.
+The compression algorithm/function.
 
 #### `String`
 
@@ -170,7 +170,7 @@ new CompressionPlugin({
 
 #### `Function`
 
-Custom compression algorithm.
+Allow to specify a custom compression function.
 
 ```js
 // in your webpack.config.js
