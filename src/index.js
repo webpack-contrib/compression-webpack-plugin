@@ -28,9 +28,7 @@ class CompressionPlugin {
       exclude,
       cache = false,
       algorithm = 'gzip',
-      compressionOptions = {
-        level: 9,
-      },
+      compressionOptions = {},
       filename = '[path].gz[query]',
       threshold = 0,
       minRatio = 0.8,
@@ -59,6 +57,14 @@ class CompressionPlugin {
       if (!this.options.algorithm) {
         throw new Error('Algorithm not found in zlib');
       }
+
+      const defaultCompressionOptions = { level: 9 };
+
+      this.options.compressionOptions = Object.assign(
+        {},
+        defaultCompressionOptions,
+        this.options.compressionOptions
+      );
     }
   }
 
@@ -75,8 +81,8 @@ class CompressionPlugin {
         cache === true
           ? findCacheDir({ name: 'compression-webpack-plugin' })
           : cache;
-
       const { assets } = compilation;
+
       // eslint-disable-next-line consistent-return
       async.forEach(
         Object.keys(assets),

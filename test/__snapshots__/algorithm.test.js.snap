@@ -1,5 +1,70 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`when applied with \`algorithm\` option matches snapshot for \`@gfx/zopfli\` library ({Function}): assets 1`] = `
+Array [
+  Array [
+    "1.async.9ada34e1a37e6db8ef40.js",
+    130,
+  ],
+  Array [
+    "1.async.9ada34e1a37e6db8ef40.js.gz",
+    117,
+  ],
+  Array [
+    "5b1f36bc41ab31f5b801d48ba1d65781.png",
+    78117,
+  ],
+  Array [
+    "5b1f36bc41ab31f5b801d48ba1d65781.png.gz",
+    72870,
+  ],
+  Array [
+    "96621d3c37d96ad3bf792fcc848d912f.svg",
+    672,
+  ],
+  Array [
+    "96621d3c37d96ad3bf792fcc848d912f.svg.gz",
+    386,
+  ],
+  Array [
+    "js.f0111e97a13538df48f2.js",
+    10212,
+  ],
+  Array [
+    "js.f0111e97a13538df48f2.js.gz",
+    2717,
+  ],
+]
+`;
+
+exports[`when applied with \`algorithm\` option matches snapshot for \`@gfx/zopfli\` library ({Function}): compressionOptions 1`] = `
+Object {
+  "numiterations": 15,
+}
+`;
+
+exports[`when applied with \`algorithm\` option matches snapshot for \`@gfx/zopfli\` library ({Function}): compressionOptions 2`] = `
+Object {
+  "numiterations": 15,
+}
+`;
+
+exports[`when applied with \`algorithm\` option matches snapshot for \`@gfx/zopfli\` library ({Function}): compressionOptions 3`] = `
+Object {
+  "numiterations": 15,
+}
+`;
+
+exports[`when applied with \`algorithm\` option matches snapshot for \`@gfx/zopfli\` library ({Function}): compressionOptions 4`] = `
+Object {
+  "numiterations": 15,
+}
+`;
+
+exports[`when applied with \`algorithm\` option matches snapshot for \`@gfx/zopfli\` library ({Function}): errors 1`] = `Array []`;
+
+exports[`when applied with \`algorithm\` option matches snapshot for \`@gfx/zopfli\` library ({Function}): warnings 1`] = `Array []`;
+
 exports[`when applied with \`algorithm\` option matches snapshot for \`gzip\` value ({String}): assets 1`] = `
 Array [
   Array [
@@ -80,6 +145,14 @@ Array [
 ]
 `;
 
+exports[`when applied with \`algorithm\` option matches snapshot for custom function ({Function}): compressionOptions 1`] = `Object {}`;
+
+exports[`when applied with \`algorithm\` option matches snapshot for custom function ({Function}): compressionOptions 2`] = `Object {}`;
+
+exports[`when applied with \`algorithm\` option matches snapshot for custom function ({Function}): compressionOptions 3`] = `Object {}`;
+
+exports[`when applied with \`algorithm\` option matches snapshot for custom function ({Function}): compressionOptions 4`] = `Object {}`;
+
 exports[`when applied with \`algorithm\` option matches snapshot for custom function ({Function}): errors 1`] = `Array []`;
 
 exports[`when applied with \`algorithm\` option matches snapshot for custom function ({Function}): warnings 1`] = `Array []`;
@@ -104,6 +177,14 @@ Array [
   ],
 ]
 `;
+
+exports[`when applied with \`algorithm\` option matches snapshot for custom function with error ({Function}): compressionOptions 1`] = `Object {}`;
+
+exports[`when applied with \`algorithm\` option matches snapshot for custom function with error ({Function}): compressionOptions 2`] = `Object {}`;
+
+exports[`when applied with \`algorithm\` option matches snapshot for custom function with error ({Function}): compressionOptions 3`] = `Object {}`;
+
+exports[`when applied with \`algorithm\` option matches snapshot for custom function with error ({Function}): compressionOptions 4`] = `Object {}`;
 
 exports[`when applied with \`algorithm\` option matches snapshot for custom function with error ({Function}): errors 1`] = `
 Array [

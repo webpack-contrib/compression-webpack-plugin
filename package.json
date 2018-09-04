@@ -52,6 +52,7 @@
   "devDependencies": {
     "@commitlint/cli": "^7.1.0",
     "@commitlint/config-conventional": "^7.1.1",
+    "@gfx/zopfli": "^1.0.8",
     "@webpack-contrib/eslint-config-webpack": "^2.0.4",
     "babel-cli": "^6.26.0",
     "babel-jest": "^23.4.2",
