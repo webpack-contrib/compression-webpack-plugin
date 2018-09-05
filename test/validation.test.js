@@ -11,6 +11,10 @@ it('validation', () => {
   }).not.toThrow();
 
   expect(() => {
+    new CompressionPlugin({ test: [/foo/] });
+  }).not.toThrow();
+
+  expect(() => {
     new CompressionPlugin({ test: [/foo/, /bar/] });
   }).not.toThrow();
 
@@ -35,7 +39,15 @@ it('validation', () => {
   }).toThrowErrorMatchingSnapshot();
 
   expect(() => {
+    new CompressionPlugin({ include: /foo/ });
+  }).not.toThrow();
+
+  expect(() => {
     new CompressionPlugin({ include: 'foo' });
+  }).not.toThrow();
+
+  expect(() => {
+    new CompressionPlugin({ include: [/foo/] });
   }).not.toThrow();
 
   expect(() => {
@@ -63,7 +75,15 @@ it('validation', () => {
   }).toThrowErrorMatchingSnapshot();
 
   expect(() => {
+    new CompressionPlugin({ exclude: /foo/ });
+  }).not.toThrow();
+
+  expect(() => {
     new CompressionPlugin({ exclude: 'foo' });
+  }).not.toThrow();
+
+  expect(() => {
+    new CompressionPlugin({ include: [/foo/] });
   }).not.toThrow();
 
   expect(() => {
@@ -172,6 +192,10 @@ it('validation', () => {
 
   expect(() => {
     new CompressionPlugin({ deleteOriginalAssets: 'true' });
+  }).toThrowErrorMatchingSnapshot();
+
+  expect(() => {
+    new CompressionPlugin({ unknown: true });
   }).toThrowErrorMatchingSnapshot();
   /* eslint-enable no-new */
 });
