@@ -33,6 +33,8 @@ Then add the plugin to your `webpack` config. For example:
 **webpack.config.js**
 
 ```js
+const CompressionPlugin = require('compression-webpack-plugin');
+
 module.exports = {
   plugins: [
     new CompressionPlugin()
