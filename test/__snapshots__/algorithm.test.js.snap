@@ -1,78 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`when applied with \`algorithm\` option matches snapshot for \`@gfx/zopfli\` library ({Function}): assets 1`] = `
-Array [
-  Array [
-    "1.async.9ada34e1a37e6db8ef40.js",
-    "size was skipped by test",
-  ],
-  Array [
-    "1.async.9ada34e1a37e6db8ef40.js.gz",
-    "size was skipped by test",
-  ],
-  Array [
-    "5b1f36bc41ab31f5b801d48ba1d65781.png",
-    "size was skipped by test",
-  ],
-  Array [
-    "5b1f36bc41ab31f5b801d48ba1d65781.png.gz",
-    "size was skipped by test",
-  ],
-  Array [
-    "96621d3c37d96ad3bf792fcc848d912f.svg",
-    "size was skipped by test",
-  ],
-  Array [
-    "96621d3c37d96ad3bf792fcc848d912f.svg.gz",
-    "size was skipped by test",
-  ],
-  Array [
-    "js.f0111e97a13538df48f2.js",
-    "size was skipped by test",
-  ],
-  Array [
-    "js.f0111e97a13538df48f2.js.gz",
-    "size was skipped by test",
-  ],
-]
-`;
-
-exports[`when applied with \`algorithm\` option matches snapshot for \`@gfx/zopfli\` library ({Function}): compressionOptions 1`] = `
-Object {
-  "numiterations": 15,
-}
-`;
-
-exports[`when applied with \`algorithm\` option matches snapshot for \`@gfx/zopfli\` library ({Function}): compressionOptions 2`] = `
-Object {
-  "numiterations": 15,
-}
-`;
-
-exports[`when applied with \`algorithm\` option matches snapshot for \`@gfx/zopfli\` library ({Function}): compressionOptions 3`] = `
-Object {
-  "numiterations": 15,
-}
-`;
-
-exports[`when applied with \`algorithm\` option matches snapshot for \`@gfx/zopfli\` library ({Function}): compressionOptions 4`] = `
-Object {
-  "numiterations": 15,
-}
-`;
-
-exports[`when applied with \`algorithm\` option matches snapshot for \`@gfx/zopfli\` library ({Function}): errors 1`] = `Array []`;
-
-exports[`when applied with \`algorithm\` option matches snapshot for \`@gfx/zopfli\` library ({Function}): warnings 1`] = `Array []`;
-
 exports[`when applied with \`algorithm\` option matches snapshot for \`gzip\` value ({String}): assets 1`] = `
 Array [
   Array [
-    "1.async.9ada34e1a37e6db8ef40.js",
+    "0.async.dbe59b7ea0e1a63e45d4.js",
     130,
   ],
   Array [
-    "1.async.9ada34e1a37e6db8ef40.js.gz",
+    "0.async.dbe59b7ea0e1a63e45d4.js.gz",
     117,
   ],
   Array [
@@ -92,12 +27,12 @@ Array [
     393,
   ],
   Array [
-    "js.f0111e97a13538df48f2.js",
-    10212,
+    "js.b329671af0217355535e.js",
+    10267,
   ],
   Array [
-    "js.f0111e97a13538df48f2.js.gz",
-    2769,
+    "js.b329671af0217355535e.js.gz",
+    2798,
   ],
 ]
 `;
@@ -111,11 +46,11 @@ exports[`when applied with \`algorithm\` option matches snapshot for \`unknown\`
 exports[`when applied with \`algorithm\` option matches snapshot for custom function ({Function}): assets 1`] = `
 Array [
   Array [
-    "1.async.9ada34e1a37e6db8ef40.js",
+    "0.async.dbe59b7ea0e1a63e45d4.js",
     130,
   ],
   Array [
-    "1.async.9ada34e1a37e6db8ef40.js.gz",
+    "0.async.dbe59b7ea0e1a63e45d4.js.gz",
     130,
   ],
   Array [
@@ -135,12 +70,12 @@ Array [
     672,
   ],
   Array [
-    "js.f0111e97a13538df48f2.js",
-    10212,
+    "js.b329671af0217355535e.js",
+    10267,
   ],
   Array [
-    "js.f0111e97a13538df48f2.js.gz",
-    10212,
+    "js.b329671af0217355535e.js.gz",
+    10267,
   ],
 ]
 `;
@@ -160,7 +95,7 @@ exports[`when applied with \`algorithm\` option matches snapshot for custom func
 exports[`when applied with \`algorithm\` option matches snapshot for custom function with error ({Function}): assets 1`] = `
 Array [
   Array [
-    "1.async.9ada34e1a37e6db8ef40.js",
+    "0.async.dbe59b7ea0e1a63e45d4.js",
     130,
   ],
   Array [
@@ -172,8 +107,8 @@ Array [
     672,
   ],
   Array [
-    "js.f0111e97a13538df48f2.js",
-    10212,
+    "js.b329671af0217355535e.js",
+    10267,
   ],
 ]
 `;

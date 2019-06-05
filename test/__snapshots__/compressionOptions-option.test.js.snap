@@ -3,11 +3,11 @@
 exports[`when applied with \`compressionOptions\` option matches snapshot for custom options ({Object}): assets 1`] = `
 Array [
   Array [
-    "1.async.9ada34e1a37e6db8ef40.js",
+    "0.async.dbe59b7ea0e1a63e45d4.js",
     130,
   ],
   Array [
-    "1.async.9ada34e1a37e6db8ef40.js.gz",
+    "0.async.dbe59b7ea0e1a63e45d4.js.gz",
     117,
   ],
   Array [
@@ -27,12 +27,12 @@ Array [
     404,
   ],
   Array [
-    "js.f0111e97a13538df48f2.js",
-    10212,
+    "js.b329671af0217355535e.js",
+    10267,
   ],
   Array [
-    "js.f0111e97a13538df48f2.js.gz",
-    3154,
+    "js.b329671af0217355535e.js.gz",
+    3180,
   ],
 ]
 `;
@@ -44,11 +44,11 @@ exports[`when applied with \`compressionOptions\` option matches snapshot for cu
 exports[`when applied with \`compressionOptions\` option matches snapshot without values: assets 1`] = `
 Array [
   Array [
-    "1.async.9ada34e1a37e6db8ef40.js",
+    "0.async.dbe59b7ea0e1a63e45d4.js",
     130,
   ],
   Array [
-    "1.async.9ada34e1a37e6db8ef40.js.gz",
+    "0.async.dbe59b7ea0e1a63e45d4.js.gz",
     117,
   ],
   Array [
@@ -68,12 +68,12 @@ Array [
     393,
   ],
   Array [
-    "js.f0111e97a13538df48f2.js",
-    10212,
+    "js.b329671af0217355535e.js",
+    10267,
   ],
   Array [
-    "js.f0111e97a13538df48f2.js.gz",
-    2769,
+    "js.b329671af0217355535e.js.gz",
+    2798,
   ],
 ]
 `;

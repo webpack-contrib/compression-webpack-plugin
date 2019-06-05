@@ -3,11 +3,11 @@
 exports[`when applied with \`function\` option matches snapshot for \`[path].super-compressed.gz[query]\` value ({String}): assets 1`] = `
 Array [
   Array [
-    "1.async.js.super-compressed.gz?ver=1ea6f97e389bd951fd50",
+    "0.async.js.super-compressed.gz?ver=aafa0e2b0a1b3368379e",
     117,
   ],
   Array [
-    "1.async.js?ver=1ea6f97e389bd951fd50",
+    "0.async.js?ver=aafa0e2b0a1b3368379e",
     130,
   ],
   Array [
@@ -27,12 +27,12 @@ Array [
     393,
   ],
   Array [
-    "js.js.super-compressed.gz?var=1ea6f97e389bd951fd50",
-    2773,
+    "js.js.super-compressed.gz?var=aafa0e2b0a1b3368379e",
+    2801,
   ],
   Array [
-    "js.js?var=1ea6f97e389bd951fd50",
-    10201,
+    "js.js?var=aafa0e2b0a1b3368379e",
+    10256,
   ],
 ]
 `;
@@ -44,11 +44,11 @@ exports[`when applied with \`function\` option matches snapshot for \`[path].sup
 exports[`when applied with \`function\` option matches snapshot for custom function ({Function}): assets 1`] = `
 Array [
   Array [
-    "1.async.js.gz?ver=1ea6f97e389bd951fd50",
+    "0.async.js.gz?ver=aafa0e2b0a1b3368379e",
     117,
   ],
   Array [
-    "1.async.js?ver=1ea6f97e389bd951fd50",
+    "0.async.js?ver=aafa0e2b0a1b3368379e",
     130,
   ],
   Array [
@@ -68,12 +68,12 @@ Array [
     393,
   ],
   Array [
-    "js.js.gz?var=1ea6f97e389bd951fd50",
-    2773,
+    "js.js.gz?var=aafa0e2b0a1b3368379e",
+    2801,
   ],
   Array [
-    "js.js?var=1ea6f97e389bd951fd50",
-    10201,
+    "js.js?var=aafa0e2b0a1b3368379e",
+    10256,
   ],
 ]
 `;
