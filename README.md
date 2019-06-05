@@ -36,10 +36,8 @@ Then add the plugin to your `webpack` config. For example:
 const CompressionPlugin = require('compression-webpack-plugin');
 
 module.exports = {
-  plugins: [
-    new CompressionPlugin()
-  ]
-}
+  plugins: [new CompressionPlugin()],
+};
 ```
 
 And run `webpack` via your preferred method.
@@ -56,8 +54,8 @@ Test to match files against.
 ```js
 // in your webpack.config.js
 new CompressionPlugin({
-  test: /\.js(\?.*)?$/i
-})
+  test: /\.js(\?.*)?$/i,
+});
 ```
 
 ### `include`
@@ -70,8 +68,8 @@ Files to include.
 ```js
 // in your webpack.config.js
 new CompressionPlugin({
-  include: /\/includes/
-})
+  include: /\/includes/,
+});
 ```
 
 ### `exclude`
@@ -84,8 +82,8 @@ Files to exclude.
 ```js
 // in your webpack.config.js
 new CompressionPlugin({
-  exclude: /\/excludes/
-})
+  exclude: /\/excludes/,
+});
 ```
 
 ### `cache`
@@ -103,8 +101,8 @@ Enable/disable file caching.
 ```js
 // in your webpack.config.js
 new CompressionPlugin({
-  cache: true
-})
+  cache: true,
+});
 ```
 
 #### `String`
@@ -114,8 +112,8 @@ Enable file caching and set path to cache directory.
 ```js
 // in your webpack.config.js
 new CompressionPlugin({
-  cache: 'path/to/cache'
-})
+  cache: 'path/to/cache',
+});
 ```
 
 ### `filename`
@@ -127,15 +125,15 @@ The target asset filename.
 
 #### `String`
 
-`[file]` is replaced with the original asset filename. 
+`[file]` is replaced with the original asset filename.
 `[path]` is replaced with the path of the original asset.
 `[query]` is replaced with the query.
 
 ```js
 // in your webpack.config.js
 new CompressionPlugin({
-  filename: '[path].gz[query]'
-})
+  filename: '[path].gz[query]',
+});
 ```
 
 #### `Function`
@@ -147,9 +145,9 @@ new CompressionPlugin({
     // info.file is the original asset filename
     // info.path is the path of the original asset
     // info.query is the query
-    return `${info.path}.gz${info.query}`
-  }
-})
+    return `${info.path}.gz${info.query}`;
+  },
+});
 ```
 
 ### `algorithm`
@@ -166,8 +164,8 @@ The algorithm is taken from [zlib](https://nodejs.org/api/zlib.html).
 ```js
 // in your webpack.config.js
 new CompressionPlugin({
-  algorithm: 'gzip'
-})
+  algorithm: 'gzip',
+});
 ```
 
 #### `Function`
@@ -179,8 +177,8 @@ Allow to specify a custom compression function.
 new CompressionPlugin({
   algorithm(input, compressionOptions, callback) {
     return compressionFunction(input, compressionOptions, callback);
-  }
-})
+  },
+});
 ```
 
 ### `compressionOptions`
@@ -196,8 +194,8 @@ You can find all options here [zlib](https://nodejs.org/api/zlib.html#zlib_class
 ```js
 // in your webpack.config.js
 new CompressionPlugin({
-  compressionOptions: { level: 1 }
-})
+  compressionOptions: { level: 1 },
+});
 ```
 
 ### `threshold`
@@ -210,8 +208,8 @@ Only assets bigger than this size are processed. In bytes.
 ```js
 // in your webpack.config.js
 new CompressionPlugin({
-  threshold: 8192
-})
+  threshold: 8192,
+});
 ```
 
 ### `minRatio`
@@ -227,8 +225,8 @@ You can use `1` value to process all assets.
 ```js
 // in your webpack.config.js
 new CompressionPlugin({
-  minRatio: 0.8
-})
+  minRatio: 0.8,
+});
 ```
 
 ### `deleteOriginalAssets`
@@ -241,8 +239,8 @@ Whether to delete the original assets or not.
 ```js
 // in your webpack.config.js
 new CompressionPlugin({
-  deleteOriginalAssets: true
-})
+  deleteOriginalAssets: true,
+});
 ```
 
 ## Examples
@@ -268,14 +266,14 @@ module.exports = {
   plugins: [
     new CompressionPlugin({
       compressionOptions: {
-         numiterations: 15
+        numiterations: 15,
       },
       algorithm(input, compressionOptions, callback) {
         return zopfli.gzip(input, compressionOptions, callback);
-      }
-    })
-  ]
-}
+      },
+    }),
+  ],
+};
 ```
 
 ### Using Brotli
@@ -297,10 +295,10 @@ module.exports = {
       compressionOptions: { level: 11 },
       threshold: 10240,
       minRatio: 0.8,
-      deleteOriginalAssets: false
-    })
-  ]
-}
+      deleteOriginalAssets: false,
+    }),
+  ],
+};
 ```
 
 **N.B.:** The `level` option matches `BROTLI_PARAM_QUALITY` [for Brotli-based streams](https://nodejs.org/api/zlib.html#zlib_for_brotli_based_streams)
@@ -317,21 +315,15 @@ Please take a moment to read our contributing guidelines if you haven't yet done
 
 [npm]: https://img.shields.io/npm/v/compression-webpack-plugin.svg
 [npm-url]: https://npmjs.com/package/compression-webpack-plugin
-
 [node]: https://img.shields.io/node/v/compression-webpack-plugin.svg
 [node-url]: https://nodejs.org
-
 [deps]: https://david-dm.org/webpack-contrib/compression-webpack-plugin.svg
 [deps-url]: https://david-dm.org/webpack-contrib/compression-webpack-plugin
-
-[tests]: https://img.shields.io/circleci/project/github/webpack-contrib/compression-webpack-plugin.svg
-[tests-url]: https://circleci.com/gh/webpack-contrib/compression-webpack-plugin
-
+[tests]: https://dev.azure.com/webpack-contrib/compression-webpack-plugin/_apis/build/status/webpack-contrib.compression-webpack-plugin?branchName=master
+[tests-url]: https://dev.azure.com/webpack-contrib/compression-webpack-plugin/_build/latest?definitionId=2&branchName=master
 [cover]: https://codecov.io/gh/webpack-contrib/compression-webpack-plugin/branch/master/graph/badge.svg
 [cover-url]: https://codecov.io/gh/webpack-contrib/compression-webpack-plugin
-
 [chat]: https://img.shields.io/badge/gitter-webpack%2Fwebpack-brightgreen.svg
 [chat-url]: https://gitter.im/webpack/webpack
-
 [size]: https://packagephobia.now.sh/badge?p=compression-webpack-plugin
 [size-url]: https://packagephobia.now.sh/result?p=compression-webpack-plugin

@@ -3,11 +3,11 @@
 exports[`when applied with \`cache\` option matches snapshot for \`false\` value ({Boolean}): assets 1`] = `
 Array [
   Array [
-    "1.async.9ada34e1a37e6db8ef40.js",
+    "0.async.dbe59b7ea0e1a63e45d4.js",
     130,
   ],
   Array [
-    "1.async.9ada34e1a37e6db8ef40.js.gz",
+    "0.async.dbe59b7ea0e1a63e45d4.js.gz",
     117,
   ],
   Array [
@@ -27,12 +27,12 @@ Array [
     393,
   ],
   Array [
-    "js.f0111e97a13538df48f2.js",
-    10212,
+    "js.b329671af0217355535e.js",
+    10267,
   ],
   Array [
-    "js.f0111e97a13538df48f2.js.gz",
-    2769,
+    "js.b329671af0217355535e.js.gz",
+    2798,
   ],
 ]
 `;
@@ -41,10 +41,10 @@ exports[`when applied with \`cache\` option matches snapshot for \`false\` value
 
 exports[`when applied with \`cache\` option matches snapshot for \`false\` value ({Boolean}): warnings 1`] = `Array []`;
 
-exports[`when applied with \`cache\` option matches snapshot for \`other-cache-directory\` value ({String}): 1.async.9ada34e1a37e6db8ef40.js 1`] = `
+exports[`when applied with \`cache\` option matches snapshot for \`other-cache-directory\` value ({String}): 0.async.dbe59b7ea0e1a63e45d4.js 1`] = `
 Array [
-  "1.async.9ada34e1a37e6db8ef40.js",
-  "c19de9cd1850eadbe1cb6718a4fdf014",
+  "0.async.dbe59b7ea0e1a63e45d4.js",
+  "5c060e109cf6db498e14403ffb1625d2",
 ]
 `;
 
@@ -65,11 +65,11 @@ Array [
 exports[`when applied with \`cache\` option matches snapshot for \`other-cache-directory\` value ({String}): assets 1`] = `
 Array [
   Array [
-    "1.async.9ada34e1a37e6db8ef40.js",
+    "0.async.dbe59b7ea0e1a63e45d4.js",
     130,
   ],
   Array [
-    "1.async.9ada34e1a37e6db8ef40.js.gz",
+    "0.async.dbe59b7ea0e1a63e45d4.js.gz",
     117,
   ],
   Array [
@@ -89,12 +89,12 @@ Array [
     393,
   ],
   Array [
-    "js.f0111e97a13538df48f2.js",
-    10212,
+    "js.b329671af0217355535e.js",
+    10267,
   ],
   Array [
-    "js.f0111e97a13538df48f2.js.gz",
-    2769,
+    "js.b329671af0217355535e.js.gz",
+    2798,
   ],
 ]
 `;
@@ -102,11 +102,11 @@ Array [
 exports[`when applied with \`cache\` option matches snapshot for \`other-cache-directory\` value ({String}): assets 2`] = `
 Array [
   Array [
-    "1.async.9ada34e1a37e6db8ef40.js",
+    "0.async.dbe59b7ea0e1a63e45d4.js",
     130,
   ],
   Array [
-    "1.async.9ada34e1a37e6db8ef40.js.gz",
+    "0.async.dbe59b7ea0e1a63e45d4.js.gz",
     117,
   ],
   Array [
@@ -126,12 +126,12 @@ Array [
     393,
   ],
   Array [
-    "js.f0111e97a13538df48f2.js",
-    10212,
+    "js.b329671af0217355535e.js",
+    10267,
   ],
   Array [
-    "js.f0111e97a13538df48f2.js.gz",
-    2769,
+    "js.b329671af0217355535e.js.gz",
+    2798,
   ],
 ]
 `;
@@ -140,10 +140,10 @@ exports[`when applied with \`cache\` option matches snapshot for \`other-cache-d
 
 exports[`when applied with \`cache\` option matches snapshot for \`other-cache-directory\` value ({String}): errors 2`] = `Array []`;
 
-exports[`when applied with \`cache\` option matches snapshot for \`other-cache-directory\` value ({String}): js.f0111e97a13538df48f2.js 1`] = `
+exports[`when applied with \`cache\` option matches snapshot for \`other-cache-directory\` value ({String}): js.b329671af0217355535e.js 1`] = `
 Array [
-  "js.f0111e97a13538df48f2.js",
-  "1c64a5f14981dc0e16e7e9ef6cb1d7e4",
+  "js.b329671af0217355535e.js",
+  "2d7d8055981a31c21f6b265777fe4abe",
 ]
 `;
 
@@ -151,10 +151,10 @@ exports[`when applied with \`cache\` option matches snapshot for \`other-cache-d
 
 exports[`when applied with \`cache\` option matches snapshot for \`other-cache-directory\` value ({String}): warnings 2`] = `Array []`;
 
-exports[`when applied with \`cache\` option matches snapshot for \`true\` value ({Boolean}): 1.async.9ada34e1a37e6db8ef40.js 1`] = `
+exports[`when applied with \`cache\` option matches snapshot for \`true\` value ({Boolean}): 0.async.dbe59b7ea0e1a63e45d4.js 1`] = `
 Array [
-  "1.async.9ada34e1a37e6db8ef40.js",
-  "c19de9cd1850eadbe1cb6718a4fdf014",
+  "0.async.dbe59b7ea0e1a63e45d4.js",
+  "5c060e109cf6db498e14403ffb1625d2",
 ]
 `;
 
@@ -175,11 +175,11 @@ Array [
 exports[`when applied with \`cache\` option matches snapshot for \`true\` value ({Boolean}): assets 1`] = `
 Array [
   Array [
-    "1.async.9ada34e1a37e6db8ef40.js",
+    "0.async.dbe59b7ea0e1a63e45d4.js",
     130,
   ],
   Array [
-    "1.async.9ada34e1a37e6db8ef40.js.gz",
+    "0.async.dbe59b7ea0e1a63e45d4.js.gz",
     117,
   ],
   Array [
@@ -199,12 +199,12 @@ Array [
     393,
   ],
   Array [
-    "js.f0111e97a13538df48f2.js",
-    10212,
+    "js.b329671af0217355535e.js",
+    10267,
   ],
   Array [
-    "js.f0111e97a13538df48f2.js.gz",
-    2769,
+    "js.b329671af0217355535e.js.gz",
+    2798,
   ],
 ]
 `;
@@ -212,11 +212,11 @@ Array [
 exports[`when applied with \`cache\` option matches snapshot for \`true\` value ({Boolean}): assets 2`] = `
 Array [
   Array [
-    "1.async.9ada34e1a37e6db8ef40.js",
+    "0.async.dbe59b7ea0e1a63e45d4.js",
     130,
   ],
   Array [
-    "1.async.9ada34e1a37e6db8ef40.js.gz",
+    "0.async.dbe59b7ea0e1a63e45d4.js.gz",
     117,
   ],
   Array [
@@ -236,12 +236,12 @@ Array [
     393,
   ],
   Array [
-    "js.f0111e97a13538df48f2.js",
-    10212,
+    "js.b329671af0217355535e.js",
+    10267,
   ],
   Array [
-    "js.f0111e97a13538df48f2.js.gz",
-    2769,
+    "js.b329671af0217355535e.js.gz",
+    2798,
   ],
 ]
 `;
@@ -250,10 +250,10 @@ exports[`when applied with \`cache\` option matches snapshot for \`true\` value 
 
 exports[`when applied with \`cache\` option matches snapshot for \`true\` value ({Boolean}): errors 2`] = `Array []`;
 
-exports[`when applied with \`cache\` option matches snapshot for \`true\` value ({Boolean}): js.f0111e97a13538df48f2.js 1`] = `
+exports[`when applied with \`cache\` option matches snapshot for \`true\` value ({Boolean}): js.b329671af0217355535e.js 1`] = `
 Array [
-  "js.f0111e97a13538df48f2.js",
-  "1c64a5f14981dc0e16e7e9ef6cb1d7e4",
+  "js.b329671af0217355535e.js",
+  "2d7d8055981a31c21f6b265777fe4abe",
 ]
 `;
 
