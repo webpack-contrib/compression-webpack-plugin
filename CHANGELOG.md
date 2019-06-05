@@ -1,6 +1,25 @@
-# Change Log
+# Changelog
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+## [3.0.0](https://github.com/webpack-contrib/compression-webpack-plugin/compare/v2.0.0...v3.0.0) (2019-06-05)
+
+
+### chore
+
+* **deps:** update ([#124](https://github.com/webpack-contrib/compression-webpack-plugin/issues/124)) ([897bd95](https://github.com/webpack-contrib/compression-webpack-plugin/commit/897bd95))
+
+
+### Tests
+
+* validation ([#111](https://github.com/webpack-contrib/compression-webpack-plugin/issues/111)) ([833e825](https://github.com/webpack-contrib/compression-webpack-plugin/commit/833e825))
+
+
+### BREAKING CHANGES
+
+* **deps:** minimum required nodejs version is `8.9.0`
+
+
 
 <a name="2.0.0"></a>
 ## [2.0.0](https://github.com/webpack-contrib/compression-webpack-plugin/compare/v1.1.12...v2.0.0) (2018-09-04)
