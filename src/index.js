@@ -138,7 +138,7 @@ class CompressionPlugin {
                 return this.compress(input);
               })
               .then((result) => {
-                if (result.length / originalSize > minRatio) {
+                if ((result.length / originalSize > minRatio) || minRatio == 1) {
                   return cb();
                 }
 
