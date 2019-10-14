@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`when in watch mode matches shansphot: assets 1`] = `
+Array [
+  Array [
+    "5b1f36bc41ab31f5b801d48ba1d65781.png",
+    78117,
+  ],
+  Array [
+    "96621d3c37d96ad3bf792fcc848d912f.svg",
+    672,
+  ],
+  Array [
+    "96621d3c37d96ad3bf792fcc848d912f.svg.gz",
+    393,
+  ],
+  Array [
+    "async.js",
+    368,
+  ],
+  Array [
+    "async.js.gz",
+    212,
+  ],
+  Array [
+    "js.js",
+    11602,
+  ],
+  Array [
+    "js.js.gz",
+    3005,
+  ],
+]
+`;
+
+exports[`when in watch mode matches shansphot: assets 2`] = `
+Array [
+  Array [
+    "5b1f36bc41ab31f5b801d48ba1d65781.png",
+    78117,
+  ],
+  Array [
+    "96621d3c37d96ad3bf792fcc848d912f.svg",
+    672,
+  ],
+  Array [
+    "async.js",
+    396,
+  ],
+  Array [
+    "async.js.gz",
+    235,
+  ],
+  Array [
+    "js.js",
+    11602,
+  ],
+]
+`;

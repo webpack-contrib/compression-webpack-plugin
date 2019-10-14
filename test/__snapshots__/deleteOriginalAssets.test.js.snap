@@ -3,12 +3,12 @@
 exports[`when applied with \`test\` option matches snapshot for \`false\` value ({Boolean}): assets 1`] = `
 Array [
   Array [
-    "0.async.dbe59b7ea0e1a63e45d4.js",
-    130,
+    "0.async.c587a252db9084a74145.js",
+    156,
   ],
   Array [
-    "0.async.dbe59b7ea0e1a63e45d4.js.gz",
-    117,
+    "0.async.c587a252db9084a74145.js.gz",
+    141,
   ],
   Array [
     "5b1f36bc41ab31f5b801d48ba1d65781.png",
@@ -27,12 +27,12 @@ Array [
     393,
   ],
   Array [
-    "js.b329671af0217355535e.js",
+    "js.f9610f680ea96abb497c.js",
     10267,
   ],
   Array [
-    "js.b329671af0217355535e.js.gz",
-    2798,
+    "js.f9610f680ea96abb497c.js.gz",
+    2800,
   ],
 ]
 `;

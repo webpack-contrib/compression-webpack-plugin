@@ -44,12 +44,12 @@ exports[`when applied with \`function\` option matches snapshot for \`[path].sup
 exports[`when applied with \`function\` option matches snapshot for custom function ({Function}): assets 1`] = `
 Array [
   Array [
-    "0.async.js.gz?ver=aafa0e2b0a1b3368379e",
-    117,
+    "0.async.js.gz?ver=6f8469d400ea51244fa3",
+    141,
   ],
   Array [
-    "0.async.js?ver=aafa0e2b0a1b3368379e",
-    130,
+    "0.async.js?ver=6f8469d400ea51244fa3",
+    156,
   ],
   Array [
     "5b1f36bc41ab31f5b801d48ba1d65781.png",
@@ -68,11 +68,11 @@ Array [
     393,
   ],
   Array [
-    "js.js.gz?var=aafa0e2b0a1b3368379e",
-    2801,
+    "js.js.gz?var=6f8469d400ea51244fa3",
+    2802,
   ],
   Array [
-    "js.js?var=aafa0e2b0a1b3368379e",
+    "js.js?var=6f8469d400ea51244fa3",
     10256,
   ],
 ]

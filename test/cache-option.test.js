@@ -122,11 +122,8 @@ describe('when applied with `cache` option', () => {
               'assets'
             );
 
-            const newCountAssets = Object.keys(newStats.compilation.assets)
-              .length;
-
-            // Now we have cached files so we get their and don't put
-            expect(cacache.get.mock.calls.length).toBe(newCountAssets / 2);
+            // nothing has been changed from previous compilation
+            expect(cacache.get.mock.calls.length).toBe(0);
             expect(cacache.put.mock.calls.length).toBe(0);
           })
       );
@@ -192,11 +189,8 @@ describe('when applied with `cache` option', () => {
               'assets'
             );
 
-            const newCountAssets = Object.keys(newStats.compilation.assets)
-              .length;
-
-            // Now we have cached files so we get their and don't put
-            expect(cacache.get.mock.calls.length).toBe(newCountAssets / 2);
+            // nothing has been changed from previous compilation
+            expect(cacache.get.mock.calls.length).toBe(0);
             expect(cacache.put.mock.calls.length).toBe(0);
           })
       );

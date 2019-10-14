@@ -32,8 +32,8 @@ exports[`when applied with \`test\` option matches snapshot for a single \`test\
 exports[`when applied with \`test\` option matches snapshot for multiple \`test\` values ({Array<RegExp>}): assets 1`] = `
 Array [
   Array [
-    "0.async.js?ver=aafa0e2b0a1b3368379e",
-    130,
+    "0.async.js?ver=6f8469d400ea51244fa3",
+    156,
   ],
   Array [
     "5b1f36bc41ab31f5b801d48ba1d65781.png",
@@ -52,7 +52,7 @@ Array [
     393,
   ],
   Array [
-    "js.js?var=aafa0e2b0a1b3368379e",
+    "js.js?var=6f8469d400ea51244fa3",
     10256,
   ],
 ]

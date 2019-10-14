@@ -23,6 +23,8 @@ class CompressionPlugin {
   constructor(options = {}) {
     validateOptions(schema, options, 'Compression Plugin');
 
+    this.chunkVersions = {};
+
     const {
       test,
       include,
@@ -85,12 +87,34 @@ class CompressionPlugin {
             ? findCacheDir({ name: 'compression-webpack-plugin' }) ||
               os.tmpdir()
             : cache;
+
+        const skipFiles = {};
+        for (const chunk of compilation.chunks) {
+          const oldVersion = this.chunkVersions[chunk.id];
+          this.chunkVersions[chunk.id] = chunk.hash;
+          if (chunk.hash === oldVersion) {
+            for (const chunkModule of chunk.getModules()) {
+              if (chunkModule.buildInfo.assets) {
+                for (const file of Object.keys(chunkModule.buildInfo.assets)) {
+                  skipFiles[file] = true;
+                }
+              }
+            }
+            for (const file of chunk.files) {
+              skipFiles[file] = true;
+            }
+          }
+        }
+
         const { assets } = compilation;
 
         // eslint-disable-next-line consistent-return
         async.forEach(
           Object.keys(assets),
           (file, cb) => {
+            if (skipFiles[file]) {
+              return cb();
+            }
             if (!ModuleFilenameHelpers.matchObject(this.options, file)) {
               return cb();
             }

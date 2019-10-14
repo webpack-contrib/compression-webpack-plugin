@@ -46,12 +46,12 @@ exports[`when applied with \`algorithm\` option matches snapshot for \`unknown\`
 exports[`when applied with \`algorithm\` option matches snapshot for custom function ({Function}): assets 1`] = `
 Array [
   Array [
-    "0.async.dbe59b7ea0e1a63e45d4.js",
-    130,
+    "0.async.c587a252db9084a74145.js",
+    156,
   ],
   Array [
-    "0.async.dbe59b7ea0e1a63e45d4.js.gz",
-    130,
+    "0.async.c587a252db9084a74145.js.gz",
+    156,
   ],
   Array [
     "5b1f36bc41ab31f5b801d48ba1d65781.png",
@@ -70,11 +70,11 @@ Array [
     672,
   ],
   Array [
-    "js.b329671af0217355535e.js",
+    "js.f9610f680ea96abb497c.js",
     10267,
   ],
   Array [
-    "js.b329671af0217355535e.js.gz",
+    "js.f9610f680ea96abb497c.js.gz",
     10267,
   ],
 ]
@@ -95,8 +95,8 @@ exports[`when applied with \`algorithm\` option matches snapshot for custom func
 exports[`when applied with \`algorithm\` option matches snapshot for custom function with error ({Function}): assets 1`] = `
 Array [
   Array [
-    "0.async.dbe59b7ea0e1a63e45d4.js",
-    130,
+    "0.async.c587a252db9084a74145.js",
+    156,
   ],
   Array [
     "5b1f36bc41ab31f5b801d48ba1d65781.png",
@@ -107,7 +107,7 @@ Array [
     672,
   ],
   Array [
-    "js.b329671af0217355535e.js",
+    "js.f9610f680ea96abb497c.js",
     10267,
   ],
 ]
