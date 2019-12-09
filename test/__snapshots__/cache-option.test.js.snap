@@ -27,12 +27,12 @@ Array [
     393,
   ],
   Array [
-    "js.b329671af0217355535e.js",
-    10267,
+    "js.8bd7079c9d63d0f6847e.js",
+    10232,
   ],
   Array [
-    "js.b329671af0217355535e.js.gz",
-    2798,
+    "js.8bd7079c9d63d0f6847e.js.gz",
+    2800,
   ],
 ]
 `;
@@ -89,12 +89,12 @@ Array [
     393,
   ],
   Array [
-    "js.b329671af0217355535e.js",
-    10267,
+    "js.8bd7079c9d63d0f6847e.js",
+    10232,
   ],
   Array [
-    "js.b329671af0217355535e.js.gz",
-    2798,
+    "js.8bd7079c9d63d0f6847e.js.gz",
+    2800,
   ],
 ]
 `;
@@ -126,12 +126,12 @@ Array [
     393,
   ],
   Array [
-    "js.b329671af0217355535e.js",
-    10267,
+    "js.8bd7079c9d63d0f6847e.js",
+    10232,
   ],
   Array [
-    "js.b329671af0217355535e.js.gz",
-    2798,
+    "js.8bd7079c9d63d0f6847e.js.gz",
+    2800,
   ],
 ]
 `;
@@ -140,10 +140,10 @@ exports[`when applied with \`cache\` option matches snapshot for \`other-cache-d
 
 exports[`when applied with \`cache\` option matches snapshot for \`other-cache-directory\` value ({String}): errors 2`] = `Array []`;
 
-exports[`when applied with \`cache\` option matches snapshot for \`other-cache-directory\` value ({String}): js.b329671af0217355535e.js 1`] = `
+exports[`when applied with \`cache\` option matches snapshot for \`other-cache-directory\` value ({String}): js.8bd7079c9d63d0f6847e.js 1`] = `
 Array [
-  "js.b329671af0217355535e.js",
-  "2d7d8055981a31c21f6b265777fe4abe",
+  "js.8bd7079c9d63d0f6847e.js",
+  "9b0ef9dd9650dedb67c1a68fa7ab4c30",
 ]
 `;
 
@@ -199,12 +199,12 @@ Array [
     393,
   ],
   Array [
-    "js.b329671af0217355535e.js",
-    10267,
+    "js.8bd7079c9d63d0f6847e.js",
+    10232,
   ],
   Array [
-    "js.b329671af0217355535e.js.gz",
-    2798,
+    "js.8bd7079c9d63d0f6847e.js.gz",
+    2800,
   ],
 ]
 `;
@@ -236,12 +236,12 @@ Array [
     393,
   ],
   Array [
-    "js.b329671af0217355535e.js",
-    10267,
+    "js.8bd7079c9d63d0f6847e.js",
+    10232,
   ],
   Array [
-    "js.b329671af0217355535e.js.gz",
-    2798,
+    "js.8bd7079c9d63d0f6847e.js.gz",
+    2800,
   ],
 ]
 `;
@@ -250,10 +250,10 @@ exports[`when applied with \`cache\` option matches snapshot for \`true\` value 
 
 exports[`when applied with \`cache\` option matches snapshot for \`true\` value ({Boolean}): errors 2`] = `Array []`;
 
-exports[`when applied with \`cache\` option matches snapshot for \`true\` value ({Boolean}): js.b329671af0217355535e.js 1`] = `
+exports[`when applied with \`cache\` option matches snapshot for \`true\` value ({Boolean}): js.8bd7079c9d63d0f6847e.js 1`] = `
 Array [
-  "js.b329671af0217355535e.js",
-  "2d7d8055981a31c21f6b265777fe4abe",
+  "js.8bd7079c9d63d0f6847e.js",
+  "9b0ef9dd9650dedb67c1a68fa7ab4c30",
 ]
 `;
 
