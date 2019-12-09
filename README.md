@@ -284,8 +284,9 @@ Node 11.7.0 and later has [native support](https://nodejs.org/api/zlib.html#zlib
 
 We can take advantage of this built-in support for Brotli in Node 11.7.0 and later by just passing in the appropriate `algorithm` to the CompressionPlugin:
 
+**webpack.config.js**
+
 ```js
-// in your webpack.config.js
 module.exports = {
   plugins: [
     new CompressionPlugin({
@@ -302,6 +303,32 @@ module.exports = {
 ```
 
 **N.B.:** The `level` option matches `BROTLI_PARAM_QUALITY` [for Brotli-based streams](https://nodejs.org/api/zlib.html#zlib_for_brotli_based_streams)
+
+### Multiple compressed versions of assets for different algorithm
+
+**webpack.config.js**
+
+```js
+module.exports = {
+  plugins: [
+    new CompressionPlugin({
+      filename: '[path].gz[query]',
+      algorithm: 'gzip',
+      test: /\.js$|\.css$|\.html$/,
+      threshold: 10240,
+      minRatio: 0.8,
+    }),
+    new CompressionPlugin({
+      filename: '[path].br[query]',
+      algorithm: 'brotliCompress',
+      test: /\.(js|css|html|svg)$/,
+      compressionOptions: { level: 11 },
+      threshold: 10240,
+      minRatio: 0.8,
+    }),
+  ],
+};
+```
 
 ## Contributing
 
