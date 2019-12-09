@@ -3,7 +3,7 @@
 exports[`when applied with \`test\` option matches snapshot for a single \`test\` value ({RegExp}): assets 1`] = `
 Array [
   Array [
-    "0.async.js?ver=aafa0e2b0a1b3368379e",
+    "0.async.js?ver=81982f432266ef1edd1a",
     130,
   ],
   Array [
@@ -19,8 +19,8 @@ Array [
     672,
   ],
   Array [
-    "js.js?var=aafa0e2b0a1b3368379e",
-    10256,
+    "js.js?var=81982f432266ef1edd1a",
+    10221,
   ],
 ]
 `;
@@ -32,7 +32,7 @@ exports[`when applied with \`test\` option matches snapshot for a single \`test\
 exports[`when applied with \`test\` option matches snapshot for multiple \`test\` values ({Array<RegExp>}): assets 1`] = `
 Array [
   Array [
-    "0.async.js?ver=aafa0e2b0a1b3368379e",
+    "0.async.js?ver=81982f432266ef1edd1a",
     130,
   ],
   Array [
@@ -52,8 +52,8 @@ Array [
     393,
   ],
   Array [
-    "js.js?var=aafa0e2b0a1b3368379e",
-    10256,
+    "js.js?var=81982f432266ef1edd1a",
+    10221,
   ],
 ]
 `;
@@ -65,11 +65,11 @@ exports[`when applied with \`test\` option matches snapshot for multiple \`test\
 exports[`when applied with \`test\` option matches snapshot with empty \`test\` value: assets 1`] = `
 Array [
   Array [
-    "0.async.js.gz?ver=aafa0e2b0a1b3368379e",
+    "0.async.js.gz?ver=81982f432266ef1edd1a",
     117,
   ],
   Array [
-    "0.async.js?ver=aafa0e2b0a1b3368379e",
+    "0.async.js?ver=81982f432266ef1edd1a",
     130,
   ],
   Array [
@@ -89,12 +89,12 @@ Array [
     393,
   ],
   Array [
-    "js.js.gz?var=aafa0e2b0a1b3368379e",
-    2801,
+    "js.js.gz?var=81982f432266ef1edd1a",
+    2802,
   ],
   Array [
-    "js.js?var=aafa0e2b0a1b3368379e",
-    10256,
+    "js.js?var=81982f432266ef1edd1a",
+    10221,
   ],
 ]
 `;
