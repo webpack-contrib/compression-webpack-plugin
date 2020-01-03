@@ -1,201 +1,117 @@
 import CompressionPlugin from '../src';
 
-it('validation', () => {
-  /* eslint-disable no-new */
-  expect(() => {
-    new CompressionPlugin({ test: /foo/ });
-  }).not.toThrow();
+describe('validate options', () => {
+  const tests = {
+    test: {
+      success: [
+        /foo/,
+        'foo',
+        [/foo/],
+        [/foo/, /bar/],
+        ['foo', 'bar'],
+        [/foo/, 'bar'],
+      ],
+      failure: [true, [true], [/foo/, 'foo', true]],
+    },
+    include: {
+      success: [
+        /foo/,
+        'foo',
+        [/foo/],
+        [/foo/, /bar/],
+        ['foo', 'bar'],
+        [/foo/, 'bar'],
+      ],
+      failure: [true, [true], [/foo/, 'foo', true]],
+    },
+    exclude: {
+      success: [
+        /foo/,
+        'foo',
+        [/foo/],
+        [/foo/, /bar/],
+        ['foo', 'bar'],
+        [/foo/, 'bar'],
+      ],
+      failure: [true, [true], [/foo/, 'foo', true]],
+    },
+    filename: {
+      success: ['[path].gz[query]', () => {}],
+      failure: [true],
+    },
+    algorithm: {
+      success: ['gzip', () => {}],
+      failure: [true],
+    },
+    compressionOptions: {
+      success: [{ level: 1 }, { unknown: 1 }],
+      failure: ['1024'],
+    },
+    threshold: {
+      success: [1024],
+      failure: ['1024'],
+    },
+    minRatio: {
+      success: [0.8],
+      failure: ['0.8'],
+    },
+    cache: {
+      success: [true, '/path/to/cache'],
+      failure: [() => {}],
+    },
+    deleteOriginalAssets: {
+      success: [true, false],
+      failure: ['true'],
+    },
+    unknown: {
+      success: [],
+      failure: [1, true, false, 'test', /test/, [], {}, { foo: 'bar' }],
+    },
+  };
 
-  expect(() => {
-    new CompressionPlugin({ test: 'foo' });
-  }).not.toThrow();
+  function stringifyValue(value) {
+    if (
+      Array.isArray(value) ||
+      (value && typeof value === 'object' && value.constructor === Object)
+    ) {
+      return JSON.stringify(value);
+    }
 
-  expect(() => {
-    new CompressionPlugin({ test: [/foo/] });
-  }).not.toThrow();
+    return value;
+  }
 
-  expect(() => {
-    new CompressionPlugin({ test: [/foo/, /bar/] });
-  }).not.toThrow();
+  async function createTestCase(key, value, type) {
+    it(`should ${
+      type === 'success' ? 'successfully validate' : 'throw an error on'
+    } the "${key}" option with "${stringifyValue(value)}" value`, async () => {
+      let error;
 
-  expect(() => {
-    new CompressionPlugin({ test: ['foo', 'bar'] });
-  }).not.toThrow();
+      try {
+        // eslint-disable-next-line no-new
+        new CompressionPlugin({ [key]: value });
+      } catch (errorFromPlugin) {
+        if (errorFromPlugin.name !== 'ValidationError') {
+          throw errorFromPlugin;
+        }
 
-  expect(() => {
-    new CompressionPlugin({ test: [/foo/, 'bar'] });
-  }).not.toThrow();
-
-  expect(() => {
-    new CompressionPlugin({ test: true });
-  }).toThrowErrorMatchingSnapshot();
-
-  expect(() => {
-    new CompressionPlugin({ test: [true] });
-  }).toThrowErrorMatchingSnapshot();
-
-  expect(() => {
-    new CompressionPlugin({ test: [/foo/, 'foo', true] });
-  }).toThrowErrorMatchingSnapshot();
-
-  expect(() => {
-    new CompressionPlugin({ include: /foo/ });
-  }).not.toThrow();
-
-  expect(() => {
-    new CompressionPlugin({ include: 'foo' });
-  }).not.toThrow();
-
-  expect(() => {
-    new CompressionPlugin({ include: [/foo/] });
-  }).not.toThrow();
-
-  expect(() => {
-    new CompressionPlugin({ include: [/foo/, /bar/] });
-  }).not.toThrow();
-
-  expect(() => {
-    new CompressionPlugin({ include: ['foo', 'bar'] });
-  }).not.toThrow();
-
-  expect(() => {
-    new CompressionPlugin({ include: [/foo/, 'bar'] });
-  }).not.toThrow();
-
-  expect(() => {
-    new CompressionPlugin({ include: true });
-  }).toThrowErrorMatchingSnapshot();
-
-  expect(() => {
-    new CompressionPlugin({ include: [true] });
-  }).toThrowErrorMatchingSnapshot();
-
-  expect(() => {
-    new CompressionPlugin({ include: [/foo/, 'foo', true] });
-  }).toThrowErrorMatchingSnapshot();
-
-  expect(() => {
-    new CompressionPlugin({ exclude: /foo/ });
-  }).not.toThrow();
-
-  expect(() => {
-    new CompressionPlugin({ exclude: 'foo' });
-  }).not.toThrow();
-
-  expect(() => {
-    new CompressionPlugin({ include: [/foo/] });
-  }).not.toThrow();
-
-  expect(() => {
-    new CompressionPlugin({ exclude: [/foo/, /bar/] });
-  }).not.toThrow();
-
-  expect(() => {
-    new CompressionPlugin({ exclude: ['foo', 'bar'] });
-  }).not.toThrow();
-
-  expect(() => {
-    new CompressionPlugin({ exclude: [/foo/, 'bar'] });
-  }).not.toThrow();
-
-  expect(() => {
-    new CompressionPlugin({ exclude: true });
-  }).toThrowErrorMatchingSnapshot();
-
-  expect(() => {
-    new CompressionPlugin({ exclude: [true] });
-  }).toThrowErrorMatchingSnapshot();
-
-  expect(() => {
-    new CompressionPlugin({ exclude: [/foo/, 'foo', true] });
-  }).toThrowErrorMatchingSnapshot();
-
-  expect(() => {
-    new CompressionPlugin({ cache: true });
-  }).not.toThrow();
-
-  expect(() => {
-    new CompressionPlugin({ cache: '/path/to/cache' });
-  }).not.toThrow();
-
-  expect(() => {
-    new CompressionPlugin({ cache: () => {} });
-  }).toThrowErrorMatchingSnapshot();
-
-  expect(() => {
-    new CompressionPlugin({ filename: '[path].gz[query]' });
-  }).not.toThrow();
-
-  expect(() => {
-    new CompressionPlugin({
-      filename() {
-        return 'test';
-      },
+        error = errorFromPlugin;
+      } finally {
+        if (type === 'success') {
+          expect(error).toBeUndefined();
+        } else if (type === 'failure') {
+          expect(() => {
+            throw error;
+          }).toThrowErrorMatchingSnapshot();
+        }
+      }
     });
-  }).not.toThrow();
+  }
 
-  expect(() => {
-    new CompressionPlugin({ filename: true });
-  }).toThrowErrorMatchingSnapshot();
-
-  expect(() => {
-    new CompressionPlugin({ algorithm: 'gzip' });
-  }).not.toThrow();
-
-  expect(() => {
-    new CompressionPlugin({
-      algorithm(input, compressionOptions, callback) {
-        return callback(input);
-      },
-    });
-  }).not.toThrow();
-
-  expect(() => {
-    new CompressionPlugin({ algorithm: true });
-  }).toThrowErrorMatchingSnapshot();
-
-  expect(() => {
-    new CompressionPlugin({ compressionOptions: { level: 1 } });
-  }).not.toThrow();
-
-  expect(() => {
-    new CompressionPlugin({ compressionOptions: { unknown: 1 } });
-  }).not.toThrow();
-
-  expect(() => {
-    new CompressionPlugin({ compressionOptions: '1024' });
-  }).toThrowErrorMatchingSnapshot();
-
-  expect(() => {
-    new CompressionPlugin({ threshold: 1024 });
-  }).not.toThrow();
-
-  expect(() => {
-    new CompressionPlugin({ threshold: '1024' });
-  }).toThrowErrorMatchingSnapshot();
-
-  expect(() => {
-    new CompressionPlugin({ minRatio: 0.8 });
-  }).not.toThrow();
-
-  expect(() => {
-    new CompressionPlugin({ minRatio: '0.8' });
-  }).toThrowErrorMatchingSnapshot();
-
-  expect(() => {
-    new CompressionPlugin({ deleteOriginalAssets: true });
-  }).not.toThrow();
-
-  expect(() => {
-    new CompressionPlugin({ deleteOriginalAssets: false });
-  }).not.toThrow();
-
-  expect(() => {
-    new CompressionPlugin({ deleteOriginalAssets: 'true' });
-  }).toThrowErrorMatchingSnapshot();
-
-  expect(() => {
-    new CompressionPlugin({ unknown: true });
-  }).toThrowErrorMatchingSnapshot();
-  /* eslint-enable no-new */
+  for (const [key, values] of Object.entries(tests)) {
+    for (const type of Object.keys(values)) {
+      for (const value of values[type]) {
+        createTestCase(key, value, type);
+      }
+    }
+  }
 });

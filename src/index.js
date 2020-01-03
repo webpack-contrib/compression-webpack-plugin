@@ -22,7 +22,10 @@ import schema from './options.json';
 
 class CompressionPlugin {
   constructor(options = {}) {
-    validateOptions(schema, options, 'Compression Plugin');
+    validateOptions(schema, options, {
+      name: 'Compression Plugin',
+      baseDataPath: 'options',
+    });
 
     const {
       test,
