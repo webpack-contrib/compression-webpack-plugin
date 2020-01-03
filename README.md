@@ -127,12 +127,19 @@ The target asset filename.
 
 `[file]` is replaced with the original asset filename.
 `[path]` is replaced with the path of the original asset.
+`[dir]` is replaced with the directory of the original asset.
+`[name]` is replaced with the filename of the original asset.
+`[ext]` is replaced with the extension of the original asset.
 `[query]` is replaced with the query.
 
 ```js
 // in your webpack.config.js
 new CompressionPlugin({
   filename: '[path].gz[query]',
+});
+
+new CompressionPlugin({
+  filename: '[dir][name].gz[ext][query]',
 });
 ```
 

@@ -39,6 +39,22 @@ describe('when applied with `function` option', () => {
     });
   });
 
+  it('matches snapshot for `[dir][name].super-compressed.gz[ext][query]` value ({String})', () => {
+    new Plugin({
+      minRatio: 1,
+      filename: '[dir][name].super-compressed.gz[ext][query]',
+    }).apply(compiler);
+
+    return compile(compiler).then((stats) => {
+      const errors = stats.compilation.errors.map(cleanErrorStack);
+      const warnings = stats.compilation.warnings.map(cleanErrorStack);
+
+      expect(errors).toMatchSnapshot('errors');
+      expect(warnings).toMatchSnapshot('warnings');
+      expect(getAssetsInfo(stats.compilation.assets)).toMatchSnapshot('assets');
+    });
+  });
+
   it('matches snapshot for custom function ({Function})', () => {
     new Plugin({
       minRatio: 1,

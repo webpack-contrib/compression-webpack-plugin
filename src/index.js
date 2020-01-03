@@ -6,6 +6,7 @@ Author Tobias Koppers @sokra
 import os from 'os';
 import crypto from 'crypto';
 import url from 'url';
+import path from 'path';
 
 import async from 'neo-async';
 import RawSource from 'webpack-sources/lib/RawSource';
@@ -143,9 +144,14 @@ class CompressionPlugin {
                 }
 
                 const parse = url.parse(file);
+                const { pathname } = parse;
+                const { dir, name, ext } = path.parse(pathname);
                 const info = {
                   file,
-                  path: parse.pathname,
+                  path: pathname,
+                  dir: dir ? `${dir}/` : '',
+                  name,
+                  ext,
                   query: parse.query ? `?${parse.query}` : '',
                 };
 
@@ -153,7 +159,7 @@ class CompressionPlugin {
                   typeof filename === 'function'
                     ? filename(info)
                     : filename.replace(
-                        /\[(file|path|query)\]/g,
+                        /\[(file|path|query|dir|name|ext)\]/g,
                         (p0, p1) => info[p1]
                       );
 
