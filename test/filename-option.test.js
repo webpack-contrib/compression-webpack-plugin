@@ -1,61 +1,57 @@
 import Plugin from '../src/index';
 
 import {
-  cleanErrorStack,
-  createCompiler,
   compile,
-  getAssetsInfo,
-} from './helpers';
+  getAssetsNameAndSize,
+  getCompiler,
+  getErrors,
+  getWarnings,
+} from './helpers/index';
 
-describe('when applied with `function` option', () => {
+describe('"filename" option', () => {
   let compiler;
 
   beforeEach(() => {
-    compiler = createCompiler({
-      entry: {
-        js: `${__dirname}/fixtures/entry.js`,
-      },
-      output: {
-        path: `${__dirname}/dist`,
-        filename: '[name].js?var=[hash]',
-        chunkFilename: '[id].[name].js?ver=[hash]',
-      },
-    });
+    compiler = getCompiler(
+      './entry.js',
+      {},
+      {
+        output: {
+          path: `${__dirname}/dist`,
+          filename: '[name].js?var=[hash]',
+          chunkFilename: '[id].[name].js?ver=[hash]',
+        },
+      }
+    );
   });
 
-  it('matches snapshot for `[path].super-compressed.gz[query]` value ({String})', () => {
+  it('matches snapshot for `[path].super-compressed.gz[query]` value ({String})', async () => {
     new Plugin({
       minRatio: 1,
       filename: '[path].super-compressed.gz[query]',
     }).apply(compiler);
 
-    return compile(compiler).then((stats) => {
-      const errors = stats.compilation.errors.map(cleanErrorStack);
-      const warnings = stats.compilation.warnings.map(cleanErrorStack);
+    const stats = await compile(compiler);
 
-      expect(errors).toMatchSnapshot('errors');
-      expect(warnings).toMatchSnapshot('warnings');
-      expect(getAssetsInfo(stats.compilation.assets)).toMatchSnapshot('assets');
-    });
+    expect(getAssetsNameAndSize(stats)).toMatchSnapshot('assets');
+    expect(getWarnings(stats)).toMatchSnapshot('errors');
+    expect(getErrors(stats)).toMatchSnapshot('warnings');
   });
 
-  it('matches snapshot for `[dir][name].super-compressed.gz[ext][query]` value ({String})', () => {
+  it('matches snapshot for `[dir][name].super-compressed.gz[ext][query]` value ({String})', async () => {
     new Plugin({
       minRatio: 1,
       filename: '[dir][name].super-compressed.gz[ext][query]',
     }).apply(compiler);
 
-    return compile(compiler).then((stats) => {
-      const errors = stats.compilation.errors.map(cleanErrorStack);
-      const warnings = stats.compilation.warnings.map(cleanErrorStack);
+    const stats = await compile(compiler);
 
-      expect(errors).toMatchSnapshot('errors');
-      expect(warnings).toMatchSnapshot('warnings');
-      expect(getAssetsInfo(stats.compilation.assets)).toMatchSnapshot('assets');
-    });
+    expect(getAssetsNameAndSize(stats)).toMatchSnapshot('assets');
+    expect(getWarnings(stats)).toMatchSnapshot('errors');
+    expect(getErrors(stats)).toMatchSnapshot('warnings');
   });
 
-  it('matches snapshot for custom function ({Function})', () => {
+  it('matches snapshot for custom function ({Function})', async () => {
     new Plugin({
       minRatio: 1,
       filename(info) {
@@ -63,13 +59,10 @@ describe('when applied with `function` option', () => {
       },
     }).apply(compiler);
 
-    return compile(compiler).then((stats) => {
-      const errors = stats.compilation.errors.map(cleanErrorStack);
-      const warnings = stats.compilation.warnings.map(cleanErrorStack);
+    const stats = await compile(compiler);
 
-      expect(errors).toMatchSnapshot('errors');
-      expect(warnings).toMatchSnapshot('warnings');
-      expect(getAssetsInfo(stats.compilation.assets)).toMatchSnapshot('assets');
-    });
+    expect(getAssetsNameAndSize(stats)).toMatchSnapshot('assets');
+    expect(getWarnings(stats)).toMatchSnapshot('errors');
+    expect(getErrors(stats)).toMatchSnapshot('warnings');
   });
 });

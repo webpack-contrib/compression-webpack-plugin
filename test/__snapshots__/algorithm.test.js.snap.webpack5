@@ -1,0 +1,133 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`"algorithm" option matches snapshot for \`gzip\` value ({String}): assets 1`] = `
+Array [
+  Array [
+    "5b1f36bc41ab31f5b801d48ba1d65781.png",
+    78117,
+  ],
+  Array [
+    "5b1f36bc41ab31f5b801d48ba1d65781.png.gz",
+    73160,
+  ],
+  Array [
+    "96621d3c37d96ad3bf792fcc848d912f.svg",
+    672,
+  ],
+  Array [
+    "96621d3c37d96ad3bf792fcc848d912f.svg.gz",
+    393,
+  ],
+  Array [
+    "async.async.735f6a02a2e820243759.js",
+    335,
+  ],
+  Array [
+    "async.async.735f6a02a2e820243759.js.gz",
+    211,
+  ],
+  Array [
+    "main.d15ed940e80fd4e27b8d.js",
+    13280,
+  ],
+  Array [
+    "main.d15ed940e80fd4e27b8d.js.gz",
+    3206,
+  ],
+]
+`;
+
+exports[`"algorithm" option matches snapshot for \`gzip\` value ({String}): errors 1`] = `Array []`;
+
+exports[`"algorithm" option matches snapshot for \`gzip\` value ({String}): warnings 1`] = `Array []`;
+
+exports[`"algorithm" option matches snapshot for \`unknown\` value ({String}) 1`] = `"Algorithm not found in zlib"`;
+
+exports[`"algorithm" option matches snapshot for custom function ({Function}): assets 1`] = `
+Array [
+  Array [
+    "5b1f36bc41ab31f5b801d48ba1d65781.png",
+    78117,
+  ],
+  Array [
+    "5b1f36bc41ab31f5b801d48ba1d65781.png.gz",
+    78117,
+  ],
+  Array [
+    "96621d3c37d96ad3bf792fcc848d912f.svg",
+    672,
+  ],
+  Array [
+    "96621d3c37d96ad3bf792fcc848d912f.svg.gz",
+    672,
+  ],
+  Array [
+    "async.async.735f6a02a2e820243759.js",
+    335,
+  ],
+  Array [
+    "async.async.735f6a02a2e820243759.js.gz",
+    335,
+  ],
+  Array [
+    "main.d15ed940e80fd4e27b8d.js",
+    13280,
+  ],
+  Array [
+    "main.d15ed940e80fd4e27b8d.js.gz",
+    13280,
+  ],
+]
+`;
+
+exports[`"algorithm" option matches snapshot for custom function ({Function}): compressionOptions 1`] = `Object {}`;
+
+exports[`"algorithm" option matches snapshot for custom function ({Function}): compressionOptions 2`] = `Object {}`;
+
+exports[`"algorithm" option matches snapshot for custom function ({Function}): compressionOptions 3`] = `Object {}`;
+
+exports[`"algorithm" option matches snapshot for custom function ({Function}): compressionOptions 4`] = `Object {}`;
+
+exports[`"algorithm" option matches snapshot for custom function ({Function}): errors 1`] = `Array []`;
+
+exports[`"algorithm" option matches snapshot for custom function ({Function}): warnings 1`] = `Array []`;
+
+exports[`"algorithm" option matches snapshot for custom function with error ({Function}): assets 1`] = `
+Array [
+  Array [
+    "5b1f36bc41ab31f5b801d48ba1d65781.png",
+    78117,
+  ],
+  Array [
+    "96621d3c37d96ad3bf792fcc848d912f.svg",
+    672,
+  ],
+  Array [
+    "async.async.735f6a02a2e820243759.js",
+    335,
+  ],
+  Array [
+    "main.d15ed940e80fd4e27b8d.js",
+    13280,
+  ],
+]
+`;
+
+exports[`"algorithm" option matches snapshot for custom function with error ({Function}): compressionOptions 1`] = `Object {}`;
+
+exports[`"algorithm" option matches snapshot for custom function with error ({Function}): compressionOptions 2`] = `Object {}`;
+
+exports[`"algorithm" option matches snapshot for custom function with error ({Function}): compressionOptions 3`] = `Object {}`;
+
+exports[`"algorithm" option matches snapshot for custom function with error ({Function}): compressionOptions 4`] = `Object {}`;
+
+exports[`"algorithm" option matches snapshot for custom function with error ({Function}): errors 1`] = `Array []`;
+
+exports[`"algorithm" option matches snapshot for custom function with error ({Function}): warnings 1`] = `
+Array [
+  "Error",
+  "Error",
+  "Error",
+  "Error",
+]
+`;

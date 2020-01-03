@@ -1,0 +1,67 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`"minRatio" option matches snapshot for \`0\` value ({Number}): assets 1`] = `
+Array [
+  Array [
+    "5b1f36bc41ab31f5b801d48ba1d65781.png",
+    78117,
+  ],
+  Array [
+    "96621d3c37d96ad3bf792fcc848d912f.svg",
+    672,
+  ],
+  Array [
+    "async.async.dcbdb1dd40763448b635.js",
+    249,
+  ],
+  Array [
+    "main.05f1dbd45b8b9f10bfce.js",
+    11127,
+  ],
+]
+`;
+
+exports[`"minRatio" option matches snapshot for \`0\` value ({Number}): errors 1`] = `Array []`;
+
+exports[`"minRatio" option matches snapshot for \`0\` value ({Number}): warnings 1`] = `Array []`;
+
+exports[`"minRatio" option matches snapshot for \`1\` value ({Number}): assets 1`] = `
+Array [
+  Array [
+    "5b1f36bc41ab31f5b801d48ba1d65781.png",
+    78117,
+  ],
+  Array [
+    "5b1f36bc41ab31f5b801d48ba1d65781.png.gz",
+    73160,
+  ],
+  Array [
+    "96621d3c37d96ad3bf792fcc848d912f.svg",
+    672,
+  ],
+  Array [
+    "96621d3c37d96ad3bf792fcc848d912f.svg.gz",
+    393,
+  ],
+  Array [
+    "async.async.dcbdb1dd40763448b635.js",
+    249,
+  ],
+  Array [
+    "async.async.dcbdb1dd40763448b635.js.gz",
+    171,
+  ],
+  Array [
+    "main.05f1dbd45b8b9f10bfce.js",
+    11127,
+  ],
+  Array [
+    "main.05f1dbd45b8b9f10bfce.js.gz",
+    2955,
+  ],
+]
+`;
+
+exports[`"minRatio" option matches snapshot for \`1\` value ({Number}): errors 1`] = `Array []`;
+
+exports[`"minRatio" option matches snapshot for \`1\` value ({Number}): warnings 1`] = `Array []`;

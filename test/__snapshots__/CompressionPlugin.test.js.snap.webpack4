@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CompressionPlugin should works (without options): assets 1`] = `
+Array [
+  Array [
+    "5b1f36bc41ab31f5b801d48ba1d65781.png",
+    78117,
+  ],
+  Array [
+    "96621d3c37d96ad3bf792fcc848d912f.svg",
+    672,
+  ],
+  Array [
+    "96621d3c37d96ad3bf792fcc848d912f.svg.gz",
+    393,
+  ],
+  Array [
+    "async.async.js.gz?ver=a2650528660eba75b74e",
+    171,
+  ],
+  Array [
+    "async.async.js?ver=a2650528660eba75b74e",
+    249,
+  ],
+  Array [
+    "main.js.gz?var=a2650528660eba75b74e",
+    2959,
+  ],
+  Array [
+    "main.js?var=a2650528660eba75b74e",
+    11112,
+  ],
+]
+`;
+
+exports[`CompressionPlugin should works (without options): errors 1`] = `Array []`;
+
+exports[`CompressionPlugin should works (without options): warnings 1`] = `Array []`;
