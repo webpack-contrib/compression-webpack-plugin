@@ -1,8 +1,8 @@
-import Plugin from '../src';
-import CJSPlugin from '../src/cjs';
+import src from '../src';
+import cjs from '../src/cjs';
 
-describe('CJS', () => {
-  it('should exported plugin', () => {
-    expect(CJSPlugin).toEqual(Plugin);
+describe('cjs', () => {
+  it('should exported', () => {
+    expect(cjs).toEqual(src);
   });
 });

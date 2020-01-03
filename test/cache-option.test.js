@@ -6,11 +6,12 @@ import findCacheDir from 'find-cache-dir';
 import Plugin from '../src/index';
 
 import {
-  createCompiler,
   compile,
-  cleanErrorStack,
-  getAssetsInfo,
-} from './helpers';
+  getAssetsNameAndSize,
+  getCompiler,
+  getErrors,
+  getWarnings,
+} from './helpers/index';
 
 const cacheDir = findCacheDir({ name: 'compression-webpack-plugin' });
 const otherCacheDir = findCacheDir({ name: 'other-cache-directory' });
@@ -19,11 +20,7 @@ describe('when applied with `cache` option', () => {
   let compiler;
 
   beforeEach(() => {
-    compiler = createCompiler({
-      entry: {
-        js: `${__dirname}/fixtures/entry.js`,
-      },
-    });
+    compiler = getCompiler('./entry.js');
 
     return Promise.all([
       cacache.rm.all(cacheDir),
@@ -35,171 +32,128 @@ describe('when applied with `cache` option', () => {
     Promise.all([cacache.rm.all(cacheDir), cacache.rm.all(otherCacheDir)])
   );
 
-  it('matches snapshot for `false` value ({Boolean})', () => {
+  it('matches snapshot for `false` value ({Boolean})', async () => {
     new Plugin({ cache: false, minRatio: 1 }).apply(compiler);
 
     cacache.get = jest.fn(cacache.get);
     cacache.put = jest.fn(cacache.put);
 
-    return compile(compiler).then((stats) => {
-      const errors = stats.compilation.errors.map(cleanErrorStack);
-      const warnings = stats.compilation.warnings.map(cleanErrorStack);
+    const stats = await compile(compiler);
 
-      expect(errors).toMatchSnapshot('errors');
-      expect(warnings).toMatchSnapshot('warnings');
-      expect(getAssetsInfo(stats.compilation.assets)).toMatchSnapshot('assets');
+    expect(getAssetsNameAndSize(stats)).toMatchSnapshot('assets');
+    expect(getWarnings(stats)).toMatchSnapshot('errors');
+    expect(getErrors(stats)).toMatchSnapshot('warnings');
 
-      // Cache disabled so we don't run `get` or `put`
-      expect(cacache.get.mock.calls.length).toBe(0);
-      expect(cacache.put.mock.calls.length).toBe(0);
+    // Cache disabled so we don't run `get` or `put`
+    expect(cacache.get.mock.calls.length).toBe(0);
+    expect(cacache.put.mock.calls.length).toBe(0);
 
-      return Promise.resolve()
-        .then(() => cacache.ls(cacheDir))
-        .then((cacheEntriesList) => {
-          const cacheKeys = Object.keys(cacheEntriesList);
+    const cacheEntriesList = await cacache.ls(cacheDir);
+    const cacheKeys = Object.keys(cacheEntriesList);
 
-          expect(cacheKeys.length).toBe(0);
-        });
-    });
+    expect(cacheKeys.length).toBe(0);
   });
 
-  it('matches snapshot for `true` value ({Boolean})', () => {
+  it('matches snapshot for `true` value ({Boolean})', async () => {
     new Plugin({ cache: true, minRatio: 1 }).apply(compiler);
 
     cacache.get = jest.fn(cacache.get);
     cacache.put = jest.fn(cacache.put);
 
-    return compile(compiler).then((stats) => {
-      const errors = stats.compilation.errors.map(cleanErrorStack);
-      const warnings = stats.compilation.warnings.map(cleanErrorStack);
+    const stats = await compile(compiler);
 
-      expect(errors).toMatchSnapshot('errors');
-      expect(warnings).toMatchSnapshot('warnings');
-      expect(getAssetsInfo(stats.compilation.assets)).toMatchSnapshot('assets');
+    expect(getAssetsNameAndSize(stats)).toMatchSnapshot('assets');
+    expect(getWarnings(stats)).toMatchSnapshot('errors');
+    expect(getErrors(stats)).toMatchSnapshot('warnings');
 
-      const countAssets = Object.keys(stats.compilation.assets).length;
+    const countAssets = Object.keys(stats.compilation.assets).length;
 
-      // Try to found cached files, but we don't have their in cache
-      expect(cacache.get.mock.calls.length).toBe(countAssets / 2);
-      // Put files in cache
-      expect(cacache.put.mock.calls.length).toBe(countAssets / 2);
+    // Try to found cached files, but we don't have their in cache
+    expect(cacache.get.mock.calls.length).toBe(countAssets / 2);
+    // Put files in cache
+    expect(cacache.put.mock.calls.length).toBe(countAssets / 2);
 
-      return (
-        Promise.resolve()
-          .then(() => cacache.ls(cacheDir))
-          .then((cacheEntriesList) => {
-            const cacheKeys = Object.keys(cacheEntriesList);
+    const cacheEntriesList = await cacache.ls(cacheDir);
 
-            // Make sure that we cached files
-            expect(cacheKeys.length).toBe(countAssets / 2);
+    const cacheKeys = Object.keys(cacheEntriesList);
 
-            cacheKeys.forEach((cacheEntry) => {
-              // eslint-disable-next-line no-new-func
-              const cacheEntryOptions = new Function(
-                `'use strict'\nreturn ${cacheEntry}`
-              )();
-              const basename = path.basename(cacheEntryOptions.path);
+    // Make sure that we cached files
+    expect(cacheKeys.length).toBe(countAssets / 2);
 
-              expect([basename, cacheEntryOptions.hash]).toMatchSnapshot(
-                basename
-              );
-            });
+    cacheKeys.forEach((cacheEntry) => {
+      // eslint-disable-next-line no-new-func
+      const cacheEntryOptions = new Function(
+        `'use strict'\nreturn ${cacheEntry}`
+      )();
+      const basename = path.basename(cacheEntryOptions.path);
 
-            cacache.get.mockClear();
-            cacache.put.mockClear();
-          })
-          // Run second compilation to ensure cached files will be taken from cache
-          .then(() => compile(compiler))
-          .then((newStats) => {
-            const newErrors = newStats.compilation.errors.map(cleanErrorStack);
-            const newWarnings = newStats.compilation.warnings.map(
-              cleanErrorStack
-            );
-
-            expect(newErrors).toMatchSnapshot('errors');
-            expect(newWarnings).toMatchSnapshot('warnings');
-            expect(getAssetsInfo(stats.compilation.assets)).toMatchSnapshot(
-              'assets'
-            );
-
-            const newCountAssets = Object.keys(newStats.compilation.assets)
-              .length;
-
-            // Now we have cached files so we get their and don't put
-            expect(cacache.get.mock.calls.length).toBe(newCountAssets / 2);
-            expect(cacache.put.mock.calls.length).toBe(0);
-          })
-      );
+      expect([basename, cacheEntryOptions.hash]).toMatchSnapshot(basename);
     });
+
+    cacache.get.mockClear();
+    cacache.put.mockClear();
+
+    const newStats = await compile(compiler);
+
+    expect(getAssetsNameAndSize(newStats)).toMatchSnapshot('assets');
+    expect(getWarnings(newStats)).toMatchSnapshot('errors');
+    expect(getErrors(newStats)).toMatchSnapshot('warnings');
+
+    const newCountAssets = Object.keys(newStats.compilation.assets).length;
+
+    // Now we have cached files so we get their and don't put
+    expect(cacache.get.mock.calls.length).toBe(newCountAssets / 2);
+    expect(cacache.put.mock.calls.length).toBe(0);
   });
 
-  it('matches snapshot for `other-cache-directory` value ({String})', () => {
+  it('matches snapshot for `other-cache-directory` value ({String})', async () => {
     new Plugin({ cache: otherCacheDir, minRatio: 1 }).apply(compiler);
 
     cacache.get = jest.fn(cacache.get);
     cacache.put = jest.fn(cacache.put);
 
-    return compile(compiler).then((stats) => {
-      const errors = stats.compilation.errors.map(cleanErrorStack);
-      const warnings = stats.compilation.warnings.map(cleanErrorStack);
+    const stats = await compile(compiler);
 
-      expect(errors).toMatchSnapshot('errors');
-      expect(warnings).toMatchSnapshot('warnings');
-      expect(getAssetsInfo(stats.compilation.assets)).toMatchSnapshot('assets');
+    expect(getAssetsNameAndSize(stats)).toMatchSnapshot('assets');
+    expect(getWarnings(stats)).toMatchSnapshot('errors');
+    expect(getErrors(stats)).toMatchSnapshot('warnings');
 
-      const countAssets = Object.keys(stats.compilation.assets).length;
+    const countAssets = Object.keys(stats.compilation.assets).length;
 
-      // Try to found cached files, but we don't have their in cache
-      expect(cacache.get.mock.calls.length).toBe(countAssets / 2);
-      // Put files in cache
-      expect(cacache.put.mock.calls.length).toBe(countAssets / 2);
+    // Try to found cached files, but we don't have their in cache
+    expect(cacache.get.mock.calls.length).toBe(countAssets / 2);
+    // Put files in cache
+    expect(cacache.put.mock.calls.length).toBe(countAssets / 2);
 
-      return (
-        Promise.resolve()
-          .then(() => cacache.ls(otherCacheDir))
-          .then((cacheEntriesList) => {
-            const cacheKeys = Object.keys(cacheEntriesList);
+    const cacheEntriesList = await cacache.ls(otherCacheDir);
+    const cacheKeys = Object.keys(cacheEntriesList);
 
-            // Make sure that we cached files
-            expect(cacheKeys.length).toBe(countAssets / 2);
+    // Make sure that we cached files
+    expect(cacheKeys.length).toBe(countAssets / 2);
 
-            cacheKeys.forEach((cacheEntry) => {
-              // eslint-disable-next-line no-new-func
-              const cacheEntryOptions = new Function(
-                `'use strict'\nreturn ${cacheEntry}`
-              )();
-              const basename = path.basename(cacheEntryOptions.path);
+    cacheKeys.forEach((cacheEntry) => {
+      // eslint-disable-next-line no-new-func
+      const cacheEntryOptions = new Function(
+        `'use strict'\nreturn ${cacheEntry}`
+      )();
+      const basename = path.basename(cacheEntryOptions.path);
 
-              expect([basename, cacheEntryOptions.hash]).toMatchSnapshot(
-                basename
-              );
-            });
-
-            cacache.get.mockClear();
-            cacache.put.mockClear();
-          })
-          // Run second compilation to ensure cached files will be taken from cache
-          .then(() => compile(compiler))
-          .then((newStats) => {
-            const newErrors = newStats.compilation.errors.map(cleanErrorStack);
-            const newWarnings = newStats.compilation.warnings.map(
-              cleanErrorStack
-            );
-
-            expect(newErrors).toMatchSnapshot('errors');
-            expect(newWarnings).toMatchSnapshot('warnings');
-            expect(getAssetsInfo(stats.compilation.assets)).toMatchSnapshot(
-              'assets'
-            );
-
-            const newCountAssets = Object.keys(newStats.compilation.assets)
-              .length;
-
-            // Now we have cached files so we get their and don't put
-            expect(cacache.get.mock.calls.length).toBe(newCountAssets / 2);
-            expect(cacache.put.mock.calls.length).toBe(0);
-          })
-      );
+      expect([basename, cacheEntryOptions.hash]).toMatchSnapshot(basename);
     });
+
+    cacache.get.mockClear();
+    cacache.put.mockClear();
+
+    const newStats = await compile(compiler);
+
+    expect(getAssetsNameAndSize(newStats)).toMatchSnapshot('assets');
+    expect(getWarnings(newStats)).toMatchSnapshot('errors');
+    expect(getErrors(newStats)).toMatchSnapshot('warnings');
+
+    const newCountAssets = Object.keys(newStats.compilation.assets).length;
+
+    // Now we have cached files so we get their and don't put
+    expect(cacache.get.mock.calls.length).toBe(newCountAssets / 2);
+    expect(cacache.put.mock.calls.length).toBe(0);
   });
 });

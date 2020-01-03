@@ -1,50 +1,41 @@
 import Plugin from '../src/index';
 
 import {
-  cleanErrorStack,
-  createCompiler,
   compile,
-  getAssetsInfo,
-} from './helpers';
+  getAssetsNameAndSize,
+  getCompiler,
+  getErrors,
+  getWarnings,
+} from './helpers/index';
 
 describe('when applied with `minRatio` option', () => {
   let compiler;
 
   beforeEach(() => {
-    compiler = createCompiler({
-      entry: {
-        js: `${__dirname}/fixtures/entry.js`,
-      },
-    });
+    compiler = getCompiler('./entry.js');
   });
 
-  it('matches snapshot for `0` value ({Number})', () => {
+  it('matches snapshot for `0` value ({Number})', async () => {
     new Plugin({
       minRatio: 0,
     }).apply(compiler);
 
-    return compile(compiler).then((stats) => {
-      const errors = stats.compilation.errors.map(cleanErrorStack);
-      const warnings = stats.compilation.warnings.map(cleanErrorStack);
+    const stats = await compile(compiler);
 
-      expect(errors).toMatchSnapshot('errors');
-      expect(warnings).toMatchSnapshot('warnings');
-      expect(getAssetsInfo(stats.compilation.assets)).toMatchSnapshot('assets');
-    });
+    expect(getAssetsNameAndSize(stats)).toMatchSnapshot('assets');
+    expect(getWarnings(stats)).toMatchSnapshot('errors');
+    expect(getErrors(stats)).toMatchSnapshot('warnings');
   });
 
-  it('matches snapshot for `1` value ({Number})', () => {
+  it('matches snapshot for `1` value ({Number})', async () => {
     new Plugin({
       minRatio: 1,
     }).apply(compiler);
 
-    return compile(compiler).then((stats) => {
-      const errors = stats.compilation.errors.map(cleanErrorStack);
-      const warnings = stats.compilation.warnings.map(cleanErrorStack);
+    const stats = await compile(compiler);
 
-      expect(errors).toMatchSnapshot('errors');
-      expect(warnings).toMatchSnapshot('warnings');
-      expect(getAssetsInfo(stats.compilation.assets)).toMatchSnapshot('assets');
-    });
+    expect(getAssetsNameAndSize(stats)).toMatchSnapshot('assets');
+    expect(getWarnings(stats)).toMatchSnapshot('errors');
+    expect(getErrors(stats)).toMatchSnapshot('warnings');
   });
 });

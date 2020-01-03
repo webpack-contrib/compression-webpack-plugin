@@ -3,10 +3,6 @@
 exports[`CompressionPlugin should works (without options): assets 1`] = `
 Array [
   Array [
-    "0.async.js?ver=81982f432266ef1edd1a",
-    130,
-  ],
-  Array [
     "5b1f36bc41ab31f5b801d48ba1d65781.png",
     78117,
   ],
@@ -19,12 +15,20 @@ Array [
     393,
   ],
   Array [
-    "js.js.gz?var=81982f432266ef1edd1a",
-    2802,
+    "async.async.js.gz?ver=a2650528660eba75b74e",
+    171,
   ],
   Array [
-    "js.js?var=81982f432266ef1edd1a",
-    10221,
+    "async.async.js?ver=a2650528660eba75b74e",
+    249,
+  ],
+  Array [
+    "main.js.gz?var=a2650528660eba75b74e",
+    2959,
+  ],
+  Array [
+    "main.js?var=a2650528660eba75b74e",
+    11112,
   ],
 ]
 `;

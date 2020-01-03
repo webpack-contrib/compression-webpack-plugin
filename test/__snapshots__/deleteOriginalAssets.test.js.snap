@@ -3,14 +3,6 @@
 exports[`when applied with \`test\` option matches snapshot for \`false\` value ({Boolean}): assets 1`] = `
 Array [
   Array [
-    "0.async.dbe59b7ea0e1a63e45d4.js",
-    130,
-  ],
-  Array [
-    "0.async.dbe59b7ea0e1a63e45d4.js.gz",
-    117,
-  ],
-  Array [
     "5b1f36bc41ab31f5b801d48ba1d65781.png",
     78117,
   ],
@@ -27,12 +19,20 @@ Array [
     393,
   ],
   Array [
-    "js.8bd7079c9d63d0f6847e.js",
-    10232,
+    "async.async.dcbdb1dd40763448b635.js",
+    249,
   ],
   Array [
-    "js.8bd7079c9d63d0f6847e.js.gz",
-    2800,
+    "async.async.dcbdb1dd40763448b635.js.gz",
+    171,
+  ],
+  Array [
+    "main.05f1dbd45b8b9f10bfce.js",
+    11127,
+  ],
+  Array [
+    "main.05f1dbd45b8b9f10bfce.js.gz",
+    2955,
   ],
 ]
 `;
@@ -44,10 +44,6 @@ exports[`when applied with \`test\` option matches snapshot for \`false\` value 
 exports[`when applied with \`test\` option matches snapshot for \`true\` value ({Boolean}): assets 1`] = `
 Array [
   Array [
-    "0.async.dbe59b7ea0e1a63e45d4.js.gz",
-    117,
-  ],
-  Array [
     "5b1f36bc41ab31f5b801d48ba1d65781.png.gz",
     73160,
   ],
@@ -56,8 +52,12 @@ Array [
     393,
   ],
   Array [
-    "js.8bd7079c9d63d0f6847e.js.gz",
-    2800,
+    "async.async.dcbdb1dd40763448b635.js.gz",
+    171,
+  ],
+  Array [
+    "main.05f1dbd45b8b9f10bfce.js.gz",
+    2955,
   ],
 ]
 `;

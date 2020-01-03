@@ -1,38 +1,37 @@
 import Plugin from '../src/index';
 
 import {
-  cleanErrorStack,
-  createCompiler,
   compile,
-  getAssetsInfo,
-} from './helpers';
+  getAssetsNameAndSize,
+  getCompiler,
+  getErrors,
+  getWarnings,
+} from './helpers/index';
 
 describe('CompressionPlugin', () => {
   let compiler;
 
   beforeEach(() => {
-    compiler = createCompiler({
-      entry: {
-        js: `${__dirname}/fixtures/entry.js`,
-      },
-      output: {
-        path: `${__dirname}/dist`,
-        filename: '[name].js?var=[hash]',
-        chunkFilename: '[id].[name].js?ver=[hash]',
-      },
-    });
+    compiler = getCompiler(
+      './entry.js',
+      {},
+      {
+        output: {
+          path: `${__dirname}/dist`,
+          filename: '[name].js?var=[hash]',
+          chunkFilename: '[id].[name].js?ver=[hash]',
+        },
+      }
+    );
   });
 
-  it('should works (without options)', () => {
+  it('should works (without options)', async () => {
     new Plugin().apply(compiler);
 
-    return compile(compiler).then((stats) => {
-      const errors = stats.compilation.errors.map(cleanErrorStack);
-      const warnings = stats.compilation.warnings.map(cleanErrorStack);
+    const stats = await compile(compiler);
 
-      expect(errors).toMatchSnapshot('errors');
-      expect(warnings).toMatchSnapshot('warnings');
-      expect(getAssetsInfo(stats.compilation.assets)).toMatchSnapshot('assets');
-    });
+    expect(getAssetsNameAndSize(stats)).toMatchSnapshot('assets');
+    expect(getWarnings(stats)).toMatchSnapshot('errors');
+    expect(getErrors(stats)).toMatchSnapshot('warnings');
   });
 });
