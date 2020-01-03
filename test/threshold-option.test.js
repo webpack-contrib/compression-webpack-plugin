@@ -8,7 +8,7 @@ import {
   getWarnings,
 } from './helpers/index';
 
-describe('when applied with `threshold` option', () => {
+describe('"threshold" option', () => {
   let compiler;
 
   beforeEach(() => {

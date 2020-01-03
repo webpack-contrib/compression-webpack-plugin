@@ -8,7 +8,7 @@ import {
   getWarnings,
 } from './helpers/index';
 
-describe('when applied with `exclude` option', () => {
+describe('"exclude" option', () => {
   let compiler;
 
   beforeEach(() => {

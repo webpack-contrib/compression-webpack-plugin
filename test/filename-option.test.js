@@ -8,7 +8,7 @@ import {
   getWarnings,
 } from './helpers/index';
 
-describe('when applied with `function` option', () => {
+describe('"filename" option', () => {
   let compiler;
 
   beforeEach(() => {

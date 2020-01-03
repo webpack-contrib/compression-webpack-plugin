@@ -16,7 +16,7 @@ import {
 const cacheDir = findCacheDir({ name: 'compression-webpack-plugin' });
 const otherCacheDir = findCacheDir({ name: 'other-cache-directory' });
 
-describe('when applied with `cache` option', () => {
+describe('"cache" option', () => {
   let compiler;
 
   beforeEach(() => {

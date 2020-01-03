@@ -8,7 +8,7 @@ import {
   getWarnings,
 } from './helpers/index';
 
-describe('when applied with `minRatio` option', () => {
+describe('"minRatio" option', () => {
   let compiler;
 
   beforeEach(() => {

@@ -8,7 +8,7 @@ import {
   getWarnings,
 } from './helpers/index';
 
-describe('when applied with `compressionOptions` option', () => {
+describe('"compressionOptions" option', () => {
   let compiler;
 
   beforeEach(() => {

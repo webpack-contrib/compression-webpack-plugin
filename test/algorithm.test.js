@@ -8,7 +8,7 @@ import {
   getWarnings,
 } from './helpers/index';
 
-describe('when applied with `algorithm` option', () => {
+describe('"algorithm" option', () => {
   let compiler;
 
   beforeEach(() => {

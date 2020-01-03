@@ -8,7 +8,7 @@ import {
   getWarnings,
 } from './helpers/index';
 
-describe('when applied with `test` option', () => {
+describe('"deleteOriginalAssets" option', () => {
   let compiler;
 
   beforeEach(() => {

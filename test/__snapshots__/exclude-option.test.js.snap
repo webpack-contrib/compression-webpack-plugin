@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`when applied with \`exclude\` option matches snapshot for a single \`exclude\` value ({RegExp}): assets 1`] = `
+exports[`"exclude" option matches snapshot for a single \`exclude\` value ({RegExp}): assets 1`] = `
 Array [
   Array [
     "5b1f36bc41ab31f5b801d48ba1d65781.png",
@@ -33,11 +33,11 @@ Array [
 ]
 `;
 
-exports[`when applied with \`exclude\` option matches snapshot for a single \`exclude\` value ({RegExp}): errors 1`] = `Array []`;
+exports[`"exclude" option matches snapshot for a single \`exclude\` value ({RegExp}): errors 1`] = `Array []`;
 
-exports[`when applied with \`exclude\` option matches snapshot for a single \`exclude\` value ({RegExp}): warnings 1`] = `Array []`;
+exports[`"exclude" option matches snapshot for a single \`exclude\` value ({RegExp}): warnings 1`] = `Array []`;
 
-exports[`when applied with \`exclude\` option matches snapshot for multiple \`exclude\` values ({Array<RegExp>}): assets 1`] = `
+exports[`"exclude" option matches snapshot for multiple \`exclude\` values ({Array<RegExp>}): assets 1`] = `
 Array [
   Array [
     "5b1f36bc41ab31f5b801d48ba1d65781.png",
@@ -66,6 +66,6 @@ Array [
 ]
 `;
 
-exports[`when applied with \`exclude\` option matches snapshot for multiple \`exclude\` values ({Array<RegExp>}): errors 1`] = `Array []`;
+exports[`"exclude" option matches snapshot for multiple \`exclude\` values ({Array<RegExp>}): errors 1`] = `Array []`;
 
-exports[`when applied with \`exclude\` option matches snapshot for multiple \`exclude\` values ({Array<RegExp>}): warnings 1`] = `Array []`;
+exports[`"exclude" option matches snapshot for multiple \`exclude\` values ({Array<RegExp>}): warnings 1`] = `Array []`;

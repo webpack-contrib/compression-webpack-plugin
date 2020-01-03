@@ -8,7 +8,7 @@ import {
   getWarnings,
 } from './helpers/index';
 
-describe('when applied with `include` option', () => {
+describe('"include" option', () => {
   let compiler;
 
   beforeEach(() => {

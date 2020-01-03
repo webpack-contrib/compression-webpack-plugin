@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`when applied with \`function\` option matches snapshot for \`[dir][name].super-compressed.gz[ext][query]\` value ({String}): assets 1`] = `
+exports[`"filename" option matches snapshot for \`[dir][name].super-compressed.gz[ext][query]\` value ({String}): assets 1`] = `
 Array [
   Array [
     "5b1f36bc41ab31f5b801d48ba1d65781.png",
@@ -37,11 +37,11 @@ Array [
 ]
 `;
 
-exports[`when applied with \`function\` option matches snapshot for \`[dir][name].super-compressed.gz[ext][query]\` value ({String}): errors 1`] = `Array []`;
+exports[`"filename" option matches snapshot for \`[dir][name].super-compressed.gz[ext][query]\` value ({String}): errors 1`] = `Array []`;
 
-exports[`when applied with \`function\` option matches snapshot for \`[dir][name].super-compressed.gz[ext][query]\` value ({String}): warnings 1`] = `Array []`;
+exports[`"filename" option matches snapshot for \`[dir][name].super-compressed.gz[ext][query]\` value ({String}): warnings 1`] = `Array []`;
 
-exports[`when applied with \`function\` option matches snapshot for \`[path].super-compressed.gz[query]\` value ({String}): assets 1`] = `
+exports[`"filename" option matches snapshot for \`[path].super-compressed.gz[query]\` value ({String}): assets 1`] = `
 Array [
   Array [
     "5b1f36bc41ab31f5b801d48ba1d65781.png",
@@ -78,11 +78,11 @@ Array [
 ]
 `;
 
-exports[`when applied with \`function\` option matches snapshot for \`[path].super-compressed.gz[query]\` value ({String}): errors 1`] = `Array []`;
+exports[`"filename" option matches snapshot for \`[path].super-compressed.gz[query]\` value ({String}): errors 1`] = `Array []`;
 
-exports[`when applied with \`function\` option matches snapshot for \`[path].super-compressed.gz[query]\` value ({String}): warnings 1`] = `Array []`;
+exports[`"filename" option matches snapshot for \`[path].super-compressed.gz[query]\` value ({String}): warnings 1`] = `Array []`;
 
-exports[`when applied with \`function\` option matches snapshot for custom function ({Function}): assets 1`] = `
+exports[`"filename" option matches snapshot for custom function ({Function}): assets 1`] = `
 Array [
   Array [
     "5b1f36bc41ab31f5b801d48ba1d65781.png",
@@ -119,6 +119,6 @@ Array [
 ]
 `;
 
-exports[`when applied with \`function\` option matches snapshot for custom function ({Function}): errors 1`] = `Array []`;
+exports[`"filename" option matches snapshot for custom function ({Function}): errors 1`] = `Array []`;
 
-exports[`when applied with \`function\` option matches snapshot for custom function ({Function}): warnings 1`] = `Array []`;
+exports[`"filename" option matches snapshot for custom function ({Function}): warnings 1`] = `Array []`;
