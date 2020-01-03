@@ -1,0 +1,104 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`"test" option matches snapshot for a single \`test\` value ({RegExp}): assets 1`] = `
+Array [
+  Array [
+    "5b1f36bc41ab31f5b801d48ba1d65781.png",
+    78117,
+  ],
+  Array [
+    "5b1f36bc41ab31f5b801d48ba1d65781.png.gz",
+    73160,
+  ],
+  Array [
+    "96621d3c37d96ad3bf792fcc848d912f.svg",
+    672,
+  ],
+  Array [
+    "async.async.js?ver=276df3bac00a3cfdcb3a",
+    335,
+  ],
+  Array [
+    "main.js?var=276df3bac00a3cfdcb3a",
+    13439,
+  ],
+]
+`;
+
+exports[`"test" option matches snapshot for a single \`test\` value ({RegExp}): errors 1`] = `Array []`;
+
+exports[`"test" option matches snapshot for a single \`test\` value ({RegExp}): warnings 1`] = `Array []`;
+
+exports[`"test" option matches snapshot for multiple \`test\` values ({Array<RegExp>}): assets 1`] = `
+Array [
+  Array [
+    "5b1f36bc41ab31f5b801d48ba1d65781.png",
+    78117,
+  ],
+  Array [
+    "5b1f36bc41ab31f5b801d48ba1d65781.png.gz",
+    73160,
+  ],
+  Array [
+    "96621d3c37d96ad3bf792fcc848d912f.svg",
+    672,
+  ],
+  Array [
+    "96621d3c37d96ad3bf792fcc848d912f.svg.gz",
+    393,
+  ],
+  Array [
+    "async.async.js?ver=276df3bac00a3cfdcb3a",
+    335,
+  ],
+  Array [
+    "main.js?var=276df3bac00a3cfdcb3a",
+    13439,
+  ],
+]
+`;
+
+exports[`"test" option matches snapshot for multiple \`test\` values ({Array<RegExp>}): errors 1`] = `Array []`;
+
+exports[`"test" option matches snapshot for multiple \`test\` values ({Array<RegExp>}): warnings 1`] = `Array []`;
+
+exports[`"test" option matches snapshot with empty \`test\` value: assets 1`] = `
+Array [
+  Array [
+    "5b1f36bc41ab31f5b801d48ba1d65781.png",
+    78117,
+  ],
+  Array [
+    "5b1f36bc41ab31f5b801d48ba1d65781.png.gz",
+    73160,
+  ],
+  Array [
+    "96621d3c37d96ad3bf792fcc848d912f.svg",
+    672,
+  ],
+  Array [
+    "96621d3c37d96ad3bf792fcc848d912f.svg.gz",
+    393,
+  ],
+  Array [
+    "async.async.js.gz?ver=276df3bac00a3cfdcb3a",
+    211,
+  ],
+  Array [
+    "async.async.js?ver=276df3bac00a3cfdcb3a",
+    335,
+  ],
+  Array [
+    "main.js.gz?var=276df3bac00a3cfdcb3a",
+    3232,
+  ],
+  Array [
+    "main.js?var=276df3bac00a3cfdcb3a",
+    13439,
+  ],
+]
+`;
+
+exports[`"test" option matches snapshot with empty \`test\` value: errors 1`] = `Array []`;
+
+exports[`"test" option matches snapshot with empty \`test\` value: warnings 1`] = `Array []`;
