@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.1.0](https://github.com/webpack-contrib/compression-webpack-plugin/compare/v3.0.0...v3.1.0) (2020-01-09)
+
+
+### Features
+
+* add `dir`, `name` and `ext` placeholders in filename option ([#144](https://github.com/webpack-contrib/compression-webpack-plugin/issues/144)) ([bf22024](https://github.com/webpack-contrib/compression-webpack-plugin/commit/bf220243bdf74595dfe97b055a8424f7365fc866))
+
+
+### Bug Fixes
+
+* support webpack@5 ([#146](https://github.com/webpack-contrib/compression-webpack-plugin/issues/146)) ([17c29a5](https://github.com/webpack-contrib/compression-webpack-plugin/commit/17c29a557743a82d0a4ac10a98c8dc90a1aef64b))
+
 ## [3.0.0](https://github.com/webpack-contrib/compression-webpack-plugin/compare/v2.0.0...v3.0.0) (2019-06-05)
 
 

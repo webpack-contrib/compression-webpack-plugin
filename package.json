@@ -1,6 +1,6 @@
 {
   "name": "compression-webpack-plugin",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "description": "Prepare compressed versions of assets to serve them with Content-Encoding",
   "license": "MIT",
   "repository": "webpack-contrib/compression-webpack-plugin",
