@@ -44,7 +44,7 @@
     "cacache": "^13.0.1",
     "find-cache-dir": "^3.0.0",
     "neo-async": "^2.5.0",
-    "schema-utils": "^2.6.1",
+    "schema-utils": "^2.6.4",
     "serialize-javascript": "^2.1.2",
     "webpack-sources": "^1.0.1"
   },
