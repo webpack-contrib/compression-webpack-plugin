@@ -16,10 +16,6 @@
 
 Prepare compressed versions of assets to serve them with Content-Encoding.
 
-## Requirements
-
-This module requires a minimum of Node v6.9.0 and Webpack v4.0.0.
-
 ## Getting Started
 
 To begin, you'll need to install `compression-webpack-plugin`:
