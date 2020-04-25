@@ -349,8 +349,8 @@ Please take a moment to read our contributing guidelines if you haven't yet done
 [node-url]: https://nodejs.org
 [deps]: https://david-dm.org/webpack-contrib/compression-webpack-plugin.svg
 [deps-url]: https://david-dm.org/webpack-contrib/compression-webpack-plugin
-[tests]: https://dev.azure.com/webpack-contrib/compression-webpack-plugin/_apis/build/status/webpack-contrib.compression-webpack-plugin?branchName=master
-[tests-url]: https://dev.azure.com/webpack-contrib/compression-webpack-plugin/_build/latest?definitionId=2&branchName=master
+[tests]: https://github.com/webpack-contrib/compression-webpack-plugin/workflows/compression-webpack-plugin/badge.svg
+[tests-url]: https://github.com/webpack-contrib/compression-webpack-plugin/actions
 [cover]: https://codecov.io/gh/webpack-contrib/compression-webpack-plugin/branch/master/graph/badge.svg
 [cover-url]: https://codecov.io/gh/webpack-contrib/compression-webpack-plugin
 [chat]: https://img.shields.io/badge/gitter-webpack%2Fwebpack-brightgreen.svg

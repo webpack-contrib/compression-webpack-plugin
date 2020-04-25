@@ -3,36 +3,36 @@
 exports[`"filename" option matches snapshot for \`[dir][name].super-compressed.gz[ext][query]\` value ({String}): assets 1`] = `
 Array [
   Array [
-    "5b1f36bc41ab31f5b801d48ba1d65781.png",
+    "09a1a1112c577c2794359715edfcb5ac.png",
     78117,
   ],
   Array [
-    "5b1f36bc41ab31f5b801d48ba1d65781.super-compressed.gz.png",
+    "09a1a1112c577c2794359715edfcb5ac.super-compressed.gz.png",
     73160,
   ],
   Array [
-    "96621d3c37d96ad3bf792fcc848d912f.super-compressed.gz.svg",
+    "23fc1d3ac606d117e05a140e0de79806.super-compressed.gz.svg",
     393,
   ],
   Array [
-    "96621d3c37d96ad3bf792fcc848d912f.svg",
+    "23fc1d3ac606d117e05a140e0de79806.svg",
     672,
   ],
   Array [
-    "async.async.js?ver=a2650528660eba75b74e",
+    "async.async.js?ver=df8e3f469c7c96726fb9",
     249,
   ],
   Array [
-    "async.async.super-compressed.gz.js?ver=a2650528660eba75b74e",
+    "async.async.super-compressed.gz.js?ver=df8e3f469c7c96726fb9",
     171,
   ],
   Array [
-    "main.js?var=a2650528660eba75b74e",
+    "main.js?var=df8e3f469c7c96726fb9",
     11112,
   ],
   Array [
-    "main.super-compressed.gz.js?var=a2650528660eba75b74e",
-    2959,
+    "main.super-compressed.gz.js?var=df8e3f469c7c96726fb9",
+    2958,
   ],
 ]
 `;
@@ -44,35 +44,35 @@ exports[`"filename" option matches snapshot for \`[dir][name].super-compressed.g
 exports[`"filename" option matches snapshot for \`[path].super-compressed.gz[query]\` value ({String}): assets 1`] = `
 Array [
   Array [
-    "5b1f36bc41ab31f5b801d48ba1d65781.png",
+    "09a1a1112c577c2794359715edfcb5ac.png",
     78117,
   ],
   Array [
-    "5b1f36bc41ab31f5b801d48ba1d65781.png.super-compressed.gz",
+    "09a1a1112c577c2794359715edfcb5ac.png.super-compressed.gz",
     73160,
   ],
   Array [
-    "96621d3c37d96ad3bf792fcc848d912f.svg",
+    "23fc1d3ac606d117e05a140e0de79806.svg",
     672,
   ],
   Array [
-    "96621d3c37d96ad3bf792fcc848d912f.svg.super-compressed.gz",
+    "23fc1d3ac606d117e05a140e0de79806.svg.super-compressed.gz",
     393,
   ],
   Array [
-    "async.async.js.super-compressed.gz?ver=a2650528660eba75b74e",
+    "async.async.js.super-compressed.gz?ver=df8e3f469c7c96726fb9",
     171,
   ],
   Array [
-    "async.async.js?ver=a2650528660eba75b74e",
+    "async.async.js?ver=df8e3f469c7c96726fb9",
     249,
   ],
   Array [
-    "main.js.super-compressed.gz?var=a2650528660eba75b74e",
-    2959,
+    "main.js.super-compressed.gz?var=df8e3f469c7c96726fb9",
+    2958,
   ],
   Array [
-    "main.js?var=a2650528660eba75b74e",
+    "main.js?var=df8e3f469c7c96726fb9",
     11112,
   ],
 ]
@@ -85,35 +85,35 @@ exports[`"filename" option matches snapshot for \`[path].super-compressed.gz[que
 exports[`"filename" option matches snapshot for custom function ({Function}): assets 1`] = `
 Array [
   Array [
-    "5b1f36bc41ab31f5b801d48ba1d65781.png",
+    "09a1a1112c577c2794359715edfcb5ac.png",
     78117,
   ],
   Array [
-    "5b1f36bc41ab31f5b801d48ba1d65781.png.gz",
+    "09a1a1112c577c2794359715edfcb5ac.png.gz",
     73160,
   ],
   Array [
-    "96621d3c37d96ad3bf792fcc848d912f.svg",
+    "23fc1d3ac606d117e05a140e0de79806.svg",
     672,
   ],
   Array [
-    "96621d3c37d96ad3bf792fcc848d912f.svg.gz",
+    "23fc1d3ac606d117e05a140e0de79806.svg.gz",
     393,
   ],
   Array [
-    "async.async.js.gz?ver=a2650528660eba75b74e",
+    "async.async.js.gz?ver=df8e3f469c7c96726fb9",
     171,
   ],
   Array [
-    "async.async.js?ver=a2650528660eba75b74e",
+    "async.async.js?ver=df8e3f469c7c96726fb9",
     249,
   ],
   Array [
-    "main.js.gz?var=a2650528660eba75b74e",
-    2959,
+    "main.js.gz?var=df8e3f469c7c96726fb9",
+    2958,
   ],
   Array [
-    "main.js?var=a2650528660eba75b74e",
+    "main.js?var=df8e3f469c7c96726fb9",
     11112,
   ],
 ]
