@@ -30,7 +30,7 @@ describe('"compressionOptions" option', () => {
   it('matches snapshot for custom options ({Object})', async () => {
     new Plugin({
       compressionOptions: {
-        level: 1,
+        level: 9,
       },
       minRatio: 1,
     }).apply(compiler);

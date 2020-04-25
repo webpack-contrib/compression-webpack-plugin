@@ -65,11 +65,10 @@ class CompressionPlugin {
 
       const defaultCompressionOptions = { level: 9 };
 
-      this.options.compressionOptions = Object.assign(
-        {},
-        defaultCompressionOptions,
-        this.options.compressionOptions
-      );
+      this.options.compressionOptions = {
+        ...defaultCompressionOptions,
+        ...this.options.compressionOptions,
+      };
     }
   }
 
