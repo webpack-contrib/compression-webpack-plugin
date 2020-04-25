@@ -8,7 +8,7 @@ Array [
   ],
   Array [
     "09a1a1112c577c2794359715edfcb5ac.png.gz",
-    73332,
+    73160,
   ],
   Array [
     "23fc1d3ac606d117e05a140e0de79806.svg",
@@ -16,7 +16,7 @@ Array [
   ],
   Array [
     "23fc1d3ac606d117e05a140e0de79806.svg.gz",
-    404,
+    393,
   ],
   Array [
     "async.async.735f6a02a2e820243759.js",
@@ -24,7 +24,7 @@ Array [
   ],
   Array [
     "async.async.735f6a02a2e820243759.js.gz",
-    215,
+    211,
   ],
   Array [
     "main.21aa9eec8b36c106feff.js",
@@ -32,7 +32,7 @@ Array [
   ],
   Array [
     "main.21aa9eec8b36c106feff.js.gz",
-    3697,
+    3204,
   ],
 ]
 `;
