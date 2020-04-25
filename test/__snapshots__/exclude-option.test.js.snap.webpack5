@@ -3,31 +3,31 @@
 exports[`"exclude" option matches snapshot for a single \`exclude\` value ({RegExp}): assets 1`] = `
 Array [
   Array [
-    "5b1f36bc41ab31f5b801d48ba1d65781.png",
+    "09a1a1112c577c2794359715edfcb5ac.png",
     78117,
   ],
   Array [
-    "5b1f36bc41ab31f5b801d48ba1d65781.png.gz",
+    "09a1a1112c577c2794359715edfcb5ac.png.gz",
     73160,
   ],
   Array [
-    "96621d3c37d96ad3bf792fcc848d912f.svg",
+    "23fc1d3ac606d117e05a140e0de79806.svg",
     672,
   ],
   Array [
-    "async.async.js.gz?ver=276df3bac00a3cfdcb3a",
+    "async.async.js.gz?ver=4bda9ea18f58182e31c1",
     211,
   ],
   Array [
-    "async.async.js?ver=276df3bac00a3cfdcb3a",
+    "async.async.js?ver=4bda9ea18f58182e31c1",
     335,
   ],
   Array [
-    "main.js.gz?var=276df3bac00a3cfdcb3a",
-    3232,
+    "main.js.gz?var=4bda9ea18f58182e31c1",
+    3231,
   ],
   Array [
-    "main.js?var=276df3bac00a3cfdcb3a",
+    "main.js?var=4bda9ea18f58182e31c1",
     13439,
   ],
 ]
@@ -40,27 +40,27 @@ exports[`"exclude" option matches snapshot for a single \`exclude\` value ({RegE
 exports[`"exclude" option matches snapshot for multiple \`exclude\` values ({Array<RegExp>}): assets 1`] = `
 Array [
   Array [
-    "5b1f36bc41ab31f5b801d48ba1d65781.png",
+    "09a1a1112c577c2794359715edfcb5ac.png",
     78117,
   ],
   Array [
-    "96621d3c37d96ad3bf792fcc848d912f.svg",
+    "23fc1d3ac606d117e05a140e0de79806.svg",
     672,
   ],
   Array [
-    "async.async.js.gz?ver=276df3bac00a3cfdcb3a",
+    "async.async.js.gz?ver=4bda9ea18f58182e31c1",
     211,
   ],
   Array [
-    "async.async.js?ver=276df3bac00a3cfdcb3a",
+    "async.async.js?ver=4bda9ea18f58182e31c1",
     335,
   ],
   Array [
-    "main.js.gz?var=276df3bac00a3cfdcb3a",
-    3232,
+    "main.js.gz?var=4bda9ea18f58182e31c1",
+    3231,
   ],
   Array [
-    "main.js?var=276df3bac00a3cfdcb3a",
+    "main.js?var=4bda9ea18f58182e31c1",
     13439,
   ],
 ]

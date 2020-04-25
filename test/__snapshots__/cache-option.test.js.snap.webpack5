@@ -3,19 +3,19 @@
 exports[`"cache" option matches snapshot for \`false\` value ({Boolean}): assets 1`] = `
 Array [
   Array [
-    "5b1f36bc41ab31f5b801d48ba1d65781.png",
+    "09a1a1112c577c2794359715edfcb5ac.png",
     78117,
   ],
   Array [
-    "5b1f36bc41ab31f5b801d48ba1d65781.png.gz",
+    "09a1a1112c577c2794359715edfcb5ac.png.gz",
     73160,
   ],
   Array [
-    "96621d3c37d96ad3bf792fcc848d912f.svg",
+    "23fc1d3ac606d117e05a140e0de79806.svg",
     672,
   ],
   Array [
-    "96621d3c37d96ad3bf792fcc848d912f.svg.gz",
+    "23fc1d3ac606d117e05a140e0de79806.svg.gz",
     393,
   ],
   Array [
@@ -27,12 +27,12 @@ Array [
     211,
   ],
   Array [
-    "main.d15ed940e80fd4e27b8d.js",
+    "main.21aa9eec8b36c106feff.js",
     13280,
   ],
   Array [
-    "main.d15ed940e80fd4e27b8d.js.gz",
-    3206,
+    "main.21aa9eec8b36c106feff.js.gz",
+    3204,
   ],
 ]
 `;
@@ -41,16 +41,16 @@ exports[`"cache" option matches snapshot for \`false\` value ({Boolean}): errors
 
 exports[`"cache" option matches snapshot for \`false\` value ({Boolean}): warnings 1`] = `Array []`;
 
-exports[`"cache" option matches snapshot for \`other-cache-directory\` value ({String}): 5b1f36bc41ab31f5b801d48ba1d65781.png 1`] = `
+exports[`"cache" option matches snapshot for \`other-cache-directory\` value ({String}): 09a1a1112c577c2794359715edfcb5ac.png 1`] = `
 Array [
-  "5b1f36bc41ab31f5b801d48ba1d65781.png",
+  "09a1a1112c577c2794359715edfcb5ac.png",
   "09a1a1112c577c2794359715edfcb5ac",
 ]
 `;
 
-exports[`"cache" option matches snapshot for \`other-cache-directory\` value ({String}): 96621d3c37d96ad3bf792fcc848d912f.svg 1`] = `
+exports[`"cache" option matches snapshot for \`other-cache-directory\` value ({String}): 23fc1d3ac606d117e05a140e0de79806.svg 1`] = `
 Array [
-  "96621d3c37d96ad3bf792fcc848d912f.svg",
+  "23fc1d3ac606d117e05a140e0de79806.svg",
   "23fc1d3ac606d117e05a140e0de79806",
 ]
 `;
@@ -58,19 +58,19 @@ Array [
 exports[`"cache" option matches snapshot for \`other-cache-directory\` value ({String}): assets 1`] = `
 Array [
   Array [
-    "5b1f36bc41ab31f5b801d48ba1d65781.png",
+    "09a1a1112c577c2794359715edfcb5ac.png",
     78117,
   ],
   Array [
-    "5b1f36bc41ab31f5b801d48ba1d65781.png.gz",
+    "09a1a1112c577c2794359715edfcb5ac.png.gz",
     73160,
   ],
   Array [
-    "96621d3c37d96ad3bf792fcc848d912f.svg",
+    "23fc1d3ac606d117e05a140e0de79806.svg",
     672,
   ],
   Array [
-    "96621d3c37d96ad3bf792fcc848d912f.svg.gz",
+    "23fc1d3ac606d117e05a140e0de79806.svg.gz",
     393,
   ],
   Array [
@@ -82,12 +82,12 @@ Array [
     211,
   ],
   Array [
-    "main.d15ed940e80fd4e27b8d.js",
+    "main.21aa9eec8b36c106feff.js",
     13280,
   ],
   Array [
-    "main.d15ed940e80fd4e27b8d.js.gz",
-    3206,
+    "main.21aa9eec8b36c106feff.js.gz",
+    3204,
   ],
 ]
 `;
@@ -95,19 +95,19 @@ Array [
 exports[`"cache" option matches snapshot for \`other-cache-directory\` value ({String}): assets 2`] = `
 Array [
   Array [
-    "5b1f36bc41ab31f5b801d48ba1d65781.png",
+    "09a1a1112c577c2794359715edfcb5ac.png",
     78117,
   ],
   Array [
-    "5b1f36bc41ab31f5b801d48ba1d65781.png.gz",
+    "09a1a1112c577c2794359715edfcb5ac.png.gz",
     73160,
   ],
   Array [
-    "96621d3c37d96ad3bf792fcc848d912f.svg",
+    "23fc1d3ac606d117e05a140e0de79806.svg",
     672,
   ],
   Array [
-    "96621d3c37d96ad3bf792fcc848d912f.svg.gz",
+    "23fc1d3ac606d117e05a140e0de79806.svg.gz",
     393,
   ],
   Array [
@@ -119,12 +119,12 @@ Array [
     211,
   ],
   Array [
-    "main.d15ed940e80fd4e27b8d.js",
+    "main.21aa9eec8b36c106feff.js",
     13280,
   ],
   Array [
-    "main.d15ed940e80fd4e27b8d.js.gz",
-    3206,
+    "main.21aa9eec8b36c106feff.js.gz",
+    3204,
   ],
 ]
 `;
@@ -140,10 +140,10 @@ exports[`"cache" option matches snapshot for \`other-cache-directory\` value ({S
 
 exports[`"cache" option matches snapshot for \`other-cache-directory\` value ({String}): errors 2`] = `Array []`;
 
-exports[`"cache" option matches snapshot for \`other-cache-directory\` value ({String}): main.d15ed940e80fd4e27b8d.js 1`] = `
+exports[`"cache" option matches snapshot for \`other-cache-directory\` value ({String}): main.21aa9eec8b36c106feff.js 1`] = `
 Array [
-  "main.d15ed940e80fd4e27b8d.js",
-  "13424f8b27450f1ea51cd0e54bdfc342",
+  "main.21aa9eec8b36c106feff.js",
+  "29376a39f634b629004bf86aabfbff42",
 ]
 `;
 
@@ -151,16 +151,16 @@ exports[`"cache" option matches snapshot for \`other-cache-directory\` value ({S
 
 exports[`"cache" option matches snapshot for \`other-cache-directory\` value ({String}): warnings 2`] = `Array []`;
 
-exports[`"cache" option matches snapshot for \`true\` value ({Boolean}): 5b1f36bc41ab31f5b801d48ba1d65781.png 1`] = `
+exports[`"cache" option matches snapshot for \`true\` value ({Boolean}): 09a1a1112c577c2794359715edfcb5ac.png 1`] = `
 Array [
-  "5b1f36bc41ab31f5b801d48ba1d65781.png",
+  "09a1a1112c577c2794359715edfcb5ac.png",
   "09a1a1112c577c2794359715edfcb5ac",
 ]
 `;
 
-exports[`"cache" option matches snapshot for \`true\` value ({Boolean}): 96621d3c37d96ad3bf792fcc848d912f.svg 1`] = `
+exports[`"cache" option matches snapshot for \`true\` value ({Boolean}): 23fc1d3ac606d117e05a140e0de79806.svg 1`] = `
 Array [
-  "96621d3c37d96ad3bf792fcc848d912f.svg",
+  "23fc1d3ac606d117e05a140e0de79806.svg",
   "23fc1d3ac606d117e05a140e0de79806",
 ]
 `;
@@ -168,19 +168,19 @@ Array [
 exports[`"cache" option matches snapshot for \`true\` value ({Boolean}): assets 1`] = `
 Array [
   Array [
-    "5b1f36bc41ab31f5b801d48ba1d65781.png",
+    "09a1a1112c577c2794359715edfcb5ac.png",
     78117,
   ],
   Array [
-    "5b1f36bc41ab31f5b801d48ba1d65781.png.gz",
+    "09a1a1112c577c2794359715edfcb5ac.png.gz",
     73160,
   ],
   Array [
-    "96621d3c37d96ad3bf792fcc848d912f.svg",
+    "23fc1d3ac606d117e05a140e0de79806.svg",
     672,
   ],
   Array [
-    "96621d3c37d96ad3bf792fcc848d912f.svg.gz",
+    "23fc1d3ac606d117e05a140e0de79806.svg.gz",
     393,
   ],
   Array [
@@ -192,12 +192,12 @@ Array [
     211,
   ],
   Array [
-    "main.d15ed940e80fd4e27b8d.js",
+    "main.21aa9eec8b36c106feff.js",
     13280,
   ],
   Array [
-    "main.d15ed940e80fd4e27b8d.js.gz",
-    3206,
+    "main.21aa9eec8b36c106feff.js.gz",
+    3204,
   ],
 ]
 `;
@@ -205,19 +205,19 @@ Array [
 exports[`"cache" option matches snapshot for \`true\` value ({Boolean}): assets 2`] = `
 Array [
   Array [
-    "5b1f36bc41ab31f5b801d48ba1d65781.png",
+    "09a1a1112c577c2794359715edfcb5ac.png",
     78117,
   ],
   Array [
-    "5b1f36bc41ab31f5b801d48ba1d65781.png.gz",
+    "09a1a1112c577c2794359715edfcb5ac.png.gz",
     73160,
   ],
   Array [
-    "96621d3c37d96ad3bf792fcc848d912f.svg",
+    "23fc1d3ac606d117e05a140e0de79806.svg",
     672,
   ],
   Array [
-    "96621d3c37d96ad3bf792fcc848d912f.svg.gz",
+    "23fc1d3ac606d117e05a140e0de79806.svg.gz",
     393,
   ],
   Array [
@@ -229,12 +229,12 @@ Array [
     211,
   ],
   Array [
-    "main.d15ed940e80fd4e27b8d.js",
+    "main.21aa9eec8b36c106feff.js",
     13280,
   ],
   Array [
-    "main.d15ed940e80fd4e27b8d.js.gz",
-    3206,
+    "main.21aa9eec8b36c106feff.js.gz",
+    3204,
   ],
 ]
 `;
@@ -250,10 +250,10 @@ exports[`"cache" option matches snapshot for \`true\` value ({Boolean}): errors 
 
 exports[`"cache" option matches snapshot for \`true\` value ({Boolean}): errors 2`] = `Array []`;
 
-exports[`"cache" option matches snapshot for \`true\` value ({Boolean}): main.d15ed940e80fd4e27b8d.js 1`] = `
+exports[`"cache" option matches snapshot for \`true\` value ({Boolean}): main.21aa9eec8b36c106feff.js 1`] = `
 Array [
-  "main.d15ed940e80fd4e27b8d.js",
-  "13424f8b27450f1ea51cd0e54bdfc342",
+  "main.21aa9eec8b36c106feff.js",
+  "29376a39f634b629004bf86aabfbff42",
 ]
 `;
 

@@ -3,60 +3,19 @@
 exports[`"compressionOptions" option matches snapshot for custom options ({Object}): assets 1`] = `
 Array [
   Array [
-    "5b1f36bc41ab31f5b801d48ba1d65781.png",
+    "09a1a1112c577c2794359715edfcb5ac.png",
     78117,
   ],
   Array [
-    "5b1f36bc41ab31f5b801d48ba1d65781.png.gz",
-    73332,
-  ],
-  Array [
-    "96621d3c37d96ad3bf792fcc848d912f.svg",
-    672,
-  ],
-  Array [
-    "96621d3c37d96ad3bf792fcc848d912f.svg.gz",
-    404,
-  ],
-  Array [
-    "async.async.735f6a02a2e820243759.js",
-    335,
-  ],
-  Array [
-    "async.async.735f6a02a2e820243759.js.gz",
-    215,
-  ],
-  Array [
-    "main.d15ed940e80fd4e27b8d.js",
-    13280,
-  ],
-  Array [
-    "main.d15ed940e80fd4e27b8d.js.gz",
-    3698,
-  ],
-]
-`;
-
-exports[`"compressionOptions" option matches snapshot for custom options ({Object}): errors 1`] = `Array []`;
-
-exports[`"compressionOptions" option matches snapshot for custom options ({Object}): warnings 1`] = `Array []`;
-
-exports[`"compressionOptions" option matches snapshot without values: assets 1`] = `
-Array [
-  Array [
-    "5b1f36bc41ab31f5b801d48ba1d65781.png",
-    78117,
-  ],
-  Array [
-    "5b1f36bc41ab31f5b801d48ba1d65781.png.gz",
+    "09a1a1112c577c2794359715edfcb5ac.png.gz",
     73160,
   ],
   Array [
-    "96621d3c37d96ad3bf792fcc848d912f.svg",
+    "23fc1d3ac606d117e05a140e0de79806.svg",
     672,
   ],
   Array [
-    "96621d3c37d96ad3bf792fcc848d912f.svg.gz",
+    "23fc1d3ac606d117e05a140e0de79806.svg.gz",
     393,
   ],
   Array [
@@ -68,12 +27,53 @@ Array [
     211,
   ],
   Array [
-    "main.d15ed940e80fd4e27b8d.js",
+    "main.21aa9eec8b36c106feff.js",
     13280,
   ],
   Array [
-    "main.d15ed940e80fd4e27b8d.js.gz",
-    3206,
+    "main.21aa9eec8b36c106feff.js.gz",
+    3204,
+  ],
+]
+`;
+
+exports[`"compressionOptions" option matches snapshot for custom options ({Object}): errors 1`] = `Array []`;
+
+exports[`"compressionOptions" option matches snapshot for custom options ({Object}): warnings 1`] = `Array []`;
+
+exports[`"compressionOptions" option matches snapshot without values: assets 1`] = `
+Array [
+  Array [
+    "09a1a1112c577c2794359715edfcb5ac.png",
+    78117,
+  ],
+  Array [
+    "09a1a1112c577c2794359715edfcb5ac.png.gz",
+    73160,
+  ],
+  Array [
+    "23fc1d3ac606d117e05a140e0de79806.svg",
+    672,
+  ],
+  Array [
+    "23fc1d3ac606d117e05a140e0de79806.svg.gz",
+    393,
+  ],
+  Array [
+    "async.async.735f6a02a2e820243759.js",
+    335,
+  ],
+  Array [
+    "async.async.735f6a02a2e820243759.js.gz",
+    211,
+  ],
+  Array [
+    "main.21aa9eec8b36c106feff.js",
+    13280,
+  ],
+  Array [
+    "main.21aa9eec8b36c106feff.js.gz",
+    3204,
   ],
 ]
 `;

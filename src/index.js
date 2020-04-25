@@ -65,11 +65,10 @@ class CompressionPlugin {
 
       const defaultCompressionOptions = { level: 9 };
 
-      this.options.compressionOptions = Object.assign(
-        {},
-        defaultCompressionOptions,
-        this.options.compressionOptions
-      );
+      this.options.compressionOptions = {
+        ...defaultCompressionOptions,
+        ...this.options.compressionOptions,
+      };
     }
   }
 
@@ -122,10 +121,7 @@ class CompressionPlugin {
                     'compression-webpack-plugin': pkg.version,
                     'compression-webpack-plugin-options': this.options,
                     path: `${outputPath ? `${outputPath}/` : ''}${file}`,
-                    hash: crypto
-                      .createHash('md4')
-                      .update(input)
-                      .digest('hex'),
+                    hash: crypto.createHash('md4').update(input).digest('hex'),
                   });
 
                   return cacache.get(cacheDir, cacheKey).then(
