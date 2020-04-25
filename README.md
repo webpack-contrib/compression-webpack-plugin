@@ -47,11 +47,16 @@ Default: `undefined`
 
 Test to match files against.
 
+**webpack.config.js**
+
 ```js
-// in your webpack.config.js
-new CompressionPlugin({
-  test: /\.js(\?.*)?$/i,
-});
+module.exports = {
+  plugins: [
+    new CompressionPlugin({
+      test: /\.js(\?.*)?$/i,
+    }),
+  ],
+};
 ```
 
 ### `include`
@@ -61,11 +66,16 @@ Default: `undefined`
 
 Files to include.
 
+**webpack.config.js**
+
 ```js
-// in your webpack.config.js
-new CompressionPlugin({
-  include: /\/includes/,
-});
+module.exports = {
+  plugins: [
+    new CompressionPlugin({
+      include: /\/includes/,
+    }),
+  ],
+};
 ```
 
 ### `exclude`
@@ -75,11 +85,16 @@ Default: `undefined`
 
 Files to exclude.
 
+**webpack.config.js**
+
 ```js
-// in your webpack.config.js
-new CompressionPlugin({
-  exclude: /\/excludes/,
-});
+module.exports = {
+  plugins: [
+    new CompressionPlugin({
+      exclude: /\/excludes/,
+    }),
+  ],
+};
 ```
 
 ### `cache`
@@ -94,22 +109,32 @@ The default path to cache directory: `node_modules/.cache/compression-webpack-pl
 
 Enable/disable file caching.
 
+**webpack.config.js**
+
 ```js
-// in your webpack.config.js
-new CompressionPlugin({
-  cache: true,
-});
+module.exports = {
+  plugins: [
+    new CompressionPlugin({
+      cache: true,
+    }),
+  ],
+};
 ```
 
 #### `String`
 
 Enable file caching and set path to cache directory.
 
+**webpack.config.js**
+
 ```js
-// in your webpack.config.js
-new CompressionPlugin({
-  cache: 'path/to/cache',
-});
+module.exports = {
+  plugins: [
+    new CompressionPlugin({
+      cache: 'path/to/cache',
+    }),
+  ],
+};
 ```
 
 ### `filename`
@@ -128,29 +153,35 @@ The target asset filename.
 `[ext]` is replaced with the extension of the original asset.
 `[query]` is replaced with the query.
 
-```js
-// in your webpack.config.js
-new CompressionPlugin({
-  filename: '[path].gz[query]',
-});
+**webpack.config.js**
 
-new CompressionPlugin({
-  filename: '[dir][name].gz[ext][query]',
-});
+```js
+module.exports = {
+  plugins: [
+    new CompressionPlugin({
+      filename: '[path].gz[query]',
+    }),
+  ],
+};
 ```
 
 #### `Function`
 
+**webpack.config.js**
+
 ```js
-// in your webpack.config.js
-new CompressionPlugin({
-  filename(info) {
-    // info.file is the original asset filename
-    // info.path is the path of the original asset
-    // info.query is the query
-    return `${info.path}.gz${info.query}`;
-  },
-});
+module.exports = {
+  plugins: [
+    new CompressionPlugin({
+      filename(info) {
+        // info.file is the original asset filename
+        // info.path is the path of the original asset
+        // info.query is the query
+        return `${info.path}.gz${info.query}`;
+      },
+    }),
+  ],
+};
 ```
 
 ### `algorithm`
@@ -164,24 +195,34 @@ The compression algorithm/function.
 
 The algorithm is taken from [zlib](https://nodejs.org/api/zlib.html).
 
+**webpack.config.js**
+
 ```js
-// in your webpack.config.js
-new CompressionPlugin({
-  algorithm: 'gzip',
-});
+module.exports = {
+  plugins: [
+    new CompressionPlugin({
+      algorithm: 'gzip',
+    }),
+  ],
+};
 ```
 
 #### `Function`
 
 Allow to specify a custom compression function.
 
+**webpack.config.js**
+
 ```js
-// in your webpack.config.js
-new CompressionPlugin({
-  algorithm(input, compressionOptions, callback) {
-    return compressionFunction(input, compressionOptions, callback);
-  },
-});
+module.exports = {
+  plugins: [
+    new CompressionPlugin({
+      algorithm(input, compressionOptions, callback) {
+        return compressionFunction(input, compressionOptions, callback);
+      },
+    }),
+  ],
+};
 ```
 
 ### `compressionOptions`
@@ -194,11 +235,16 @@ If you use custom function for the `algorithm` option, the default value is `{}`
 Compression options.
 You can find all options here [zlib](https://nodejs.org/api/zlib.html#zlib_class_options).
 
+**webpack.config.js**
+
 ```js
-// in your webpack.config.js
-new CompressionPlugin({
-  compressionOptions: { level: 1 },
-});
+module.exports = {
+  plugins: [
+    new CompressionPlugin({
+      compressionOptions: { level: 1 },
+    }),
+  ],
+};
 ```
 
 ### `threshold`
@@ -208,11 +254,16 @@ Default: `0`
 
 Only assets bigger than this size are processed. In bytes.
 
+**webpack.config.js**
+
 ```js
-// in your webpack.config.js
-new CompressionPlugin({
-  threshold: 8192,
-});
+module.exports = {
+  plugins: [
+    new CompressionPlugin({
+      threshold: 8192,
+    }),
+  ],
+};
 ```
 
 ### `minRatio`
@@ -225,11 +276,16 @@ Example: you have `image.png` file with 1024b size, compressed version of file h
 In other words assets will be processed when the `Compressed Size / Original Size` value less `minRatio` value.
 You can use `1` value to process assets that are smaller than the original. Use a value of Number.MAX_SAFE_INTEGER to process all assets even if they are larger than the original (useful when you are pre-zipping all assets for AWS)
 
+**webpack.config.js**
+
 ```js
-// in your webpack.config.js
-new CompressionPlugin({
-  minRatio: 0.8,
-});
+module.exports = {
+  plugins: [
+    new CompressionPlugin({
+      minRatio: 0.8,
+    }),
+  ],
+};
 ```
 
 ### `deleteOriginalAssets`
@@ -239,11 +295,16 @@ Default: `false`
 
 Whether to delete the original assets or not.
 
+**webpack.config.js**
+
 ```js
-// in your webpack.config.js
-new CompressionPlugin({
-  deleteOriginalAssets: true,
-});
+module.exports = {
+  plugins: [
+    new CompressionPlugin({
+      deleteOriginalAssets: true,
+    }),
+  ],
+};
 ```
 
 ## Examples
@@ -283,20 +344,24 @@ module.exports = {
 
 [Brotli](https://en.wikipedia.org/wiki/Brotli) is a compression algorithm originally developed by Google, and offers compression superior to gzip.
 
-Node 11.7.0 and later has [native support](https://nodejs.org/api/zlib.html#zlib_zlib_createbrotlicompress_options) for Brotli compression in its zlib module.
+Node 10.16.0 and later has [native support](https://nodejs.org/api/zlib.html#zlib_zlib_createbrotlicompress_options) for Brotli compression in its zlib module.
 
 We can take advantage of this built-in support for Brotli in Node 11.7.0 and later by just passing in the appropriate `algorithm` to the CompressionPlugin:
 
 **webpack.config.js**
 
 ```js
+const zlib = require('zlib');
+
 module.exports = {
   plugins: [
     new CompressionPlugin({
       filename: '[path].br[query]',
       algorithm: 'brotliCompress',
       test: /\.(js|css|html|svg)$/,
-      compressionOptions: { level: 11 },
+      compressionOptions: {
+        [zlib.constants.BROTLI_PARAM_QUALITY]: 11,
+      },
       threshold: 10240,
       minRatio: 0.8,
       deleteOriginalAssets: false,
@@ -312,6 +377,8 @@ module.exports = {
 **webpack.config.js**
 
 ```js
+const zlib = require('zlib');
+
 module.exports = {
   plugins: [
     new CompressionPlugin({
@@ -325,7 +392,9 @@ module.exports = {
       filename: '[path].br[query]',
       algorithm: 'brotliCompress',
       test: /\.(js|css|html|svg)$/,
-      compressionOptions: { level: 11 },
+      compressionOptions: {
+        [zlib.constants.BROTLI_PARAM_QUALITY]: 11,
+      },
       threshold: 10240,
       minRatio: 0.8,
     }),
