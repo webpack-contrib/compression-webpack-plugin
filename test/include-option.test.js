@@ -25,6 +25,18 @@ describe('"include" option', () => {
     );
   });
 
+  it('matches snapshot with empty `include` value', async () => {
+    new Plugin({
+      minRatio: 1,
+    }).apply(compiler);
+
+    const stats = await compile(compiler);
+
+    expect(getAssetsNameAndSize(stats)).toMatchSnapshot('assets');
+    expect(getWarnings(stats)).toMatchSnapshot('errors');
+    expect(getErrors(stats)).toMatchSnapshot('warnings');
+  });
+
   it('matches snapshot for a single `include` value ({RegExp})', async () => {
     new Plugin({
       include: /\.js(\?.*)?$/i,
