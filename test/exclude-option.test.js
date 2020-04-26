@@ -5,7 +5,7 @@ import {
   getAssetsNameAndSize,
   getCompiler,
   getErrors,
-  getWarnings,
+  getWarnings
 } from './helpers/index';
 
 describe('"exclude" option', () => {
@@ -19,16 +19,28 @@ describe('"exclude" option', () => {
         output: {
           path: `${__dirname}/dist`,
           filename: '[name].js?var=[hash]',
-          chunkFilename: '[id].[name].js?ver=[hash]',
-        },
+          chunkFilename: '[id].[name].js?ver=[hash]'
+        }
       }
     );
+  });
+
+  it('matches snapshot with empty `exclude` value', async () => {
+    new Plugin({
+      minRatio: 1
+    }).apply(compiler);
+
+    const stats = await compile(compiler);
+
+    expect(getAssetsNameAndSize(stats)).toMatchSnapshot('assets');
+    expect(getWarnings(stats)).toMatchSnapshot('errors');
+    expect(getErrors(stats)).toMatchSnapshot('warnings');
   });
 
   it('matches snapshot for a single `exclude` value ({RegExp})', async () => {
     new Plugin({
       exclude: /\.svg(\?.*)?$/i,
-      minRatio: 1,
+      minRatio: 1
     }).apply(compiler);
 
     const stats = await compile(compiler);
@@ -41,7 +53,7 @@ describe('"exclude" option', () => {
   it('matches snapshot for multiple `exclude` values ({Array<RegExp>})', async () => {
     new Plugin({
       exclude: [/\.svg(\?.*)?$/i, /\.png(\?.*)?$/i],
-      minRatio: 1,
+      minRatio: 1
     }).apply(compiler);
 
     const stats = await compile(compiler);
