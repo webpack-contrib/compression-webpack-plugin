@@ -10,7 +10,7 @@ import path from 'path';
 
 import async from 'neo-async';
 import RawSource from 'webpack-sources/lib/RawSource';
-import ModuleFilenameHelpers from 'webpack/lib/ModuleFilenameHelpers';
+import { ModuleFilenameHelpers } from 'webpack';
 import cacache from 'cacache';
 import findCacheDir from 'find-cache-dir';
 import serialize from 'serialize-javascript';
