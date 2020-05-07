@@ -85,7 +85,7 @@ describe('"cache" option', () => {
       const cacheEntryOptions = new Function(
         `'use strict'\nreturn ${cacheEntry}`
       )();
-      const basename = path.basename(cacheEntryOptions.path);
+      const basename = path.basename(cacheEntryOptions.filename);
 
       expect([basename, cacheEntryOptions.hash]).toMatchSnapshot(basename);
     });
@@ -136,7 +136,7 @@ describe('"cache" option', () => {
       const cacheEntryOptions = new Function(
         `'use strict'\nreturn ${cacheEntry}`
       )();
-      const basename = path.basename(cacheEntryOptions.path);
+      const basename = path.basename(cacheEntryOptions.filename);
 
       expect([basename, cacheEntryOptions.hash]).toMatchSnapshot(basename);
     });
