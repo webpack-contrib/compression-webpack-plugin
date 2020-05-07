@@ -1,4 +1,4 @@
-import Plugin from '../src/index';
+import CompressionPlugin from '../src/index';
 
 import {
   compile,
@@ -17,7 +17,7 @@ describe('"algorithm" option', () => {
 
   it('matches snapshot for `unknown` value ({String})', () => {
     expect(() => {
-      new Plugin({
+      new CompressionPlugin({
         minRatio: 1,
         algorithm: 'unknown',
       }).apply(compiler);
@@ -25,7 +25,7 @@ describe('"algorithm" option', () => {
   });
 
   it('matches snapshot for `gzip` value ({String})', async () => {
-    new Plugin({
+    new CompressionPlugin({
       minRatio: 1,
       algorithm: 'gzip',
     }).apply(compiler);
@@ -38,7 +38,7 @@ describe('"algorithm" option', () => {
   });
 
   it('matches snapshot for custom function ({Function})', async () => {
-    new Plugin({
+    new CompressionPlugin({
       minRatio: 1,
       algorithm(input, compressionOptions, callback) {
         expect(compressionOptions).toMatchSnapshot('compressionOptions');
@@ -55,7 +55,7 @@ describe('"algorithm" option', () => {
   });
 
   it('matches snapshot for custom function with error ({Function})', async () => {
-    new Plugin({
+    new CompressionPlugin({
       minRatio: 1,
       algorithm(input, compressionOptions, callback) {
         expect(compressionOptions).toMatchSnapshot('compressionOptions');

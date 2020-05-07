@@ -1,4 +1,4 @@
-import Plugin from '../src/index';
+import CompressionPlugin from '../src/index';
 
 import {
   compile,
@@ -26,7 +26,7 @@ describe('"test" option', () => {
   });
 
   it('matches snapshot with empty `test` value', async () => {
-    new Plugin({
+    new CompressionPlugin({
       minRatio: 1,
     }).apply(compiler);
 
@@ -38,7 +38,7 @@ describe('"test" option', () => {
   });
 
   it('matches snapshot for a single `test` value ({RegExp})', async () => {
-    new Plugin({
+    new CompressionPlugin({
       test: /\.(png|jpg|gif)$/i,
       minRatio: 1,
     }).apply(compiler);
@@ -51,7 +51,7 @@ describe('"test" option', () => {
   });
 
   it('matches snapshot for multiple `test` values ({Array<RegExp>})', async () => {
-    new Plugin({
+    new CompressionPlugin({
       test: [/\.(png|jpg|gif)$/i, /\.svg/i],
       minRatio: 1,
     }).apply(compiler);

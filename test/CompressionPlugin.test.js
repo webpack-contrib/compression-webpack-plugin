@@ -1,4 +1,4 @@
-import Plugin from '../src/index';
+import CompressionPlugin from '../src/index';
 
 import {
   compile,
@@ -26,7 +26,7 @@ describe('CompressionPlugin', () => {
   });
 
   it('should work (without options)', async () => {
-    new Plugin().apply(compiler);
+    new CompressionPlugin().apply(compiler);
 
     const stats = await compile(compiler);
 

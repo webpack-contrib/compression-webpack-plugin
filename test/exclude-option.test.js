@@ -1,4 +1,4 @@
-import Plugin from '../src/index';
+import CompressionPlugin from '../src/index';
 
 import {
   compile,
@@ -26,7 +26,7 @@ describe('"exclude" option', () => {
   });
 
   it('matches snapshot for a single `exclude` value ({RegExp})', async () => {
-    new Plugin({
+    new CompressionPlugin({
       exclude: /\.svg(\?.*)?$/i,
       minRatio: 1,
     }).apply(compiler);
@@ -39,7 +39,7 @@ describe('"exclude" option', () => {
   });
 
   it('matches snapshot for multiple `exclude` values ({Array<RegExp>})', async () => {
-    new Plugin({
+    new CompressionPlugin({
       exclude: [/\.svg(\?.*)?$/i, /\.png(\?.*)?$/i],
       minRatio: 1,
     }).apply(compiler);

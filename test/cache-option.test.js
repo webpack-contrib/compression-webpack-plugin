@@ -3,7 +3,7 @@ import path from 'path';
 import cacache from 'cacache';
 import findCacheDir from 'find-cache-dir';
 
-import Plugin from '../src/index';
+import CompressionPlugin from '../src/index';
 
 import {
   compile,
@@ -31,7 +31,7 @@ describe('"cache" option', () => {
   it('matches snapshot for `false` value ({Boolean})', async () => {
     const compiler = getCompiler('./entry.js');
 
-    new Plugin({ cache: false, minRatio: 1 }).apply(compiler);
+    new CompressionPlugin({ cache: false, minRatio: 1 }).apply(compiler);
 
     cacache.get = jest.fn(cacache.get);
     cacache.put = jest.fn(cacache.put);
@@ -55,7 +55,9 @@ describe('"cache" option', () => {
   it('matches snapshot for `true` value ({Boolean})', async () => {
     const beforeCacheCompiler = getCompiler('./entry.js');
 
-    new Plugin({ cache: true, minRatio: 1 }).apply(beforeCacheCompiler);
+    new CompressionPlugin({ cache: true, minRatio: 1 }).apply(
+      beforeCacheCompiler
+    );
 
     cacache.get = jest.fn(cacache.get);
     cacache.put = jest.fn(cacache.put);
@@ -95,7 +97,9 @@ describe('"cache" option', () => {
 
     const afterCacheCompiler = getCompiler('./entry.js');
 
-    new Plugin({ cache: true, minRatio: 1 }).apply(afterCacheCompiler);
+    new CompressionPlugin({ cache: true, minRatio: 1 }).apply(
+      afterCacheCompiler
+    );
 
     const newStats = await compile(afterCacheCompiler);
 
@@ -113,7 +117,7 @@ describe('"cache" option', () => {
   it('matches snapshot for `other-cache-directory` value ({String})', async () => {
     const beforeCacheCompiler = getCompiler('./entry.js');
 
-    new Plugin({ cache: otherCacheDir, minRatio: 1 }).apply(
+    new CompressionPlugin({ cache: otherCacheDir, minRatio: 1 }).apply(
       beforeCacheCompiler
     );
 
@@ -154,7 +158,9 @@ describe('"cache" option', () => {
 
     const afterCacheCompiler = getCompiler('./entry.js');
 
-    new Plugin({ cache: otherCacheDir, minRatio: 1 }).apply(afterCacheCompiler);
+    new CompressionPlugin({ cache: otherCacheDir, minRatio: 1 }).apply(
+      afterCacheCompiler
+    );
 
     const newStats = await compile(afterCacheCompiler);
 
