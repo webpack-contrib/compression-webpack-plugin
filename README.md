@@ -97,46 +97,6 @@ module.exports = {
 };
 ```
 
-### `cache`
-
-Type: `Boolean|String`
-Default: `false`
-
-Enable file caching.
-The default path to cache directory: `node_modules/.cache/compression-webpack-plugin`.
-
-#### `Boolean`
-
-Enable/disable file caching.
-
-**webpack.config.js**
-
-```js
-module.exports = {
-  plugins: [
-    new CompressionPlugin({
-      cache: true,
-    }),
-  ],
-};
-```
-
-#### `String`
-
-Enable file caching and set path to cache directory.
-
-**webpack.config.js**
-
-```js
-module.exports = {
-  plugins: [
-    new CompressionPlugin({
-      cache: 'path/to/cache',
-    }),
-  ],
-};
-```
-
 ### `filename`
 
 Type: `String|Function`
@@ -302,6 +262,48 @@ module.exports = {
   plugins: [
     new CompressionPlugin({
       deleteOriginalAssets: true,
+    }),
+  ],
+};
+```
+
+### `cache`
+
+> ⚠ Ignored in webpack 5! Please use https://webpack.js.org/configuration/other-options/#cache.
+
+Type: `Boolean|String`
+Default: `false`
+
+Enable file caching.
+The default path to cache directory: `node_modules/.cache/compression-webpack-plugin`.
+
+#### `Boolean`
+
+Enable/disable file caching.
+
+**webpack.config.js**
+
+```js
+module.exports = {
+  plugins: [
+    new CompressionPlugin({
+      cache: true,
+    }),
+  ],
+};
+```
+
+#### `String`
+
+Enable file caching and set path to cache directory.
+
+**webpack.config.js**
+
+```js
+module.exports = {
+  plugins: [
+    new CompressionPlugin({
+      cache: 'path/to/cache',
     }),
   ],
 };

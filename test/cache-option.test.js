@@ -89,7 +89,9 @@ describe('"cache" option', () => {
       )();
       const basename = path.basename(cacheEntryOptions.filename);
 
-      expect([basename, cacheEntryOptions.hash]).toMatchSnapshot(basename);
+      expect([basename, cacheEntryOptions.contentHash]).toMatchSnapshot(
+        basename
+      );
     });
 
     cacache.get.mockClear();
@@ -107,10 +109,10 @@ describe('"cache" option', () => {
     expect(getWarnings(newStats)).toMatchSnapshot('errors');
     expect(getErrors(newStats)).toMatchSnapshot('warnings');
 
-    // const newCountAssets = Object.keys(newStats.compilation.assets).length;
+    const newCountAssets = Object.keys(newStats.compilation.assets).length;
 
     // Now we have cached files so we get their and don't put
-    // expect(cacache.get.mock.calls.length).toBe(newCountAssets / 2);
+    expect(cacache.get.mock.calls.length).toBe(newCountAssets / 2);
     expect(cacache.put.mock.calls.length).toBe(0);
   });
 
@@ -150,7 +152,9 @@ describe('"cache" option', () => {
       )();
       const basename = path.basename(cacheEntryOptions.filename);
 
-      expect([basename, cacheEntryOptions.hash]).toMatchSnapshot(basename);
+      expect([basename, cacheEntryOptions.contentHash]).toMatchSnapshot(
+        basename
+      );
     });
 
     cacache.get.mockClear();
