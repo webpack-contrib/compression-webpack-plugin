@@ -70,6 +70,8 @@ class CompressionPlugin {
         ...this.options.compressionOptions,
       };
     }
+
+    this.emittedAssets = new Set();
   }
 
   apply(compiler) {
@@ -93,13 +95,19 @@ class CompressionPlugin {
         // eslint-disable-next-line consistent-return
         async.forEach(
           Object.keys(assets),
-          (file, cb) => {
-            if (!ModuleFilenameHelpers.matchObject(this.options, file)) {
+          (assetName, cb) => {
+            if (!ModuleFilenameHelpers.matchObject(this.options, assetName)) {
               return cb();
             }
 
-            const asset = assets[file];
-            let input = asset.source();
+            const assetSource = assets[assetName];
+
+            // Do not emit cached assets in watch mode
+            if (this.emittedAssets.has(assetSource)) {
+              return cb();
+            }
+
+            let input = assetSource.source();
 
             if (!Buffer.isBuffer(input)) {
               input = Buffer.from(input);
@@ -114,13 +122,12 @@ class CompressionPlugin {
             return Promise.resolve()
               .then(() => {
                 if (cache) {
-                  const { outputPath } = compiler;
                   const cacheKey = serialize({
                     // Invalidate cache after upgrade `zlib` module (build-in in `nodejs`)
                     node: process.version,
                     'compression-webpack-plugin': pkg.version,
                     'compression-webpack-plugin-options': this.options,
-                    path: `${outputPath ? `${outputPath}/` : ''}${file}`,
+                    filename: assetName,
                     hash: crypto.createHash('md4').update(input).digest('hex'),
                   });
 
@@ -142,11 +149,11 @@ class CompressionPlugin {
                   return cb();
                 }
 
-                const parse = url.parse(file);
+                const parse = url.parse(assetName);
                 const { pathname } = parse;
                 const { dir, name, ext } = path.parse(pathname);
                 const info = {
-                  file,
+                  file: assetName,
                   path: pathname,
                   dir: dir ? `${dir}/` : '',
                   name,
@@ -164,8 +171,10 @@ class CompressionPlugin {
 
                 assets[newAssetName] = new RawSource(result);
 
+                this.emittedAssets.add(assetSource);
+
                 if (deleteOriginalAssets) {
-                  delete assets[file];
+                  delete assets[assetName];
                 }
 
                 return cb();
