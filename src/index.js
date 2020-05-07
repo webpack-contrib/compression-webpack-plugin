@@ -70,6 +70,8 @@ class CompressionPlugin {
         ...this.options.compressionOptions,
       };
     }
+
+    this.emittedAssets = new Set();
   }
 
   apply(compiler) {
@@ -99,6 +101,12 @@ class CompressionPlugin {
             }
 
             const assetSource = assets[assetName];
+
+            // Do not emit cached assets in watch mode
+            if (this.emittedAssets.has(assetSource)) {
+              return cb();
+            }
+
             let input = assetSource.source();
 
             if (!Buffer.isBuffer(input)) {
@@ -162,6 +170,8 @@ class CompressionPlugin {
                       );
 
                 assets[newAssetName] = new RawSource(result);
+
+                this.emittedAssets.add(assetSource);
 
                 if (deleteOriginalAssets) {
                   delete assets[assetName];
