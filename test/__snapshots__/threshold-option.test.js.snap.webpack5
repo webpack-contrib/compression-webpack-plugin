@@ -20,19 +20,19 @@ Array [
   ],
   Array [
     "async.async.735f6a02a2e820243759.js",
-    335,
+    350,
   ],
   Array [
     "async.async.735f6a02a2e820243759.js.gz",
-    211,
+    205,
   ],
   Array [
-    "main.21aa9eec8b36c106feff.js",
-    13280,
+    "main.f210d52065e5e6030f3a.js",
+    13052,
   ],
   Array [
-    "main.21aa9eec8b36c106feff.js.gz",
-    3204,
+    "main.f210d52065e5e6030f3a.js.gz",
+    3195,
   ],
 ]
 `;
@@ -57,15 +57,15 @@ Array [
   ],
   Array [
     "async.async.735f6a02a2e820243759.js",
-    335,
+    350,
   ],
   Array [
-    "main.21aa9eec8b36c106feff.js",
-    13280,
+    "main.f210d52065e5e6030f3a.js",
+    13052,
   ],
   Array [
-    "main.21aa9eec8b36c106feff.js.gz",
-    3204,
+    "main.f210d52065e5e6030f3a.js.gz",
+    3195,
   ],
 ]
 `;
