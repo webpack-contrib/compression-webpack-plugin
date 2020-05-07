@@ -91,14 +91,13 @@ class CompressionPlugin {
               os.tmpdir()
             : cache;
         const { assets } = compilation;
+        const assetsNames = Object.keys(assets).filter((assetName) =>
+          ModuleFilenameHelpers.matchObject(this.options, assetName)
+        );
 
         async.forEach(
-          Object.keys(assets),
+          assetsNames,
           (assetName, cb) => {
-            if (!ModuleFilenameHelpers.matchObject(this.options, assetName)) {
-              return cb();
-            }
-
             const assetSource = assets[assetName];
 
             // Do not emit cached assets in watch mode
