@@ -18,8 +18,8 @@ describe('CompressionPlugin', () => {
       {
         output: {
           path: `${__dirname}/dist`,
-          filename: '[name].js?var=[hash]',
-          chunkFilename: '[id].[name].js?ver=[hash]',
+          filename: '[name].js?var=[fullhash]',
+          chunkFilename: '[id].[name].js?ver=[fullhash]',
         },
       }
     );
