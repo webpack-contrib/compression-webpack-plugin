@@ -92,7 +92,6 @@ class CompressionPlugin {
             : cache;
         const { assets } = compilation;
 
-        // eslint-disable-next-line consistent-return
         async.forEach(
           Object.keys(assets),
           (assetName, cb) => {
@@ -165,7 +164,7 @@ class CompressionPlugin {
                   typeof filename === 'function'
                     ? filename(info)
                     : filename.replace(
-                        /\[(file|path|query|dir|name|ext)\]/g,
+                        /\[(file|path|query|dir|name|ext)]/g,
                         (p0, p1) => info[p1]
                       );
 
