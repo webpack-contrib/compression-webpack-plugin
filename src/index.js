@@ -93,13 +93,13 @@ class CompressionPlugin {
         // eslint-disable-next-line consistent-return
         async.forEach(
           Object.keys(assets),
-          (file, cb) => {
-            if (!ModuleFilenameHelpers.matchObject(this.options, file)) {
+          (assetName, cb) => {
+            if (!ModuleFilenameHelpers.matchObject(this.options, assetName)) {
               return cb();
             }
 
-            const asset = assets[file];
-            let input = asset.source();
+            const assetSource = assets[assetName];
+            let input = assetSource.source();
 
             if (!Buffer.isBuffer(input)) {
               input = Buffer.from(input);
@@ -120,7 +120,7 @@ class CompressionPlugin {
                     node: process.version,
                     'compression-webpack-plugin': pkg.version,
                     'compression-webpack-plugin-options': this.options,
-                    path: `${outputPath ? `${outputPath}/` : ''}${file}`,
+                    path: `${outputPath ? `${outputPath}/` : ''}${assetName}`,
                     hash: crypto.createHash('md4').update(input).digest('hex'),
                   });
 
@@ -142,11 +142,11 @@ class CompressionPlugin {
                   return cb();
                 }
 
-                const parse = url.parse(file);
+                const parse = url.parse(assetName);
                 const { pathname } = parse;
                 const { dir, name, ext } = path.parse(pathname);
                 const info = {
-                  file,
+                  file: assetName,
                   path: pathname,
                   dir: dir ? `${dir}/` : '',
                   name,
@@ -165,7 +165,7 @@ class CompressionPlugin {
                 assets[newAssetName] = new RawSource(result);
 
                 if (deleteOriginalAssets) {
-                  delete assets[file];
+                  delete assets[assetName];
                 }
 
                 return cb();
