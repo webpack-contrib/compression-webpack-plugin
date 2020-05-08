@@ -42,16 +42,14 @@ describe('CompressionPlugin', () => {
     expect(getWarnings(stats)).toMatchSnapshot('errors');
     expect(getErrors(stats)).toMatchSnapshot('warnings');
 
-    await new Promise((resolve) => {
-      compiler.close(async () => {
-        const newStats = await compile(compiler);
+    await new Promise(async (resolve) => {
+      const newStats = await compile(compiler);
 
-        expect(getAssetsNameAndSize(newStats)).toMatchSnapshot('assets');
-        expect(getWarnings(newStats)).toMatchSnapshot('errors');
-        expect(getErrors(newStats)).toMatchSnapshot('warnings');
+      expect(getAssetsNameAndSize(newStats)).toMatchSnapshot('assets');
+      expect(getWarnings(newStats)).toMatchSnapshot('errors');
+      expect(getErrors(newStats)).toMatchSnapshot('warnings');
 
-        resolve();
-      });
+      resolve();
     });
   });
 });

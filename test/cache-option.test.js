@@ -235,6 +235,41 @@ if (getCompiler.isWebpack4()) {
       });
     });
 
+    it('should work when `cache` is `memory`', async () => {
+      const gzipSpy = jest.spyOn(zlib, 'gzip');
+      const compiler = getCompiler(
+        './entry.js',
+        {},
+        { cache: { type: 'memory' } }
+      );
+
+      new CompressionPlugin().apply(compiler);
+
+      const stats = await compile(compiler);
+
+      expect(gzipSpy).toHaveBeenCalledTimes(4);
+      expect(getAssetsNameAndSize(stats)).toMatchSnapshot('assets');
+      expect(getWarnings(stats)).toMatchSnapshot('errors');
+      expect(getErrors(stats)).toMatchSnapshot('warnings');
+
+      gzipSpy.mockClear();
+
+      await new Promise((resolve) => {
+        compiler.close(async () => {
+          const newStats = await compile(compiler);
+
+          expect(gzipSpy).toHaveBeenCalledTimes(0);
+          expect(getAssetsNameAndSize(newStats)).toMatchSnapshot('assets');
+          expect(getWarnings(newStats)).toMatchSnapshot('errors');
+          expect(getErrors(newStats)).toMatchSnapshot('warnings');
+
+          gzipSpy.mockRestore();
+
+          resolve();
+        });
+      });
+    });
+
     it('should work when `cache` is `filesystem`', async () => {
       const gzipSpy = jest.spyOn(zlib, 'gzip');
       const beforeCacheCompiler = getCompiler(

@@ -143,9 +143,11 @@ class CompressionPlugin {
 
     if (CompressionPlugin.isWebpack4()) {
       task.cacheKeys = {
+        filename: assetName,
         'compression-webpack-plugin': pkg.version,
         'compression-webpack-plugin-options': this.options,
         contentHash: crypto.createHash('md4').update(input).digest('hex'),
+        ...task.cacheKeys,
       };
     } else {
       task.assetSource = assetSource;

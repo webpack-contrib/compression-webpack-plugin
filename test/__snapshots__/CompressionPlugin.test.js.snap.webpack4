@@ -1,6 +1,68 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`CompressionPlugin should work (without options): assets 1`] = `
+exports[`CompressionPlugin should work in watch mode: assets 1`] = `
+Array [
+  Array [
+    "09a1a1112c577c2794359715edfcb5ac.png",
+    78117,
+  ],
+  Array [
+    "23fc1d3ac606d117e05a140e0de79806.svg",
+    672,
+  ],
+  Array [
+    "23fc1d3ac606d117e05a140e0de79806.svg.gz",
+    393,
+  ],
+  Array [
+    "async.async.dcbdb1dd40763448b635.js",
+    249,
+  ],
+  Array [
+    "async.async.dcbdb1dd40763448b635.js.gz",
+    171,
+  ],
+  Array [
+    "main.8de5b7ad6e2fdef99b99.js",
+    11127,
+  ],
+  Array [
+    "main.8de5b7ad6e2fdef99b99.js.gz",
+    2954,
+  ],
+]
+`;
+
+exports[`CompressionPlugin should work in watch mode: assets 2`] = `
+Array [
+  Array [
+    "09a1a1112c577c2794359715edfcb5ac.png",
+    78117,
+  ],
+  Array [
+    "23fc1d3ac606d117e05a140e0de79806.svg",
+    672,
+  ],
+  Array [
+    "async.async.dcbdb1dd40763448b635.js",
+    249,
+  ],
+  Array [
+    "main.8de5b7ad6e2fdef99b99.js",
+    11127,
+  ],
+]
+`;
+
+exports[`CompressionPlugin should work in watch mode: errors 1`] = `Array []`;
+
+exports[`CompressionPlugin should work in watch mode: errors 2`] = `Array []`;
+
+exports[`CompressionPlugin should work in watch mode: warnings 1`] = `Array []`;
+
+exports[`CompressionPlugin should work in watch mode: warnings 2`] = `Array []`;
+
+exports[`CompressionPlugin should work: assets 1`] = `
 Array [
   Array [
     "09a1a1112c577c2794359715edfcb5ac.png",
@@ -33,6 +95,6 @@ Array [
 ]
 `;
 
-exports[`CompressionPlugin should work (without options): errors 1`] = `Array []`;
+exports[`CompressionPlugin should work: errors 1`] = `Array []`;
 
-exports[`CompressionPlugin should work (without options): warnings 1`] = `Array []`;
+exports[`CompressionPlugin should work: warnings 1`] = `Array []`;
