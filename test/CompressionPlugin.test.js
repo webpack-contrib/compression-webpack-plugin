@@ -25,7 +25,7 @@ describe('CompressionPlugin', () => {
     );
   });
 
-  it('should works (without options)', async () => {
+  it('should work (without options)', async () => {
     new Plugin().apply(compiler);
 
     const stats = await compile(compiler);
