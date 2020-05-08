@@ -1,6 +1,5 @@
 // eslint-disable-next-line import/extensions,import/no-unresolved
 import getLazyHashedEtag from 'webpack/lib/cache/getLazyHashedEtag';
-import serialize from 'serialize-javascript';
 
 import { util } from 'webpack';
 
@@ -25,7 +24,7 @@ export default class Cache {
       hash.update(hashSalt);
     }
 
-    hash.update(serialize(task.cacheKeys));
+    hash.update(JSON.stringify(task.cacheKeys));
 
     const digest = hash.digest(hashDigest);
     const cacheKeys = digest.substr(0, hashDigestLength);

@@ -1,7 +1,9 @@
 import path from 'path';
+import zlib from 'zlib';
 
 import cacache from 'cacache';
 import findCacheDir from 'find-cache-dir';
+import del from 'del';
 
 import CompressionPlugin from '../src/index';
 
@@ -181,5 +183,99 @@ if (getCompiler.isWebpack4()) {
     });
   });
 } else {
-  test.skip('skip it', () => {});
+  describe('"cache" option', () => {
+    beforeEach(() => {
+      return del([path.resolve('node_modules/.cache/webpack')]);
+    });
+
+    afterEach(() => {
+      jest.clearAllMocks();
+    });
+
+    it('should work when `cache` is `false`', async () => {
+      const gzipSpy = jest.spyOn(zlib, 'gzip');
+      const beforeCacheCompiler = getCompiler(
+        './entry.js',
+        {},
+        { cache: false }
+      );
+
+      new CompressionPlugin().apply(beforeCacheCompiler);
+
+      const stats = await compile(beforeCacheCompiler);
+
+      expect(gzipSpy).toHaveBeenCalledTimes(4);
+      expect(getAssetsNameAndSize(stats)).toMatchSnapshot('assets');
+      expect(getWarnings(stats)).toMatchSnapshot('errors');
+      expect(getErrors(stats)).toMatchSnapshot('warnings');
+
+      gzipSpy.mockClear();
+
+      await new Promise((resolve) => {
+        beforeCacheCompiler.close(async () => {
+          const afterCacheCompiler = getCompiler(
+            './entry.js',
+            {},
+            { cache: false }
+          );
+
+          new CompressionPlugin().apply(afterCacheCompiler);
+
+          const newStats = await compile(afterCacheCompiler);
+
+          expect(gzipSpy).toHaveBeenCalledTimes(4);
+          expect(getAssetsNameAndSize(newStats)).toMatchSnapshot('assets');
+          expect(getWarnings(newStats)).toMatchSnapshot('errors');
+          expect(getErrors(newStats)).toMatchSnapshot('warnings');
+
+          gzipSpy.mockRestore();
+
+          resolve();
+        });
+      });
+    });
+
+    it('should work when `cache` is `filesystem`', async () => {
+      const gzipSpy = jest.spyOn(zlib, 'gzip');
+      const beforeCacheCompiler = getCompiler(
+        './entry.js',
+        {},
+        { cache: { type: 'filesystem' } }
+      );
+
+      new CompressionPlugin().apply(beforeCacheCompiler);
+
+      const stats = await compile(beforeCacheCompiler);
+
+      expect(gzipSpy).toHaveBeenCalledTimes(4);
+      expect(getAssetsNameAndSize(stats)).toMatchSnapshot('assets');
+      expect(getWarnings(stats)).toMatchSnapshot('errors');
+      expect(getErrors(stats)).toMatchSnapshot('warnings');
+
+      gzipSpy.mockClear();
+
+      await new Promise((resolve) => {
+        beforeCacheCompiler.close(async () => {
+          const afterCacheCompiler = getCompiler(
+            './entry.js',
+            {},
+            { cache: { type: 'filesystem' } }
+          );
+
+          new CompressionPlugin().apply(afterCacheCompiler);
+
+          const newStats = await compile(afterCacheCompiler);
+
+          expect(gzipSpy).toHaveBeenCalledTimes(0);
+          expect(getAssetsNameAndSize(newStats)).toMatchSnapshot('assets');
+          expect(getWarnings(newStats)).toMatchSnapshot('errors');
+          expect(getErrors(newStats)).toMatchSnapshot('warnings');
+
+          gzipSpy.mockRestore();
+
+          resolve();
+        });
+      });
+    });
+  });
 }

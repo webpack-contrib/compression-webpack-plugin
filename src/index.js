@@ -135,18 +135,16 @@ class CompressionPlugin {
 
     const task = {
       input,
-      cacheKeys: {
-        // Invalidate cache after upgrade `zlib` module (build-in in `nodejs`)
-        node: process.version,
-        'compression-webpack-plugin': pkg.version,
-        'compression-webpack-plugin-options': this.options,
-      },
+      filename: assetName,
+      // Invalidate cache after upgrade `zlib` module (built-in in `nodejs`)
+      cacheKeys: { node: process.version },
       callback,
     };
 
     if (CompressionPlugin.isWebpack4()) {
       task.cacheKeys = {
-        filename: assetName,
+        'compression-webpack-plugin': pkg.version,
+        'compression-webpack-plugin-options': this.options,
         contentHash: crypto.createHash('md4').update(input).digest('hex'),
       };
     } else {
