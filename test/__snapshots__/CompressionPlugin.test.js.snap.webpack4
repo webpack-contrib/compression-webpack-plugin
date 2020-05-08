@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`CompressionPlugin should works (without options): assets 1`] = `
+exports[`CompressionPlugin should work (without options): assets 1`] = `
 Array [
   Array [
     "09a1a1112c577c2794359715edfcb5ac.png",
@@ -33,6 +33,6 @@ Array [
 ]
 `;
 
-exports[`CompressionPlugin should works (without options): errors 1`] = `Array []`;
+exports[`CompressionPlugin should work (without options): errors 1`] = `Array []`;
 
-exports[`CompressionPlugin should works (without options): warnings 1`] = `Array []`;
+exports[`CompressionPlugin should work (without options): warnings 1`] = `Array []`;
