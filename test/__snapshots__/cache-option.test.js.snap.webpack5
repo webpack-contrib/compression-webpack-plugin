@@ -1,14 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`"cache" option matches snapshot for \`false\` value ({Boolean}): assets 1`] = `
+exports[`"cache" option should work when \`cache\` is \`false\`: assets 1`] = `
 Array [
   Array [
     "09a1a1112c577c2794359715edfcb5ac.png",
     78117,
-  ],
-  Array [
-    "09a1a1112c577c2794359715edfcb5ac.png.gz",
-    73160,
   ],
   Array [
     "23fc1d3ac606d117e05a140e0de79806.svg",
@@ -37,33 +33,11 @@ Array [
 ]
 `;
 
-exports[`"cache" option matches snapshot for \`false\` value ({Boolean}): errors 1`] = `Array []`;
-
-exports[`"cache" option matches snapshot for \`false\` value ({Boolean}): warnings 1`] = `Array []`;
-
-exports[`"cache" option matches snapshot for \`other-cache-directory\` value ({String}): 09a1a1112c577c2794359715edfcb5ac.png 1`] = `
-Array [
-  "09a1a1112c577c2794359715edfcb5ac.png",
-  "09a1a1112c577c2794359715edfcb5ac",
-]
-`;
-
-exports[`"cache" option matches snapshot for \`other-cache-directory\` value ({String}): 23fc1d3ac606d117e05a140e0de79806.svg 1`] = `
-Array [
-  "23fc1d3ac606d117e05a140e0de79806.svg",
-  "23fc1d3ac606d117e05a140e0de79806",
-]
-`;
-
-exports[`"cache" option matches snapshot for \`other-cache-directory\` value ({String}): assets 1`] = `
+exports[`"cache" option should work when \`cache\` is \`false\`: assets 2`] = `
 Array [
   Array [
     "09a1a1112c577c2794359715edfcb5ac.png",
     78117,
-  ],
-  Array [
-    "09a1a1112c577c2794359715edfcb5ac.png.gz",
-    73160,
   ],
   Array [
     "23fc1d3ac606d117e05a140e0de79806.svg",
@@ -92,15 +66,19 @@ Array [
 ]
 `;
 
-exports[`"cache" option matches snapshot for \`other-cache-directory\` value ({String}): assets 2`] = `
+exports[`"cache" option should work when \`cache\` is \`false\`: errors 1`] = `Array []`;
+
+exports[`"cache" option should work when \`cache\` is \`false\`: errors 2`] = `Array []`;
+
+exports[`"cache" option should work when \`cache\` is \`false\`: warnings 1`] = `Array []`;
+
+exports[`"cache" option should work when \`cache\` is \`false\`: warnings 2`] = `Array []`;
+
+exports[`"cache" option should work when \`cache\` is \`filesystem\`: assets 1`] = `
 Array [
   Array [
     "09a1a1112c577c2794359715edfcb5ac.png",
     78117,
-  ],
-  Array [
-    "09a1a1112c577c2794359715edfcb5ac.png.gz",
-    73160,
   ],
   Array [
     "23fc1d3ac606d117e05a140e0de79806.svg",
@@ -129,51 +107,11 @@ Array [
 ]
 `;
 
-exports[`"cache" option matches snapshot for \`other-cache-directory\` value ({String}): async.async.735f6a02a2e820243759.js 1`] = `
-Array [
-  "async.async.735f6a02a2e820243759.js",
-  "bda8636f8681a0b701de559e671c70fb",
-]
-`;
-
-exports[`"cache" option matches snapshot for \`other-cache-directory\` value ({String}): errors 1`] = `Array []`;
-
-exports[`"cache" option matches snapshot for \`other-cache-directory\` value ({String}): errors 2`] = `Array []`;
-
-exports[`"cache" option matches snapshot for \`other-cache-directory\` value ({String}): main.f210d52065e5e6030f3a.js 1`] = `
-Array [
-  "main.f210d52065e5e6030f3a.js",
-  "f304c57e0a6cc45d6ce3aa62b6f7ece6",
-]
-`;
-
-exports[`"cache" option matches snapshot for \`other-cache-directory\` value ({String}): warnings 1`] = `Array []`;
-
-exports[`"cache" option matches snapshot for \`other-cache-directory\` value ({String}): warnings 2`] = `Array []`;
-
-exports[`"cache" option matches snapshot for \`true\` value ({Boolean}): 09a1a1112c577c2794359715edfcb5ac.png 1`] = `
-Array [
-  "09a1a1112c577c2794359715edfcb5ac.png",
-  "09a1a1112c577c2794359715edfcb5ac",
-]
-`;
-
-exports[`"cache" option matches snapshot for \`true\` value ({Boolean}): 23fc1d3ac606d117e05a140e0de79806.svg 1`] = `
-Array [
-  "23fc1d3ac606d117e05a140e0de79806.svg",
-  "23fc1d3ac606d117e05a140e0de79806",
-]
-`;
-
-exports[`"cache" option matches snapshot for \`true\` value ({Boolean}): assets 1`] = `
+exports[`"cache" option should work when \`cache\` is \`filesystem\`: assets 2`] = `
 Array [
   Array [
     "09a1a1112c577c2794359715edfcb5ac.png",
     78117,
-  ],
-  Array [
-    "09a1a1112c577c2794359715edfcb5ac.png.gz",
-    73160,
   ],
   Array [
     "23fc1d3ac606d117e05a140e0de79806.svg",
@@ -202,15 +140,19 @@ Array [
 ]
 `;
 
-exports[`"cache" option matches snapshot for \`true\` value ({Boolean}): assets 2`] = `
+exports[`"cache" option should work when \`cache\` is \`filesystem\`: errors 1`] = `Array []`;
+
+exports[`"cache" option should work when \`cache\` is \`filesystem\`: errors 2`] = `Array []`;
+
+exports[`"cache" option should work when \`cache\` is \`filesystem\`: warnings 1`] = `Array []`;
+
+exports[`"cache" option should work when \`cache\` is \`filesystem\`: warnings 2`] = `Array []`;
+
+exports[`"cache" option should work when \`cache\` is \`memory\`: assets 1`] = `
 Array [
   Array [
     "09a1a1112c577c2794359715edfcb5ac.png",
     78117,
-  ],
-  Array [
-    "09a1a1112c577c2794359715edfcb5ac.png.gz",
-    73160,
   ],
   Array [
     "23fc1d3ac606d117e05a140e0de79806.svg",
@@ -239,24 +181,31 @@ Array [
 ]
 `;
 
-exports[`"cache" option matches snapshot for \`true\` value ({Boolean}): async.async.735f6a02a2e820243759.js 1`] = `
+exports[`"cache" option should work when \`cache\` is \`memory\`: assets 2`] = `
 Array [
-  "async.async.735f6a02a2e820243759.js",
-  "bda8636f8681a0b701de559e671c70fb",
+  Array [
+    "09a1a1112c577c2794359715edfcb5ac.png",
+    78117,
+  ],
+  Array [
+    "23fc1d3ac606d117e05a140e0de79806.svg",
+    672,
+  ],
+  Array [
+    "async.async.735f6a02a2e820243759.js",
+    350,
+  ],
+  Array [
+    "main.f210d52065e5e6030f3a.js",
+    13052,
+  ],
 ]
 `;
 
-exports[`"cache" option matches snapshot for \`true\` value ({Boolean}): errors 1`] = `Array []`;
+exports[`"cache" option should work when \`cache\` is \`memory\`: errors 1`] = `Array []`;
 
-exports[`"cache" option matches snapshot for \`true\` value ({Boolean}): errors 2`] = `Array []`;
+exports[`"cache" option should work when \`cache\` is \`memory\`: errors 2`] = `Array []`;
 
-exports[`"cache" option matches snapshot for \`true\` value ({Boolean}): main.f210d52065e5e6030f3a.js 1`] = `
-Array [
-  "main.f210d52065e5e6030f3a.js",
-  "f304c57e0a6cc45d6ce3aa62b6f7ece6",
-]
-`;
+exports[`"cache" option should work when \`cache\` is \`memory\`: warnings 1`] = `Array []`;
 
-exports[`"cache" option matches snapshot for \`true\` value ({Boolean}): warnings 1`] = `Array []`;
-
-exports[`"cache" option matches snapshot for \`true\` value ({Boolean}): warnings 2`] = `Array []`;
+exports[`"cache" option should work when \`cache\` is \`memory\`: warnings 2`] = `Array []`;

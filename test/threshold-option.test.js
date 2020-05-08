@@ -1,4 +1,4 @@
-import Plugin from '../src/index';
+import CompressionPlugin from '../src/index';
 
 import {
   compile,
@@ -16,7 +16,7 @@ describe('"threshold" option', () => {
   });
 
   it('matches snapshot for `0` value ({Number})', async () => {
-    new Plugin({
+    new CompressionPlugin({
       minRatio: 1,
       threshold: 0,
     }).apply(compiler);
@@ -29,7 +29,7 @@ describe('"threshold" option', () => {
   });
 
   it('matches snapshot for `8192` value ({Number})', async () => {
-    new Plugin({
+    new CompressionPlugin({
       minRatio: 1,
       threshold: 8192,
     }).apply(compiler);

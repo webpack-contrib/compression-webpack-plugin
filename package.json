@@ -43,7 +43,6 @@
   "dependencies": {
     "cacache": "^15.0.3",
     "find-cache-dir": "^3.3.1",
-    "neo-async": "^2.6.1",
     "schema-utils": "^2.6.6",
     "serialize-javascript": "^3.0.0",
     "webpack-sources": "^1.4.3"
@@ -61,7 +60,7 @@
     "cross-env": "^7.0.2",
     "del": "^5.1.0",
     "del-cli": "^3.0.0",
-    "eslint": "^6.8.0",
+    "eslint": "^7.0.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-import": "^2.20.2",
     "file-loader": "^6.0.0",

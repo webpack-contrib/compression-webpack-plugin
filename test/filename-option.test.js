@@ -1,4 +1,4 @@
-import Plugin from '../src/index';
+import CompressionPlugin from '../src/index';
 
 import {
   compile,
@@ -26,7 +26,7 @@ describe('"filename" option', () => {
   });
 
   it('matches snapshot for `[path].super-compressed.gz[query]` value ({String})', async () => {
-    new Plugin({
+    new CompressionPlugin({
       minRatio: 1,
       filename: '[path].super-compressed.gz[query]',
     }).apply(compiler);
@@ -39,7 +39,7 @@ describe('"filename" option', () => {
   });
 
   it('matches snapshot for `[dir][name].super-compressed.gz[ext][query]` value ({String})', async () => {
-    new Plugin({
+    new CompressionPlugin({
       minRatio: 1,
       filename: '[dir][name].super-compressed.gz[ext][query]',
     }).apply(compiler);
@@ -52,7 +52,7 @@ describe('"filename" option', () => {
   });
 
   it('matches snapshot for custom function ({Function})', async () => {
-    new Plugin({
+    new CompressionPlugin({
       minRatio: 1,
       filename(info) {
         return `${info.path}.gz${info.query}`;

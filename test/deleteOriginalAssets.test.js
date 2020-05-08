@@ -1,4 +1,4 @@
-import Plugin from '../src/index';
+import CompressionPlugin from '../src/index';
 
 import {
   compile,
@@ -16,7 +16,7 @@ describe('"deleteOriginalAssets" option', () => {
   });
 
   it('matches snapshot for `true` value ({Boolean})', async () => {
-    new Plugin({
+    new CompressionPlugin({
       minRatio: 1,
       deleteOriginalAssets: true,
     }).apply(compiler);
@@ -29,7 +29,7 @@ describe('"deleteOriginalAssets" option', () => {
   });
 
   it('matches snapshot for `false` value ({Boolean})', async () => {
-    new Plugin({
+    new CompressionPlugin({
       minRatio: 1,
       deleteOriginalAssets: false,
     }).apply(compiler);

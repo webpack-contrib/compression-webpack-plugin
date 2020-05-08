@@ -1,4 +1,4 @@
-import Plugin from '../src/index';
+import CompressionPlugin from '../src/index';
 
 import {
   compile,
@@ -16,7 +16,7 @@ describe('"compressionOptions" option', () => {
   });
 
   it('matches snapshot without values', async () => {
-    new Plugin({
+    new CompressionPlugin({
       minRatio: 1,
     }).apply(compiler);
 
@@ -28,7 +28,7 @@ describe('"compressionOptions" option', () => {
   });
 
   it('matches snapshot for custom options ({Object})', async () => {
-    new Plugin({
+    new CompressionPlugin({
       compressionOptions: {
         level: 9,
       },

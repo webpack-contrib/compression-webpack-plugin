@@ -3,7 +3,7 @@ import path from 'path';
 import webpack from 'webpack';
 import { createFsFromVolume, Volume } from 'memfs';
 
-export default (fixture, loaderOptions = {}, config = {}) => {
+export default function getCompiler(fixture, loaderOptions = {}, config = {}) {
   const fullConfig = {
     mode: 'development',
     devtool: config.devtool || false,
@@ -42,4 +42,6 @@ export default (fixture, loaderOptions = {}, config = {}) => {
   }
 
   return compiler;
-};
+}
+
+getCompiler.isWebpack4 = () => webpack.version[0] === '4';

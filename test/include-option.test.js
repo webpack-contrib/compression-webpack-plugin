@@ -1,4 +1,4 @@
-import Plugin from '../src/index';
+import CompressionPlugin from '../src/index';
 
 import {
   compile,
@@ -26,7 +26,7 @@ describe('"include" option', () => {
   });
 
   it('matches snapshot for a single `include` value ({RegExp})', async () => {
-    new Plugin({
+    new CompressionPlugin({
       include: /\.js(\?.*)?$/i,
       minRatio: 1,
     }).apply(compiler);
@@ -39,7 +39,7 @@ describe('"include" option', () => {
   });
 
   it('matches snapshot for multiple `include` values ({Array<RegExp>})', async () => {
-    new Plugin({
+    new CompressionPlugin({
       include: [/\.js(\?.*)?$/i, /\.svg(\?.*)?$/i],
       minRatio: 1,
     }).apply(compiler);
