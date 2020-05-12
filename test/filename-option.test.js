@@ -6,6 +6,7 @@ import {
   getCompiler,
   getErrors,
   getWarnings,
+  removeCache,
 } from './helpers/index';
 
 describe('"filename" option', () => {
@@ -23,6 +24,8 @@ describe('"filename" option', () => {
         },
       }
     );
+
+    return removeCache();
   });
 
   it('matches snapshot for `[path].super-compressed.gz[query]` value ({String})', async () => {
