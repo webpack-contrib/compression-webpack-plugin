@@ -40,12 +40,24 @@ And run `webpack` via your preferred method.
 
 ## Options
 
+|                      Name                       |                   Type                    |      Default       | Description                                                                                                   |
+| :---------------------------------------------: | :---------------------------------------: | :----------------: | :------------------------------------------------------------------------------------------------------------ |
+|               **[`test`](#test)**               | `{String\|RegExp\|Array<String\|RegExp>}` |    `undefined`     | Include all assets that pass test assertion                                                                   |
+|            **[`include`](#include)**            | `{String\|RegExp\|Array<String\|RegExp>}` |    `undefined`     | Include all assets matching any of these conditions                                                           |
+|            **[`exclude`](#exclude)**            | `{String\|RegExp\|Array<String\|RegExp>}` |    `undefined`     | Exclude all assets matching any of these conditions                                                           |
+|          **[`algorithm`](#algorithm)**          |           `{String\|Function}`            |       `gzip`       | The compression algorithm/function                                                                            |
+| **[`compressionOptions`](#compressionoptions)** |                `{Object}`                 |   `{ level: 9 }`   | Compression options for `algorithm`                                                                           |
+|          **[`threshold`](#threshold)**          |                `{Number}`                 |        `0`         | Only assets bigger than this size are processed (in bytes)                                                    |
+|           **[`minRatio`](#minratio)**           |                `{Number}`                 |       `0.8`        | Only assets that compress better than this ratio are processed (`minRatio = Compressed Size / Original Size`) |
+|           **[`filename`](#filename)**           |           `{String\|Function}`            | `[path].gz[query]` | The target asset filename.                                                                                    |
+|              **[`cache`](#cache)**              |                `{Boolean}`                |       `true`       | Enable file caching                                                                                           |
+
 ### `test`
 
 Type: `String|RegExp|Array<String|RegExp>`
 Default: `undefined`
 
-Test to match files against.
+Include all assets that pass test assertion.
 
 **webpack.config.js**
 
@@ -64,7 +76,7 @@ module.exports = {
 Type: `String|RegExp|Array<String|RegExp>`
 Default: `undefined`
 
-Files to include.
+Include all assets matching any of these conditions.
 
 **webpack.config.js**
 
@@ -83,7 +95,7 @@ module.exports = {
 Type: `String|RegExp|Array<String|RegExp>`
 Default: `undefined`
 
-Files to exclude.
+Exclude all assets matching any of these conditions.
 
 **webpack.config.js**
 
@@ -92,53 +104,6 @@ module.exports = {
   plugins: [
     new CompressionPlugin({
       exclude: /\/excludes/,
-    }),
-  ],
-};
-```
-
-### `filename`
-
-Type: `String|Function`
-Default: `[path].gz[query]`
-
-The target asset filename.
-
-#### `String`
-
-`[file]` is replaced with the original asset filename.
-`[path]` is replaced with the path of the original asset.
-`[dir]` is replaced with the directory of the original asset.
-`[name]` is replaced with the filename of the original asset.
-`[ext]` is replaced with the extension of the original asset.
-`[query]` is replaced with the query.
-
-**webpack.config.js**
-
-```js
-module.exports = {
-  plugins: [
-    new CompressionPlugin({
-      filename: '[path].gz[query]',
-    }),
-  ],
-};
-```
-
-#### `Function`
-
-**webpack.config.js**
-
-```js
-module.exports = {
-  plugins: [
-    new CompressionPlugin({
-      filename(info) {
-        // info.file is the original asset filename
-        // info.path is the path of the original asset
-        // info.query is the query
-        return `${info.path}.gz${info.query}`;
-      },
     }),
   ],
 };
@@ -190,9 +155,10 @@ module.exports = {
 Type: `Object`
 Default: `{ level: 9 }`
 
+Compression options for `algorithm`.
+
 If you use custom function for the `algorithm` option, the default value is `{}`.
 
-Compression options.
 You can find all options here [zlib](https://nodejs.org/api/zlib.html#zlib_class_options).
 
 **webpack.config.js**
@@ -248,6 +214,53 @@ module.exports = {
 };
 ```
 
+### `filename`
+
+Type: `String|Function`
+Default: `[path].gz[query]`
+
+The target asset filename.
+
+#### `String`
+
+`[file]` is replaced with the original asset filename.
+`[path]` is replaced with the path of the original asset.
+`[dir]` is replaced with the directory of the original asset.
+`[name]` is replaced with the filename of the original asset.
+`[ext]` is replaced with the extension of the original asset.
+`[query]` is replaced with the query.
+
+**webpack.config.js**
+
+```js
+module.exports = {
+  plugins: [
+    new CompressionPlugin({
+      filename: '[path].gz[query]',
+    }),
+  ],
+};
+```
+
+#### `Function`
+
+**webpack.config.js**
+
+```js
+module.exports = {
+  plugins: [
+    new CompressionPlugin({
+      filename(info) {
+        // info.file is the original asset filename
+        // info.path is the path of the original asset
+        // info.query is the query
+        return `${info.path}.gz${info.query}`;
+      },
+    }),
+  ],
+};
+```
+
 ### `deleteOriginalAssets`
 
 Type: `Boolean`
@@ -272,7 +285,7 @@ module.exports = {
 > ⚠ Ignored in webpack 5! Please use https://webpack.js.org/configuration/other-options/#cache.
 
 Type: `Boolean|String`
-Default: `false`
+Default: `true`
 
 Enable file caching.
 The default path to cache directory: `node_modules/.cache/compression-webpack-plugin`.
@@ -348,7 +361,7 @@ module.exports = {
 
 Node 10.16.0 and later has [native support](https://nodejs.org/api/zlib.html#zlib_zlib_createbrotlicompress_options) for Brotli compression in its zlib module.
 
-We can take advantage of this built-in support for Brotli in Node 11.7.0 and later by just passing in the appropriate `algorithm` to the CompressionPlugin:
+We can take advantage of this built-in support for Brotli in Node 10.16.0 and later by just passing in the appropriate `algorithm` to the CompressionPlugin:
 
 **webpack.config.js**
 
