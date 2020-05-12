@@ -6,6 +6,7 @@ import {
   getCompiler,
   getErrors,
   getWarnings,
+  removeCache,
 } from './helpers/index';
 
 describe('"compressionOptions" option', () => {
@@ -13,6 +14,8 @@ describe('"compressionOptions" option', () => {
 
   beforeEach(() => {
     compiler = getCompiler('./entry.js');
+
+    return removeCache();
   });
 
   it('matches snapshot without values', async () => {

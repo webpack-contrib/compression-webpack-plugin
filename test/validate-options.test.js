@@ -1,6 +1,12 @@
 import CompressionPlugin from '../src';
 
+import { removeCache } from './helpers';
+
 describe('validate options', () => {
+  beforeEach(() => {
+    return removeCache();
+  });
+
   const tests = {
     test: {
       success: [

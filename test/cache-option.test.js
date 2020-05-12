@@ -6,6 +6,7 @@ import findCacheDir from 'find-cache-dir';
 import del from 'del';
 
 import CompressionPlugin from '../src/index';
+import Webpack4Cache from '../src/Webpack4Cache';
 
 import {
   compile,
@@ -17,6 +18,7 @@ import {
 
 const cacheDir = findCacheDir({ name: 'compression-webpack-plugin' });
 const otherCacheDir = findCacheDir({ name: 'other-cache-directory' });
+const uniqueDirectory = findCacheDir({ name: 'unique-cache-directory' });
 
 if (getCompiler.isWebpack4()) {
   describe('"cache" option', () => {
@@ -24,6 +26,7 @@ if (getCompiler.isWebpack4()) {
       return Promise.all([
         cacache.rm.all(cacheDir),
         cacache.rm.all(otherCacheDir),
+        cacache.rm.all(uniqueDirectory),
       ]);
     });
 
@@ -65,6 +68,12 @@ if (getCompiler.isWebpack4()) {
       cacache.get = jest.fn(cacache.get);
       cacache.put = jest.fn(cacache.put);
 
+      const getCacheDirectorySpy = jest
+        .spyOn(Webpack4Cache, 'getCacheDirectory')
+        .mockImplementation(() => {
+          return uniqueDirectory;
+        });
+
       const stats = await compile(beforeCacheCompiler);
 
       expect(getAssetsNameAndSize(stats)).toMatchSnapshot('assets');
@@ -78,7 +87,7 @@ if (getCompiler.isWebpack4()) {
       // Put files in cache
       expect(cacache.put.mock.calls.length).toBe(countAssets / 2);
 
-      const cacheEntriesList = await cacache.ls(cacheDir);
+      const cacheEntriesList = await cacache.ls(uniqueDirectory);
 
       const cacheKeys = Object.keys(cacheEntriesList);
 
@@ -117,6 +126,8 @@ if (getCompiler.isWebpack4()) {
       // Now we have cached files so we get their and don't put
       expect(cacache.get.mock.calls.length).toBe(newCountAssets / 2);
       expect(cacache.put.mock.calls.length).toBe(0);
+
+      getCacheDirectorySpy.mockRestore();
     });
 
     it('matches snapshot for `other-cache-directory` value ({String})', async () => {

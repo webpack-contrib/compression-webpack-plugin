@@ -6,6 +6,7 @@ import {
   getCompiler,
   getErrors,
   getWarnings,
+  removeCache,
 } from './helpers/index';
 
 describe('"minRatio" option', () => {
@@ -13,6 +14,8 @@ describe('"minRatio" option', () => {
 
   beforeEach(() => {
     compiler = getCompiler('./entry.js');
+
+    return removeCache();
   });
 
   it('matches snapshot for `0` value ({Number})', async () => {

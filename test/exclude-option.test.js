@@ -6,6 +6,7 @@ import {
   getCompiler,
   getErrors,
   getWarnings,
+  removeCache,
 } from './helpers/index';
 
 describe('"exclude" option', () => {
@@ -23,6 +24,8 @@ describe('"exclude" option', () => {
         },
       }
     );
+
+    return removeCache();
   });
 
   it('matches snapshot for a single `exclude` value ({RegExp})', async () => {

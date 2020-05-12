@@ -6,9 +6,14 @@ import {
   getCompiler,
   getErrors,
   getWarnings,
+  removeCache,
 } from './helpers/index';
 
 describe('CompressionPlugin', () => {
+  beforeEach(() => {
+    return removeCache();
+  });
+
   it('should work', async () => {
     const compiler = getCompiler(
       './entry.js',

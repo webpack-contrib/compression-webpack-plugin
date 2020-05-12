@@ -6,6 +6,7 @@ import {
   getCompiler,
   getErrors,
   getWarnings,
+  removeCache,
 } from './helpers/index';
 
 describe('"algorithm" option', () => {
@@ -13,6 +14,8 @@ describe('"algorithm" option', () => {
 
   beforeEach(() => {
     compiler = getCompiler('./entry.js');
+
+    return removeCache();
   });
 
   it('matches snapshot for `unknown` value ({String})', () => {

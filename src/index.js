@@ -26,7 +26,7 @@ class CompressionPlugin {
       test,
       include,
       exclude,
-      cache = false,
+      cache = true,
       algorithm = 'gzip',
       compressionOptions = {},
       filename = '[path].gz[query]',
