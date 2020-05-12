@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [4.0.0](https://github.com/webpack-contrib/compression-webpack-plugin/compare/v3.1.0...v4.0.0) (2020-05-12)
+
+
+### ⚠ BREAKING CHANGES
+
+* the `cache` is `true` by default for webpack@4
+* the `cache` option is ignored in webpack 5. Please use https://webpack.js.org/configuration/other-options/#cache.
+* minimum supported Node.js version is `10.13`
+
+### Features
+
+* enable cache by default for webpack@4 ([#164](https://github.com/webpack-contrib/compression-webpack-plugin/issues/164)) ([ea33463](https://github.com/webpack-contrib/compression-webpack-plugin/commit/ea33463b2c9986fa5dc744bd2860620af7404a7f))
+
+
+### Bug Fixes
+
+* behaviour in watch mode ([e222c4e](https://github.com/webpack-contrib/compression-webpack-plugin/commit/e222c4ee7554c0d3ce3a80749b6087b40ffd5ed1))
+
 ## [3.1.0](https://github.com/webpack-contrib/compression-webpack-plugin/compare/v3.0.0...v3.1.0) (2020-01-09)
 
 
