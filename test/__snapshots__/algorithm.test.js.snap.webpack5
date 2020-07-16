@@ -20,19 +20,19 @@ Array [
   ],
   Array [
     "async.async.735f6a02a2e820243759.js",
-    350,
+    269,
   ],
   Array [
     "async.async.735f6a02a2e820243759.js.gz",
-    205,
+    181,
   ],
   Array [
-    "main.f210d52065e5e6030f3a.js",
-    13052,
+    "main.29849e221d2dd6cc8f8e.js",
+    14182,
   ],
   Array [
-    "main.f210d52065e5e6030f3a.js.gz",
-    3195,
+    "main.29849e221d2dd6cc8f8e.js.gz",
+    3477,
   ],
 ]
 `;
@@ -41,7 +41,7 @@ exports[`"algorithm" option matches snapshot for \`gzip\` value ({String}): erro
 
 exports[`"algorithm" option matches snapshot for \`gzip\` value ({String}): warnings 1`] = `Array []`;
 
-exports[`"algorithm" option matches snapshot for \`unknown\` value ({String}) 1`] = `"Algorithm not found in zlib"`;
+exports[`"algorithm" option matches snapshot for \`unknown\` value ({String}) 1`] = `"Algorithm \\"unknown\\" is not found in zlib"`;
 
 exports[`"algorithm" option matches snapshot for custom function ({Function}): assets 1`] = `
 Array [
@@ -63,19 +63,19 @@ Array [
   ],
   Array [
     "async.async.735f6a02a2e820243759.js",
-    350,
+    269,
   ],
   Array [
     "async.async.735f6a02a2e820243759.js.gz",
-    350,
+    269,
   ],
   Array [
-    "main.f210d52065e5e6030f3a.js",
-    13052,
+    "main.29849e221d2dd6cc8f8e.js",
+    14182,
   ],
   Array [
-    "main.f210d52065e5e6030f3a.js.gz",
-    13052,
+    "main.29849e221d2dd6cc8f8e.js.gz",
+    14182,
   ],
 ]
 `;
@@ -104,11 +104,11 @@ Array [
   ],
   Array [
     "async.async.735f6a02a2e820243759.js",
-    350,
+    269,
   ],
   Array [
-    "main.f210d52065e5e6030f3a.js",
-    13052,
+    "main.29849e221d2dd6cc8f8e.js",
+    14182,
   ],
 ]
 `;
