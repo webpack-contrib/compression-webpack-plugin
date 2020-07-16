@@ -170,7 +170,7 @@ class CompressionPlugin {
     });
   }
 
-  async runTasks(assetNames) {
+  async runTasks(assetNames, getTaskForAsset, cache) {
     const scheduledTasks = [];
 
     for (const assetName of assetNames) {
@@ -185,8 +185,8 @@ class CompressionPlugin {
           taskResult = { error };
         }
 
-        if (this.cache.isEnabled() && !taskResult.error) {
-          taskResult = await this.cache.store(task, taskResult).then(
+        if (cache.isEnabled() && !taskResult.error) {
+          taskResult = await cache.store(task, taskResult).then(
             () => taskResult,
             () => taskResult
           );
@@ -199,14 +199,14 @@ class CompressionPlugin {
 
       scheduledTasks.push(
         new Promise((resolve) => {
-          const task = this.getTaskForAsset(assetName).next().value;
+          const task = getTaskForAsset(assetName).next().value;
 
           if (!task) {
             return resolve();
           }
 
-          if (this.cache.isEnabled()) {
-            return this.cache.get(task).then(
+          if (cache.isEnabled()) {
+            return cache.get(task).then(
               (taskResult) => {
                 task.callback(taskResult);
 
@@ -229,34 +229,42 @@ class CompressionPlugin {
   }
 
   apply(compiler) {
+    const matchObject = ModuleFilenameHelpers.matchObject.bind(
+      // eslint-disable-next-line no-undefined
+      undefined,
+      this.options
+    );
+
     compiler.hooks.emit.tapPromise(
       { name: 'CompressionPlugin' },
       async (compilation) => {
-        const assetNames = Object.keys(compilation.assets).filter((assetName) =>
-          ModuleFilenameHelpers.matchObject(this.options, assetName)
+        const { assets } = compilation;
+
+        const assetNames = Object.keys(assets).filter((assetName) =>
+          matchObject(assetName)
         );
 
         if (assetNames.length === 0) {
           return Promise.resolve();
         }
 
+        const getTaskForAsset = this.taskGenerator.bind(
+          this,
+          compiler,
+          compilation
+        );
         const CacheEngine = CompressionPlugin.isWebpack4()
           ? // eslint-disable-next-line global-require
             require('./Webpack4Cache').default
           : // eslint-disable-next-line global-require
             require('./Webpack5Cache').default;
-
-        this.cache = new CacheEngine(compilation, {
+        const cache = new CacheEngine(compilation, {
           cache: this.options.cache,
         });
 
-        this.getTaskForAsset = this.taskGenerator.bind(
-          this,
-          compiler,
-          compilation
-        );
+        await this.runTasks(assetNames, getTaskForAsset, cache);
 
-        return this.runTasks(assetNames);
+        return Promise.resolve();
       }
     );
   }
