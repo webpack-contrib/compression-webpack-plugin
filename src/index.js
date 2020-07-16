@@ -48,21 +48,27 @@ class CompressionPlugin {
       deleteOriginalAssets,
     };
 
-    if (typeof algorithm === 'string') {
+    this.algorithm = this.options.algorithm;
+    this.compressionOptions = this.options.compressionOptions;
+
+    if (typeof this.algorithm === 'string') {
       // eslint-disable-next-line global-require
       const zlib = require('zlib');
 
-      this.options.algorithm = zlib[this.options.algorithm];
+      this.algorithm = zlib[this.algorithm];
 
-      if (!this.options.algorithm) {
-        throw new Error('Algorithm not found in zlib');
+      if (!this.algorithm) {
+        throw new Error(
+          `Algorithm "${this.options.algorithm}" is not found in zlib`
+        );
       }
 
       const defaultCompressionOptions = { level: 9 };
 
-      this.options.compressionOptions = {
+      // TODO change this behaviour in the next major release
+      this.compressionOptions = {
         ...defaultCompressionOptions,
-        ...this.options.compressionOptions,
+        ...this.compressionOptions,
       };
     }
 
@@ -158,7 +164,7 @@ class CompressionPlugin {
 
   compress(input) {
     return new Promise((resolve, reject) => {
-      const { algorithm, compressionOptions } = this.options;
+      const { algorithm, compressionOptions } = this;
 
       algorithm(input, compressionOptions, (error, result) => {
         if (error) {
