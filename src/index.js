@@ -71,22 +71,20 @@ class CompressionPlugin {
         ...this.compressionOptions,
       };
     }
-
-    this.emittedAssets = new Set();
   }
 
-  *taskGenerator(compiler, compilation, assetName) {
+  *taskGenerator(compiler, compilation, assetsCache, assetName) {
     const assetSource = compilation.assets[assetName];
-
-    // Do not emit cached assets in watch mode
-    if (this.emittedAssets.has(assetSource)) {
-      yield false;
-    }
 
     let input = assetSource.source();
 
     if (!Buffer.isBuffer(input)) {
       input = Buffer.from(input);
+    }
+
+    // Do not emit cached assets in watch mode
+    if (assetsCache.get(assetSource)) {
+      yield false;
     }
 
     const originalSize = input.length;
@@ -128,10 +126,12 @@ class CompressionPlugin {
               (p0, p1) => info[p1]
             );
 
-      // eslint-disable-next-line no-param-reassign
-      compilation.assets[newAssetName] = new RawSource(output);
+      const compressedSource = new RawSource(output);
 
-      this.emittedAssets.add(assetSource);
+      // eslint-disable-next-line no-param-reassign
+      compilation.assets[newAssetName] = compressedSource;
+
+      assetsCache.set(assetSource, compressedSource);
 
       if (this.options.deleteOriginalAssets) {
         // eslint-disable-next-line no-param-reassign
@@ -192,10 +192,7 @@ class CompressionPlugin {
         }
 
         if (cache.isEnabled() && !taskResult.error) {
-          taskResult = await cache.store(task, taskResult).then(
-            () => taskResult,
-            () => taskResult
-          );
+          await cache.store(task, taskResult);
         }
 
         task.callback(taskResult);
@@ -204,26 +201,29 @@ class CompressionPlugin {
       };
 
       scheduledTasks.push(
-        new Promise((resolve) => {
+        (async () => {
           const task = getTaskForAsset(assetName).next().value;
 
           if (!task) {
-            return resolve();
+            return Promise.resolve();
           }
 
           if (cache.isEnabled()) {
-            return cache.get(task).then(
-              (taskResult) => {
-                task.callback(taskResult);
+            let taskResult;
 
-                return resolve(taskResult);
-              },
-              () => resolve(enqueue(task))
-            );
+            try {
+              taskResult = await cache.get(task);
+            } catch (ignoreError) {
+              return enqueue(task);
+            }
+
+            task.callback(taskResult);
+
+            return Promise.resolve();
           }
 
-          return resolve(enqueue(task));
-        })
+          return enqueue(task);
+        })()
       );
     }
 
@@ -240,6 +240,7 @@ class CompressionPlugin {
       undefined,
       this.options
     );
+    const assetsCache = new WeakMap();
 
     compiler.hooks.emit.tapPromise(
       { name: 'CompressionPlugin' },
@@ -257,7 +258,8 @@ class CompressionPlugin {
         const getTaskForAsset = this.taskGenerator.bind(
           this,
           compiler,
-          compilation
+          compilation,
+          assetsCache
         );
         const CacheEngine = CompressionPlugin.isWebpack4()
           ? // eslint-disable-next-line global-require
