@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [4.0.1](https://github.com/webpack-contrib/compression-webpack-plugin/compare/v4.0.0...v4.0.1) (2020-08-12)
+
+
+### Bug Fixes
+
+* cache invalidation ([025b778](https://github.com/webpack-contrib/compression-webpack-plugin/commit/025b778fdcd43681dac3b9a693b375d6abf79852))
+* memory leak ([#174](https://github.com/webpack-contrib/compression-webpack-plugin/issues/174)) ([2a1e884](https://github.com/webpack-contrib/compression-webpack-plugin/commit/2a1e884a7f6781e13e08d82c10d244eb1868cd55))
+
 ## [4.0.0](https://github.com/webpack-contrib/compression-webpack-plugin/compare/v3.1.0...v4.0.0) (2020-05-12)
 
 
