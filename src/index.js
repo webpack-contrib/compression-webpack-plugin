@@ -184,9 +184,7 @@ class CompressionPlugin {
         let taskResult;
 
         try {
-          const output = await this.compress(task.input);
-
-          taskResult = { output };
+          taskResult = { output: await this.compress(task.input) };
         } catch (error) {
           taskResult = { error };
         }
@@ -214,6 +212,11 @@ class CompressionPlugin {
             try {
               taskResult = await cache.get(task);
             } catch (ignoreError) {
+              return enqueue(task);
+            }
+
+            // Webpack@5 return `undefined` when cache is not found
+            if (!taskResult) {
               return enqueue(task);
             }
 

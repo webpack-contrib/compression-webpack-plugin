@@ -195,133 +195,183 @@ if (getCompiler.isWebpack4()) {
   });
 } else {
   describe('"cache" option', () => {
-    beforeEach(() => {
-      return del([path.resolve('node_modules/.cache/webpack')]);
-    });
+    const fileSystemCacheDirectory = path.resolve(
+      __dirname,
+      './outputs/type-filesystem'
+    );
 
-    afterEach(() => {
-      jest.clearAllMocks();
+    beforeAll(() => {
+      return Promise.all([del(fileSystemCacheDirectory)]);
     });
 
     it('should work when `cache` is `false`', async () => {
-      const gzipSpy = jest.spyOn(zlib, 'gzip');
-      const beforeCacheCompiler = getCompiler(
-        './entry.js',
-        {},
-        { cache: false }
+      const compiler = getCompiler('./entry.js', {}, { cache: false });
+
+      new CompressionPlugin().apply(compiler);
+
+      let getCounter = 0;
+
+      compiler.cache.hooks.get.tap(
+        { name: 'TestCache', stage: -100 },
+        (identifier) => {
+          if (identifier.indexOf('CompressionWebpackPlugin') !== -1) {
+            getCounter += 1;
+          }
+        }
       );
 
-      new CompressionPlugin().apply(beforeCacheCompiler);
+      let storeCounter = 0;
 
-      const stats = await compile(beforeCacheCompiler);
+      compiler.cache.hooks.store.tap(
+        { name: 'TestCache', stage: -100 },
+        (identifier) => {
+          if (identifier.indexOf('CompressionWebpackPlugin') !== -1) {
+            storeCounter += 1;
+          }
+        }
+      );
 
-      expect(gzipSpy).toHaveBeenCalledTimes(4);
+      const stats = await compile(compiler);
+
+      // Without cache webpack always try to get
+      expect(getCounter).toBe(4);
+      // Without cache webpack always try to store
+      expect(storeCounter).toBe(4);
       expect(getAssetsNameAndSize(stats)).toMatchSnapshot('assets');
-      expect(getWarnings(stats)).toMatchSnapshot('errors');
-      expect(getErrors(stats)).toMatchSnapshot('warnings');
+      expect(getErrors(stats)).toMatchSnapshot('errors');
+      expect(getWarnings(stats)).toMatchSnapshot('warnings');
 
-      gzipSpy.mockClear();
+      getCounter = 0;
+      storeCounter = 0;
 
-      await new Promise((resolve) => {
-        beforeCacheCompiler.close(async () => {
-          const afterCacheCompiler = getCompiler(
-            './entry.js',
-            {},
-            { cache: false }
-          );
+      const newStats = await compile(compiler);
 
-          new CompressionPlugin().apply(afterCacheCompiler);
-
-          const newStats = await compile(afterCacheCompiler);
-
-          expect(gzipSpy).toHaveBeenCalledTimes(4);
-          expect(getAssetsNameAndSize(newStats)).toMatchSnapshot('assets');
-          expect(getWarnings(newStats)).toMatchSnapshot('errors');
-          expect(getErrors(newStats)).toMatchSnapshot('warnings');
-
-          gzipSpy.mockRestore();
-
-          resolve();
-        });
-      });
+      // Without cache webpack always try to get
+      expect(getCounter).toBe(4);
+      // Without cache webpack always try to store
+      expect(storeCounter).toBe(4);
+      expect(getAssetsNameAndSize(newStats)).toMatchSnapshot('assets');
+      expect(getErrors(newStats)).toMatchSnapshot('errors');
+      expect(getWarnings(newStats)).toMatchSnapshot('warnings');
     });
 
-    it('should work when `cache` is `memory`', async () => {
-      const gzipSpy = jest.spyOn(zlib, 'gzip');
+    it('should work with "memory" value for the "cache.type" option', async () => {
       const compiler = getCompiler(
         './entry.js',
         {},
-        { cache: { type: 'memory' } }
+        {
+          cache: {
+            type: 'memory',
+          },
+        }
       );
 
       new CompressionPlugin().apply(compiler);
 
-      const stats = await compile(compiler);
+      let getCounter = 0;
 
-      expect(gzipSpy).toHaveBeenCalledTimes(4);
-      expect(getAssetsNameAndSize(stats)).toMatchSnapshot('assets');
-      expect(getWarnings(stats)).toMatchSnapshot('errors');
-      expect(getErrors(stats)).toMatchSnapshot('warnings');
-
-      gzipSpy.mockClear();
-
-      await new Promise((resolve) => {
-        compiler.close(async () => {
-          const newStats = await compile(compiler);
-
-          expect(gzipSpy).toHaveBeenCalledTimes(0);
-          expect(getAssetsNameAndSize(newStats)).toMatchSnapshot('assets');
-          expect(getWarnings(newStats)).toMatchSnapshot('errors');
-          expect(getErrors(newStats)).toMatchSnapshot('warnings');
-
-          gzipSpy.mockRestore();
-
-          resolve();
-        });
-      });
-    });
-
-    it('should work when `cache` is `filesystem`', async () => {
-      const gzipSpy = jest.spyOn(zlib, 'gzip');
-      const beforeCacheCompiler = getCompiler(
-        './entry.js',
-        {},
-        { cache: { type: 'filesystem' } }
+      compiler.cache.hooks.get.tap(
+        { name: 'TestCache', stage: -100 },
+        (identifier) => {
+          if (identifier.indexOf('CompressionWebpackPlugin') !== -1) {
+            getCounter += 1;
+          }
+        }
       );
 
-      new CompressionPlugin().apply(beforeCacheCompiler);
+      let storeCounter = 0;
 
-      const stats = await compile(beforeCacheCompiler);
+      compiler.cache.hooks.store.tap(
+        { name: 'TestCache', stage: -100 },
+        (identifier) => {
+          if (identifier.indexOf('CompressionWebpackPlugin') !== -1) {
+            storeCounter += 1;
+          }
+        }
+      );
 
-      expect(gzipSpy).toHaveBeenCalledTimes(4);
+      const stats = await compile(compiler);
+
+      // Get cache for assets
+      expect(getCounter).toBe(4);
+      // Store cached assets
+      expect(storeCounter).toBe(4);
       expect(getAssetsNameAndSize(stats)).toMatchSnapshot('assets');
-      expect(getWarnings(stats)).toMatchSnapshot('errors');
-      expect(getErrors(stats)).toMatchSnapshot('warnings');
+      expect(getErrors(stats)).toMatchSnapshot('errors');
+      expect(getWarnings(stats)).toMatchSnapshot('warnings');
 
-      gzipSpy.mockClear();
+      getCounter = 0;
+      storeCounter = 0;
 
-      await new Promise((resolve) => {
-        beforeCacheCompiler.close(async () => {
-          const afterCacheCompiler = getCompiler(
-            './entry.js',
-            {},
-            { cache: { type: 'filesystem' } }
-          );
+      const newStats = await compile(compiler);
 
-          new CompressionPlugin().apply(afterCacheCompiler);
+      // Get cache for assets
+      expect(getCounter).toBe(1);
+      // No need to store, we got cached assets
+      expect(storeCounter).toBe(0);
+      expect(getAssetsNameAndSize(newStats)).toMatchSnapshot('assets');
+      expect(getErrors(newStats)).toMatchSnapshot('errors');
+      expect(getWarnings(newStats)).toMatchSnapshot('warnings');
+    });
 
-          const newStats = await compile(afterCacheCompiler);
+    it('should work with "filesystem" value for the "cache.type" option', async () => {
+      const compiler = getCompiler(
+        './entry.js',
+        {},
+        {
+          cache: {
+            type: 'filesystem',
+            cacheDirectory: fileSystemCacheDirectory,
+          },
+        }
+      );
 
-          expect(gzipSpy).toHaveBeenCalledTimes(0);
-          expect(getAssetsNameAndSize(newStats)).toMatchSnapshot('assets');
-          expect(getWarnings(newStats)).toMatchSnapshot('errors');
-          expect(getErrors(newStats)).toMatchSnapshot('warnings');
+      new CompressionPlugin().apply(compiler);
 
-          gzipSpy.mockRestore();
+      let getCounter = 0;
 
-          resolve();
-        });
-      });
+      compiler.cache.hooks.get.tap(
+        { name: 'TestCache', stage: -100 },
+        (identifier) => {
+          if (identifier.indexOf('CompressionWebpackPlugin') !== -1) {
+            getCounter += 1;
+          }
+        }
+      );
+
+      let storeCounter = 0;
+
+      compiler.cache.hooks.store.tap(
+        { name: 'TestCache', stage: -100 },
+        (identifier) => {
+          if (identifier.indexOf('CompressionWebpackPlugin') !== -1) {
+            storeCounter += 1;
+          }
+        }
+      );
+
+      const stats = await compile(compiler);
+
+      // Get cache for assets
+      expect(getCounter).toBe(4);
+      // Store cached assets
+      expect(storeCounter).toBe(4);
+      expect(getAssetsNameAndSize(stats)).toMatchSnapshot('assets');
+      expect(getErrors(stats)).toMatchSnapshot('errors');
+      expect(getWarnings(stats)).toMatchSnapshot('warnings');
+
+      getCounter = 0;
+      storeCounter = 0;
+
+      const newStats = await compile(compiler);
+
+      // Get cache for assets
+      expect(getCounter).toBe(1);
+      // No need to store, we got cached assets
+      expect(storeCounter).toBe(0);
+      expect(getAssetsNameAndSize(newStats)).toMatchSnapshot('assets');
+      expect(getErrors(newStats)).toMatchSnapshot('errors');
+      expect(getWarnings(newStats)).toMatchSnapshot('warnings');
     });
   });
 }
