@@ -199,8 +199,11 @@ class CompressionPlugin {
     }
   }
 
-  async runTasks(compilation, assetNames, cache, weakCache) {
+  async runTasks(compilation, assetNames, CacheEngine, weakCache) {
     const scheduledTasks = [];
+    const cache = new CacheEngine(compilation, {
+      cache: this.options.cache,
+    });
 
     for (const assetName of assetNames) {
       const enqueue = async (task) => {
@@ -266,6 +269,11 @@ class CompressionPlugin {
       this.options
     );
     const pluginName = this.constructor.name;
+    const CacheEngine = CompressionPlugin.isWebpack4()
+      ? // eslint-disable-next-line global-require
+        require('./Webpack4Cache').default
+      : // eslint-disable-next-line global-require
+        require('./Webpack5Cache').default;
     const weakCache = new WeakMap();
 
     compiler.hooks.emit.tapPromise(
@@ -281,16 +289,7 @@ class CompressionPlugin {
           return Promise.resolve();
         }
 
-        const CacheEngine = CompressionPlugin.isWebpack4()
-          ? // eslint-disable-next-line global-require
-            require('./Webpack4Cache').default
-          : // eslint-disable-next-line global-require
-            require('./Webpack5Cache').default;
-        const cache = new CacheEngine(compilation, {
-          cache: this.options.cache,
-        });
-
-        await this.runTasks(compilation, assetNames, cache, weakCache);
+        await this.runTasks(compilation, assetNames, CacheEngine, weakCache);
 
         return Promise.resolve();
       }
