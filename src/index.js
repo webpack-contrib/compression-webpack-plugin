@@ -114,6 +114,16 @@ class CompressionPlugin {
     compilation.assets[name] = source;
   }
 
+  static updateAsset(compilation, name, newSource, assetInfo) {
+    // New API
+    if (compilation.updateAsset) {
+      compilation.updateAsset(name, newSource, assetInfo);
+    }
+
+    // eslint-disable-next-line no-param-reassign
+    compilation.assets[name] = newSource;
+  }
+
   static deleteAsset(compilation, name) {
     // New API
     if (compilation.deleteAsset) {
@@ -195,6 +205,10 @@ class CompressionPlugin {
     if (this.options.deleteOriginalAssets) {
       // eslint-disable-next-line no-param-reassign
       CompressionPlugin.deleteAsset(compilation, assetName);
+    } else {
+      CompressionPlugin.updateAsset(compilation, assetName, assetSource, {
+        related: { compressed: newAssetName },
+      });
     }
   }
 

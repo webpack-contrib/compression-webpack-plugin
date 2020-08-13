@@ -1,4 +1,5 @@
 import compile from './compile';
+import CopyPluginWithAssetInfo from './CopyPluginWithAssetInfo';
 import execute from './execute';
 import getAssetsNameAndSize from './getAssetsNameAndSize';
 import getCompiler from './getCompiler';
@@ -11,6 +12,7 @@ import removeCache from './removeCache';
 
 export {
   compile,
+  CopyPluginWithAssetInfo,
   execute,
   getAssetsNameAndSize,
   getCompiler,

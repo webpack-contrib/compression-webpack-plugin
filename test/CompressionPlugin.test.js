@@ -4,6 +4,7 @@ import CompressionPlugin from '../src/index';
 
 import {
   compile,
+  CopyPluginWithAssetInfo,
   getAssetsNameAndSize,
   getCompiler,
   getErrors,
@@ -34,6 +35,30 @@ describe('CompressionPlugin', () => {
     const stats = await compile(compiler);
 
     expect(getAssetsNameAndSize(stats)).toMatchSnapshot('assets');
+    expect(getWarnings(stats)).toMatchSnapshot('errors');
+    expect(getErrors(stats)).toMatchSnapshot('warnings');
+  });
+
+  it('should work with assets info', async () => {
+    const compiler = getCompiler(
+      './entry.js',
+      {},
+      {
+        devtool: 'source-map',
+        output: {
+          path: `${__dirname}/dist`,
+          filename: '[name].js?var=[hash]',
+          chunkFilename: '[id].[name].js?ver=[hash]',
+        },
+      }
+    );
+
+    new CompressionPlugin().apply(compiler);
+    new CopyPluginWithAssetInfo().apply(compiler);
+
+    const stats = await compile(compiler);
+
+    expect(getAssetsNameAndSize(stats, true)).toMatchSnapshot('assets');
     expect(getWarnings(stats)).toMatchSnapshot('errors');
     expect(getErrors(stats)).toMatchSnapshot('warnings');
   });
