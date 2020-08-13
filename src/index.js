@@ -94,15 +94,7 @@ class CompressionPlugin {
     }
 
     const callback = (taskResult) => {
-      if (taskResult.error) {
-        compilation.errors.push(taskResult.error);
-
-        return;
-      }
-
-      const { output } = taskResult;
-
-      if (output.length / originalSize > this.options.minRatio) {
+      if (taskResult.length / originalSize > this.options.minRatio) {
         return;
       }
 
@@ -126,7 +118,7 @@ class CompressionPlugin {
               (p0, p1) => info[p1]
             );
 
-      const compressedSource = new RawSource(output);
+      const compressedSource = new RawSource(taskResult);
 
       // eslint-disable-next-line no-param-reassign
       compilation.assets[newAssetName] = compressedSource;
@@ -176,7 +168,7 @@ class CompressionPlugin {
     });
   }
 
-  async runTasks(assetNames, getTaskForAsset, cache) {
+  async runTasks(compilation, assetNames, getTaskForAsset, cache) {
     const scheduledTasks = [];
 
     for (const assetName of assetNames) {
@@ -184,18 +176,18 @@ class CompressionPlugin {
         let taskResult;
 
         try {
-          taskResult = { output: await this.compress(task.input) };
+          taskResult = await this.compress(task.input);
         } catch (error) {
-          taskResult = { error };
+          compilation.errors.push(error);
+
+          return;
         }
 
-        if (cache.isEnabled() && !taskResult.error) {
+        if (cache.isEnabled()) {
           await cache.store(task, taskResult);
         }
 
         task.callback(taskResult);
-
-        return taskResult;
       };
 
       scheduledTasks.push(
@@ -273,7 +265,7 @@ class CompressionPlugin {
           cache: this.options.cache,
         });
 
-        await this.runTasks(assetNames, getTaskForAsset, cache);
+        await this.runTasks(compilation, assetNames, getTaskForAsset, cache);
 
         return Promise.resolve();
       }
