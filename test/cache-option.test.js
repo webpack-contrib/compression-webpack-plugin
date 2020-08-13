@@ -1,5 +1,4 @@
 import path from 'path';
-import zlib from 'zlib';
 
 import cacache from 'cacache';
 import findCacheDir from 'find-cache-dir';
@@ -306,7 +305,7 @@ if (getCompiler.isWebpack4()) {
       const newStats = await compile(compiler);
 
       // Get cache for assets
-      expect(getCounter).toBe(1);
+      expect(getCounter).toBe(4);
       // No need to store, we got cached assets
       expect(storeCounter).toBe(0);
       expect(getAssetsNameAndSize(newStats)).toMatchSnapshot('assets');
@@ -366,7 +365,7 @@ if (getCompiler.isWebpack4()) {
       const newStats = await compile(compiler);
 
       // Get cache for assets
-      expect(getCounter).toBe(1);
+      expect(getCounter).toBe(4);
       // No need to store, we got cached assets
       expect(storeCounter).toBe(0);
       expect(getAssetsNameAndSize(newStats)).toMatchSnapshot('assets');

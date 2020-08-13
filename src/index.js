@@ -73,6 +73,47 @@ class CompressionPlugin {
     }
   }
 
+  static interpolateName(originalFilename, filename) {
+    const parse = url.parse(originalFilename);
+    const { pathname } = parse;
+    const { dir, name, ext } = path.parse(pathname);
+    const info = {
+      file: originalFilename,
+      path: pathname,
+      dir: dir ? `${dir}/` : '',
+      name,
+      ext,
+      query: parse.query ? `?${parse.query}` : '',
+    };
+
+    return typeof filename === 'function'
+      ? filename(info)
+      : filename.replace(
+          /\[(file|path|query|dir|name|ext)]/g,
+          (p0, p1) => info[p1]
+        );
+  }
+
+  static emitAsset(compilation, name, source, assetInfo) {
+    // New API
+    if (compilation.emitAsset) {
+      compilation.emitAsset(name, source, assetInfo);
+    }
+
+    // eslint-disable-next-line no-param-reassign
+    compilation.assets[name] = source;
+  }
+
+  static deleteAsset(compilation, name) {
+    // New API
+    if (compilation.deleteAsset) {
+      compilation.deleteAsset(name);
+    }
+
+    // eslint-disable-next-line no-param-reassign
+    delete compilation.assets[name];
+  }
+
   *taskGenerator(compiler, compilation, assetsCache, assetName) {
     const assetSource = compilation.assets[assetName];
 
@@ -80,11 +121,6 @@ class CompressionPlugin {
 
     if (!Buffer.isBuffer(input)) {
       input = Buffer.from(input);
-    }
-
-    // Do not emit cached assets in watch mode
-    if (assetsCache.get(assetSource)) {
-      yield false;
     }
 
     const originalSize = input.length;
@@ -98,36 +134,26 @@ class CompressionPlugin {
         return;
       }
 
-      const parse = url.parse(assetName);
-      const { pathname } = parse;
-      const { dir, name, ext } = path.parse(pathname);
-      const info = {
-        file: assetName,
-        path: pathname,
-        dir: dir ? `${dir}/` : '',
-        name,
-        ext,
-        query: parse.query ? `?${parse.query}` : '',
-      };
+      const newAssetName = CompressionPlugin.interpolateName(
+        assetName,
+        this.options.filename
+      );
 
-      const newAssetName =
-        typeof this.options.filename === 'function'
-          ? this.options.filename(info)
-          : this.options.filename.replace(
-              /\[(file|path|query|dir|name|ext)]/g,
-              (p0, p1) => info[p1]
-            );
+      let output = assetsCache.get(assetSource);
 
-      const compressedSource = new RawSource(taskResult);
+      if (!output) {
+        output = new RawSource(taskResult);
 
-      // eslint-disable-next-line no-param-reassign
-      compilation.assets[newAssetName] = compressedSource;
+        assetsCache.set(assetSource, output);
+      }
 
-      assetsCache.set(assetSource, compressedSource);
+      CompressionPlugin.emitAsset(compilation, newAssetName, output, {
+        compressed: true,
+      });
 
       if (this.options.deleteOriginalAssets) {
         // eslint-disable-next-line no-param-reassign
-        delete compilation.assets[assetName];
+        CompressionPlugin.deleteAsset(compilation, assetName);
       }
     };
 
@@ -236,9 +262,10 @@ class CompressionPlugin {
       this.options
     );
     const assetsCache = new WeakMap();
+    const pluginName = this.constructor.name;
 
     compiler.hooks.emit.tapPromise(
-      { name: 'CompressionPlugin' },
+      { name: pluginName },
       async (compilation) => {
         const { assets } = compilation;
 
@@ -270,6 +297,19 @@ class CompressionPlugin {
         return Promise.resolve();
       }
     );
+
+    if (!CompressionPlugin.isWebpack4()) {
+      compiler.hooks.compilation.tap(pluginName, (compilation) => {
+        compilation.hooks.statsPrinter.tap(pluginName, (stats) => {
+          stats.hooks.print
+            .for('asset.info.compressed')
+            .tap('terser-webpack-plugin', (minimized, { green, formatFlag }) =>
+              // eslint-disable-next-line no-undefined
+              minimized ? green(formatFlag('compressed')) : undefined
+            );
+        });
+      });
+    }
   }
 }
 

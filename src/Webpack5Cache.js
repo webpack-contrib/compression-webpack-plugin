@@ -11,7 +11,7 @@ export default class Cache {
 
   async get(task) {
     // eslint-disable-next-line no-param-reassign
-    task.cacheIdent = task.cacheIdent || `${task.name}`;
+    task.cacheIdent = task.cacheIdent || `${task.filename}`;
     // eslint-disable-next-line no-param-reassign
     task.cacheETag =
       task.cacheETag || this.cache.getLazyHashedEtag(task.assetSource);
