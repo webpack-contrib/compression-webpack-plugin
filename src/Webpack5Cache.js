@@ -11,10 +11,9 @@ export default class Cache {
 
   async get(task) {
     // eslint-disable-next-line no-param-reassign
-    task.cacheIdent = task.cacheIdent || `${task.filename}`;
+    task.cacheIdent = task.cacheIdent || `${task.assetName}`;
     // eslint-disable-next-line no-param-reassign
-    task.cacheETag =
-      task.cacheETag || this.cache.getLazyHashedEtag(task.assetSource);
+    task.cacheETag = task.cacheETag || this.cache.getLazyHashedEtag(task.input);
 
     return this.cache.getPromise(task.cacheIdent, task.cacheETag);
   }
