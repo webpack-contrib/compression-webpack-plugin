@@ -1,3 +1,5 @@
+import webpack from 'webpack';
+
 import CompressionPlugin from '../src/index';
 
 import {
@@ -43,7 +45,16 @@ describe('CompressionPlugin', () => {
 
     const stats = await compile(compiler);
 
-    expect(stats.compilation.emittedAssets.size).toBe(7);
+    if (webpack.version[0] === '4') {
+      expect(
+        Object.keys(stats.compilation.assets).filter(
+          (assetName) => stats.compilation.assets[assetName].emitted
+        ).length
+      ).toBe(7);
+    } else {
+      expect(stats.compilation.emittedAssets.size).toBe(7);
+    }
+
     expect(getAssetsNameAndSize(stats)).toMatchSnapshot('assets');
     expect(getWarnings(stats)).toMatchSnapshot('errors');
     expect(getErrors(stats)).toMatchSnapshot('warnings');
@@ -51,7 +62,16 @@ describe('CompressionPlugin', () => {
     await new Promise(async (resolve) => {
       const newStats = await compile(compiler);
 
-      expect(newStats.compilation.emittedAssets.size).toBe(0);
+      if (webpack.version[0] === '4') {
+        expect(
+          Object.keys(newStats.compilation.assets).filter(
+            (assetName) => newStats.compilation.assets[assetName].emitted
+          ).length
+        ).toBe(0);
+      } else {
+        expect(newStats.compilation.emittedAssets.size).toBe(0);
+      }
+
       expect(getAssetsNameAndSize(newStats)).toMatchSnapshot('assets');
       expect(getWarnings(newStats)).toMatchSnapshot('errors');
       expect(getErrors(newStats)).toMatchSnapshot('warnings');

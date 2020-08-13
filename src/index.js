@@ -11,8 +11,6 @@ import RawSource from 'webpack-sources/lib/RawSource';
 import { ModuleFilenameHelpers, version as webpackVersion } from 'webpack';
 import validateOptions from 'schema-utils';
 
-import pkg from '../package.json';
-
 import schema from './options.json';
 
 class CompressionPlugin {
@@ -155,12 +153,13 @@ class CompressionPlugin {
 
     if (CompressionPlugin.isWebpack4()) {
       task.cacheKeys = {
-        node: process.version,
-        'compression-webpack-plugin': pkg.version,
+        nodeVersion: process.version,
+        // eslint-disable-next-line global-require
+        'compression-webpack-plugin': require('../package.json').version,
         algorithm: this.algorithm,
         compressionOptions: this.algorithm.compressionOptions,
+        assetName,
         contentHash: crypto.createHash('md4').update(input).digest('hex'),
-        ...task.cacheKeys,
       };
     }
 
@@ -263,46 +262,60 @@ class CompressionPlugin {
   }
 
   apply(compiler) {
+    const pluginName = this.constructor.name;
     const matchObject = ModuleFilenameHelpers.matchObject.bind(
       // eslint-disable-next-line no-undefined
       undefined,
       this.options
     );
-    const pluginName = this.constructor.name;
-    const CacheEngine = CompressionPlugin.isWebpack4()
-      ? // eslint-disable-next-line global-require
-        require('./Webpack4Cache').default
-      : // eslint-disable-next-line global-require
-        require('./Webpack5Cache').default;
     const weakCache = new WeakMap();
+    const compressionFn = async (compilation, CacheEngine, assets) => {
+      const assetNames = Object.keys(
+        typeof assets === 'undefined' ? compilation.assets : assets
+      ).filter((assetName) => matchObject(assetName));
 
-    compiler.hooks.emit.tapPromise(
-      { name: pluginName },
-      async (compilation) => {
-        const { assets } = compilation;
-
-        const assetNames = Object.keys(assets).filter((assetName) =>
-          matchObject(assetName)
-        );
-
-        if (assetNames.length === 0) {
-          return Promise.resolve();
-        }
-
-        await this.runTasks(compilation, assetNames, CacheEngine, weakCache);
-
+      if (assetNames.length === 0) {
         return Promise.resolve();
       }
-    );
 
-    if (!CompressionPlugin.isWebpack4()) {
+      await this.runTasks(compilation, assetNames, CacheEngine, weakCache);
+
+      return Promise.resolve();
+    };
+
+    if (CompressionPlugin.isWebpack4()) {
+      // eslint-disable-next-line global-require
+      const CacheEngine = require('./Webpack4Cache').default;
+
+      compiler.hooks.emit.tapPromise(
+        { name: pluginName },
+        // eslint-disable-next-line no-undefined
+        (compilation) => compressionFn(compilation, CacheEngine)
+      );
+    } else {
+      // eslint-disable-next-line global-require
+      const CacheEngine = require('./Webpack5Cache').default;
+
       compiler.hooks.compilation.tap(pluginName, (compilation) => {
+        // eslint-disable-next-line global-require
+        const Compilation = require('webpack/lib/Compilation');
+
+        compilation.hooks.processAssets.tapPromise(
+          {
+            name: pluginName,
+            stage: Compilation.PROCESS_ASSETS_STAGE_OPTIMIZE_TRANSFER,
+          },
+          (assets) => compressionFn(compilation, CacheEngine, assets)
+        );
+
         compilation.hooks.statsPrinter.tap(pluginName, (stats) => {
           stats.hooks.print
             .for('asset.info.compressed')
-            .tap('terser-webpack-plugin', (minimized, { green, formatFlag }) =>
-              // eslint-disable-next-line no-undefined
-              minimized ? green(formatFlag('compressed')) : undefined
+            .tap(
+              'compression-webpack-plugin',
+              (minimized, { green, formatFlag }) =>
+                // eslint-disable-next-line no-undefined
+                minimized ? green(formatFlag('compressed')) : undefined
             );
         });
       });

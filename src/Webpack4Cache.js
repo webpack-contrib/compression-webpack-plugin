@@ -24,20 +24,16 @@ export default class Webpack4Cache {
     // eslint-disable-next-line no-param-reassign
     task.cacheIdent = task.cacheIdent || serialize(task.cacheKeys);
 
-    let data;
+    let cachedResult;
 
     try {
-      data = await cacache.get(this.cacheDir, task.cacheIdent);
+      cachedResult = await cacache.get(this.cacheDir, task.cacheIdent);
     } catch (ignoreError) {
       // eslint-disable-next-line no-undefined
       return undefined;
     }
 
-    const result = JSON.parse(data);
-
-    result.output = Buffer.from(result.output);
-
-    return result;
+    return Buffer.from(JSON.parse(cachedResult.data).data);
   }
 
   async store(task, data) {
