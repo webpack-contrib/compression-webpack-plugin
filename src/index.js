@@ -1,6 +1,6 @@
 /*
-MIT License http://www.opensource.org/licenses/mit-license.php
-Author Tobias Koppers @sokra
+  MIT License http://www.opensource.org/licenses/mit-license.php
+  Author Tobias Koppers @sokra
 */
 
 import crypto from 'crypto';
@@ -148,7 +148,20 @@ class CompressionPlugin {
     });
   }
 
-  *getTask(assetName, assetSource) {
+  *getTask(compilation, assetName) {
+    const { source: assetSource, info } = CompressionPlugin.getAsset(
+      compilation,
+      assetName
+    );
+
+    if (info.compressed) {
+      yield false;
+    }
+
+    if (info.related && info.related.compressed) {
+      yield false;
+    }
+
     let input = assetSource.source();
 
     if (!Buffer.isBuffer(input)) {
@@ -230,7 +243,7 @@ class CompressionPlugin {
         }
 
         if (cache.isEnabled()) {
-          await cache.store(task, task.output);
+          await cache.store(task);
         }
 
         this.afterTask(compilation, task, weakCache);
@@ -238,9 +251,7 @@ class CompressionPlugin {
 
       scheduledTasks.push(
         (async () => {
-          const assetSource = CompressionPlugin.getAsset(compilation, assetName)
-            .source;
-          const task = this.getTask(assetName, assetSource).next().value;
+          const task = this.getTask(compilation, assetName).next().value;
 
           if (!task) {
             return Promise.resolve();

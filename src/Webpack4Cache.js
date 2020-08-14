@@ -36,7 +36,11 @@ export default class Webpack4Cache {
     return Buffer.from(JSON.parse(cachedResult.data).data);
   }
 
-  async store(task, data) {
-    return cacache.put(this.cacheDir, task.cacheIdent, JSON.stringify(data));
+  async store(task) {
+    return cacache.put(
+      this.cacheDir,
+      task.cacheIdent,
+      JSON.stringify(task.output)
+    );
   }
 }

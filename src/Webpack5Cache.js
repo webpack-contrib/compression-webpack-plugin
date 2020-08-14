@@ -11,14 +11,12 @@ export default class Cache {
 
   async get(task) {
     // eslint-disable-next-line no-param-reassign
-    task.cacheIdent = task.cacheIdent || `${task.assetName}`;
-    // eslint-disable-next-line no-param-reassign
-    task.cacheETag = task.cacheETag || this.cache.getLazyHashedEtag(task.input);
+    task.eTag = task.eTag || this.cache.getLazyHashedEtag(task.assetSource);
 
-    return this.cache.getPromise(task.cacheIdent, task.cacheETag);
+    return this.cache.getPromise(task.assetName, task.eTag);
   }
 
-  async store(task, data) {
-    return this.cache.storePromise(task.cacheIdent, task.cacheETag, data);
+  async store(task) {
+    return this.cache.storePromise(task.assetName, task.eTag, task.output);
   }
 }

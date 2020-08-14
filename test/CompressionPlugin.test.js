@@ -63,6 +63,50 @@ describe('CompressionPlugin', () => {
     expect(getErrors(stats)).toMatchSnapshot('warnings');
   });
 
+  it.only('should work child compilations', async () => {
+    const compiler = getCompiler(
+      './entry.js',
+      {},
+      {
+        output: {
+          path: `${__dirname}/dist`,
+          filename: '[name].js?var=[hash]',
+          chunkFilename: '[id].[name].js?ver=[hash]',
+        },
+        module: {
+          rules: [
+            {
+              test: /number\.js$/i,
+              rules: [
+                {
+                  loader: require.resolve(
+                    './helpers/loader-with-child-compilation.js'
+                  ),
+                },
+              ],
+            },
+            {
+              test: /\.(png|jpg|gif|svg)$/i,
+              rules: [
+                {
+                  loader: 'file-loader',
+                },
+              ],
+            },
+          ],
+        },
+      }
+    );
+
+    new CompressionPlugin().apply(compiler);
+
+    const stats = await compile(compiler);
+
+    expect(getAssetsNameAndSize(stats, true)).toMatchSnapshot('assets');
+    expect(getWarnings(stats)).toMatchSnapshot('errors');
+    expect(getErrors(stats)).toMatchSnapshot('warnings');
+  });
+
   it('should work in watch mode', async () => {
     const compiler = getCompiler('./entry.js');
 

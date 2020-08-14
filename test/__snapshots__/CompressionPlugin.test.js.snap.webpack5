@@ -1,80 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`CompressionPlugin should work in watch mode: assets 1`] = `
-Array [
-  Array [
-    "09a1a1112c577c2794359715edfcb5ac.png",
-    78117,
-  ],
-  Array [
-    "23fc1d3ac606d117e05a140e0de79806.svg",
-    672,
-  ],
-  Array [
-    "23fc1d3ac606d117e05a140e0de79806.svg.gz",
-    393,
-  ],
-  Array [
-    "async.async.915241b20821fb2958ef.js",
-    269,
-  ],
-  Array [
-    "async.async.915241b20821fb2958ef.js.gz",
-    181,
-  ],
-  Array [
-    "main.1bf53bd04d76a915156e.js",
-    14233,
-  ],
-  Array [
-    "main.1bf53bd04d76a915156e.js.gz",
-    3500,
-  ],
-]
-`;
-
-exports[`CompressionPlugin should work in watch mode: assets 2`] = `
-Array [
-  Array [
-    "09a1a1112c577c2794359715edfcb5ac.png",
-    78117,
-  ],
-  Array [
-    "23fc1d3ac606d117e05a140e0de79806.svg",
-    672,
-  ],
-  Array [
-    "23fc1d3ac606d117e05a140e0de79806.svg.gz",
-    393,
-  ],
-  Array [
-    "async.async.915241b20821fb2958ef.js",
-    269,
-  ],
-  Array [
-    "async.async.915241b20821fb2958ef.js.gz",
-    181,
-  ],
-  Array [
-    "main.1bf53bd04d76a915156e.js",
-    14233,
-  ],
-  Array [
-    "main.1bf53bd04d76a915156e.js.gz",
-    3500,
-  ],
-]
-`;
-
-exports[`CompressionPlugin should work in watch mode: errors 1`] = `Array []`;
-
-exports[`CompressionPlugin should work in watch mode: errors 2`] = `Array []`;
-
-exports[`CompressionPlugin should work in watch mode: warnings 1`] = `Array []`;
-
-exports[`CompressionPlugin should work in watch mode: warnings 2`] = `Array []`;
-
-exports[`CompressionPlugin should work with assets info: assets 1`] = `
+exports[`CompressionPlugin should work child compilations: assets 1`] = `
 Array [
   Array [
     "09a1a1112c577c2794359715edfcb5ac.png",
@@ -102,31 +28,22 @@ Array [
     },
   ],
   Array [
-    "async.async.js.gz?ver=309b3b3494418014badd",
-    234,
+    "async.async.js.gz?ver=eaac5896fb97f0569c16",
+    181,
     Object {
       "compressed": true,
-      "size": 234,
+      "size": 181,
     },
   ],
   Array [
-    "async.async.js.map?ver=309b3b3494418014badd",
-    116,
-    Object {
-      "development": true,
-      "size": 116,
-    },
-  ],
-  Array [
-    "async.async.js?ver=309b3b3494418014badd",
-    334,
+    "async.async.js?ver=eaac5896fb97f0569c16",
+    269,
     Object {
       "immutable": true,
       "related": Object {
-        "compressed": "async.async.js.gz?ver=309b3b3494418014badd",
-        "sourceMap": "async.async.js.map?ver=309b3b3494418014badd",
+        "compressed": "async.async.js.gz?ver=eaac5896fb97f0569c16",
       },
-      "size": 334,
+      "size": 269,
     },
   ],
   Array [
@@ -149,84 +66,27 @@ Array [
     },
   ],
   Array [
-    "main.js.gz?var=309b3b3494418014badd",
-    3561,
+    "main.js.gz?var=eaac5896fb97f0569c16",
+    3583,
     Object {
       "compressed": true,
-      "size": 3561,
+      "size": 3583,
     },
   ],
   Array [
-    "main.js.map.gz?var=309b3b3494418014badd",
-    3539,
-    Object {
-      "compressed": true,
-      "size": 3539,
-    },
-  ],
-  Array [
-    "main.js.map?var=309b3b3494418014badd",
-    11047,
-    Object {
-      "development": true,
-      "related": Object {
-        "compressed": "main.js.map.gz?var=309b3b3494418014badd",
-      },
-      "size": 11047,
-    },
-  ],
-  Array [
-    "main.js?var=309b3b3494418014badd",
-    14450,
+    "main.js?var=eaac5896fb97f0569c16",
+    15312,
     Object {
       "immutable": true,
       "related": Object {
-        "compressed": "main.js.gz?var=309b3b3494418014badd",
-        "sourceMap": "main.js.map?var=309b3b3494418014badd",
+        "compressed": "main.js.gz?var=eaac5896fb97f0569c16",
       },
-      "size": 14450,
+      "size": 15312,
     },
   ],
 ]
 `;
 
-exports[`CompressionPlugin should work with assets info: errors 1`] = `Array []`;
+exports[`CompressionPlugin should work child compilations: errors 1`] = `Array []`;
 
-exports[`CompressionPlugin should work with assets info: warnings 1`] = `Array []`;
-
-exports[`CompressionPlugin should work: assets 1`] = `
-Array [
-  Array [
-    "09a1a1112c577c2794359715edfcb5ac.png",
-    78117,
-  ],
-  Array [
-    "23fc1d3ac606d117e05a140e0de79806.svg",
-    672,
-  ],
-  Array [
-    "23fc1d3ac606d117e05a140e0de79806.svg.gz",
-    393,
-  ],
-  Array [
-    "async.async.js.gz?ver=309b3b3494418014badd",
-    181,
-  ],
-  Array [
-    "async.async.js?ver=309b3b3494418014badd",
-    269,
-  ],
-  Array [
-    "main.js.gz?var=309b3b3494418014badd",
-    3529,
-  ],
-  Array [
-    "main.js?var=309b3b3494418014badd",
-    14392,
-  ],
-]
-`;
-
-exports[`CompressionPlugin should work: errors 1`] = `Array []`;
-
-exports[`CompressionPlugin should work: warnings 1`] = `Array []`;
+exports[`CompressionPlugin should work child compilations: warnings 1`] = `Array []`;
