@@ -1,5 +1,6 @@
 import imagePNG from './icon.png';
 import imageSVG from './icon.svg';
+import number from './number';
 
 import(/* webpackChunkName: 'async' */ './async.js').then((result) => console.log(result));
 
@@ -12,4 +13,5 @@ module.exports = function Foo() {
   console.log(b);
   console.log(imagePNG);
   console.log(imageSVG);
+  console.log(number);
 };

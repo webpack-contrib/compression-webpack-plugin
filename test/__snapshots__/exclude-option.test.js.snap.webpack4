@@ -15,20 +15,20 @@ Array [
     672,
   ],
   Array [
-    "async.async.js.gz?ver=df8e3f469c7c96726fb9",
+    "async.async.js.gz?ver=dc74724f7b13a2de5a20",
     171,
   ],
   Array [
-    "async.async.js?ver=df8e3f469c7c96726fb9",
+    "async.async.js?ver=dc74724f7b13a2de5a20",
     249,
   ],
   Array [
-    "main.js.gz?var=df8e3f469c7c96726fb9",
-    2958,
+    "main.js.gz?var=dc74724f7b13a2de5a20",
+    3002,
   ],
   Array [
-    "main.js?var=df8e3f469c7c96726fb9",
-    11112,
+    "main.js?var=dc74724f7b13a2de5a20",
+    11630,
   ],
 ]
 `;
@@ -48,20 +48,20 @@ Array [
     672,
   ],
   Array [
-    "async.async.js.gz?ver=df8e3f469c7c96726fb9",
+    "async.async.js.gz?ver=dc74724f7b13a2de5a20",
     171,
   ],
   Array [
-    "async.async.js?ver=df8e3f469c7c96726fb9",
+    "async.async.js?ver=dc74724f7b13a2de5a20",
     249,
   ],
   Array [
-    "main.js.gz?var=df8e3f469c7c96726fb9",
-    2958,
+    "main.js.gz?var=dc74724f7b13a2de5a20",
+    3002,
   ],
   Array [
-    "main.js?var=df8e3f469c7c96726fb9",
-    11112,
+    "main.js?var=dc74724f7b13a2de5a20",
+    11630,
   ],
 ]
 `;

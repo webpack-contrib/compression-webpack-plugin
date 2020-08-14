@@ -1,5 +1,96 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`CompressionPlugin should work child compilations: assets 1`] = `
+Array [
+  Array [
+    "09a1a1112c577c2794359715edfcb5ac.png",
+    78117,
+    Object {
+      "size": 78117,
+    },
+  ],
+  Array [
+    "23fc1d3ac606d117e05a140e0de79806.svg",
+    672,
+    Object {
+      "related": Object {
+        "gziped": "23fc1d3ac606d117e05a140e0de79806.svg.gz",
+      },
+      "size": 672,
+    },
+  ],
+  Array [
+    "23fc1d3ac606d117e05a140e0de79806.svg.gz",
+    393,
+    Object {
+      "compressed": true,
+      "size": 393,
+    },
+  ],
+  Array [
+    "async.async.js.gz?ver=eaac5896fb97f0569c16",
+    181,
+    Object {
+      "compressed": true,
+      "size": 181,
+    },
+  ],
+  Array [
+    "async.async.js?ver=eaac5896fb97f0569c16",
+    269,
+    Object {
+      "immutable": true,
+      "related": Object {
+        "gziped": "async.async.js.gz?ver=eaac5896fb97f0569c16",
+      },
+      "size": 269,
+    },
+  ],
+  Array [
+    "copied.js",
+    400,
+    Object {
+      "copied": true,
+      "related": Object {
+        "gziped": "copied.js.gz",
+      },
+      "size": 400,
+    },
+  ],
+  Array [
+    "copied.js.gz",
+    29,
+    Object {
+      "compressed": true,
+      "size": 29,
+    },
+  ],
+  Array [
+    "main.js.gz?var=eaac5896fb97f0569c16",
+    3583,
+    Object {
+      "compressed": true,
+      "size": 3583,
+    },
+  ],
+  Array [
+    "main.js?var=eaac5896fb97f0569c16",
+    15312,
+    Object {
+      "immutable": true,
+      "related": Object {
+        "gziped": "main.js.gz?var=eaac5896fb97f0569c16",
+      },
+      "size": 15312,
+    },
+  ],
+]
+`;
+
+exports[`CompressionPlugin should work child compilations: errors 1`] = `Array []`;
+
+exports[`CompressionPlugin should work child compilations: warnings 1`] = `Array []`;
+
 exports[`CompressionPlugin should work in watch mode: assets 1`] = `
 Array [
   Array [
@@ -23,12 +114,12 @@ Array [
     181,
   ],
   Array [
-    "main.1bf53bd04d76a915156e.js",
-    14233,
+    "main.0c1e674668622e382d86.js",
+    15156,
   ],
   Array [
-    "main.1bf53bd04d76a915156e.js.gz",
-    3500,
+    "main.0c1e674668622e382d86.js.gz",
+    3557,
   ],
 ]
 `;
@@ -44,12 +135,24 @@ Array [
     672,
   ],
   Array [
+    "23fc1d3ac606d117e05a140e0de79806.svg.gz",
+    393,
+  ],
+  Array [
     "async.async.915241b20821fb2958ef.js",
     269,
   ],
   Array [
-    "main.1bf53bd04d76a915156e.js",
-    14233,
+    "async.async.915241b20821fb2958ef.js.gz",
+    181,
+  ],
+  Array [
+    "main.0c1e674668622e382d86.js",
+    15156,
+  ],
+  Array [
+    "main.0c1e674668622e382d86.js.gz",
+    3557,
   ],
 ]
 `;
@@ -61,6 +164,279 @@ exports[`CompressionPlugin should work in watch mode: errors 2`] = `Array []`;
 exports[`CompressionPlugin should work in watch mode: warnings 1`] = `Array []`;
 
 exports[`CompressionPlugin should work in watch mode: warnings 2`] = `Array []`;
+
+exports[`CompressionPlugin should work with assets info: assets 1`] = `
+Array [
+  Array [
+    "09a1a1112c577c2794359715edfcb5ac.png",
+    78117,
+    Object {
+      "size": 78117,
+    },
+  ],
+  Array [
+    "23fc1d3ac606d117e05a140e0de79806.svg",
+    672,
+    Object {
+      "related": Object {
+        "gziped": "23fc1d3ac606d117e05a140e0de79806.svg.gz",
+      },
+      "size": 672,
+    },
+  ],
+  Array [
+    "23fc1d3ac606d117e05a140e0de79806.svg.gz",
+    393,
+    Object {
+      "compressed": true,
+      "size": 393,
+    },
+  ],
+  Array [
+    "async.async.js.gz?ver=2aedac1e87f8e43534a8",
+    233,
+    Object {
+      "compressed": true,
+      "size": 233,
+    },
+  ],
+  Array [
+    "async.async.js.map?ver=2aedac1e87f8e43534a8",
+    116,
+    Object {
+      "development": true,
+      "size": 116,
+    },
+  ],
+  Array [
+    "async.async.js?ver=2aedac1e87f8e43534a8",
+    334,
+    Object {
+      "immutable": true,
+      "related": Object {
+        "gziped": "async.async.js.gz?ver=2aedac1e87f8e43534a8",
+        "sourceMap": "async.async.js.map?ver=2aedac1e87f8e43534a8",
+      },
+      "size": 334,
+    },
+  ],
+  Array [
+    "copied.js",
+    400,
+    Object {
+      "copied": true,
+      "related": Object {
+        "gziped": "copied.js.gz",
+      },
+      "size": 400,
+    },
+  ],
+  Array [
+    "copied.js.gz",
+    29,
+    Object {
+      "compressed": true,
+      "size": 29,
+    },
+  ],
+  Array [
+    "main.js.gz?var=2aedac1e87f8e43534a8",
+    3617,
+    Object {
+      "compressed": true,
+      "size": 3617,
+    },
+  ],
+  Array [
+    "main.js.map.gz?var=2aedac1e87f8e43534a8",
+    3585,
+    Object {
+      "compressed": true,
+      "size": 3585,
+    },
+  ],
+  Array [
+    "main.js.map?var=2aedac1e87f8e43534a8",
+    11216,
+    Object {
+      "development": true,
+      "related": Object {
+        "gziped": "main.js.map.gz?var=2aedac1e87f8e43534a8",
+      },
+      "size": 11216,
+    },
+  ],
+  Array [
+    "main.js?var=2aedac1e87f8e43534a8",
+    15373,
+    Object {
+      "immutable": true,
+      "related": Object {
+        "gziped": "main.js.gz?var=2aedac1e87f8e43534a8",
+        "sourceMap": "main.js.map?var=2aedac1e87f8e43534a8",
+      },
+      "size": 15373,
+    },
+  ],
+]
+`;
+
+exports[`CompressionPlugin should work with assets info: errors 1`] = `Array []`;
+
+exports[`CompressionPlugin should work with assets info: warnings 1`] = `Array []`;
+
+exports[`CompressionPlugin should work with multiple plugins: assets 1`] = `
+Array [
+  Array [
+    "09a1a1112c577c2794359715edfcb5ac.png",
+    78117,
+    Object {
+      "size": 78117,
+    },
+  ],
+  Array [
+    "23fc1d3ac606d117e05a140e0de79806.svg",
+    672,
+    Object {
+      "related": Object {
+        "brotliCompressed": "23fc1d3ac606d117e05a140e0de79806.svg.br",
+        "compressed": "23fc1d3ac606d117e05a140e0de79806.svg.compress",
+        "customed": "23fc1d3ac606d117e05a140e0de79806.svg.custom?foo=bar#hash",
+        "gziped": "23fc1d3ac606d117e05a140e0de79806.svg.gz",
+      },
+      "size": 672,
+    },
+  ],
+  Array [
+    "23fc1d3ac606d117e05a140e0de79806.svg.br",
+    393,
+    Object {
+      "compressed": true,
+      "size": 393,
+    },
+  ],
+  Array [
+    "23fc1d3ac606d117e05a140e0de79806.svg.compress",
+    393,
+    Object {
+      "compressed": true,
+      "size": 393,
+    },
+  ],
+  Array [
+    "23fc1d3ac606d117e05a140e0de79806.svg.custom?foo=bar#hash",
+    393,
+    Object {
+      "compressed": true,
+      "size": 393,
+    },
+  ],
+  Array [
+    "23fc1d3ac606d117e05a140e0de79806.svg.gz",
+    393,
+    Object {
+      "compressed": true,
+      "size": 393,
+    },
+  ],
+  Array [
+    "async.async.js.br",
+    181,
+    Object {
+      "compressed": true,
+      "size": 181,
+    },
+  ],
+  Array [
+    "async.async.js.compress",
+    181,
+    Object {
+      "compressed": true,
+      "size": 181,
+    },
+  ],
+  Array [
+    "async.async.js.custom?foo=bar#hash",
+    181,
+    Object {
+      "compressed": true,
+      "size": 181,
+    },
+  ],
+  Array [
+    "async.async.js.gz",
+    181,
+    Object {
+      "compressed": true,
+      "size": 181,
+    },
+  ],
+  Array [
+    "async.async.js?ver=2aedac1e87f8e43534a8",
+    269,
+    Object {
+      "immutable": true,
+      "related": Object {
+        "brotliCompressed": "async.async.js.br",
+        "compressed": "async.async.js.compress",
+        "customed": "async.async.js.custom?foo=bar#hash",
+        "gziped": "async.async.js.gz",
+      },
+      "size": 269,
+    },
+  ],
+  Array [
+    "main.js.br",
+    3586,
+    Object {
+      "compressed": true,
+      "size": 3586,
+    },
+  ],
+  Array [
+    "main.js.compress",
+    3586,
+    Object {
+      "compressed": true,
+      "size": 3586,
+    },
+  ],
+  Array [
+    "main.js.custom?foo=bar#hash",
+    3586,
+    Object {
+      "compressed": true,
+      "size": 3586,
+    },
+  ],
+  Array [
+    "main.js.gz",
+    3586,
+    Object {
+      "compressed": true,
+      "size": 3586,
+    },
+  ],
+  Array [
+    "main.js?var=2aedac1e87f8e43534a8",
+    15315,
+    Object {
+      "immutable": true,
+      "related": Object {
+        "brotliCompressed": "main.js.br",
+        "compressed": "main.js.compress",
+        "customed": "main.js.custom?foo=bar#hash",
+        "gziped": "main.js.gz",
+      },
+      "size": 15315,
+    },
+  ],
+]
+`;
+
+exports[`CompressionPlugin should work with multiple plugins: errors 1`] = `Array []`;
+
+exports[`CompressionPlugin should work with multiple plugins: warnings 1`] = `Array []`;
 
 exports[`CompressionPlugin should work: assets 1`] = `
 Array [
@@ -77,20 +453,20 @@ Array [
     393,
   ],
   Array [
-    "async.async.js.gz?ver=309b3b3494418014badd",
+    "async.async.js.gz?ver=2aedac1e87f8e43534a8",
     181,
   ],
   Array [
-    "async.async.js?ver=309b3b3494418014badd",
+    "async.async.js?ver=2aedac1e87f8e43534a8",
     269,
   ],
   Array [
-    "main.js.gz?var=309b3b3494418014badd",
-    3529,
+    "main.js.gz?var=2aedac1e87f8e43534a8",
+    3586,
   ],
   Array [
-    "main.js?var=309b3b3494418014badd",
-    14392,
+    "main.js?var=2aedac1e87f8e43534a8",
+    15315,
   ],
 ]
 `;

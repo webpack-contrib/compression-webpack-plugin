@@ -20,20 +20,27 @@ export default class Webpack4Cache {
     return Boolean(this.cacheDir);
   }
 
-  get(task) {
+  async get(task) {
     // eslint-disable-next-line no-param-reassign
     task.cacheIdent = task.cacheIdent || serialize(task.cacheKeys);
 
-    return cacache.get(this.cacheDir, task.cacheIdent).then(({ data }) => {
-      const result = JSON.parse(data);
+    let cachedResult;
 
-      result.output = Buffer.from(result.output);
+    try {
+      cachedResult = await cacache.get(this.cacheDir, task.cacheIdent);
+    } catch (ignoreError) {
+      // eslint-disable-next-line no-undefined
+      return undefined;
+    }
 
-      return result;
-    });
+    return Buffer.from(JSON.parse(cachedResult.data).data);
   }
 
-  store(task, data) {
-    return cacache.put(this.cacheDir, task.cacheIdent, JSON.stringify(data));
+  async store(task) {
+    return cacache.put(
+      this.cacheDir,
+      task.cacheIdent,
+      JSON.stringify(task.output)
+    );
   }
 }
