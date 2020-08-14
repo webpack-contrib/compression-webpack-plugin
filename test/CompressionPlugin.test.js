@@ -14,8 +14,6 @@ import {
   removeCache,
 } from './helpers/index';
 
-jest.setTimeout(30000);
-
 describe('CompressionPlugin', () => {
   beforeEach(() => {
     return removeCache();

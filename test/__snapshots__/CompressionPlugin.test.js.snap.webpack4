@@ -24,7 +24,7 @@ Array [
     },
   ],
   Array [
-    "async.async.js.gz?ver=810493800e70254b803c",
+    "async.async.js.gz",
     171,
     Object {
       "compressed": true,
@@ -36,7 +36,7 @@ Array [
     Object {
       "immutable": true,
       "related": Object {
-        "gziped": "async.async.js.gz?ver=810493800e70254b803c",
+        "gziped": "async.async.js.gz",
       },
     },
   ],
@@ -58,7 +58,7 @@ Array [
     },
   ],
   Array [
-    "main.js.gz?var=810493800e70254b803c",
+    "main.js.gz",
     3001,
     Object {
       "compressed": true,
@@ -70,7 +70,7 @@ Array [
     Object {
       "immutable": true,
       "related": Object {
-        "gziped": "main.js.gz?var=810493800e70254b803c",
+        "gziped": "main.js.gz",
       },
     },
   ],
@@ -179,7 +179,7 @@ Array [
     },
   ],
   Array [
-    "async.async.js.gz?ver=dc74724f7b13a2de5a20",
+    "async.async.js.gz",
     220,
     Object {
       "compressed": true,
@@ -198,7 +198,7 @@ Array [
     Object {
       "immutable": true,
       "related": Object {
-        "gziped": "async.async.js.gz?ver=dc74724f7b13a2de5a20",
+        "gziped": "async.async.js.gz",
       },
     },
   ],
@@ -220,14 +220,14 @@ Array [
     },
   ],
   Array [
-    "main.js.gz?var=dc74724f7b13a2de5a20",
+    "main.js.gz",
     3035,
     Object {
       "compressed": true,
     },
   ],
   Array [
-    "main.js.map.gz?var=dc74724f7b13a2de5a20",
+    "main.js.map.gz",
     3134,
     Object {
       "compressed": true,
@@ -239,7 +239,7 @@ Array [
     Object {
       "development": true,
       "related": Object {
-        "gziped": "main.js.map.gz?var=dc74724f7b13a2de5a20",
+        "gziped": "main.js.map.gz",
       },
     },
   ],
@@ -249,7 +249,7 @@ Array [
     Object {
       "immutable": true,
       "related": Object {
-        "gziped": "main.js.gz?var=dc74724f7b13a2de5a20",
+        "gziped": "main.js.gz",
       },
     },
   ],
@@ -377,7 +377,7 @@ Array [
     393,
   ],
   Array [
-    "async.async.js.gz?ver=dc74724f7b13a2de5a20",
+    "async.async.js.gz",
     171,
   ],
   Array [
@@ -385,7 +385,7 @@ Array [
     249,
   ],
   Array [
-    "main.js.gz?var=dc74724f7b13a2de5a20",
+    "main.js.gz",
     3002,
   ],
   Array [
