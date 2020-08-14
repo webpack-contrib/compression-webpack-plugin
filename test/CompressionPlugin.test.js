@@ -14,6 +14,8 @@ import {
   removeCache,
 } from './helpers/index';
 
+jest.setTimeout(30000);
+
 describe('CompressionPlugin', () => {
   beforeEach(() => {
     return removeCache();
@@ -135,14 +137,14 @@ describe('CompressionPlugin', () => {
       filename: '[path].br',
     }).apply(compiler);
     new CompressionPlugin({
-      algorithm: (input) => {
-        return input;
+      algorithm: (input, options, callback) => {
+        return callback(input);
       },
       filename: '[path].compress',
     }).apply(compiler);
     new CompressionPlugin({
-      algorithm: (input) => {
-        return input;
+      algorithm: (input, options, callback) => {
+        return callback(input);
       },
       filename: '[path].custom?foo=bar#hash',
     }).apply(compiler);

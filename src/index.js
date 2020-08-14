@@ -196,7 +196,8 @@ class CompressionPlugin {
         // eslint-disable-next-line global-require
         'compression-webpack-plugin': require('../package.json').version,
         algorithm: this.algorithm,
-        compressionOptions: this.algorithm.compressionOptions,
+        originalAlgorithm: this.options.algorithm,
+        compressionOptions: this.compressionOptions,
         assetName,
         contentHash: crypto.createHash('md4').update(input).digest('hex'),
       };
