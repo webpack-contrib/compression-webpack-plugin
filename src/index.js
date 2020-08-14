@@ -264,7 +264,6 @@ class CompressionPlugin {
               return enqueue(task);
             }
 
-            // Webpack@5 return `undefined` when cache is not found
             if (!task.output) {
               return enqueue(task);
             }

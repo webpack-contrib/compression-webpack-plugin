@@ -63,7 +63,7 @@ describe('CompressionPlugin', () => {
     expect(getErrors(stats)).toMatchSnapshot('warnings');
   });
 
-  it.only('should work child compilations', async () => {
+  it('should work child compilations', async () => {
     const compiler = getCompiler(
       './entry.js',
       {},
