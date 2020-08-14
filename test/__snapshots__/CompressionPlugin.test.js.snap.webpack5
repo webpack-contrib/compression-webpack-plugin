@@ -28,7 +28,7 @@ Array [
     },
   ],
   Array [
-    "async.async.js.gz?ver=eaac5896fb97f0569c16",
+    "async.async.js.gz",
     181,
     Object {
       "compressed": true,
@@ -41,7 +41,7 @@ Array [
     Object {
       "immutable": true,
       "related": Object {
-        "gziped": "async.async.js.gz?ver=eaac5896fb97f0569c16",
+        "gziped": "async.async.js.gz",
       },
       "size": 269,
     },
@@ -66,7 +66,7 @@ Array [
     },
   ],
   Array [
-    "main.js.gz?var=eaac5896fb97f0569c16",
+    "main.js.gz",
     3583,
     Object {
       "compressed": true,
@@ -79,7 +79,7 @@ Array [
     Object {
       "immutable": true,
       "related": Object {
-        "gziped": "main.js.gz?var=eaac5896fb97f0569c16",
+        "gziped": "main.js.gz",
       },
       "size": 15312,
     },
@@ -193,7 +193,7 @@ Array [
     },
   ],
   Array [
-    "async.async.js.gz?ver=2aedac1e87f8e43534a8",
+    "async.async.js.gz",
     233,
     Object {
       "compressed": true,
@@ -214,7 +214,7 @@ Array [
     Object {
       "immutable": true,
       "related": Object {
-        "gziped": "async.async.js.gz?ver=2aedac1e87f8e43534a8",
+        "gziped": "async.async.js.gz",
         "sourceMap": "async.async.js.map?ver=2aedac1e87f8e43534a8",
       },
       "size": 334,
@@ -240,7 +240,7 @@ Array [
     },
   ],
   Array [
-    "main.js.gz?var=2aedac1e87f8e43534a8",
+    "main.js.gz",
     3617,
     Object {
       "compressed": true,
@@ -248,7 +248,7 @@ Array [
     },
   ],
   Array [
-    "main.js.map.gz?var=2aedac1e87f8e43534a8",
+    "main.js.map.gz",
     3585,
     Object {
       "compressed": true,
@@ -261,7 +261,7 @@ Array [
     Object {
       "development": true,
       "related": Object {
-        "gziped": "main.js.map.gz?var=2aedac1e87f8e43534a8",
+        "gziped": "main.js.map.gz",
       },
       "size": 11216,
     },
@@ -272,7 +272,7 @@ Array [
     Object {
       "immutable": true,
       "related": Object {
-        "gziped": "main.js.gz?var=2aedac1e87f8e43534a8",
+        "gziped": "main.js.gz",
         "sourceMap": "main.js.map?var=2aedac1e87f8e43534a8",
       },
       "size": 15373,
@@ -453,7 +453,7 @@ Array [
     393,
   ],
   Array [
-    "async.async.js.gz?ver=2aedac1e87f8e43534a8",
+    "async.async.js.gz",
     181,
   ],
   Array [
@@ -461,7 +461,7 @@ Array [
     269,
   ],
   Array [
-    "main.js.gz?var=2aedac1e87f8e43534a8",
+    "main.js.gz",
     3586,
   ],
   Array [

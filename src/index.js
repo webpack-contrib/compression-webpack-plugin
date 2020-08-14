@@ -27,7 +27,7 @@ class CompressionPlugin {
       cache = true,
       algorithm = 'gzip',
       compressionOptions = {},
-      filename = '[path].gz[query]',
+      filename = '[path].gz',
       threshold = 0,
       minRatio = 0.8,
       deleteOriginalAssets = false,
