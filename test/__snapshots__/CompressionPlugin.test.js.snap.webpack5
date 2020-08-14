@@ -14,7 +14,7 @@ Array [
     672,
     Object {
       "related": Object {
-        "compressed": "23fc1d3ac606d117e05a140e0de79806.svg.gz",
+        "gziped": "23fc1d3ac606d117e05a140e0de79806.svg.gz",
       },
       "size": 672,
     },
@@ -41,7 +41,7 @@ Array [
     Object {
       "immutable": true,
       "related": Object {
-        "compressed": "async.async.js.gz?ver=eaac5896fb97f0569c16",
+        "gziped": "async.async.js.gz?ver=eaac5896fb97f0569c16",
       },
       "size": 269,
     },
@@ -52,7 +52,7 @@ Array [
     Object {
       "copied": true,
       "related": Object {
-        "compressed": "copied.js.gz",
+        "gziped": "copied.js.gz",
       },
       "size": 400,
     },
@@ -79,7 +79,7 @@ Array [
     Object {
       "immutable": true,
       "related": Object {
-        "compressed": "main.js.gz?var=eaac5896fb97f0569c16",
+        "gziped": "main.js.gz?var=eaac5896fb97f0569c16",
       },
       "size": 15312,
     },
@@ -179,7 +179,7 @@ Array [
     672,
     Object {
       "related": Object {
-        "compressed": "23fc1d3ac606d117e05a140e0de79806.svg.gz",
+        "gziped": "23fc1d3ac606d117e05a140e0de79806.svg.gz",
       },
       "size": 672,
     },
@@ -214,7 +214,7 @@ Array [
     Object {
       "immutable": true,
       "related": Object {
-        "compressed": "async.async.js.gz?ver=2aedac1e87f8e43534a8",
+        "gziped": "async.async.js.gz?ver=2aedac1e87f8e43534a8",
         "sourceMap": "async.async.js.map?ver=2aedac1e87f8e43534a8",
       },
       "size": 334,
@@ -226,7 +226,7 @@ Array [
     Object {
       "copied": true,
       "related": Object {
-        "compressed": "copied.js.gz",
+        "gziped": "copied.js.gz",
       },
       "size": 400,
     },
@@ -261,7 +261,7 @@ Array [
     Object {
       "development": true,
       "related": Object {
-        "compressed": "main.js.map.gz?var=2aedac1e87f8e43534a8",
+        "gziped": "main.js.map.gz?var=2aedac1e87f8e43534a8",
       },
       "size": 11216,
     },
@@ -272,7 +272,7 @@ Array [
     Object {
       "immutable": true,
       "related": Object {
-        "compressed": "main.js.gz?var=2aedac1e87f8e43534a8",
+        "gziped": "main.js.gz?var=2aedac1e87f8e43534a8",
         "sourceMap": "main.js.map?var=2aedac1e87f8e43534a8",
       },
       "size": 15373,
@@ -284,6 +284,159 @@ Array [
 exports[`CompressionPlugin should work with assets info: errors 1`] = `Array []`;
 
 exports[`CompressionPlugin should work with assets info: warnings 1`] = `Array []`;
+
+exports[`CompressionPlugin should work with multiple plugins: assets 1`] = `
+Array [
+  Array [
+    "09a1a1112c577c2794359715edfcb5ac.png",
+    78117,
+    Object {
+      "size": 78117,
+    },
+  ],
+  Array [
+    "23fc1d3ac606d117e05a140e0de79806.svg",
+    672,
+    Object {
+      "related": Object {
+        "brotliCompressed": "23fc1d3ac606d117e05a140e0de79806.svg.br",
+        "compressed": "23fc1d3ac606d117e05a140e0de79806.svg.compress",
+        "customed": "23fc1d3ac606d117e05a140e0de79806.svg.custom?foo=bar#hash",
+        "gziped": "23fc1d3ac606d117e05a140e0de79806.svg.gz",
+      },
+      "size": 672,
+    },
+  ],
+  Array [
+    "23fc1d3ac606d117e05a140e0de79806.svg.br",
+    393,
+    Object {
+      "compressed": true,
+      "size": 393,
+    },
+  ],
+  Array [
+    "23fc1d3ac606d117e05a140e0de79806.svg.compress",
+    393,
+    Object {
+      "compressed": true,
+      "size": 393,
+    },
+  ],
+  Array [
+    "23fc1d3ac606d117e05a140e0de79806.svg.custom?foo=bar#hash",
+    393,
+    Object {
+      "compressed": true,
+      "size": 393,
+    },
+  ],
+  Array [
+    "23fc1d3ac606d117e05a140e0de79806.svg.gz",
+    393,
+    Object {
+      "compressed": true,
+      "size": 393,
+    },
+  ],
+  Array [
+    "async.async.js.br",
+    181,
+    Object {
+      "compressed": true,
+      "size": 181,
+    },
+  ],
+  Array [
+    "async.async.js.compress",
+    181,
+    Object {
+      "compressed": true,
+      "size": 181,
+    },
+  ],
+  Array [
+    "async.async.js.custom?foo=bar#hash",
+    181,
+    Object {
+      "compressed": true,
+      "size": 181,
+    },
+  ],
+  Array [
+    "async.async.js.gz",
+    181,
+    Object {
+      "compressed": true,
+      "size": 181,
+    },
+  ],
+  Array [
+    "async.async.js?ver=2aedac1e87f8e43534a8",
+    269,
+    Object {
+      "immutable": true,
+      "related": Object {
+        "brotliCompressed": "async.async.js.br",
+        "compressed": "async.async.js.compress",
+        "customed": "async.async.js.custom?foo=bar#hash",
+        "gziped": "async.async.js.gz",
+      },
+      "size": 269,
+    },
+  ],
+  Array [
+    "main.js.br",
+    3586,
+    Object {
+      "compressed": true,
+      "size": 3586,
+    },
+  ],
+  Array [
+    "main.js.compress",
+    3586,
+    Object {
+      "compressed": true,
+      "size": 3586,
+    },
+  ],
+  Array [
+    "main.js.custom?foo=bar#hash",
+    3586,
+    Object {
+      "compressed": true,
+      "size": 3586,
+    },
+  ],
+  Array [
+    "main.js.gz",
+    3586,
+    Object {
+      "compressed": true,
+      "size": 3586,
+    },
+  ],
+  Array [
+    "main.js?var=2aedac1e87f8e43534a8",
+    15315,
+    Object {
+      "immutable": true,
+      "related": Object {
+        "brotliCompressed": "main.js.br",
+        "compressed": "main.js.compress",
+        "customed": "main.js.custom?foo=bar#hash",
+        "gziped": "main.js.gz",
+      },
+      "size": 15315,
+    },
+  ],
+]
+`;
+
+exports[`CompressionPlugin should work with multiple plugins: errors 1`] = `Array []`;
+
+exports[`CompressionPlugin should work with multiple plugins: warnings 1`] = `Array []`;
 
 exports[`CompressionPlugin should work: assets 1`] = `
 Array [

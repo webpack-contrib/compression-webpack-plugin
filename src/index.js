@@ -149,16 +149,32 @@ class CompressionPlugin {
   }
 
   *getTask(compilation, assetName) {
-    const { source: assetSource, info } = CompressionPlugin.getAsset(
+    const { source: assetSource, info: assetInfo } = CompressionPlugin.getAsset(
       compilation,
       assetName
     );
 
-    if (info.compressed) {
+    if (assetInfo.compressed) {
       yield false;
     }
 
-    if (info.related && info.related.compressed) {
+    let relatedName;
+
+    if (typeof this.options.algorithm === 'function') {
+      let filenameForRelatedName = this.options.filename;
+
+      const index = filenameForRelatedName.lastIndexOf('?');
+
+      if (index >= 0) {
+        filenameForRelatedName = filenameForRelatedName.substr(0, index);
+      }
+
+      relatedName = `${path.extname(filenameForRelatedName).slice(1)}ed`;
+    } else {
+      relatedName = `${this.options.algorithm}ed`;
+    }
+
+    if (assetInfo.related && assetInfo.related[relatedName]) {
       yield false;
     }
 
@@ -172,7 +188,7 @@ class CompressionPlugin {
       yield false;
     }
 
-    const task = { assetName, assetSource, input };
+    const task = { assetName, assetSource, assetInfo, input, relatedName };
 
     if (CompressionPlugin.isWebpack4()) {
       task.cacheKeys = {
@@ -220,7 +236,7 @@ class CompressionPlugin {
       CompressionPlugin.deleteAsset(compilation, assetName);
     } else {
       CompressionPlugin.updateAsset(compilation, assetName, assetSource, {
-        related: { compressed: newAssetName },
+        related: { [task.relatedName]: newAssetName },
       });
     }
   }

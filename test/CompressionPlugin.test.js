@@ -1,3 +1,5 @@
+import zlib from 'zlib';
+
 import webpack from 'webpack';
 
 import CompressionPlugin from '../src/index';
@@ -64,6 +66,7 @@ describe('CompressionPlugin', () => {
   });
 
   it('should work child compilations', async () => {
+    const gzipSpy = jest.spyOn(zlib, 'gzip');
     const compiler = getCompiler(
       './entry.js',
       {},
@@ -99,6 +102,50 @@ describe('CompressionPlugin', () => {
     );
 
     new CompressionPlugin().apply(compiler);
+
+    const stats = await compile(compiler);
+
+    expect(gzipSpy).toHaveBeenCalledTimes(5);
+    expect(getAssetsNameAndSize(stats, true)).toMatchSnapshot('assets');
+    expect(getWarnings(stats)).toMatchSnapshot('errors');
+    expect(getErrors(stats)).toMatchSnapshot('warnings');
+
+    gzipSpy.mockRestore();
+  });
+
+  it('should work with multiple plugins', async () => {
+    const compiler = getCompiler(
+      './entry.js',
+      {},
+      {
+        output: {
+          path: `${__dirname}/dist`,
+          filename: '[name].js?var=[hash]',
+          chunkFilename: '[id].[name].js?ver=[hash]',
+        },
+      }
+    );
+
+    new CompressionPlugin({
+      algorithm: 'gzip',
+      filename: '[path].gz',
+    }).apply(compiler);
+    new CompressionPlugin({
+      algorithm: 'brotliCompress',
+      filename: '[path].br',
+    }).apply(compiler);
+    new CompressionPlugin({
+      algorithm: (input) => {
+        return input;
+      },
+      filename: '[path].compress',
+    }).apply(compiler);
+    new CompressionPlugin({
+      algorithm: (input) => {
+        return input;
+      },
+      filename: '[path].custom?foo=bar#hash',
+    }).apply(compiler);
 
     const stats = await compile(compiler);
 
