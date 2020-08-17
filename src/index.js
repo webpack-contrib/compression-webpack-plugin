@@ -209,13 +209,7 @@ class CompressionPlugin {
   afterTask(compilation, task, weakCache) {
     const { output, input } = task;
 
-    console.log(output.length / input.length);
-    console.log(this.options.minRatio);
-
     if (output.length / input.length > this.options.minRatio) {
-      console.log(output.length);
-      console.log(input.length);
-
       return;
     }
 
