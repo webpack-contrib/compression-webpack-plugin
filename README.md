@@ -116,6 +116,8 @@ Default: `gzip`
 
 The compression algorithm/function.
 
+> ℹ️ If you use custom function for the `algorithm` option, the default value of the `compressionOptions` option is `{}`.
+
 #### `String`
 
 The algorithm is taken from [zlib](https://nodejs.org/api/zlib.html).
@@ -157,9 +159,9 @@ Default: `{ level: 9 }`
 
 Compression options for `algorithm`.
 
-If you use custom function for the `algorithm` option, the default value is `{}`.
-
 You can find all options here [zlib](https://nodejs.org/api/zlib.html#zlib_class_options).
+
+> ℹ️ If you use custom function for the `algorithm` option, the default value is `{}`.
 
 **webpack.config.js**
 

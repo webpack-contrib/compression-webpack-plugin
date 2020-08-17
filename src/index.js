@@ -57,15 +57,12 @@ class CompressionPlugin {
 
       if (!this.algorithm) {
         throw new Error(
-          `Algorithm "${this.options.algorithm}" is not found in zlib`
+          `Algorithm "${this.options.algorithm}" is not found in "zlib"`
         );
       }
 
-      const defaultCompressionOptions = { level: 9 };
-
-      // TODO change this behaviour in the next major release
       this.compressionOptions = {
-        ...defaultCompressionOptions,
+        ...{ level: 9 },
         ...this.compressionOptions,
       };
     }
