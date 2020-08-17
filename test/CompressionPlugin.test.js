@@ -11,6 +11,7 @@ import {
   getCompiler,
   getErrors,
   getWarnings,
+  readAsset,
   removeCache,
 } from './helpers/index';
 
@@ -20,6 +21,8 @@ describe('CompressionPlugin', () => {
   });
 
   it('should work', async () => {
+    expect.assertions(6);
+
     const compiler = getCompiler(
       './entry.js',
       {},
@@ -35,6 +38,21 @@ describe('CompressionPlugin', () => {
     new CompressionPlugin().apply(compiler);
 
     const stats = await compile(compiler);
+    const { assets, assetsInfo } = stats.compilation;
+
+    for (const assetName of Object.keys(assets)) {
+      const info = assetsInfo.get(assetName);
+
+      if (!info.related) {
+        // eslint-disable-next-line no-continue
+        continue;
+      }
+
+      const originalBuffer = readAsset(assetName, compiler, stats);
+      const gzipedBuffer = readAsset(info.related.gziped, compiler, stats);
+
+      expect(zlib.gunzipSync(gzipedBuffer).equals(originalBuffer)).toBe(true);
+    }
 
     expect(getAssetsNameAndSize(stats)).toMatchSnapshot('assets');
     expect(getWarnings(stats)).toMatchSnapshot('errors');
