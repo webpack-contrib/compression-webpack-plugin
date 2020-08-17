@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [5.0.0](https://github.com/webpack-contrib/compression-webpack-plugin/compare/v4.0.1...v5.0.0) (2020-08-17)
+
+
+### ⚠ BREAKING CHANGES
+
+* default value of the `filename` option is `'[path].gz'`
+* use `processAssets` hook for `webpack@5` compatibility, it can create incompatibility with plugins that do not support `webpack@5`, please open an issue in their repositories
+
+### Features
+
+* improve compatibility with `webpack@5` ([1f9674e](https://github.com/webpack-contrib/compression-webpack-plugin/commit/1f9674e7573a2b30822c08d4c719fc4849cce793))
+* improve stats output for `webpack@5`
+
+### Bug Fixes
+
+* fix persistent cache between builds
+
 ### [4.0.1](https://github.com/webpack-contrib/compression-webpack-plugin/compare/v4.0.0...v4.0.1) (2020-08-12)
 
 
