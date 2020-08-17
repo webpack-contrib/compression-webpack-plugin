@@ -41,7 +41,7 @@ exports[`"algorithm" option matches snapshot for \`gzip\` value ({String}): erro
 
 exports[`"algorithm" option matches snapshot for \`gzip\` value ({String}): warnings 1`] = `Array []`;
 
-exports[`"algorithm" option matches snapshot for \`unknown\` value ({String}) 1`] = `"Algorithm \\"unknown\\" is not found in zlib"`;
+exports[`"algorithm" option matches snapshot for \`unknown\` value ({String}) 1`] = `"Algorithm \\"unknown\\" is not found in \\"zlib\\""`;
 
 exports[`"algorithm" option matches snapshot for custom function ({Function}): assets 1`] = `
 Array [
