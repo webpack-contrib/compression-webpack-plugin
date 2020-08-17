@@ -19,20 +19,20 @@ Array [
     393,
   ],
   Array [
-    "async.async.915241b20821fb2958ef.js",
+    "async.async.81ea6697ed82fa2176bb.js",
     269,
   ],
   Array [
-    "async.async.915241b20821fb2958ef.js.gz",
+    "async.async.81ea6697ed82fa2176bb.js.gz",
     181,
   ],
   Array [
-    "main.0c1e674668622e382d86.js",
+    "main.f1e836b35a2623bafe34.js",
     15156,
   ],
   Array [
-    "main.0c1e674668622e382d86.js.gz",
-    3557,
+    "main.f1e836b35a2623bafe34.js.gz",
+    3556,
   ],
 ]
 `;
@@ -56,16 +56,16 @@ Array [
     672,
   ],
   Array [
-    "async.async.915241b20821fb2958ef.js",
+    "async.async.81ea6697ed82fa2176bb.js",
     269,
   ],
   Array [
-    "main.0c1e674668622e382d86.js",
+    "main.f1e836b35a2623bafe34.js",
     15156,
   ],
   Array [
-    "main.0c1e674668622e382d86.js.gz",
-    3557,
+    "main.f1e836b35a2623bafe34.js.gz",
+    3556,
   ],
 ]
 `;
@@ -73,3 +73,49 @@ Array [
 exports[`"threshold" option matches snapshot for \`8192\` value ({Number}): errors 1`] = `Array []`;
 
 exports[`"threshold" option matches snapshot for \`8192\` value ({Number}): warnings 1`] = `Array []`;
+
+exports[`"threshold" option should compress all assets excluding assets with "0" bytes original size: assets 1`] = `
+Array [
+  Array [
+    "31d6cfe0d16ae931b73c59d7e0c089c0.txt",
+    0,
+  ],
+  Array [
+    "main.d6c14561219fdba42701.js",
+    4496,
+  ],
+  Array [
+    "main.d6c14561219fdba42701.js.gz",
+    1163,
+  ],
+]
+`;
+
+exports[`"threshold" option should compress all assets excluding assets with "0" bytes original size: errors 1`] = `Array []`;
+
+exports[`"threshold" option should compress all assets excluding assets with "0" bytes original size: warnings 1`] = `Array []`;
+
+exports[`"threshold" option should compress all assets including assets with "0" bytes original size: assets 1`] = `
+Array [
+  Array [
+    "31d6cfe0d16ae931b73c59d7e0c089c0.txt",
+    0,
+  ],
+  Array [
+    "31d6cfe0d16ae931b73c59d7e0c089c0.txt.gz",
+    20,
+  ],
+  Array [
+    "main.d6c14561219fdba42701.js",
+    4496,
+  ],
+  Array [
+    "main.d6c14561219fdba42701.js.gz",
+    1163,
+  ],
+]
+`;
+
+exports[`"threshold" option should compress all assets including assets with "0" bytes original size: errors 1`] = `Array []`;
+
+exports[`"threshold" option should compress all assets including assets with "0" bytes original size: warnings 1`] = `Array []`;

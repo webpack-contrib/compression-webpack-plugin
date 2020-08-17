@@ -17,7 +17,7 @@ export default function getCompiler(fixture, loaderOptions = {}, config = {}) {
     module: {
       rules: [
         {
-          test: /\.(png|jpg|gif|svg)$/i,
+          test: /\.(png|jpg|gif|svg|txt)$/i,
           rules: [
             {
               loader: 'file-loader',

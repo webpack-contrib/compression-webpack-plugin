@@ -73,3 +73,49 @@ Array [
 exports[`"threshold" option matches snapshot for \`8192\` value ({Number}): errors 1`] = `Array []`;
 
 exports[`"threshold" option matches snapshot for \`8192\` value ({Number}): warnings 1`] = `Array []`;
+
+exports[`"threshold" option should compress all assets excluding assets with "0" bytes original size: assets 1`] = `
+Array [
+  Array [
+    "31d6cfe0d16ae931b73c59d7e0c089c0.txt",
+    0,
+  ],
+  Array [
+    "main.f8078965575fc1ebcc92.js",
+    4692,
+  ],
+  Array [
+    "main.f8078965575fc1ebcc92.js.gz",
+    1314,
+  ],
+]
+`;
+
+exports[`"threshold" option should compress all assets excluding assets with "0" bytes original size: errors 1`] = `Array []`;
+
+exports[`"threshold" option should compress all assets excluding assets with "0" bytes original size: warnings 1`] = `Array []`;
+
+exports[`"threshold" option should compress all assets including assets with "0" bytes original size: assets 1`] = `
+Array [
+  Array [
+    "31d6cfe0d16ae931b73c59d7e0c089c0.txt",
+    0,
+  ],
+  Array [
+    "31d6cfe0d16ae931b73c59d7e0c089c0.txt.gz",
+    20,
+  ],
+  Array [
+    "main.f8078965575fc1ebcc92.js",
+    4692,
+  ],
+  Array [
+    "main.f8078965575fc1ebcc92.js.gz",
+    1314,
+  ],
+]
+`;
+
+exports[`"threshold" option should compress all assets including assets with "0" bytes original size: errors 1`] = `Array []`;
+
+exports[`"threshold" option should compress all assets including assets with "0" bytes original size: warnings 1`] = `Array []`;
