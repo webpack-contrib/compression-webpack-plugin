@@ -200,7 +200,12 @@ Default: `0.8`
 Only assets that compress better than this ratio are processed (`minRatio = Compressed Size / Original Size`).
 Example: you have `image.png` file with 1024b size, compressed version of file has 768b size, so `minRatio` equal `0.75`.
 In other words assets will be processed when the `Compressed Size / Original Size` value less `minRatio` value.
-You can use `1` value to process assets that are smaller than the original. Use a value of Number.MAX_SAFE_INTEGER to process all assets even if they are larger than the original (useful when you are pre-zipping all assets for AWS)
+
+You can use `1` value to process assets that are smaller than the original.
+
+Use a value of `Infinity` to process all assets even if they are larger than the original size or their original size is `0` bytes (useful when you are pre-zipping all assets for AWS).
+
+Use a value of `Number.MAX_SAFE_INTEGER` to process all assets even if they are larger than the original size, excluding assets with their original size is `0` bytes.
 
 **webpack.config.js**
 
@@ -208,6 +213,12 @@ You can use `1` value to process assets that are smaller than the original. Use 
 module.exports = {
   plugins: [
     new CompressionPlugin({
+      // Compress all assets, including files with `0` bytes size
+      // minRatio: Infinity
+
+      // Compress all assets, excluding files with `0` bytes size
+      // minRatio: Number.MAX_SAFE_INTEGER
+
       minRatio: 0.8,
     }),
   ],

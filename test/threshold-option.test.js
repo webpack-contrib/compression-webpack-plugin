@@ -43,4 +43,34 @@ describe('"threshold" option', () => {
     expect(getWarnings(stats)).toMatchSnapshot('errors');
     expect(getErrors(stats)).toMatchSnapshot('warnings');
   });
+
+  it('should compress all assets including assets with "0" bytes original size', async () => {
+    compiler = getCompiler('./empty.js');
+
+    new CompressionPlugin({
+      minRatio: Infinity,
+      threshold: 0,
+    }).apply(compiler);
+
+    const stats = await compile(compiler);
+
+    expect(getAssetsNameAndSize(stats)).toMatchSnapshot('assets');
+    expect(getWarnings(stats)).toMatchSnapshot('errors');
+    expect(getErrors(stats)).toMatchSnapshot('warnings');
+  });
+
+  it('should compress all assets excluding assets with "0" bytes original size', async () => {
+    compiler = getCompiler('./empty.js');
+
+    new CompressionPlugin({
+      minRatio: Number.MAX_SAFE_INTEGER,
+      threshold: 0,
+    }).apply(compiler);
+
+    const stats = await compile(compiler);
+
+    expect(getAssetsNameAndSize(stats)).toMatchSnapshot('assets');
+    expect(getWarnings(stats)).toMatchSnapshot('errors');
+    expect(getErrors(stats)).toMatchSnapshot('warnings');
+  });
 });
