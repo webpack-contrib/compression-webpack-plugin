@@ -7,11 +7,17 @@ import crypto from 'crypto';
 import url from 'url';
 import path from 'path';
 
-import RawSource from 'webpack-sources/lib/RawSource';
-import { ModuleFilenameHelpers, version as webpackVersion } from 'webpack';
+import webpack, {
+  ModuleFilenameHelpers,
+  version as webpackVersion,
+} from 'webpack';
 import validateOptions from 'schema-utils';
 
 import schema from './options.json';
+
+const { RawSource } =
+  // eslint-disable-next-line global-require
+  webpack.sources || require('webpack-sources');
 
 class CompressionPlugin {
   constructor(options = {}) {
@@ -203,29 +209,20 @@ class CompressionPlugin {
     yield task;
   }
 
-  afterTask(compilation, task, weakCache) {
+  afterTask(compilation, task) {
     const { output, input } = task;
 
-    if (output.length / input.length > this.options.minRatio) {
+    if (output.source().length / input.length > this.options.minRatio) {
       return;
     }
 
     const { assetSource, assetName } = task;
-
-    let weakOutput = weakCache.get(assetSource);
-
-    if (!weakOutput) {
-      weakOutput = new RawSource(output);
-
-      weakCache.set(assetSource, weakOutput);
-    }
-
     const newAssetName = CompressionPlugin.interpolateName(
       assetName,
       this.options.filename
     );
 
-    CompressionPlugin.emitAsset(compilation, newAssetName, weakOutput, {
+    CompressionPlugin.emitAsset(compilation, newAssetName, output, {
       compressed: true,
     });
 
@@ -241,28 +238,15 @@ class CompressionPlugin {
 
   async runTasks(compilation, assetNames, CacheEngine, weakCache) {
     const scheduledTasks = [];
-    const cache = new CacheEngine(compilation, {
-      cache: this.options.cache,
-    });
+    const cache = new CacheEngine(
+      compilation,
+      {
+        cache: this.options.cache,
+      },
+      weakCache
+    );
 
     for (const assetName of assetNames) {
-      const enqueue = async (task) => {
-        try {
-          // eslint-disable-next-line no-param-reassign
-          task.output = await this.compress(task.input);
-        } catch (error) {
-          compilation.errors.push(error);
-
-          return;
-        }
-
-        if (cache.isEnabled()) {
-          await cache.store(task);
-        }
-
-        this.afterTask(compilation, task, weakCache);
-      };
-
       scheduledTasks.push(
         (async () => {
           const task = this.getTask(compilation, assetName).next().value;
@@ -271,23 +255,24 @@ class CompressionPlugin {
             return Promise.resolve();
           }
 
-          if (cache.isEnabled()) {
+          task.output = await cache.get(task, { RawSource });
+
+          if (!task.output) {
             try {
-              task.output = await cache.get(task);
-            } catch (ignoreError) {
-              return enqueue(task);
+              // eslint-disable-next-line no-param-reassign
+              task.output = new RawSource(await this.compress(task.input));
+            } catch (error) {
+              compilation.errors.push(error);
+
+              return Promise.resolve();
             }
 
-            if (!task.output) {
-              return enqueue(task);
-            }
-
-            this.afterTask(compilation, task, weakCache);
-
-            return Promise.resolve();
+            await cache.store(task);
           }
 
-          return enqueue(task);
+          this.afterTask(compilation, task);
+
+          return Promise.resolve();
         })()
       );
     }
@@ -306,8 +291,12 @@ class CompressionPlugin {
       undefined,
       this.options
     );
-    const weakCache = new WeakMap();
-    const compressionFn = async (compilation, CacheEngine, assets) => {
+    const compressionFn = async (
+      compilation,
+      assets,
+      CacheEngine,
+      weakCache
+    ) => {
       const assetNames = Object.keys(
         typeof assets === 'undefined' ? compilation.assets : assets
       ).filter((assetName) => matchObject(assetName));
@@ -324,11 +313,11 @@ class CompressionPlugin {
     if (CompressionPlugin.isWebpack4()) {
       // eslint-disable-next-line global-require
       const CacheEngine = require('./Webpack4Cache').default;
+      const weakCache = new WeakMap();
 
-      compiler.hooks.emit.tapPromise(
-        { name: pluginName },
+      compiler.hooks.emit.tapPromise({ name: pluginName }, (compilation) =>
         // eslint-disable-next-line no-undefined
-        (compilation) => compressionFn(compilation, CacheEngine)
+        compressionFn(compilation, undefined, CacheEngine, weakCache)
       );
     } else {
       // eslint-disable-next-line global-require
@@ -343,7 +332,7 @@ class CompressionPlugin {
             name: pluginName,
             stage: Compilation.PROCESS_ASSETS_STAGE_OPTIMIZE_TRANSFER,
           },
-          (assets) => compressionFn(compilation, CacheEngine, assets)
+          (assets) => compressionFn(compilation, assets, CacheEngine)
         );
 
         compilation.hooks.statsPrinter.tap(pluginName, (stats) => {

@@ -213,4 +213,34 @@ describe('CompressionPlugin', () => {
       resolve();
     });
   });
+
+  it('should work in watch mode when "cache" is "false"', async () => {
+    if (getCompiler.isWebpack4()) {
+      expect(true).toBe(true);
+    } else {
+      const compiler = getCompiler('./entry.js', {
+        cache: false,
+      });
+
+      new CompressionPlugin().apply(compiler);
+
+      const stats = await compile(compiler);
+
+      expect(stats.compilation.emittedAssets.size).toBe(7);
+      expect(getAssetsNameAndSize(stats)).toMatchSnapshot('assets');
+      expect(getWarnings(stats)).toMatchSnapshot('errors');
+      expect(getErrors(stats)).toMatchSnapshot('warnings');
+
+      await new Promise(async (resolve) => {
+        const newStats = await compile(compiler);
+
+        expect(newStats.compilation.emittedAssets.size).toBe(0);
+        expect(getAssetsNameAndSize(newStats)).toMatchSnapshot('assets');
+        expect(getWarnings(newStats)).toMatchSnapshot('errors');
+        expect(getErrors(newStats)).toMatchSnapshot('warnings');
+
+        resolve();
+      });
+    }
+  });
 });

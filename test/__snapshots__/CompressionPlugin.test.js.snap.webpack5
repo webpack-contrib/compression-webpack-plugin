@@ -39,6 +39,7 @@ Array [
     "async.async.js?ver=73440247c3513e8f18d5",
     269,
     Object {
+      "fullhash": "73440247c3513e8f18d5",
       "immutable": true,
       "related": Object {
         "gziped": "async.async.js.gz",
@@ -77,6 +78,7 @@ Array [
     "main.js?var=73440247c3513e8f18d5",
     15312,
     Object {
+      "fullhash": "73440247c3513e8f18d5",
       "immutable": true,
       "related": Object {
         "gziped": "main.js.gz",
@@ -90,6 +92,80 @@ Array [
 exports[`CompressionPlugin should work child compilations: errors 1`] = `Array []`;
 
 exports[`CompressionPlugin should work child compilations: warnings 1`] = `Array []`;
+
+exports[`CompressionPlugin should work in watch mode when "cache" is "false": assets 1`] = `
+Array [
+  Array [
+    "09a1a1112c577c2794359715edfcb5ac.png",
+    78117,
+  ],
+  Array [
+    "23fc1d3ac606d117e05a140e0de79806.svg",
+    672,
+  ],
+  Array [
+    "23fc1d3ac606d117e05a140e0de79806.svg.gz",
+    393,
+  ],
+  Array [
+    "async.async.81ea6697ed82fa2176bb.js",
+    269,
+  ],
+  Array [
+    "async.async.81ea6697ed82fa2176bb.js.gz",
+    181,
+  ],
+  Array [
+    "main.f1e836b35a2623bafe34.js",
+    15156,
+  ],
+  Array [
+    "main.f1e836b35a2623bafe34.js.gz",
+    3556,
+  ],
+]
+`;
+
+exports[`CompressionPlugin should work in watch mode when "cache" is "false": assets 2`] = `
+Array [
+  Array [
+    "09a1a1112c577c2794359715edfcb5ac.png",
+    78117,
+  ],
+  Array [
+    "23fc1d3ac606d117e05a140e0de79806.svg",
+    672,
+  ],
+  Array [
+    "23fc1d3ac606d117e05a140e0de79806.svg.gz",
+    393,
+  ],
+  Array [
+    "async.async.81ea6697ed82fa2176bb.js",
+    269,
+  ],
+  Array [
+    "async.async.81ea6697ed82fa2176bb.js.gz",
+    181,
+  ],
+  Array [
+    "main.f1e836b35a2623bafe34.js",
+    15156,
+  ],
+  Array [
+    "main.f1e836b35a2623bafe34.js.gz",
+    3556,
+  ],
+]
+`;
+
+exports[`CompressionPlugin should work in watch mode when "cache" is "false": errors 1`] = `Array []`;
+
+exports[`CompressionPlugin should work in watch mode when "cache" is "false": errors 2`] = `Array []`;
+
+exports[`CompressionPlugin should work in watch mode when "cache" is "false": warnings 1`] = `Array []`;
+
+exports[`CompressionPlugin should work in watch mode when "cache" is "false": warnings 2`] = `Array []`;
 
 exports[`CompressionPlugin should work in watch mode: assets 1`] = `
 Array [
@@ -212,6 +288,7 @@ Array [
     "async.async.js?ver=8cdf224bcea94552590b",
     334,
     Object {
+      "fullhash": "8cdf224bcea94552590b",
       "immutable": true,
       "related": Object {
         "gziped": "async.async.js.gz",
@@ -270,6 +347,7 @@ Array [
     "main.js?var=8cdf224bcea94552590b",
     15373,
     Object {
+      "fullhash": "8cdf224bcea94552590b",
       "immutable": true,
       "related": Object {
         "gziped": "main.js.gz",
@@ -375,6 +453,7 @@ Array [
     "async.async.js?ver=8cdf224bcea94552590b",
     269,
     Object {
+      "fullhash": "8cdf224bcea94552590b",
       "immutable": true,
       "related": Object {
         "brotliCompressed": "async.async.js.br",
@@ -421,6 +500,7 @@ Array [
     "main.js?var=8cdf224bcea94552590b",
     15315,
     Object {
+      "fullhash": "8cdf224bcea94552590b",
       "immutable": true,
       "related": Object {
         "brotliCompressed": "main.js.br",
