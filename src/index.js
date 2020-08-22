@@ -247,21 +247,6 @@ class CompressionPlugin {
     );
 
     for (const assetName of assetNames) {
-      const enqueue = async (task) => {
-        try {
-          // eslint-disable-next-line no-param-reassign
-          task.output = new RawSource(await this.compress(task.input));
-        } catch (error) {
-          compilation.errors.push(error);
-
-          return;
-        }
-
-        await cache.store(task);
-
-        this.afterTask(compilation, task);
-      };
-
       scheduledTasks.push(
         (async () => {
           const task = this.getTask(compilation, assetName).next().value;
@@ -273,7 +258,16 @@ class CompressionPlugin {
           task.output = await cache.get(task, { RawSource });
 
           if (!task.output) {
-            return enqueue(task);
+            try {
+              // eslint-disable-next-line no-param-reassign
+              task.output = new RawSource(await this.compress(task.input));
+            } catch (error) {
+              compilation.errors.push(error);
+
+              return Promise.resolve();
+            }
+
+            await cache.store(task);
           }
 
           this.afterTask(compilation, task);
