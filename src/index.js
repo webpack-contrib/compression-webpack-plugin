@@ -209,7 +209,7 @@ class CompressionPlugin {
     yield task;
   }
 
-  afterTask(compilation, task, weakCache) {
+  afterTask(compilation, task) {
     const { output, input } = task;
 
     if (output.length / input.length > this.options.minRatio) {
@@ -217,21 +217,12 @@ class CompressionPlugin {
     }
 
     const { assetSource, assetName } = task;
-
-    let weakOutput = weakCache.get(assetSource);
-
-    if (!weakOutput) {
-      weakOutput = new RawSource(output);
-
-      weakCache.set(assetSource, weakOutput);
-    }
-
     const newAssetName = CompressionPlugin.interpolateName(
       assetName,
       this.options.filename
     );
 
-    CompressionPlugin.emitAsset(compilation, newAssetName, weakOutput, {
+    CompressionPlugin.emitAsset(compilation, newAssetName, output, {
       compressed: true,
     });
 
@@ -245,7 +236,7 @@ class CompressionPlugin {
     }
   }
 
-  async runTasks(compilation, assetNames, CacheEngine, weakCache) {
+  async runTasks(compilation, assetNames, CacheEngine) {
     const scheduledTasks = [];
     const cache = new CacheEngine(compilation, {
       cache: this.options.cache,
@@ -255,18 +246,16 @@ class CompressionPlugin {
       const enqueue = async (task) => {
         try {
           // eslint-disable-next-line no-param-reassign
-          task.output = await this.compress(task.input);
+          task.output = new RawSource(await this.compress(task.input));
         } catch (error) {
           compilation.errors.push(error);
 
           return;
         }
 
-        if (cache.isEnabled()) {
-          await cache.store(task);
-        }
+        await cache.store(task);
 
-        this.afterTask(compilation, task, weakCache);
+        this.afterTask(compilation, task);
       };
 
       scheduledTasks.push(
@@ -277,23 +266,15 @@ class CompressionPlugin {
             return Promise.resolve();
           }
 
-          if (cache.isEnabled()) {
-            try {
-              task.output = await cache.get(task);
-            } catch (ignoreError) {
-              return enqueue(task);
-            }
+          task.output = await cache.get(task, { RawSource });
 
-            if (!task.output) {
-              return enqueue(task);
-            }
-
-            this.afterTask(compilation, task, weakCache);
-
-            return Promise.resolve();
+          if (!task.output) {
+            return enqueue(task);
           }
 
-          return enqueue(task);
+          this.afterTask(compilation, task);
+
+          return Promise.resolve();
         })()
       );
     }
@@ -312,7 +293,6 @@ class CompressionPlugin {
       undefined,
       this.options
     );
-    const weakCache = new WeakMap();
     const compressionFn = async (compilation, CacheEngine, assets) => {
       const assetNames = Object.keys(
         typeof assets === 'undefined' ? compilation.assets : assets
@@ -322,7 +302,7 @@ class CompressionPlugin {
         return Promise.resolve();
       }
 
-      await this.runTasks(compilation, assetNames, CacheEngine, weakCache);
+      await this.runTasks(compilation, assetNames, CacheEngine);
 
       return Promise.resolve();
     };
