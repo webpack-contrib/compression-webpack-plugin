@@ -212,7 +212,7 @@ class CompressionPlugin {
   afterTask(compilation, task) {
     const { output, input } = task;
 
-    if (output.length / input.length > this.options.minRatio) {
+    if (output.source().length / input.length > this.options.minRatio) {
       return;
     }
 
@@ -236,11 +236,15 @@ class CompressionPlugin {
     }
   }
 
-  async runTasks(compilation, assetNames, CacheEngine) {
+  async runTasks(compilation, assetNames, CacheEngine, weakCache) {
     const scheduledTasks = [];
-    const cache = new CacheEngine(compilation, {
-      cache: this.options.cache,
-    });
+    const cache = new CacheEngine(
+      compilation,
+      {
+        cache: this.options.cache,
+      },
+      weakCache
+    );
 
     for (const assetName of assetNames) {
       const enqueue = async (task) => {
@@ -293,7 +297,12 @@ class CompressionPlugin {
       undefined,
       this.options
     );
-    const compressionFn = async (compilation, CacheEngine, assets) => {
+    const compressionFn = async (
+      compilation,
+      assets,
+      CacheEngine,
+      weakCache
+    ) => {
       const assetNames = Object.keys(
         typeof assets === 'undefined' ? compilation.assets : assets
       ).filter((assetName) => matchObject(assetName));
@@ -302,7 +311,7 @@ class CompressionPlugin {
         return Promise.resolve();
       }
 
-      await this.runTasks(compilation, assetNames, CacheEngine);
+      await this.runTasks(compilation, assetNames, CacheEngine, weakCache);
 
       return Promise.resolve();
     };
@@ -310,11 +319,11 @@ class CompressionPlugin {
     if (CompressionPlugin.isWebpack4()) {
       // eslint-disable-next-line global-require
       const CacheEngine = require('./Webpack4Cache').default;
+      const weakCache = new WeakMap();
 
-      compiler.hooks.emit.tapPromise(
-        { name: pluginName },
+      compiler.hooks.emit.tapPromise({ name: pluginName }, (compilation) =>
         // eslint-disable-next-line no-undefined
-        (compilation) => compressionFn(compilation, CacheEngine)
+        compressionFn(compilation, undefined, CacheEngine, weakCache)
       );
     } else {
       // eslint-disable-next-line global-require
@@ -329,7 +338,7 @@ class CompressionPlugin {
             name: pluginName,
             stage: Compilation.PROCESS_ASSETS_STAGE_OPTIMIZE_TRANSFER,
           },
-          (assets) => compressionFn(compilation, CacheEngine, assets)
+          (assets) => compressionFn(compilation, assets, CacheEngine)
         );
 
         compilation.hooks.statsPrinter.tap(pluginName, (stats) => {

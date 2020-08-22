@@ -4,15 +4,13 @@ import cacache from 'cacache';
 import findCacheDir from 'find-cache-dir';
 import serialize from 'serialize-javascript';
 
-const weakCache = new WeakMap();
-
 export default class Webpack4Cache {
-  constructor(compilation, options) {
-    // TODO rename
-    this.cacheDir =
+  constructor(compilation, options, weakCache) {
+    this.cache =
       options.cache === true
         ? Webpack4Cache.getCacheDirectory()
         : options.cache;
+    this.weakCache = weakCache;
   }
 
   static getCacheDirectory() {
@@ -20,13 +18,13 @@ export default class Webpack4Cache {
   }
 
   async get(task, sources) {
-    const weakOutput = weakCache.get(task.assetSource);
+    const weakOutput = this.weakCache.get(task.assetSource);
 
     if (weakOutput) {
       return weakOutput;
     }
 
-    if (!this.cacheDir) {
+    if (!this.cache) {
       // eslint-disable-next-line no-undefined
       return undefined;
     }
@@ -37,7 +35,7 @@ export default class Webpack4Cache {
     let cachedResult;
 
     try {
-      cachedResult = await cacache.get(this.cacheDir, task.cacheIdent);
+      cachedResult = await cacache.get(this.cache, task.cacheIdent);
     } catch (ignoreError) {
       // eslint-disable-next-line no-undefined
       return undefined;
@@ -49,19 +47,17 @@ export default class Webpack4Cache {
   }
 
   async store(task) {
-    if (!weakCache.has(task.assetSource)) {
-      weakCache.set(task.assetSource, task.output);
+    if (!this.weakCache.has(task.assetSource)) {
+      this.weakCache.set(task.assetSource, task.output);
     }
 
-    const { cacheDir } = this;
-
-    if (!cacheDir) {
+    if (!this.cache) {
       // eslint-disable-next-line no-undefined
       return undefined;
     }
 
     const { cacheIdent, output } = task;
 
-    return cacache.put(cacheDir, cacheIdent, JSON.stringify(output.source()));
+    return cacache.put(this.cache, cacheIdent, JSON.stringify(output.source()));
   }
 }

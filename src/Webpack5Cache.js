@@ -1,6 +1,5 @@
 export default class Cache {
-  // eslint-disable-next-line no-unused-vars
-  constructor(compilation, ignored) {
+  constructor(compilation) {
     this.cache = compilation.getCache('CompressionWebpackPlugin');
   }
 

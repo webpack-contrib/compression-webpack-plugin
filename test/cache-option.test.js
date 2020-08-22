@@ -15,17 +15,19 @@ import {
   getWarnings,
 } from './helpers/index';
 
+const falseCacheDirectory = findCacheDir({ name: 'false-cache-directory' });
 const cacheDir = findCacheDir({ name: 'compression-webpack-plugin' });
 const otherCacheDir = findCacheDir({ name: 'other-cache-directory' });
-const uniqueDirectory = findCacheDir({ name: 'unique-cache-directory' });
+const uniqueCacheDirectory = findCacheDir({ name: 'unique-cache-directory' });
 
 if (getCompiler.isWebpack4()) {
   describe('"cache" option', () => {
     beforeEach(() => {
       return Promise.all([
+        cacache.rm.all(falseCacheDirectory),
         cacache.rm.all(cacheDir),
         cacache.rm.all(otherCacheDir),
-        cacache.rm.all(uniqueDirectory),
+        cacache.rm.all(uniqueCacheDirectory),
       ]);
     });
 
@@ -41,6 +43,12 @@ if (getCompiler.isWebpack4()) {
       cacache.get = jest.fn(cacache.get);
       cacache.put = jest.fn(cacache.put);
 
+      const getCacheDirectorySpy = jest
+        .spyOn(Webpack4Cache, 'getCacheDirectory')
+        .mockImplementation(() => {
+          return falseCacheDirectory;
+        });
+
       const stats = await compile(compiler);
 
       expect(getAssetsNameAndSize(stats)).toMatchSnapshot('assets');
@@ -51,10 +59,12 @@ if (getCompiler.isWebpack4()) {
       expect(cacache.get.mock.calls.length).toBe(0);
       expect(cacache.put.mock.calls.length).toBe(0);
 
-      const cacheEntriesList = await cacache.ls(cacheDir);
+      const cacheEntriesList = await cacache.ls(falseCacheDirectory);
       const cacheKeys = Object.keys(cacheEntriesList);
 
       expect(cacheKeys.length).toBe(0);
+
+      getCacheDirectorySpy.mockRestore();
     });
 
     it('matches snapshot for `true` value ({Boolean})', async () => {
@@ -70,7 +80,7 @@ if (getCompiler.isWebpack4()) {
       const getCacheDirectorySpy = jest
         .spyOn(Webpack4Cache, 'getCacheDirectory')
         .mockImplementation(() => {
-          return uniqueDirectory;
+          return uniqueCacheDirectory;
         });
 
       const stats = await compile(beforeCacheCompiler);
@@ -86,7 +96,7 @@ if (getCompiler.isWebpack4()) {
       // Put files in cache
       expect(cacache.put.mock.calls.length).toBe(countAssets / 2);
 
-      const cacheEntriesList = await cacache.ls(uniqueDirectory);
+      const cacheEntriesList = await cacache.ls(uniqueCacheDirectory);
 
       const cacheKeys = Object.keys(cacheEntriesList);
 
