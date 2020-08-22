@@ -7,11 +7,17 @@ import crypto from 'crypto';
 import url from 'url';
 import path from 'path';
 
-import RawSource from 'webpack-sources/lib/RawSource';
-import { ModuleFilenameHelpers, version as webpackVersion } from 'webpack';
+import webpack, {
+  ModuleFilenameHelpers,
+  version as webpackVersion,
+} from 'webpack';
 import validateOptions from 'schema-utils';
 
 import schema from './options.json';
+
+const { RawSource } =
+  // eslint-disable-next-line global-require
+  webpack.sources || require('webpack-sources');
 
 class CompressionPlugin {
   constructor(options = {}) {
