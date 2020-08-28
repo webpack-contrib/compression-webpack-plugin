@@ -107,12 +107,19 @@ class CompressionPlugin {
     }
   }
 
-  static emitAsset(compilation, name, source, assetInfo) {
+  static emitAsset(compilation, name, source, assetInfo, oldName) {
     // New API
     if (compilation.emitAsset) {
       compilation.emitAsset(name, source, assetInfo);
     }
-
+    
+    // Update chunks to include new asset name as well
+    compilation.chunks.forEach((chunk) => {
+      if(chunk.files.includes(oldName)) {
+        chunk.files.push(name);
+      }
+    });
+ 
     // eslint-disable-next-line no-param-reassign
     compilation.assets[name] = source;
   }
@@ -122,7 +129,7 @@ class CompressionPlugin {
     if (compilation.updateAsset) {
       compilation.updateAsset(name, newSource, assetInfo);
     }
-
+    
     // eslint-disable-next-line no-param-reassign
     compilation.assets[name] = newSource;
   }
@@ -224,7 +231,7 @@ class CompressionPlugin {
 
     CompressionPlugin.emitAsset(compilation, newAssetName, output, {
       compressed: true,
-    });
+    }, assetName);
 
     if (this.options.deleteOriginalAssets) {
       // eslint-disable-next-line no-param-reassign
