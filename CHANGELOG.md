@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-### [5.0.1](https://github.com/webpack-contrib/compression-webpack-plugin/compare/v5.0.0...v5.0.1) (2020-08-22)
+## [5.0.1](https://github.com/webpack-contrib/compression-webpack-plugin/compare/v5.0.0...v5.0.1) (2020-08-22)
 
 
 ### Bug Fixes
@@ -26,7 +26,7 @@ All notable changes to this project will be documented in this file. See [standa
 
 * fix persistent cache between builds
 
-### [4.0.1](https://github.com/webpack-contrib/compression-webpack-plugin/compare/v4.0.0...v4.0.1) (2020-08-12)
+## [4.0.1](https://github.com/webpack-contrib/compression-webpack-plugin/compare/v4.0.0...v4.0.1) (2020-08-12)
 
 
 ### Bug Fixes
