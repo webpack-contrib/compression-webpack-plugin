@@ -169,12 +169,12 @@ class CompressionPlugin {
     for (const assetName of assetNames) {
       scheduledTasks.push(
         (async () => {
-          const {
-            source: assetSource,
-            info: assetInfo,
-          } = CompressionPlugin.getAsset(compilation, assetName);
+          const { source: assetSource, info } = CompressionPlugin.getAsset(
+            compilation,
+            assetName
+          );
 
-          if (assetInfo.compressed) {
+          if (info.compressed) {
             return Promise.resolve();
           }
 
@@ -194,7 +194,7 @@ class CompressionPlugin {
             relatedName = `${this.options.algorithm}ed`;
           }
 
-          if (assetInfo.related && assetInfo.related[relatedName]) {
+          if (info.related && info.related[relatedName]) {
             return Promise.resolve();
           }
 
@@ -208,16 +208,10 @@ class CompressionPlugin {
             return Promise.resolve();
           }
 
-          const task = {
-            assetName,
-            assetSource,
-            assetInfo,
-            input,
-            relatedName,
-          };
+          const cacheData = { assetSource };
 
           if (CompressionPlugin.isWebpack4()) {
-            task.cacheKeys = {
+            cacheData.cacheKeys = {
               nodeVersion: process.version,
               // eslint-disable-next-line global-require
               'compression-webpack-plugin': require('../package.json').version,
@@ -227,31 +221,27 @@ class CompressionPlugin {
               assetName,
               contentHash: crypto.createHash('md4').update(input).digest('hex'),
             };
+          } else {
+            cacheData.assetName = assetName;
           }
 
-          if (!task) {
-            return Promise.resolve();
-          }
+          let output = await cache.get(cacheData, { RawSource });
 
-          task.output = await cache.get(task, { RawSource });
-
-          if (!task.output) {
+          if (!output) {
             try {
-              // eslint-disable-next-line no-param-reassign
-              task.output = new RawSource(await this.compress(task.input));
+              output = new RawSource(await this.compress(input));
             } catch (error) {
               compilation.errors.push(error);
 
               return Promise.resolve();
             }
 
-            await cache.store(task);
+            cacheData.output = output;
+
+            await cache.store(cacheData);
           }
 
-          if (
-            task.output.source().length / task.input.length >
-            this.options.minRatio
-          ) {
+          if (output.source().length / input.length > this.options.minRatio) {
             return Promise.resolve();
           }
 
@@ -260,7 +250,7 @@ class CompressionPlugin {
             this.options.filename
           );
 
-          CompressionPlugin.emitAsset(compilation, newAssetName, task.output, {
+          CompressionPlugin.emitAsset(compilation, newAssetName, output, {
             compressed: true,
           });
 
@@ -268,14 +258,9 @@ class CompressionPlugin {
             // eslint-disable-next-line no-param-reassign
             CompressionPlugin.deleteAsset(compilation, assetName);
           } else {
-            CompressionPlugin.updateAsset(
-              compilation,
-              assetName,
-              task.assetSource,
-              {
-                related: { [task.relatedName]: newAssetName },
-              }
-            );
+            CompressionPlugin.updateAsset(compilation, assetName, assetSource, {
+              related: { [relatedName]: newAssetName },
+            });
           }
 
           return Promise.resolve();

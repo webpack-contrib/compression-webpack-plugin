@@ -3,14 +3,20 @@ export default class Cache {
     this.cache = compilation.getCache('CompressionWebpackPlugin');
   }
 
-  async get(task) {
+  async get(cacheData) {
     // eslint-disable-next-line no-param-reassign
-    task.eTag = task.eTag || this.cache.getLazyHashedEtag(task.assetSource);
+    cacheData.eTag =
+      cacheData.eTag ||
+      cacheData.cache.getLazyHashedEtag(cacheData.assetSource);
 
-    return this.cache.getPromise(task.assetName, task.eTag);
+    return this.cache.getPromise(cacheData.assetName, cacheData.eTag);
   }
 
-  async store(task) {
-    return this.cache.storePromise(task.assetName, task.eTag, task.output);
+  async store(cacheData) {
+    return this.cache.storePromise(
+      cacheData.assetName,
+      cacheData.eTag,
+      cacheData.output
+    );
   }
 }

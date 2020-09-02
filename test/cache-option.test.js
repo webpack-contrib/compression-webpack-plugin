@@ -36,7 +36,7 @@ if (getCompiler.isWebpack4()) {
       ]);
     });
 
-    afterEach(() => {
+    afterAll(() => {
       return Promise.all([
         cacache.rm.all(falseCacheDirectory),
         cacache.rm.all(cacheDir),
