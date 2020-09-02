@@ -65,4 +65,17 @@ describe('"test" option', () => {
     expect(getWarnings(stats)).toMatchSnapshot('errors');
     expect(getErrors(stats)).toMatchSnapshot('warnings');
   });
+
+  it('should work when no asset to compress ', async () => {
+    new CompressionPlugin({
+      test: /\.(unknown)$/i,
+      minRatio: 1,
+    }).apply(compiler);
+
+    const stats = await compile(compiler);
+
+    expect(getAssetsNameAndSize(stats)).toMatchSnapshot('assets');
+    expect(getWarnings(stats)).toMatchSnapshot('errors');
+    expect(getErrors(stats)).toMatchSnapshot('warnings');
+  });
 });
