@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [5.0.2](https://github.com/webpack-contrib/compression-webpack-plugin/compare/v5.0.1...v5.0.2) (2020-09-02)
+
+
+### Bug Fixes
+
+* do not crash when the `algorithm` option return non `Buffer` ([#190](https://github.com/webpack-contrib/compression-webpack-plugin/issues/190)) ([81bf601](https://github.com/webpack-contrib/compression-webpack-plugin/commit/81bf60166caeeea9f5d5a18e1471ed0f7a28c312))
+
 ### [5.0.1](https://github.com/webpack-contrib/compression-webpack-plugin/compare/v5.0.0...v5.0.1) (2020-08-22)
 
 
