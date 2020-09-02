@@ -18,7 +18,7 @@ export default class Webpack4Cache {
   }
 
   async get(cacheData, sources) {
-    const weakOutput = this.weakCache.get(cacheData.assetSource);
+    const weakOutput = this.weakCache.get(cacheData.source);
 
     if (weakOutput) {
       return weakOutput;
@@ -48,8 +48,8 @@ export default class Webpack4Cache {
   }
 
   async store(cacheData) {
-    if (!this.weakCache.has(cacheData.assetSource)) {
-      this.weakCache.set(cacheData.assetSource, cacheData.output);
+    if (!this.weakCache.has(cacheData.source)) {
+      this.weakCache.set(cacheData.source, cacheData.output);
     }
 
     if (!this.cache) {

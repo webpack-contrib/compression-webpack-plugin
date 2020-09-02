@@ -6,8 +6,7 @@ export default class Cache {
   async get(cacheData) {
     // eslint-disable-next-line no-param-reassign
     cacheData.eTag =
-      cacheData.eTag ||
-      cacheData.cache.getLazyHashedEtag(cacheData.assetSource);
+      cacheData.eTag || cacheData.cache.getLazyHashedEtag(cacheData.source);
 
     return this.cache.getPromise(cacheData.assetName, cacheData.eTag);
   }

@@ -169,7 +169,7 @@ class CompressionPlugin {
     for (const assetName of assetNames) {
       scheduledTasks.push(
         (async () => {
-          const { source: assetSource, info } = CompressionPlugin.getAsset(
+          const { source, info } = CompressionPlugin.getAsset(
             compilation,
             assetName
           );
@@ -198,7 +198,7 @@ class CompressionPlugin {
             return;
           }
 
-          let input = assetSource.source();
+          let input = source.source();
 
           if (!Buffer.isBuffer(input)) {
             input = Buffer.from(input);
@@ -208,7 +208,7 @@ class CompressionPlugin {
             return;
           }
 
-          const cacheData = { assetSource };
+          const cacheData = { source };
 
           if (CompressionPlugin.isWebpack4()) {
             cacheData.cacheKeys = {
@@ -258,7 +258,7 @@ class CompressionPlugin {
             // eslint-disable-next-line no-param-reassign
             CompressionPlugin.deleteAsset(compilation, assetName);
           } else {
-            CompressionPlugin.updateAsset(compilation, assetName, assetSource, {
+            CompressionPlugin.updateAsset(compilation, assetName, source, {
               related: { [relatedName]: newAssetName },
             });
           }
