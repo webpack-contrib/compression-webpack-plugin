@@ -137,7 +137,7 @@ class CompressionPlugin {
     delete compilation.assets[name];
   }
 
-  compress(input) {
+  runCompressionAlgorithm(input) {
     return new Promise((resolve, reject) => {
       const { algorithm, compressionOptions } = this;
 
@@ -156,128 +156,121 @@ class CompressionPlugin {
     });
   }
 
-  *getTask(compilation, assetName) {
-    const { source: assetSource, info: assetInfo } = CompressionPlugin.getAsset(
-      compilation,
-      assetName
+  async compress(compilation, assets, CacheEngine, weakCache) {
+    const assetNames = Object.keys(
+      typeof assets === 'undefined' ? compilation.assets : assets
+    ).filter((assetName) =>
+      // eslint-disable-next-line no-undefined
+      ModuleFilenameHelpers.matchObject.bind(undefined, this.options)(assetName)
     );
 
-    if (assetInfo.compressed) {
-      yield false;
+    if (assetNames.length === 0) {
+      return Promise.resolve();
     }
 
-    let relatedName;
-
-    if (typeof this.options.algorithm === 'function') {
-      let filenameForRelatedName = this.options.filename;
-
-      const index = filenameForRelatedName.lastIndexOf('?');
-
-      if (index >= 0) {
-        filenameForRelatedName = filenameForRelatedName.substr(0, index);
-      }
-
-      relatedName = `${path.extname(filenameForRelatedName).slice(1)}ed`;
-    } else {
-      relatedName = `${this.options.algorithm}ed`;
-    }
-
-    if (assetInfo.related && assetInfo.related[relatedName]) {
-      yield false;
-    }
-
-    let input = assetSource.source();
-
-    if (!Buffer.isBuffer(input)) {
-      input = Buffer.from(input);
-    }
-
-    if (input.length < this.options.threshold) {
-      yield false;
-    }
-
-    const task = { assetName, assetSource, assetInfo, input, relatedName };
-
-    if (CompressionPlugin.isWebpack4()) {
-      task.cacheKeys = {
-        nodeVersion: process.version,
-        // eslint-disable-next-line global-require
-        'compression-webpack-plugin': require('../package.json').version,
-        algorithm: this.algorithm,
-        originalAlgorithm: this.options.algorithm,
-        compressionOptions: this.compressionOptions,
-        assetName,
-        contentHash: crypto.createHash('md4').update(input).digest('hex'),
-      };
-    }
-
-    yield task;
-  }
-
-  afterTask(compilation, task) {
-    const { output, input } = task;
-
-    if (output.source().length / input.length > this.options.minRatio) {
-      return;
-    }
-
-    const { assetSource, assetName } = task;
-    const newAssetName = CompressionPlugin.interpolateName(
-      assetName,
-      this.options.filename
-    );
-
-    CompressionPlugin.emitAsset(compilation, newAssetName, output, {
-      compressed: true,
-    });
-
-    if (this.options.deleteOriginalAssets) {
-      // eslint-disable-next-line no-param-reassign
-      CompressionPlugin.deleteAsset(compilation, assetName);
-    } else {
-      CompressionPlugin.updateAsset(compilation, assetName, assetSource, {
-        related: { [task.relatedName]: newAssetName },
-      });
-    }
-  }
-
-  async runTasks(compilation, assetNames, CacheEngine, weakCache) {
     const scheduledTasks = [];
     const cache = new CacheEngine(
       compilation,
-      {
-        cache: this.options.cache,
-      },
+      { cache: this.options.cache },
       weakCache
     );
 
     for (const assetName of assetNames) {
       scheduledTasks.push(
         (async () => {
-          const task = this.getTask(compilation, assetName).next().value;
+          const { source, info } = CompressionPlugin.getAsset(
+            compilation,
+            assetName
+          );
 
-          if (!task) {
-            return Promise.resolve();
+          if (info.compressed) {
+            return;
           }
 
-          task.output = await cache.get(task, { RawSource });
+          let relatedName;
 
-          if (!task.output) {
+          if (typeof this.options.algorithm === 'function') {
+            let filenameForRelatedName = this.options.filename;
+
+            const index = filenameForRelatedName.lastIndexOf('?');
+
+            if (index >= 0) {
+              filenameForRelatedName = filenameForRelatedName.substr(0, index);
+            }
+
+            relatedName = `${path.extname(filenameForRelatedName).slice(1)}ed`;
+          } else {
+            relatedName = `${this.options.algorithm}ed`;
+          }
+
+          if (info.related && info.related[relatedName]) {
+            return;
+          }
+
+          let input = source.source();
+
+          if (!Buffer.isBuffer(input)) {
+            input = Buffer.from(input);
+          }
+
+          if (input.length < this.options.threshold) {
+            return;
+          }
+
+          const cacheData = { source };
+
+          if (CompressionPlugin.isWebpack4()) {
+            cacheData.cacheKeys = {
+              nodeVersion: process.version,
+              // eslint-disable-next-line global-require
+              'compression-webpack-plugin': require('../package.json').version,
+              algorithm: this.algorithm,
+              originalAlgorithm: this.options.algorithm,
+              compressionOptions: this.compressionOptions,
+              assetName,
+              contentHash: crypto.createHash('md4').update(input).digest('hex'),
+            };
+          } else {
+            cacheData.assetName = assetName;
+          }
+
+          let output = await cache.get(cacheData, { RawSource });
+
+          if (!output) {
             try {
-              // eslint-disable-next-line no-param-reassign
-              task.output = new RawSource(await this.compress(task.input));
+              output = new RawSource(await this.runCompressionAlgorithm(input));
             } catch (error) {
               compilation.errors.push(error);
 
-              return Promise.resolve();
+              return;
             }
 
-            await cache.store(task);
+            cacheData.output = output;
+
+            await cache.store(cacheData);
           }
 
-          this.afterTask(compilation, task);
+          if (output.source().length / input.length > this.options.minRatio) {
+            return;
+          }
 
-          return Promise.resolve();
+          const newAssetName = CompressionPlugin.interpolateName(
+            assetName,
+            this.options.filename
+          );
+
+          CompressionPlugin.emitAsset(compilation, newAssetName, output, {
+            compressed: true,
+          });
+
+          if (this.options.deleteOriginalAssets) {
+            // eslint-disable-next-line no-param-reassign
+            CompressionPlugin.deleteAsset(compilation, assetName);
+          } else {
+            CompressionPlugin.updateAsset(compilation, assetName, source, {
+              related: { [relatedName]: newAssetName },
+            });
+          }
         })()
       );
     }
@@ -291,29 +284,6 @@ class CompressionPlugin {
 
   apply(compiler) {
     const pluginName = this.constructor.name;
-    const matchObject = ModuleFilenameHelpers.matchObject.bind(
-      // eslint-disable-next-line no-undefined
-      undefined,
-      this.options
-    );
-    const compressionFn = async (
-      compilation,
-      assets,
-      CacheEngine,
-      weakCache
-    ) => {
-      const assetNames = Object.keys(
-        typeof assets === 'undefined' ? compilation.assets : assets
-      ).filter((assetName) => matchObject(assetName));
-
-      if (assetNames.length === 0) {
-        return Promise.resolve();
-      }
-
-      await this.runTasks(compilation, assetNames, CacheEngine, weakCache);
-
-      return Promise.resolve();
-    };
 
     if (CompressionPlugin.isWebpack4()) {
       // eslint-disable-next-line global-require
@@ -322,7 +292,7 @@ class CompressionPlugin {
 
       compiler.hooks.emit.tapPromise({ name: pluginName }, (compilation) =>
         // eslint-disable-next-line no-undefined
-        compressionFn(compilation, undefined, CacheEngine, weakCache)
+        this.compress(compilation, undefined, CacheEngine, weakCache)
       );
     } else {
       // eslint-disable-next-line global-require
@@ -337,7 +307,7 @@ class CompressionPlugin {
             name: pluginName,
             stage: Compilation.PROCESS_ASSETS_STAGE_OPTIMIZE_TRANSFER,
           },
-          (assets) => compressionFn(compilation, assets, CacheEngine)
+          (assets) => this.compress(compilation, assets, CacheEngine)
         );
 
         compilation.hooks.statsPrinter.tap(pluginName, (stats) => {
