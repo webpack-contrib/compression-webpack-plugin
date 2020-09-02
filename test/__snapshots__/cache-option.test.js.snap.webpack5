@@ -1,5 +1,79 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`"cache" option should work when \`cache\` is \`false\`: assets 1`] = `
+Array [
+  Array [
+    "09a1a1112c577c2794359715edfcb5ac.png",
+    78117,
+  ],
+  Array [
+    "23fc1d3ac606d117e05a140e0de79806.svg",
+    672,
+  ],
+  Array [
+    "23fc1d3ac606d117e05a140e0de79806.svg.gz",
+    393,
+  ],
+  Array [
+    "async.async.1c2911c7c819fc826fb7.js",
+    265,
+  ],
+  Array [
+    "async.async.1c2911c7c819fc826fb7.js.gz",
+    179,
+  ],
+  Array [
+    "main.c14d5dcb1534759d1d95.js",
+    15057,
+  ],
+  Array [
+    "main.c14d5dcb1534759d1d95.js.gz",
+    3537,
+  ],
+]
+`;
+
+exports[`"cache" option should work when \`cache\` is \`false\`: assets 2`] = `
+Array [
+  Array [
+    "09a1a1112c577c2794359715edfcb5ac.png",
+    78117,
+  ],
+  Array [
+    "23fc1d3ac606d117e05a140e0de79806.svg",
+    672,
+  ],
+  Array [
+    "23fc1d3ac606d117e05a140e0de79806.svg.gz",
+    393,
+  ],
+  Array [
+    "async.async.1c2911c7c819fc826fb7.js",
+    265,
+  ],
+  Array [
+    "async.async.1c2911c7c819fc826fb7.js.gz",
+    179,
+  ],
+  Array [
+    "main.c14d5dcb1534759d1d95.js",
+    15057,
+  ],
+  Array [
+    "main.c14d5dcb1534759d1d95.js.gz",
+    3537,
+  ],
+]
+`;
+
+exports[`"cache" option should work when \`cache\` is \`false\`: errors 1`] = `Array []`;
+
+exports[`"cache" option should work when \`cache\` is \`false\`: errors 2`] = `Array []`;
+
+exports[`"cache" option should work when \`cache\` is \`false\`: warnings 1`] = `Array []`;
+
+exports[`"cache" option should work when \`cache\` is \`false\`: warnings 2`] = `Array []`;
+
 exports[`"cache" option should work with "filesystem" value for the "cache.type" option and with the "algorithm" option: assets 1`] = `
 Array [
   Array [
@@ -73,3 +147,151 @@ exports[`"cache" option should work with "filesystem" value for the "cache.type"
 exports[`"cache" option should work with "filesystem" value for the "cache.type" option and with the "algorithm" option: warnings 1`] = `Array []`;
 
 exports[`"cache" option should work with "filesystem" value for the "cache.type" option and with the "algorithm" option: warnings 2`] = `Array []`;
+
+exports[`"cache" option should work with "filesystem" value for the "cache.type" option: assets 1`] = `
+Array [
+  Array [
+    "09a1a1112c577c2794359715edfcb5ac.png",
+    78117,
+  ],
+  Array [
+    "23fc1d3ac606d117e05a140e0de79806.svg",
+    672,
+  ],
+  Array [
+    "23fc1d3ac606d117e05a140e0de79806.svg.gz",
+    393,
+  ],
+  Array [
+    "async.async.1c2911c7c819fc826fb7.js",
+    265,
+  ],
+  Array [
+    "async.async.1c2911c7c819fc826fb7.js.gz",
+    179,
+  ],
+  Array [
+    "main.c14d5dcb1534759d1d95.js",
+    15057,
+  ],
+  Array [
+    "main.c14d5dcb1534759d1d95.js.gz",
+    3537,
+  ],
+]
+`;
+
+exports[`"cache" option should work with "filesystem" value for the "cache.type" option: assets 2`] = `
+Array [
+  Array [
+    "09a1a1112c577c2794359715edfcb5ac.png",
+    78117,
+  ],
+  Array [
+    "23fc1d3ac606d117e05a140e0de79806.svg",
+    672,
+  ],
+  Array [
+    "23fc1d3ac606d117e05a140e0de79806.svg.gz",
+    393,
+  ],
+  Array [
+    "async.async.1c2911c7c819fc826fb7.js",
+    265,
+  ],
+  Array [
+    "async.async.1c2911c7c819fc826fb7.js.gz",
+    179,
+  ],
+  Array [
+    "main.c14d5dcb1534759d1d95.js",
+    15057,
+  ],
+  Array [
+    "main.c14d5dcb1534759d1d95.js.gz",
+    3537,
+  ],
+]
+`;
+
+exports[`"cache" option should work with "filesystem" value for the "cache.type" option: errors 1`] = `Array []`;
+
+exports[`"cache" option should work with "filesystem" value for the "cache.type" option: errors 2`] = `Array []`;
+
+exports[`"cache" option should work with "filesystem" value for the "cache.type" option: warnings 1`] = `Array []`;
+
+exports[`"cache" option should work with "filesystem" value for the "cache.type" option: warnings 2`] = `Array []`;
+
+exports[`"cache" option should work with "memory" value for the "cache.type" option: assets 1`] = `
+Array [
+  Array [
+    "09a1a1112c577c2794359715edfcb5ac.png",
+    78117,
+  ],
+  Array [
+    "23fc1d3ac606d117e05a140e0de79806.svg",
+    672,
+  ],
+  Array [
+    "23fc1d3ac606d117e05a140e0de79806.svg.gz",
+    393,
+  ],
+  Array [
+    "async.async.1c2911c7c819fc826fb7.js",
+    265,
+  ],
+  Array [
+    "async.async.1c2911c7c819fc826fb7.js.gz",
+    179,
+  ],
+  Array [
+    "main.c14d5dcb1534759d1d95.js",
+    15057,
+  ],
+  Array [
+    "main.c14d5dcb1534759d1d95.js.gz",
+    3537,
+  ],
+]
+`;
+
+exports[`"cache" option should work with "memory" value for the "cache.type" option: assets 2`] = `
+Array [
+  Array [
+    "09a1a1112c577c2794359715edfcb5ac.png",
+    78117,
+  ],
+  Array [
+    "23fc1d3ac606d117e05a140e0de79806.svg",
+    672,
+  ],
+  Array [
+    "23fc1d3ac606d117e05a140e0de79806.svg.gz",
+    393,
+  ],
+  Array [
+    "async.async.1c2911c7c819fc826fb7.js",
+    265,
+  ],
+  Array [
+    "async.async.1c2911c7c819fc826fb7.js.gz",
+    179,
+  ],
+  Array [
+    "main.c14d5dcb1534759d1d95.js",
+    15057,
+  ],
+  Array [
+    "main.c14d5dcb1534759d1d95.js.gz",
+    3537,
+  ],
+]
+`;
+
+exports[`"cache" option should work with "memory" value for the "cache.type" option: errors 1`] = `Array []`;
+
+exports[`"cache" option should work with "memory" value for the "cache.type" option: errors 2`] = `Array []`;
+
+exports[`"cache" option should work with "memory" value for the "cache.type" option: warnings 1`] = `Array []`;
+
+exports[`"cache" option should work with "memory" value for the "cache.type" option: warnings 2`] = `Array []`;
