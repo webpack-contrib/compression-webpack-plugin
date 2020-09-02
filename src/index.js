@@ -214,33 +214,6 @@ class CompressionPlugin {
     yield task;
   }
 
-  afterTask(compilation, task) {
-    const { output, input } = task;
-
-    if (output.source().length / input.length > this.options.minRatio) {
-      return;
-    }
-
-    const { assetSource, assetName } = task;
-    const newAssetName = CompressionPlugin.interpolateName(
-      assetName,
-      this.options.filename
-    );
-
-    CompressionPlugin.emitAsset(compilation, newAssetName, output, {
-      compressed: true,
-    });
-
-    if (this.options.deleteOriginalAssets) {
-      // eslint-disable-next-line no-param-reassign
-      CompressionPlugin.deleteAsset(compilation, assetName);
-    } else {
-      CompressionPlugin.updateAsset(compilation, assetName, assetSource, {
-        related: { [task.relatedName]: newAssetName },
-      });
-    }
-  }
-
   async runTasks(compilation, assetNames, CacheEngine, weakCache) {
     const scheduledTasks = [];
     const cache = new CacheEngine(
@@ -275,7 +248,35 @@ class CompressionPlugin {
             await cache.store(task);
           }
 
-          this.afterTask(compilation, task);
+          if (
+            task.output.source().length / task.input.length >
+            this.options.minRatio
+          ) {
+            return Promise.resolve();
+          }
+
+          const newAssetName = CompressionPlugin.interpolateName(
+            assetName,
+            this.options.filename
+          );
+
+          CompressionPlugin.emitAsset(compilation, newAssetName, task.output, {
+            compressed: true,
+          });
+
+          if (this.options.deleteOriginalAssets) {
+            // eslint-disable-next-line no-param-reassign
+            CompressionPlugin.deleteAsset(compilation, assetName);
+          } else {
+            CompressionPlugin.updateAsset(
+              compilation,
+              assetName,
+              task.assetSource,
+              {
+                related: { [task.relatedName]: newAssetName },
+              }
+            );
+          }
 
           return Promise.resolve();
         })()
