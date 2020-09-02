@@ -156,64 +156,6 @@ class CompressionPlugin {
     });
   }
 
-  *getTask(compilation, assetName) {
-    const { source: assetSource, info: assetInfo } = CompressionPlugin.getAsset(
-      compilation,
-      assetName
-    );
-
-    if (assetInfo.compressed) {
-      yield false;
-    }
-
-    let relatedName;
-
-    if (typeof this.options.algorithm === 'function') {
-      let filenameForRelatedName = this.options.filename;
-
-      const index = filenameForRelatedName.lastIndexOf('?');
-
-      if (index >= 0) {
-        filenameForRelatedName = filenameForRelatedName.substr(0, index);
-      }
-
-      relatedName = `${path.extname(filenameForRelatedName).slice(1)}ed`;
-    } else {
-      relatedName = `${this.options.algorithm}ed`;
-    }
-
-    if (assetInfo.related && assetInfo.related[relatedName]) {
-      yield false;
-    }
-
-    let input = assetSource.source();
-
-    if (!Buffer.isBuffer(input)) {
-      input = Buffer.from(input);
-    }
-
-    if (input.length < this.options.threshold) {
-      yield false;
-    }
-
-    const task = { assetName, assetSource, assetInfo, input, relatedName };
-
-    if (CompressionPlugin.isWebpack4()) {
-      task.cacheKeys = {
-        nodeVersion: process.version,
-        // eslint-disable-next-line global-require
-        'compression-webpack-plugin': require('../package.json').version,
-        algorithm: this.algorithm,
-        originalAlgorithm: this.options.algorithm,
-        compressionOptions: this.compressionOptions,
-        assetName,
-        contentHash: crypto.createHash('md4').update(input).digest('hex'),
-      };
-    }
-
-    yield task;
-  }
-
   async runTasks(compilation, assetNames, CacheEngine, weakCache) {
     const scheduledTasks = [];
     const cache = new CacheEngine(
@@ -227,7 +169,65 @@ class CompressionPlugin {
     for (const assetName of assetNames) {
       scheduledTasks.push(
         (async () => {
-          const task = this.getTask(compilation, assetName).next().value;
+          const {
+            source: assetSource,
+            info: assetInfo,
+          } = CompressionPlugin.getAsset(compilation, assetName);
+
+          if (assetInfo.compressed) {
+            return Promise.resolve();
+          }
+
+          let relatedName;
+
+          if (typeof this.options.algorithm === 'function') {
+            let filenameForRelatedName = this.options.filename;
+
+            const index = filenameForRelatedName.lastIndexOf('?');
+
+            if (index >= 0) {
+              filenameForRelatedName = filenameForRelatedName.substr(0, index);
+            }
+
+            relatedName = `${path.extname(filenameForRelatedName).slice(1)}ed`;
+          } else {
+            relatedName = `${this.options.algorithm}ed`;
+          }
+
+          if (assetInfo.related && assetInfo.related[relatedName]) {
+            return Promise.resolve();
+          }
+
+          let input = assetSource.source();
+
+          if (!Buffer.isBuffer(input)) {
+            input = Buffer.from(input);
+          }
+
+          if (input.length < this.options.threshold) {
+            return Promise.resolve();
+          }
+
+          const task = {
+            assetName,
+            assetSource,
+            assetInfo,
+            input,
+            relatedName,
+          };
+
+          if (CompressionPlugin.isWebpack4()) {
+            task.cacheKeys = {
+              nodeVersion: process.version,
+              // eslint-disable-next-line global-require
+              'compression-webpack-plugin': require('../package.json').version,
+              algorithm: this.algorithm,
+              originalAlgorithm: this.options.algorithm,
+              compressionOptions: this.compressionOptions,
+              assetName,
+              contentHash: crypto.createHash('md4').update(input).digest('hex'),
+            };
+          }
 
           if (!task) {
             return Promise.resolve();
