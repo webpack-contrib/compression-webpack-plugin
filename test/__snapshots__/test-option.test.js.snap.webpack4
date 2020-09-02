@@ -102,3 +102,28 @@ Array [
 exports[`"test" option matches snapshot with empty \`test\` value: errors 1`] = `Array []`;
 
 exports[`"test" option matches snapshot with empty \`test\` value: warnings 1`] = `Array []`;
+
+exports[`"test" option should work when no asset to compress : assets 1`] = `
+Array [
+  Array [
+    "09a1a1112c577c2794359715edfcb5ac.png",
+    78117,
+  ],
+  Array [
+    "23fc1d3ac606d117e05a140e0de79806.svg",
+    672,
+  ],
+  Array [
+    "async.async.js?ver=dc74724f7b13a2de5a20",
+    249,
+  ],
+  Array [
+    "main.js?var=dc74724f7b13a2de5a20",
+    11630,
+  ],
+]
+`;
+
+exports[`"test" option should work when no asset to compress : errors 1`] = `Array []`;
+
+exports[`"test" option should work when no asset to compress : warnings 1`] = `Array []`;

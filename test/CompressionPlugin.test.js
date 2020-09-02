@@ -172,7 +172,7 @@ describe('CompressionPlugin', () => {
     expect(getErrors(stats)).toMatchSnapshot('warnings');
   });
 
-  it('should work in watch mode', async () => {
+  it('should work and use weak cache', async () => {
     const compiler = getCompiler('./entry.js');
 
     new CompressionPlugin().apply(compiler);
@@ -214,7 +214,7 @@ describe('CompressionPlugin', () => {
     });
   });
 
-  it('should work in watch mode when "cache" is "false"', async () => {
+  it('should work and use weak cache when "cache" is "false"', async () => {
     if (getCompiler.isWebpack4()) {
       expect(true).toBe(true);
     } else {
@@ -242,5 +242,33 @@ describe('CompressionPlugin', () => {
         resolve();
       });
     }
+  });
+
+  it('should work and show compress assets in stats', async () => {
+    const compiler = getCompiler(
+      './entry.js',
+      {},
+      {
+        stats: 'verbose',
+        output: {
+          path: `${__dirname}/dist`,
+          filename: '[name].js',
+          chunkFilename: '[id].[name].js',
+        },
+      }
+    );
+
+    new CompressionPlugin().apply(compiler);
+
+    const stats = await compile(compiler);
+    const stringStats = stats.toString({ relatedAssets: true });
+    const printedCompressed = stringStats.match(/\[compressed]/g);
+
+    expect(printedCompressed ? printedCompressed.length : 0).toBe(
+      getCompiler.isWebpack4() ? 0 : 3
+    );
+    expect(getAssetsNameAndSize(stats)).toMatchSnapshot('assets');
+    expect(getWarnings(stats)).toMatchSnapshot('errors');
+    expect(getErrors(stats)).toMatchSnapshot('warnings');
   });
 });
