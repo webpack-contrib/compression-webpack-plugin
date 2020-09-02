@@ -315,9 +315,9 @@ class CompressionPlugin {
             .for('asset.info.compressed')
             .tap(
               'compression-webpack-plugin',
-              (minimized, { green, formatFlag }) =>
+              (compressed, { green, formatFlag }) =>
                 // eslint-disable-next-line no-undefined
-                minimized ? green(formatFlag('compressed')) : undefined
+                compressed ? green(formatFlag('compressed')) : undefined
             );
         });
       });
