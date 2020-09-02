@@ -173,7 +173,7 @@ Array [
   ],
   Array [
     "09a1a1112c577c2794359715edfcb5ac.png.gz",
-    73163,
+    73160,
   ],
   Array [
     "23fc1d3ac606d117e05a140e0de79806.svg",
@@ -197,7 +197,7 @@ Array [
   ],
   Array [
     "main.82c6786e32f9c77b44ef.js.gz",
-    3008,
+    3000,
   ],
 ]
 `;
@@ -210,7 +210,7 @@ Array [
   ],
   Array [
     "09a1a1112c577c2794359715edfcb5ac.png.gz",
-    73163,
+    73160,
   ],
   Array [
     "23fc1d3ac606d117e05a140e0de79806.svg",
@@ -234,7 +234,7 @@ Array [
   ],
   Array [
     "main.82c6786e32f9c77b44ef.js.gz",
-    3008,
+    3000,
   ],
 ]
 `;

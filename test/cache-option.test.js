@@ -220,9 +220,13 @@ if (getCompiler.isWebpack4()) {
         cache: otherOtherCacheDir,
         minRatio: 1,
         algorithm: (input, compressionOptions, callback) => {
-          return zlib.gzip(input, compressionOptions, (error, buffer) => {
-            callback(error, Uint8Array.from(buffer));
-          });
+          return zlib.gzip(
+            input,
+            { ...compressionOptions, ...{ level: 9 } },
+            (error, buffer) => {
+              callback(error, Uint8Array.from(buffer));
+            }
+          );
         },
       }).apply(beforeCacheCompiler);
 
@@ -269,9 +273,13 @@ if (getCompiler.isWebpack4()) {
         cache: otherOtherCacheDir,
         minRatio: 1,
         algorithm: (input, compressionOptions, callback) => {
-          return zlib.gzip(input, compressionOptions, (error, buffer) => {
-            callback(error, Uint8Array.from(buffer));
-          });
+          return zlib.gzip(
+            input,
+            { ...compressionOptions, ...{ level: 9 } },
+            (error, buffer) => {
+              callback(error, Uint8Array.from(buffer));
+            }
+          );
         },
       }).apply(afterCacheCompiler);
 
@@ -483,9 +491,13 @@ if (getCompiler.isWebpack4()) {
 
       new CompressionPlugin({
         algorithm: (input, compressionOptions, callback) => {
-          return zlib.gzip(input, compressionOptions, (error, buffer) => {
-            callback(error, Uint8Array.from(buffer));
-          });
+          return zlib.gzip(
+            input,
+            { ...compressionOptions, ...{ level: 9 } },
+            (error, buffer) => {
+              callback(error, Uint8Array.from(buffer));
+            }
+          );
         },
       }).apply(compiler);
 
