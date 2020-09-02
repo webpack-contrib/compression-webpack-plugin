@@ -175,7 +175,7 @@ class CompressionPlugin {
           );
 
           if (info.compressed) {
-            return Promise.resolve();
+            return;
           }
 
           let relatedName;
@@ -195,7 +195,7 @@ class CompressionPlugin {
           }
 
           if (info.related && info.related[relatedName]) {
-            return Promise.resolve();
+            return;
           }
 
           let input = assetSource.source();
@@ -205,7 +205,7 @@ class CompressionPlugin {
           }
 
           if (input.length < this.options.threshold) {
-            return Promise.resolve();
+            return;
           }
 
           const cacheData = { assetSource };
@@ -233,7 +233,7 @@ class CompressionPlugin {
             } catch (error) {
               compilation.errors.push(error);
 
-              return Promise.resolve();
+              return;
             }
 
             cacheData.output = output;
@@ -242,7 +242,7 @@ class CompressionPlugin {
           }
 
           if (output.source().length / input.length > this.options.minRatio) {
-            return Promise.resolve();
+            return;
           }
 
           const newAssetName = CompressionPlugin.interpolateName(
@@ -262,8 +262,6 @@ class CompressionPlugin {
               related: { [relatedName]: newAssetName },
             });
           }
-
-          return Promise.resolve();
         })()
       );
     }
