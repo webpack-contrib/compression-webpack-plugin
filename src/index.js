@@ -146,6 +146,11 @@ class CompressionPlugin {
           return reject(error);
         }
 
+        if (!Buffer.isBuffer(result)) {
+          // eslint-disable-next-line no-param-reassign
+          result = Buffer.from(result);
+        }
+
         return resolve(result);
       });
     });
