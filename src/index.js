@@ -137,7 +137,7 @@ class CompressionPlugin {
     delete compilation.assets[name];
   }
 
-  compress(input) {
+  runCompressionAlgorithm(input) {
     return new Promise((resolve, reject) => {
       const { algorithm, compressionOptions } = this;
 
@@ -156,13 +156,22 @@ class CompressionPlugin {
     });
   }
 
-  async runTasks(compilation, assetNames, CacheEngine, weakCache) {
+  async compress(compilation, assets, CacheEngine, weakCache) {
+    const assetNames = Object.keys(
+      typeof assets === 'undefined' ? compilation.assets : assets
+    ).filter((assetName) =>
+      // eslint-disable-next-line no-undefined
+      ModuleFilenameHelpers.matchObject.bind(undefined, this.options)(assetName)
+    );
+
+    if (assetNames.length === 0) {
+      return Promise.resolve();
+    }
+
     const scheduledTasks = [];
     const cache = new CacheEngine(
       compilation,
-      {
-        cache: this.options.cache,
-      },
+      { cache: this.options.cache },
       weakCache
     );
 
@@ -229,7 +238,7 @@ class CompressionPlugin {
 
           if (!output) {
             try {
-              output = new RawSource(await this.compress(input));
+              output = new RawSource(await this.runCompressionAlgorithm(input));
             } catch (error) {
               compilation.errors.push(error);
 
@@ -275,29 +284,6 @@ class CompressionPlugin {
 
   apply(compiler) {
     const pluginName = this.constructor.name;
-    const matchObject = ModuleFilenameHelpers.matchObject.bind(
-      // eslint-disable-next-line no-undefined
-      undefined,
-      this.options
-    );
-    const compressionFn = async (
-      compilation,
-      assets,
-      CacheEngine,
-      weakCache
-    ) => {
-      const assetNames = Object.keys(
-        typeof assets === 'undefined' ? compilation.assets : assets
-      ).filter((assetName) => matchObject(assetName));
-
-      if (assetNames.length === 0) {
-        return Promise.resolve();
-      }
-
-      await this.runTasks(compilation, assetNames, CacheEngine, weakCache);
-
-      return Promise.resolve();
-    };
 
     if (CompressionPlugin.isWebpack4()) {
       // eslint-disable-next-line global-require
@@ -306,7 +292,7 @@ class CompressionPlugin {
 
       compiler.hooks.emit.tapPromise({ name: pluginName }, (compilation) =>
         // eslint-disable-next-line no-undefined
-        compressionFn(compilation, undefined, CacheEngine, weakCache)
+        this.compress(compilation, undefined, CacheEngine, weakCache)
       );
     } else {
       // eslint-disable-next-line global-require
@@ -321,7 +307,7 @@ class CompressionPlugin {
             name: pluginName,
             stage: Compilation.PROCESS_ASSETS_STAGE_OPTIMIZE_TRANSFER,
           },
-          (assets) => compressionFn(compilation, assets, CacheEngine)
+          (assets) => this.compress(compilation, assets, CacheEngine)
         );
 
         compilation.hooks.statsPrinter.tap(pluginName, (stats) => {
