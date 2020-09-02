@@ -261,10 +261,12 @@ describe('CompressionPlugin', () => {
     new CompressionPlugin().apply(compiler);
 
     const stats = await compile(compiler);
+    const stringStats = stats.toString({ relatedAssets: true });
+    const printedCompressed = stringStats.match(/\[compressed]/g);
 
-    expect(
-      stats.toString({ relatedAssets: true }).match(/\[compressed]/g).length
-    ).toBe(getCompiler.isWebpack4() ? 0 : 3);
+    expect(printedCompressed ? printedCompressed.length : 0).toBe(
+      getCompiler.isWebpack4() ? 0 : 3
+    );
     expect(getAssetsNameAndSize(stats)).toMatchSnapshot('assets');
     expect(getWarnings(stats)).toMatchSnapshot('errors');
     expect(getErrors(stats)).toMatchSnapshot('warnings');
