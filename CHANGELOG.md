@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [6.0.0](https://github.com/webpack-contrib/compression-webpack-plugin/compare/v5.0.2...v6.0.0) (2020-09-14)
+
+
+### ⚠ BREAKING CHANGES
+
+* default value of the `filename` option was changed to `"[path][base].gz"`
+* removed the `[dir]` placeholder, please use the `[path]` placeholder
+* the `Function` type of the `filename` option should return value with placeholders, please see an [example](https://github.com/webpack-contrib/compression-webpack-plugin#function-1)
+
+### Features
+
+* added `[fragment]`, `[base]` and `[path]` placeholders for the `filename` option
+
+### Bug Fixes
+
+* caching ([#194](https://github.com/webpack-contrib/compression-webpack-plugin/issues/194)) ([9de2a88](https://github.com/webpack-contrib/compression-webpack-plugin/commit/9de2a88ccb7b16a84a4e1e08ae0889bc589a0089))
+* respect `immutable` flag for assets
+
 ### [5.0.2](https://github.com/webpack-contrib/compression-webpack-plugin/compare/v5.0.1...v5.0.2) (2020-09-02)
 
 

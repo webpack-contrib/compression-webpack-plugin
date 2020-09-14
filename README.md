@@ -230,7 +230,7 @@ module.exports = {
 ### `filename`
 
 Type: `String|Function`
-Default: `[path][base].gz`
+Default: `"[path][base].gz"`
 
 The target asset filename.
 
