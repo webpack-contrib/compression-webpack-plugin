@@ -2,7 +2,10 @@ import zlib from 'zlib';
 import path from 'path';
 
 import webpack from 'webpack';
+import findCacheDir from 'find-cache-dir';
+import cacache from 'cacache';
 
+import Webpack4Cache from '../src/Webpack4Cache';
 import CompressionPlugin from '../src/index';
 
 import {
@@ -17,9 +20,18 @@ import {
   removeCache,
 } from './helpers/index';
 
+const cacheDir1 = findCacheDir({ name: 'compression-webpack-plugin-cache-1' });
+const cacheDir2 = findCacheDir({ name: 'compression-webpack-plugin-cache-2' });
+const cacheDir3 = findCacheDir({ name: 'compression-webpack-plugin-cache-3' });
+
 describe('CompressionPlugin', () => {
-  beforeEach(() => {
-    return removeCache();
+  beforeAll(() => {
+    return Promise.all([
+      removeCache(),
+      cacache.rm.all(cacheDir1),
+      cacache.rm.all(cacheDir2),
+      cacache.rm.all(cacheDir3),
+    ]);
   });
 
   it('should work', async () => {
@@ -230,6 +242,12 @@ describe('CompressionPlugin', () => {
   });
 
   it('should work and use memory cache without options in the "development" mode', async () => {
+    const getCacheDirectorySpy = jest
+      .spyOn(Webpack4Cache, 'getCacheDirectory')
+      .mockImplementation(() => {
+        return cacheDir1;
+      });
+
     const compiler = getCompiler('./entry.js', {}, { mode: 'development' });
 
     new CompressionPlugin().apply(compiler);
@@ -267,11 +285,19 @@ describe('CompressionPlugin', () => {
       expect(getWarnings(newStats)).toMatchSnapshot('errors');
       expect(getErrors(newStats)).toMatchSnapshot('warnings');
 
+      getCacheDirectorySpy.mockRestore();
+
       resolve();
     });
   });
 
   it('should work and use memory cache when the "cache" option is "true"', async () => {
+    const getCacheDirectorySpy = jest
+      .spyOn(Webpack4Cache, 'getCacheDirectory')
+      .mockImplementation(() => {
+        return cacheDir2;
+      });
+
     const compiler = getCompiler(
       './entry.js',
       {},
@@ -320,11 +346,19 @@ describe('CompressionPlugin', () => {
       expect(getWarnings(newStats)).toMatchSnapshot('errors');
       expect(getErrors(newStats)).toMatchSnapshot('warnings');
 
+      getCacheDirectorySpy.mockRestore();
+
       resolve();
     });
   });
 
   it('should work and use memory cache when the "cache" option is "true" and the asset has been changed', async () => {
+    const getCacheDirectorySpy = jest
+      .spyOn(Webpack4Cache, 'getCacheDirectory')
+      .mockImplementation(() => {
+        return cacheDir3;
+      });
+
     const compiler = getCompiler(
       './entry.js',
       {},
@@ -374,6 +408,8 @@ describe('CompressionPlugin', () => {
       expect(getAssetsNameAndSize(newStats)).toMatchSnapshot('assets');
       expect(getWarnings(newStats)).toMatchSnapshot('errors');
       expect(getErrors(newStats)).toMatchSnapshot('warnings');
+
+      getCacheDirectorySpy.mockRestore();
 
       resolve();
     });

@@ -26,17 +26,7 @@ const uniqueCacheDirectory = findCacheDir({ name: 'unique-cache-directory' });
 
 if (getCompiler.isWebpack4()) {
   describe('"cache" option', () => {
-    beforeEach(() => {
-      return Promise.all([
-        cacache.rm.all(falseCacheDirectory),
-        cacache.rm.all(cacheDir),
-        cacache.rm.all(otherCacheDir),
-        cacache.rm.all(uniqueCacheDirectory),
-        cacache.rm.all(otherOtherCacheDir),
-      ]);
-    });
-
-    afterAll(() => {
+    beforeAll(() => {
       return Promise.all([
         cacache.rm.all(falseCacheDirectory),
         cacache.rm.all(cacheDir),
