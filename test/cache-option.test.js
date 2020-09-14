@@ -119,7 +119,7 @@ if (getCompiler.isWebpack4()) {
         const cacheEntryOptions = new Function(
           `'use strict'\nreturn ${cacheEntry}`
         )();
-        const basename = path.basename(cacheEntryOptions.assetName);
+        const basename = path.basename(cacheEntryOptions.name);
 
         expect([basename, cacheEntryOptions.contentHash]).toMatchSnapshot(
           basename
@@ -184,7 +184,7 @@ if (getCompiler.isWebpack4()) {
         const cacheEntryOptions = new Function(
           `'use strict'\nreturn ${cacheEntry}`
         )();
-        const basename = path.basename(cacheEntryOptions.assetName);
+        const basename = path.basename(cacheEntryOptions.name);
 
         expect([basename, cacheEntryOptions.contentHash]).toMatchSnapshot(
           basename
@@ -257,7 +257,7 @@ if (getCompiler.isWebpack4()) {
         const cacheEntryOptions = new Function(
           `'use strict'\nreturn ${cacheEntry}`
         )();
-        const basename = path.basename(cacheEntryOptions.assetName);
+        const basename = path.basename(cacheEntryOptions.name);
 
         expect([basename, cacheEntryOptions.contentHash]).toMatchSnapshot(
           basename

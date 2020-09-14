@@ -17,16 +17,16 @@ export default class Webpack4Cache {
     return findCacheDir({ name: 'compression-webpack-plugin' }) || os.tmpdir();
   }
 
-  async get(cacheData, sources) {
-    const weakOutput = this.weakCache.get(cacheData.source);
-
-    if (weakOutput) {
-      return weakOutput;
-    }
-
+  async get(cacheData, { RawSource }) {
     if (!this.cache) {
       // eslint-disable-next-line no-undefined
       return undefined;
+    }
+
+    const weakOutput = this.weakCache.get(cacheData.inputSource);
+
+    if (weakOutput) {
+      return weakOutput;
     }
 
     // eslint-disable-next-line no-param-reassign
@@ -42,19 +42,17 @@ export default class Webpack4Cache {
       return undefined;
     }
 
-    return new sources.RawSource(
-      Buffer.from(JSON.parse(cachedResult.data).data)
-    );
+    return new RawSource(Buffer.from(JSON.parse(cachedResult.data).data));
   }
 
   async store(cacheData) {
-    if (!this.weakCache.has(cacheData.source)) {
-      this.weakCache.set(cacheData.source, cacheData.output);
-    }
-
     if (!this.cache) {
       // eslint-disable-next-line no-undefined
       return undefined;
+    }
+
+    if (!this.weakCache.has(cacheData.inputSource)) {
+      this.weakCache.set(cacheData.inputSource, cacheData.output);
     }
 
     const { cacheIdent, output } = cacheData;

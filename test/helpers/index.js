@@ -5,6 +5,7 @@ import getAssetsNameAndSize from './getAssetsNameAndSize';
 import getCompiler from './getCompiler';
 import getErrors from './getErrors';
 import getWarnings from './getWarnings';
+import ModifyExistingAsset from './ModifyExistingAsset';
 import normalizeErrors from './normalizeErrors';
 import readAsset from './readAsset';
 import readsAssets from './readAssets';
@@ -18,6 +19,7 @@ export {
   getCompiler,
   getErrors,
   getWarnings,
+  ModifyExistingAsset,
   normalizeErrors,
   readAsset,
   readsAssets,

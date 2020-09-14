@@ -175,12 +175,12 @@ class CompressionPlugin {
       weakCache
     );
 
-    for (const assetName of assetNames) {
+    for (const name of assetNames) {
       scheduledTasks.push(
         (async () => {
-          const { source, info } = CompressionPlugin.getAsset(
+          const { source: inputSource, info } = CompressionPlugin.getAsset(
             compilation,
-            assetName
+            name
           );
 
           if (info.compressed) {
@@ -207,7 +207,7 @@ class CompressionPlugin {
             return;
           }
 
-          let input = source.source();
+          let input = inputSource.source();
 
           if (!Buffer.isBuffer(input)) {
             input = Buffer.from(input);
@@ -217,7 +217,7 @@ class CompressionPlugin {
             return;
           }
 
-          const cacheData = { source };
+          const cacheData = { inputSource };
 
           if (CompressionPlugin.isWebpack4()) {
             cacheData.cacheKeys = {
@@ -227,11 +227,11 @@ class CompressionPlugin {
               algorithm: this.algorithm,
               originalAlgorithm: this.options.algorithm,
               compressionOptions: this.compressionOptions,
-              assetName,
+              name,
               contentHash: crypto.createHash('md4').update(input).digest('hex'),
             };
           } else {
-            cacheData.assetName = assetName;
+            cacheData.name = name;
           }
 
           let output = await cache.get(cacheData, { RawSource });
@@ -255,21 +255,39 @@ class CompressionPlugin {
           }
 
           const newAssetName = CompressionPlugin.interpolateName(
-            assetName,
+            name,
             this.options.filename
           );
 
-          CompressionPlugin.emitAsset(compilation, newAssetName, output, {
-            compressed: true,
-          });
+          const newInfo = { compressed: true };
+
+          if (info.immutable) {
+            newInfo.immutable = true;
+          }
+
+          CompressionPlugin.emitAsset(
+            compilation,
+            newAssetName,
+            output,
+            newInfo
+          );
 
           if (this.options.deleteOriginalAssets) {
             // eslint-disable-next-line no-param-reassign
-            CompressionPlugin.deleteAsset(compilation, assetName);
+            CompressionPlugin.deleteAsset(compilation, name);
           } else {
-            CompressionPlugin.updateAsset(compilation, assetName, source, {
+            // TODO `...` required only for webpack@4
+            const newOriginalInfo = {
+              ...info,
               related: { [relatedName]: newAssetName },
-            });
+            };
+
+            CompressionPlugin.updateAsset(
+              compilation,
+              name,
+              inputSource,
+              newOriginalInfo
+            );
           }
         })()
       );
