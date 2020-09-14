@@ -148,23 +148,23 @@ describe('CompressionPlugin', () => {
 
     new CompressionPlugin({
       algorithm: 'gzip',
-      filename: '[path].gz',
+      filename: '[path][base].gz',
     }).apply(compiler);
     new CompressionPlugin({
       algorithm: 'brotliCompress',
-      filename: '[path].br',
+      filename: '[path][base].br',
     }).apply(compiler);
     new CompressionPlugin({
       algorithm: (input, options, callback) => {
         return callback(input);
       },
-      filename: '[path].compress',
+      filename: '[path][base].compress',
     }).apply(compiler);
     new CompressionPlugin({
       algorithm: (input, options, callback) => {
         return callback(input);
       },
-      filename: '[path].custom?foo=bar#hash',
+      filename: '[path][base].custom?foo=bar#hash',
     }).apply(compiler);
 
     const stats = await compile(compiler);
