@@ -239,11 +239,17 @@ The target asset filename.
 For example we have `assets/images/image.png?foo=bar#hash`:
 
 `[path]` is replaced with the directories to the original asset, included trailing `/` (`assets/images/`).
+
 `[file]` is replaced with the path of original asset (`assets/images/image.png`).
+
 `[base]` is replaced with the base (`[name]` + `[ext]`) of the original asset (`image.png`).
+
 `[name]` is replaced with the name of the original asset (`image`).
+
 `[ext]` is replaced with the extension of the original asset, included `.` (`.png`).
+
 `[query]` is replaced with the query of the original asset, included `?` (`?foo=bar`).
+
 `[fragment]` is replaced with the fragment (in the concept of URL it is called `hash`) of the original asset (`#hash`).
 
 **webpack.config.js**
