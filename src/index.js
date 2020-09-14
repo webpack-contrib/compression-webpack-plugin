@@ -4,7 +4,6 @@
 */
 
 import crypto from 'crypto';
-import url from 'url';
 import path from 'path';
 
 import webpack, {
@@ -33,7 +32,7 @@ class CompressionPlugin {
       cache = true,
       algorithm = 'gzip',
       compressionOptions = {},
-      filename = '[path].gz',
+      filename = '[base].gz',
       threshold = 0,
       minRatio = 0.8,
       deleteOriginalAssets = false,
@@ -72,27 +71,6 @@ class CompressionPlugin {
         ...this.compressionOptions,
       };
     }
-  }
-
-  static interpolateName(originalFilename, filename) {
-    const parse = url.parse(originalFilename);
-    const { pathname } = parse;
-    const { dir, name, ext } = path.parse(pathname);
-    const info = {
-      file: originalFilename,
-      path: pathname,
-      dir: dir ? `${dir}/` : '',
-      name,
-      ext,
-      query: parse.query ? `?${parse.query}` : '',
-    };
-
-    return typeof filename === 'function'
-      ? filename(info)
-      : filename.replace(
-          /\[(file|path|query|dir|name|ext)]/g,
-          (p0, p1) => info[p1]
-        );
   }
 
   // eslint-disable-next-line consistent-return
@@ -254,23 +232,48 @@ class CompressionPlugin {
             return;
           }
 
-          const newAssetName = CompressionPlugin.interpolateName(
-            name,
-            this.options.filename
+          const match = /^([^?#]*)(\?[^#]*)?(#.*)?$/.exec(name);
+          const [, replacerFile] = match;
+          const replacerQuery = match[2] || '';
+          const replacerFragment = match[3] || '';
+          const replacerExt = path.extname(replacerFile);
+          const replacerBase = path.basename(replacerFile);
+          const replacerName = replacerBase.slice(
+            0,
+            replacerBase.length - replacerExt.length
+          );
+          const replacerPath = replacerFile.slice(
+            0,
+            replacerFile.length - replacerBase.length
+          );
+          const pathData = {
+            file: replacerFile,
+            query: replacerQuery,
+            fragment: replacerFragment,
+            path: replacerPath,
+            base: replacerBase,
+            name: replacerName,
+            ext: replacerExt || '',
+          };
+
+          let newFilename = this.options.filename;
+
+          if (typeof newFilename === 'function') {
+            newFilename = newFilename(pathData);
+          }
+
+          const newName = newFilename.replace(
+            /\[(file|query|fragment|path|base|name|ext)]/g,
+            (p0, p1) => pathData[p1]
           );
 
           const newInfo = { compressed: true };
 
-          if (info.immutable) {
+          if (info.immutable && /(\[name]|\[base]|\[file])/.test(newFilename)) {
             newInfo.immutable = true;
           }
 
-          CompressionPlugin.emitAsset(
-            compilation,
-            newAssetName,
-            output,
-            newInfo
-          );
+          CompressionPlugin.emitAsset(compilation, newName, output, newInfo);
 
           if (this.options.deleteOriginalAssets) {
             // eslint-disable-next-line no-param-reassign
@@ -279,7 +282,7 @@ class CompressionPlugin {
             // TODO `...` required only for webpack@4
             const newOriginalInfo = {
               ...info,
-              related: { [relatedName]: newAssetName },
+              related: { [relatedName]: newName },
             };
 
             CompressionPlugin.updateAsset(

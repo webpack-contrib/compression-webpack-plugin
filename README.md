@@ -49,7 +49,7 @@ And run `webpack` via your preferred method.
 | **[`compressionOptions`](#compressionoptions)** |                `{Object}`                 | `{ level: 9 }` | Compression options for `algorithm`                                                                           |
 |          **[`threshold`](#threshold)**          |                `{Number}`                 |      `0`       | Only assets bigger than this size are processed (in bytes)                                                    |
 |           **[`minRatio`](#minratio)**           |                `{Number}`                 |     `0.8`      | Only assets that compress better than this ratio are processed (`minRatio = Compressed Size / Original Size`) |
-|           **[`filename`](#filename)**           |           `{String\|Function}`            |  `[path].gz`   | The target asset filename.                                                                                    |
+|           **[`filename`](#filename)**           |           `{String\|Function}`            |  `[base].gz`   | The target asset filename.                                                                                    |
 |              **[`cache`](#cache)**              |                `{Boolean}`                |     `true`     | Enable file caching                                                                                           |
 
 ### `test`
@@ -230,18 +230,27 @@ module.exports = {
 ### `filename`
 
 Type: `String|Function`
-Default: `[path].gz[query]`
+Default: `[path][base].gz`
 
 The target asset filename.
 
 #### `String`
 
-`[file]` is replaced with the original asset filename.
-`[path]` is replaced with the path of the original asset.
-`[dir]` is replaced with the directory of the original asset.
-`[name]` is replaced with the filename of the original asset.
-`[ext]` is replaced with the extension of the original asset.
-`[query]` is replaced with the query.
+For example we have `assets/images/image.png?foo=bar#hash`:
+
+`[path]` is replaced with the directories to the original asset, included trailing `/` (`assets/images/`).
+
+`[file]` is replaced with the path of original asset (`assets/images/image.png`).
+
+`[base]` is replaced with the base (`[name]` + `[ext]`) of the original asset (`image.png`).
+
+`[name]` is replaced with the name of the original asset (`image`).
+
+`[ext]` is replaced with the extension of the original asset, included `.` (`.png`).
+
+`[query]` is replaced with the query of the original asset, included `?` (`?foo=bar`).
+
+`[fragment]` is replaced with the fragment (in the concept of URL it is called `hash`) of the original asset (`#hash`).
 
 **webpack.config.js**
 
@@ -263,11 +272,14 @@ module.exports = {
 module.exports = {
   plugins: [
     new CompressionPlugin({
-      filename(info) {
-        // info.file is the original asset filename
-        // info.path is the path of the original asset
-        // info.query is the query
-        return `${info.path}.gz${info.query}`;
+      filename(pathData) {
+        // The `pathData` argument contains all placeholders - `path`/`name`/`ext`/etc
+        // Available properties described above, for the `String` notation
+        if (/\.svg$/.test(pathData.file)) {
+          return 'assets/svg/[path][base].gz';
+        }
+
+        return 'assets/js/[path][base].gz';
       },
     }),
   ],

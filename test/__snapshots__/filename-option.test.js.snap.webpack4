@@ -1,17 +1,17 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`"filename" option matches snapshot for \`[dir][name].super-compressed.gz[ext][query]\` value ({String}): assets 1`] = `
+exports[`"filename" option matches snapshot for \`[name][ext].super-compressed.gz[query]\` value ({String}): assets 1`] = `
 Array [
   Array [
     "09a1a1112c577c2794359715edfcb5ac.png",
     78117,
   ],
   Array [
-    "09a1a1112c577c2794359715edfcb5ac.super-compressed.gz.png",
+    "09a1a1112c577c2794359715edfcb5ac.super-compressed.png.gz",
     73160,
   ],
   Array [
-    "23fc1d3ac606d117e05a140e0de79806.super-compressed.gz.svg",
+    "23fc1d3ac606d117e05a140e0de79806.super-compressed.svg.gz",
     393,
   ],
   Array [
@@ -23,7 +23,7 @@ Array [
     249,
   ],
   Array [
-    "async.async.super-compressed.gz.js?ver=dc74724f7b13a2de5a20",
+    "async.async.super-compressed.js.gz?ver=dc74724f7b13a2de5a20",
     171,
   ],
   Array [
@@ -31,17 +31,17 @@ Array [
     11630,
   ],
   Array [
-    "main.super-compressed.gz.js?var=dc74724f7b13a2de5a20",
+    "main.super-compressed.js.gz?var=dc74724f7b13a2de5a20",
     3002,
   ],
 ]
 `;
 
-exports[`"filename" option matches snapshot for \`[dir][name].super-compressed.gz[ext][query]\` value ({String}): errors 1`] = `Array []`;
+exports[`"filename" option matches snapshot for \`[name][ext].super-compressed.gz[query]\` value ({String}): errors 1`] = `Array []`;
 
-exports[`"filename" option matches snapshot for \`[dir][name].super-compressed.gz[ext][query]\` value ({String}): warnings 1`] = `Array []`;
+exports[`"filename" option matches snapshot for \`[name][ext].super-compressed.gz[query]\` value ({String}): warnings 1`] = `Array []`;
 
-exports[`"filename" option matches snapshot for \`[path].super-compressed.gz[query]\` value ({String}): assets 1`] = `
+exports[`"filename" option matches snapshot for \`[path][base].super-compressed.gz[query][fragment]\` value ({String}): assets 1`] = `
 Array [
   Array [
     "09a1a1112c577c2794359715edfcb5ac.png",
@@ -60,27 +60,27 @@ Array [
     393,
   ],
   Array [
-    "async.async.js.super-compressed.gz?ver=dc74724f7b13a2de5a20",
+    "assets/js/async.async.js.super-compressed.gz?ver=6532e4640290c0b395f3#hash",
     171,
   ],
   Array [
-    "async.async.js?ver=dc74724f7b13a2de5a20",
+    "assets/js/async.async.js?ver=6532e4640290c0b395f3#hash",
     249,
   ],
   Array [
-    "main.js.super-compressed.gz?var=dc74724f7b13a2de5a20",
-    3002,
+    "assets/js/main.js.super-compressed.gz?var=6532e4640290c0b395f3#hash",
+    3015,
   ],
   Array [
-    "main.js?var=dc74724f7b13a2de5a20",
-    11630,
+    "assets/js/main.js?var=6532e4640290c0b395f3#hash",
+    11645,
   ],
 ]
 `;
 
-exports[`"filename" option matches snapshot for \`[path].super-compressed.gz[query]\` value ({String}): errors 1`] = `Array []`;
+exports[`"filename" option matches snapshot for \`[path][base].super-compressed.gz[query][fragment]\` value ({String}): errors 1`] = `Array []`;
 
-exports[`"filename" option matches snapshot for \`[path].super-compressed.gz[query]\` value ({String}): warnings 1`] = `Array []`;
+exports[`"filename" option matches snapshot for \`[path][base].super-compressed.gz[query][fragment]\` value ({String}): warnings 1`] = `Array []`;
 
 exports[`"filename" option matches snapshot for custom function ({Function}): assets 1`] = `
 Array [
@@ -101,20 +101,20 @@ Array [
     393,
   ],
   Array [
-    "async.async.js.gz?ver=dc74724f7b13a2de5a20",
+    "async.async.js.gz?ver=56cecc99721c0a179d38",
     171,
   ],
   Array [
-    "async.async.js?ver=dc74724f7b13a2de5a20",
+    "async.async.js?ver=56cecc99721c0a179d38#hash",
     249,
   ],
   Array [
-    "main.js.gz?var=dc74724f7b13a2de5a20",
-    3002,
+    "main.js.gz?var=56cecc99721c0a179d38",
+    3007,
   ],
   Array [
-    "main.js?var=dc74724f7b13a2de5a20",
-    11630,
+    "main.js?var=56cecc99721c0a179d38#hash",
+    11635,
   ],
 ]
 `;
