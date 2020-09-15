@@ -258,7 +258,7 @@ For example we have `assets/images/image.png?foo=bar#hash`:
 module.exports = {
   plugins: [
     new CompressionPlugin({
-      filename: '[path].gz',
+      filename: '[path][base].gz',
     }),
   ],
 };
@@ -396,7 +396,7 @@ const zlib = require('zlib');
 module.exports = {
   plugins: [
     new CompressionPlugin({
-      filename: '[path].br',
+      filename: '[path][base].br',
       algorithm: 'brotliCompress',
       test: /\.(js|css|html|svg)$/,
       compressionOptions: {
@@ -423,14 +423,14 @@ const zlib = require('zlib');
 module.exports = {
   plugins: [
     new CompressionPlugin({
-      filename: '[path].gz',
+      filename: '[path][base].gz',
       algorithm: 'gzip',
       test: /\.js$|\.css$|\.html$/,
       threshold: 10240,
       minRatio: 0.8,
     }),
     new CompressionPlugin({
-      filename: '[path].br',
+      filename: '[path][base].br',
       algorithm: 'brotliCompress',
       test: /\.(js|css|html|svg)$/,
       compressionOptions: {
