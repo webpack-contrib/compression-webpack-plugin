@@ -18,6 +18,30 @@ describe('"filename" option', () => {
     return removeCache();
   });
 
+  it('show work', async () => {
+    compiler = getCompiler(
+      './entry.js',
+      {},
+      {
+        output: {
+          path: path.resolve(__dirname, './outputs'),
+          filename: 'assets/scripts/[name].js?var=[hash]#hash',
+          chunkFilename: 'assets/scripts/[id].[name].js?ver=[hash]#hash',
+        },
+      }
+    );
+
+    new CompressionPlugin({
+      minRatio: 1,
+    }).apply(compiler);
+
+    const stats = await compile(compiler);
+
+    expect(getAssetsNameAndSize(stats)).toMatchSnapshot('assets');
+    expect(getWarnings(stats)).toMatchSnapshot('errors');
+    expect(getErrors(stats)).toMatchSnapshot('warnings');
+  });
+
   it('matches snapshot for `[path][base].super-compressed.gz[query][fragment]` value ({String})', async () => {
     compiler = getCompiler(
       './entry.js',
