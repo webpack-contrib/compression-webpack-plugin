@@ -32,7 +32,7 @@ class CompressionPlugin {
       cache = true,
       algorithm = 'gzip',
       compressionOptions = {},
-      filename = '[base].gz',
+      filename = '[path][base].gz',
       threshold = 0,
       minRatio = 0.8,
       deleteOriginalAssets = false,

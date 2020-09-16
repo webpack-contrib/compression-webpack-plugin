@@ -122,3 +122,44 @@ Array [
 exports[`"filename" option matches snapshot for custom function ({Function}): errors 1`] = `Array []`;
 
 exports[`"filename" option matches snapshot for custom function ({Function}): warnings 1`] = `Array []`;
+
+exports[`"filename" option show work: assets 1`] = `
+Array [
+  Array [
+    "09a1a1112c577c2794359715edfcb5ac.png",
+    78117,
+  ],
+  Array [
+    "09a1a1112c577c2794359715edfcb5ac.png.gz",
+    73160,
+  ],
+  Array [
+    "23fc1d3ac606d117e05a140e0de79806.svg",
+    672,
+  ],
+  Array [
+    "23fc1d3ac606d117e05a140e0de79806.svg.gz",
+    393,
+  ],
+  Array [
+    "assets/scripts/async.async.js.gz",
+    171,
+  ],
+  Array [
+    "assets/scripts/async.async.js?ver=f8840db1f464954a153b#hash",
+    249,
+  ],
+  Array [
+    "assets/scripts/main.js.gz",
+    3016,
+  ],
+  Array [
+    "assets/scripts/main.js?var=f8840db1f464954a153b#hash",
+    11650,
+  ],
+]
+`;
+
+exports[`"filename" option show work: errors 1`] = `Array []`;
+
+exports[`"filename" option show work: warnings 1`] = `Array []`;
