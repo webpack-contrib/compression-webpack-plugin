@@ -37,8 +37,8 @@ describe('"exclude" option', () => {
     const stats = await compile(compiler);
 
     expect(getAssetsNameAndSize(stats)).toMatchSnapshot('assets');
-    expect(getWarnings(stats)).toMatchSnapshot('errors');
-    expect(getErrors(stats)).toMatchSnapshot('warnings');
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
   it('matches snapshot for multiple `exclude` values ({Array<RegExp>})', async () => {
@@ -50,7 +50,7 @@ describe('"exclude" option', () => {
     const stats = await compile(compiler);
 
     expect(getAssetsNameAndSize(stats)).toMatchSnapshot('assets');
-    expect(getWarnings(stats)).toMatchSnapshot('errors');
-    expect(getErrors(stats)).toMatchSnapshot('warnings');
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 });

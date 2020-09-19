@@ -121,9 +121,7 @@ exports[`"algorithm" option matches snapshot for custom function with error ({Fu
 
 exports[`"algorithm" option matches snapshot for custom function with error ({Function}): compressionOptions 4`] = `Object {}`;
 
-exports[`"algorithm" option matches snapshot for custom function with error ({Function}): errors 1`] = `Array []`;
-
-exports[`"algorithm" option matches snapshot for custom function with error ({Function}): warnings 1`] = `
+exports[`"algorithm" option matches snapshot for custom function with error ({Function}): errors 1`] = `
 Array [
   "Error",
   "Error",
@@ -131,3 +129,5 @@ Array [
   "Error",
 ]
 `;
+
+exports[`"algorithm" option matches snapshot for custom function with error ({Function}): warnings 1`] = `Array []`;

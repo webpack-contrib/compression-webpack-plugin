@@ -71,8 +71,8 @@ describe('CompressionPlugin', () => {
     }
 
     expect(getAssetsNameAndSize(stats)).toMatchSnapshot('assets');
-    expect(getWarnings(stats)).toMatchSnapshot('errors');
-    expect(getErrors(stats)).toMatchSnapshot('warnings');
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
   it('should work with assets info', async () => {
@@ -95,8 +95,8 @@ describe('CompressionPlugin', () => {
     const stats = await compile(compiler);
 
     expect(getAssetsNameAndSize(stats, true)).toMatchSnapshot('assets');
-    expect(getWarnings(stats)).toMatchSnapshot('errors');
-    expect(getErrors(stats)).toMatchSnapshot('warnings');
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
   it('should work child compilations', async () => {
@@ -141,8 +141,8 @@ describe('CompressionPlugin', () => {
 
     expect(gzipSpy).toHaveBeenCalledTimes(5);
     expect(getAssetsNameAndSize(stats, true)).toMatchSnapshot('assets');
-    expect(getWarnings(stats)).toMatchSnapshot('errors');
-    expect(getErrors(stats)).toMatchSnapshot('warnings');
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
 
     gzipSpy.mockRestore();
   });
@@ -186,8 +186,8 @@ describe('CompressionPlugin', () => {
     const stats = await compile(compiler);
 
     expect(getAssetsNameAndSize(stats, true)).toMatchSnapshot('assets');
-    expect(getWarnings(stats)).toMatchSnapshot('errors');
-    expect(getErrors(stats)).toMatchSnapshot('warnings');
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
   it('should work and show compress assets in stats', async () => {
@@ -214,8 +214,8 @@ describe('CompressionPlugin', () => {
       getCompiler.isWebpack4() ? 0 : 3
     );
     expect(getAssetsNameAndSize(stats)).toMatchSnapshot('assets');
-    expect(getWarnings(stats)).toMatchSnapshot('errors');
-    expect(getErrors(stats)).toMatchSnapshot('warnings');
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
   it('should work and keep assets info', async () => {
@@ -241,8 +241,8 @@ describe('CompressionPlugin', () => {
     }
 
     expect(getAssetsNameAndSize(stats)).toMatchSnapshot('assets');
-    expect(getWarnings(stats)).toMatchSnapshot('errors');
-    expect(getErrors(stats)).toMatchSnapshot('warnings');
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
   it('should work and use memory cache without options in the "development" mode', async () => {
@@ -269,8 +269,8 @@ describe('CompressionPlugin', () => {
     }
 
     expect(getAssetsNameAndSize(stats)).toMatchSnapshot('assets');
-    expect(getWarnings(stats)).toMatchSnapshot('errors');
-    expect(getErrors(stats)).toMatchSnapshot('warnings');
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
 
     await new Promise(async (resolve) => {
       const newStats = await compile(compiler);
@@ -330,8 +330,8 @@ describe('CompressionPlugin', () => {
     }
 
     expect(getAssetsNameAndSize(stats)).toMatchSnapshot('assets');
-    expect(getWarnings(stats)).toMatchSnapshot('errors');
-    expect(getErrors(stats)).toMatchSnapshot('warnings');
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
 
     await new Promise(async (resolve) => {
       const newStats = await compile(compiler);
@@ -391,8 +391,8 @@ describe('CompressionPlugin', () => {
     }
 
     expect(getAssetsNameAndSize(stats)).toMatchSnapshot('assets');
-    expect(getWarnings(stats)).toMatchSnapshot('errors');
-    expect(getErrors(stats)).toMatchSnapshot('warnings');
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
 
     new ModifyExistingAsset({ name: 'main.js' }).apply(compiler);
 
@@ -527,8 +527,8 @@ describe('CompressionPlugin', () => {
     }
 
     expect(getAssetsNameAndSize(stats)).toMatchSnapshot('assets');
-    expect(getWarnings(stats)).toMatchSnapshot('errors');
-    expect(getErrors(stats)).toMatchSnapshot('warnings');
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
 
     await new Promise(async (resolve) => {
       const newStats = await compile(compiler);

@@ -27,8 +27,8 @@ describe('"threshold" option', () => {
     const stats = await compile(compiler);
 
     expect(getAssetsNameAndSize(stats)).toMatchSnapshot('assets');
-    expect(getWarnings(stats)).toMatchSnapshot('errors');
-    expect(getErrors(stats)).toMatchSnapshot('warnings');
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
   it('matches snapshot for `8192` value ({Number})', async () => {
@@ -40,8 +40,8 @@ describe('"threshold" option', () => {
     const stats = await compile(compiler);
 
     expect(getAssetsNameAndSize(stats)).toMatchSnapshot('assets');
-    expect(getWarnings(stats)).toMatchSnapshot('errors');
-    expect(getErrors(stats)).toMatchSnapshot('warnings');
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
   it('should compress all assets including assets with "0" bytes original size', async () => {
@@ -55,8 +55,8 @@ describe('"threshold" option', () => {
     const stats = await compile(compiler);
 
     expect(getAssetsNameAndSize(stats)).toMatchSnapshot('assets');
-    expect(getWarnings(stats)).toMatchSnapshot('errors');
-    expect(getErrors(stats)).toMatchSnapshot('warnings');
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
   it('should compress all assets excluding assets with "0" bytes original size', async () => {
@@ -70,7 +70,7 @@ describe('"threshold" option', () => {
     const stats = await compile(compiler);
 
     expect(getAssetsNameAndSize(stats)).toMatchSnapshot('assets');
-    expect(getWarnings(stats)).toMatchSnapshot('errors');
-    expect(getErrors(stats)).toMatchSnapshot('warnings');
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 });
