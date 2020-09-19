@@ -27,8 +27,8 @@ describe('"deleteOriginalAssets" option', () => {
     const stats = await compile(compiler);
 
     expect(getAssetsNameAndSize(stats)).toMatchSnapshot('assets');
-    expect(getWarnings(stats)).toMatchSnapshot('errors');
-    expect(getErrors(stats)).toMatchSnapshot('warnings');
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
   it('matches snapshot for `false` value ({Boolean})', async () => {
@@ -40,7 +40,7 @@ describe('"deleteOriginalAssets" option', () => {
     const stats = await compile(compiler);
 
     expect(getAssetsNameAndSize(stats)).toMatchSnapshot('assets');
-    expect(getWarnings(stats)).toMatchSnapshot('errors');
-    expect(getErrors(stats)).toMatchSnapshot('warnings');
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 });

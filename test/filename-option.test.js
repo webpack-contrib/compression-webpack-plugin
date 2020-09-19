@@ -38,8 +38,8 @@ describe('"filename" option', () => {
     const stats = await compile(compiler);
 
     expect(getAssetsNameAndSize(stats)).toMatchSnapshot('assets');
-    expect(getWarnings(stats)).toMatchSnapshot('errors');
-    expect(getErrors(stats)).toMatchSnapshot('warnings');
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
   it('matches snapshot for `[path][base].super-compressed.gz[query][fragment]` value ({String})', async () => {
@@ -63,8 +63,8 @@ describe('"filename" option', () => {
     const stats = await compile(compiler);
 
     expect(getAssetsNameAndSize(stats)).toMatchSnapshot('assets');
-    expect(getWarnings(stats)).toMatchSnapshot('errors');
-    expect(getErrors(stats)).toMatchSnapshot('warnings');
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
   it('matches snapshot for `[name][ext].super-compressed.gz[query]` value ({String})', async () => {
@@ -88,8 +88,8 @@ describe('"filename" option', () => {
     const stats = await compile(compiler);
 
     expect(getAssetsNameAndSize(stats)).toMatchSnapshot('assets');
-    expect(getWarnings(stats)).toMatchSnapshot('errors');
-    expect(getErrors(stats)).toMatchSnapshot('warnings');
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
   it('matches snapshot for custom function ({Function})', async () => {
@@ -115,7 +115,7 @@ describe('"filename" option', () => {
     const stats = await compile(compiler);
 
     expect(getAssetsNameAndSize(stats)).toMatchSnapshot('assets');
-    expect(getWarnings(stats)).toMatchSnapshot('errors');
-    expect(getErrors(stats)).toMatchSnapshot('warnings');
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 });

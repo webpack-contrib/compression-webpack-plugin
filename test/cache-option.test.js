@@ -53,8 +53,8 @@ if (getCompiler.isWebpack4()) {
       const stats = await compile(compiler);
 
       expect(getAssetsNameAndSize(stats)).toMatchSnapshot('assets');
-      expect(getWarnings(stats)).toMatchSnapshot('errors');
-      expect(getErrors(stats)).toMatchSnapshot('warnings');
+      expect(getWarnings(stats)).toMatchSnapshot('warnings');
+      expect(getErrors(stats)).toMatchSnapshot('errors');
 
       // Cache disabled so we don't run `get` or `put`
       expect(cacache.get.mock.calls.length).toBe(0);
@@ -87,8 +87,8 @@ if (getCompiler.isWebpack4()) {
       const stats = await compile(beforeCacheCompiler);
 
       expect(getAssetsNameAndSize(stats)).toMatchSnapshot('assets');
-      expect(getWarnings(stats)).toMatchSnapshot('errors');
-      expect(getErrors(stats)).toMatchSnapshot('warnings');
+      expect(getWarnings(stats)).toMatchSnapshot('warnings');
+      expect(getErrors(stats)).toMatchSnapshot('errors');
 
       const countAssets = Object.keys(stats.compilation.assets).length;
 
@@ -153,8 +153,8 @@ if (getCompiler.isWebpack4()) {
       const stats = await compile(beforeCacheCompiler);
 
       expect(getAssetsNameAndSize(stats)).toMatchSnapshot('assets');
-      expect(getWarnings(stats)).toMatchSnapshot('errors');
-      expect(getErrors(stats)).toMatchSnapshot('warnings');
+      expect(getWarnings(stats)).toMatchSnapshot('warnings');
+      expect(getErrors(stats)).toMatchSnapshot('errors');
 
       const countAssets = Object.keys(stats.compilation.assets).length;
 
@@ -226,8 +226,8 @@ if (getCompiler.isWebpack4()) {
       const stats = await compile(beforeCacheCompiler);
 
       expect(getAssetsNameAndSize(stats)).toMatchSnapshot('assets');
-      expect(getWarnings(stats)).toMatchSnapshot('errors');
-      expect(getErrors(stats)).toMatchSnapshot('warnings');
+      expect(getWarnings(stats)).toMatchSnapshot('warnings');
+      expect(getErrors(stats)).toMatchSnapshot('errors');
 
       const countAssets = Object.keys(stats.compilation.assets).length;
 
