@@ -222,6 +222,136 @@ exports[`CompressionPlugin should work and use memory cache when the "cache" opt
 
 exports[`CompressionPlugin should work and use memory cache when the "cache" option is "true" and the asset has been changed: warnings 2`] = `Array []`;
 
+exports[`CompressionPlugin should work and use memory cache when the "cache" option is "true" with multiple plugins: assets 1`] = `
+Array [
+  Array [
+    "09a1a1112c577c2794359715edfcb5ac.png",
+    78117,
+  ],
+  Array [
+    "09a1a1112c577c2794359715edfcb5ac.png.custom",
+    78117,
+  ],
+  Array [
+    "23fc1d3ac606d117e05a140e0de79806.svg",
+    672,
+  ],
+  Array [
+    "23fc1d3ac606d117e05a140e0de79806.svg.br",
+    363,
+  ],
+  Array [
+    "23fc1d3ac606d117e05a140e0de79806.svg.custom",
+    672,
+  ],
+  Array [
+    "23fc1d3ac606d117e05a140e0de79806.svg.gz",
+    393,
+  ],
+  Array [
+    "async.js",
+    265,
+  ],
+  Array [
+    "async.js.br",
+    146,
+  ],
+  Array [
+    "async.js.custom",
+    265,
+  ],
+  Array [
+    "async.js.gz",
+    179,
+  ],
+  Array [
+    "main.js",
+    16430,
+  ],
+  Array [
+    "main.js.br",
+    3391,
+  ],
+  Array [
+    "main.js.custom",
+    16430,
+  ],
+  Array [
+    "main.js.gz",
+    3900,
+  ],
+]
+`;
+
+exports[`CompressionPlugin should work and use memory cache when the "cache" option is "true" with multiple plugins: assets 2`] = `
+Array [
+  Array [
+    "09a1a1112c577c2794359715edfcb5ac.png",
+    78117,
+  ],
+  Array [
+    "09a1a1112c577c2794359715edfcb5ac.png.custom",
+    78117,
+  ],
+  Array [
+    "23fc1d3ac606d117e05a140e0de79806.svg",
+    672,
+  ],
+  Array [
+    "23fc1d3ac606d117e05a140e0de79806.svg.br",
+    363,
+  ],
+  Array [
+    "23fc1d3ac606d117e05a140e0de79806.svg.custom",
+    672,
+  ],
+  Array [
+    "23fc1d3ac606d117e05a140e0de79806.svg.gz",
+    393,
+  ],
+  Array [
+    "async.js",
+    265,
+  ],
+  Array [
+    "async.js.br",
+    146,
+  ],
+  Array [
+    "async.js.custom",
+    265,
+  ],
+  Array [
+    "async.js.gz",
+    179,
+  ],
+  Array [
+    "main.js",
+    16430,
+  ],
+  Array [
+    "main.js.br",
+    3391,
+  ],
+  Array [
+    "main.js.custom",
+    16430,
+  ],
+  Array [
+    "main.js.gz",
+    3900,
+  ],
+]
+`;
+
+exports[`CompressionPlugin should work and use memory cache when the "cache" option is "true" with multiple plugins: errors 1`] = `Array []`;
+
+exports[`CompressionPlugin should work and use memory cache when the "cache" option is "true" with multiple plugins: errors 2`] = `Array []`;
+
+exports[`CompressionPlugin should work and use memory cache when the "cache" option is "true" with multiple plugins: warnings 1`] = `Array []`;
+
+exports[`CompressionPlugin should work and use memory cache when the "cache" option is "true" with multiple plugins: warnings 2`] = `Array []`;
+
 exports[`CompressionPlugin should work and use memory cache when the "cache" option is "true": assets 1`] = `
 Array [
   Array [
@@ -602,6 +732,28 @@ Array [
     78117,
     Object {
       "immutable": true,
+      "related": Object {
+        "compressed": "09a1a1112c577c2794359715edfcb5ac.png.compress",
+        "customed": "09a1a1112c577c2794359715edfcb5ac.png.custom?foo=bar#hash",
+      },
+      "size": 78117,
+    },
+  ],
+  Array [
+    "09a1a1112c577c2794359715edfcb5ac.png.compress",
+    78117,
+    Object {
+      "compressed": true,
+      "immutable": true,
+      "size": 78117,
+    },
+  ],
+  Array [
+    "09a1a1112c577c2794359715edfcb5ac.png.custom?foo=bar#hash",
+    78117,
+    Object {
+      "compressed": true,
+      "immutable": true,
       "size": 78117,
     },
   ],
@@ -621,29 +773,29 @@ Array [
   ],
   Array [
     "23fc1d3ac606d117e05a140e0de79806.svg.br",
-    393,
+    363,
     Object {
       "compressed": true,
       "immutable": true,
-      "size": 393,
+      "size": 363,
     },
   ],
   Array [
     "23fc1d3ac606d117e05a140e0de79806.svg.compress",
-    393,
+    672,
     Object {
       "compressed": true,
       "immutable": true,
-      "size": 393,
+      "size": 672,
     },
   ],
   Array [
     "23fc1d3ac606d117e05a140e0de79806.svg.custom?foo=bar#hash",
-    393,
+    672,
     Object {
       "compressed": true,
       "immutable": true,
-      "size": 393,
+      "size": 672,
     },
   ],
   Array [
@@ -657,29 +809,29 @@ Array [
   ],
   Array [
     "async.async.js.br",
-    179,
+    146,
     Object {
       "compressed": true,
       "immutable": true,
-      "size": 179,
+      "size": 146,
     },
   ],
   Array [
     "async.async.js.compress",
-    179,
+    265,
     Object {
       "compressed": true,
       "immutable": true,
-      "size": 179,
+      "size": 265,
     },
   ],
   Array [
     "async.async.js.custom?foo=bar#hash",
-    179,
+    265,
     Object {
       "compressed": true,
       "immutable": true,
-      "size": 179,
+      "size": 265,
     },
   ],
   Array [
@@ -708,29 +860,29 @@ Array [
   ],
   Array [
     "main.js.br",
-    3953,
+    3436,
     Object {
       "compressed": true,
       "immutable": true,
-      "size": 3953,
+      "size": 3436,
     },
   ],
   Array [
     "main.js.compress",
-    3953,
+    16636,
     Object {
       "compressed": true,
       "immutable": true,
-      "size": 3953,
+      "size": 16636,
     },
   ],
   Array [
     "main.js.custom?foo=bar#hash",
-    3953,
+    16636,
     Object {
       "compressed": true,
       "immutable": true,
-      "size": 3953,
+      "size": 16636,
     },
   ],
   Array [

@@ -11,6 +11,7 @@ import webpack, {
   version as webpackVersion,
 } from 'webpack';
 import validateOptions from 'schema-utils';
+import serialize from 'serialize-javascript';
 
 import schema from './options.json';
 
@@ -209,7 +210,11 @@ class CompressionPlugin {
               contentHash: crypto.createHash('md4').update(input).digest('hex'),
             };
           } else {
-            cacheData.name = name;
+            cacheData.name = serialize({
+              name,
+              algorithm: this.options.algorithm,
+              compressionOptions: this.compressionOptions,
+            });
           }
 
           let output = await cache.get(cacheData, { RawSource });
