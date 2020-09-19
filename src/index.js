@@ -53,7 +53,6 @@ class CompressionPlugin {
     };
 
     this.algorithm = this.options.algorithm;
-    this.compressionOptions = this.options.compressionOptions;
 
     if (typeof this.algorithm === 'string') {
       // eslint-disable-next-line global-require
@@ -67,9 +66,9 @@ class CompressionPlugin {
         );
       }
 
-      this.compressionOptions = {
+      this.options.compressionOptions = {
         ...{ level: 9 },
-        ...this.compressionOptions,
+        ...this.options.compressionOptions,
       };
     }
   }
@@ -118,20 +117,22 @@ class CompressionPlugin {
 
   runCompressionAlgorithm(input) {
     return new Promise((resolve, reject) => {
-      const { algorithm, compressionOptions } = this;
+      this.algorithm(
+        input,
+        this.options.compressionOptions,
+        (error, result) => {
+          if (error) {
+            return reject(error);
+          }
 
-      algorithm(input, compressionOptions, (error, result) => {
-        if (error) {
-          return reject(error);
+          if (!Buffer.isBuffer(result)) {
+            // eslint-disable-next-line no-param-reassign
+            result = Buffer.from(result);
+          }
+
+          return resolve(result);
         }
-
-        if (!Buffer.isBuffer(result)) {
-          // eslint-disable-next-line no-param-reassign
-          result = Buffer.from(result);
-        }
-
-        return resolve(result);
-      });
+      );
     });
   }
 
@@ -205,7 +206,7 @@ class CompressionPlugin {
               'compression-webpack-plugin': require('../package.json').version,
               algorithm: this.algorithm,
               originalAlgorithm: this.options.algorithm,
-              compressionOptions: this.compressionOptions,
+              compressionOptions: this.options.compressionOptions,
               name,
               contentHash: crypto.createHash('md4').update(input).digest('hex'),
             };
@@ -213,7 +214,7 @@ class CompressionPlugin {
             cacheData.name = serialize({
               name,
               algorithm: this.options.algorithm,
-              compressionOptions: this.compressionOptions,
+              compressionOptions: this.options.compressionOptions,
             });
           }
 
