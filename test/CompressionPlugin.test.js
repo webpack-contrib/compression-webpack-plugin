@@ -23,6 +23,7 @@ import {
 const cacheDir1 = findCacheDir({ name: 'compression-webpack-plugin-cache-1' });
 const cacheDir2 = findCacheDir({ name: 'compression-webpack-plugin-cache-2' });
 const cacheDir3 = findCacheDir({ name: 'compression-webpack-plugin-cache-3' });
+const cacheDir4 = findCacheDir({ name: 'compression-webpack-plugin-cache-4' });
 
 describe('CompressionPlugin', () => {
   beforeAll(() => {
@@ -31,6 +32,7 @@ describe('CompressionPlugin', () => {
       cacache.rm.all(cacheDir1),
       cacache.rm.all(cacheDir2),
       cacache.rm.all(cacheDir3),
+      cacache.rm.all(cacheDir4),
     ]);
   });
 
@@ -145,7 +147,7 @@ describe('CompressionPlugin', () => {
     gzipSpy.mockRestore();
   });
 
-  it('should work with multiple plugins', async () => {
+  it.only('should work with multiple plugins', async () => {
     const compiler = getCompiler(
       './entry.js',
       {},
@@ -421,7 +423,7 @@ describe('CompressionPlugin', () => {
     const getCacheDirectorySpy = jest
       .spyOn(Webpack4Cache, 'getCacheDirectory')
       .mockImplementation(() => {
-        return cacheDir2;
+        return cacheDir4;
       });
 
     const compiler = getCompiler(

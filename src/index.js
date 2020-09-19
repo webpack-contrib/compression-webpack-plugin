@@ -288,7 +288,7 @@ class CompressionPlugin {
             // TODO `...` required only for webpack@4
             const newOriginalInfo = {
               ...info,
-              related: { [relatedName]: newName },
+              related: { [relatedName]: newName, ...info.related },
             };
 
             CompressionPlugin.updateAsset(
