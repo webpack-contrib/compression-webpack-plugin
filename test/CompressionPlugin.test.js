@@ -147,7 +147,7 @@ describe('CompressionPlugin', () => {
     gzipSpy.mockRestore();
   });
 
-  it.only('should work with multiple plugins', async () => {
+  it('should work with multiple plugins', async () => {
     const compiler = getCompiler(
       './entry.js',
       {},
