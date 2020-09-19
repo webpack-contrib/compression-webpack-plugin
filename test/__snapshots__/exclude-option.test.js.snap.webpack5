@@ -19,16 +19,16 @@ Array [
     179,
   ],
   Array [
-    "async.async.js?ver=bbf6508f271a84a2c39d",
+    "async.async.js?ver=2b96998c4528126e8d99",
     265,
   ],
   Array [
     "main.js.gz",
-    3567,
+    3953,
   ],
   Array [
-    "main.js?var=bbf6508f271a84a2c39d",
-    15236,
+    "main.js?var=2b96998c4528126e8d99",
+    16636,
   ],
 ]
 `;
@@ -52,16 +52,16 @@ Array [
     179,
   ],
   Array [
-    "async.async.js?ver=bbf6508f271a84a2c39d",
+    "async.async.js?ver=2b96998c4528126e8d99",
     265,
   ],
   Array [
     "main.js.gz",
-    3567,
+    3953,
   ],
   Array [
-    "main.js?var=bbf6508f271a84a2c39d",
-    15236,
+    "main.js?var=2b96998c4528126e8d99",
+    16636,
   ],
 ]
 `;
