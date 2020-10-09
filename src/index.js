@@ -10,7 +10,7 @@ import webpack, {
   ModuleFilenameHelpers,
   version as webpackVersion,
 } from 'webpack';
-import validateOptions from 'schema-utils';
+import { validate } from 'schema-utils';
 import serialize from 'serialize-javascript';
 
 import schema from './options.json';
@@ -21,7 +21,7 @@ const { RawSource } =
 
 class CompressionPlugin {
   constructor(options = {}) {
-    validateOptions(schema, options, {
+    validate(schema, options, {
       name: 'Compression Plugin',
       baseDataPath: 'options',
     });
