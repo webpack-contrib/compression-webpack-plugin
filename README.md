@@ -401,8 +401,9 @@ module.exports = {
       algorithm: 'brotliCompress',
       test: /\.(js|css|html|svg)$/,
       compressionOptions: {
-        // zlib’s `level` option matches Brotli’s `BROTLI_PARAM_QUALITY` option.
-        level: 11,
+        params: {
+          [zlib.constants.BROTLI_PARAM_QUALITY]: 11,
+        },
       },
       threshold: 10240,
       minRatio: 0.8,
@@ -412,7 +413,8 @@ module.exports = {
 };
 ```
 
-**Note** The `level` option matches `BROTLI_PARAM_QUALITY` [for Brotli-based streams](https://nodejs.org/api/zlib.html#zlib_for_brotli_based_streams)
+**Note** Brotli’s `BROTLI_PARAM_QUALITY` option is functionally equivalent to zlib’s `level` option.
+You can find all Brotli’s options in [the relevant part of the zlib module documentation](https://nodejs.org/api/zlib.html#zlib_class_brotlioptions).
 
 ### Multiple compressed versions of assets for different algorithm
 
@@ -435,7 +437,9 @@ module.exports = {
       algorithm: 'brotliCompress',
       test: /\.(js|css|html|svg)$/,
       compressionOptions: {
-        level: 11,
+        params: {
+          [zlib.constants.BROTLI_PARAM_QUALITY]: 11,
+        },
       },
       threshold: 10240,
       minRatio: 0.8,
