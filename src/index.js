@@ -66,8 +66,27 @@ class CompressionPlugin {
         );
       }
 
+      const defaultCompressionOptions =
+        {
+          gzip: {
+            level: zlib.constants.Z_BEST_COMPRESSION,
+          },
+          deflate: {
+            level: zlib.constants.Z_BEST_COMPRESSION,
+          },
+          deflateRaw: {
+            level: zlib.constants.Z_BEST_COMPRESSION,
+          },
+          brotliCompress: {
+            params: {
+              [zlib.constants.BROTLI_PARAM_QUALITY]:
+                zlib.constants.BROTLI_MAX_QUALITY,
+            },
+          },
+        }[algorithm] || {};
+
       this.options.compressionOptions = {
-        ...{ level: 9 },
+        ...defaultCompressionOptions,
         ...this.options.compressionOptions,
       };
     }

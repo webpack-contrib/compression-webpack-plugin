@@ -44,4 +44,44 @@ describe('"compressionOptions" option', () => {
     expect(getWarnings(stats)).toMatchSnapshot('warnings');
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
+
+  it('set default compression level to maximum for gzip', async () => {
+    const compressionPlugin = new CompressionPlugin({
+      algorithm: 'gzip',
+    });
+
+    expect(compressionPlugin).toHaveProperty('options.compressionOptions', {
+      level: 9,
+    });
+  });
+
+  it('set default compression level to maximum for deflate', async () => {
+    const compressionPlugin = new CompressionPlugin({
+      algorithm: 'deflate',
+    });
+
+    expect(compressionPlugin).toHaveProperty('options.compressionOptions', {
+      level: 9,
+    });
+  });
+
+  it('set default compression level to maximum for deflateRaw', async () => {
+    const compressionPlugin = new CompressionPlugin({
+      algorithm: 'deflateRaw',
+    });
+
+    expect(compressionPlugin).toHaveProperty('options.compressionOptions', {
+      level: 9,
+    });
+  });
+
+  it('set default compression level to maximum for brotli', async () => {
+    const compressionPlugin = new CompressionPlugin({
+      algorithm: 'brotliCompress',
+    });
+
+    expect(compressionPlugin).toHaveProperty('options.compressionOptions', {
+      params: { 1: 11 },
+    });
+  });
 });

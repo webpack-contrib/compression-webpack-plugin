@@ -40,18 +40,18 @@ And run `webpack` via your preferred method.
 
 ## Options
 
-|                        Name                         |                   Type                    |      Default      | Description                                                                                                   |
-| :-------------------------------------------------: | :---------------------------------------: | :---------------: | :------------------------------------------------------------------------------------------------------------ |
-|                 **[`test`](#test)**                 | `{String\|RegExp\|Array<String\|RegExp>}` |    `undefined`    | Include all assets that pass test assertion                                                                   |
-|              **[`include`](#include)**              | `{String\|RegExp\|Array<String\|RegExp>}` |    `undefined`    | Include all assets matching any of these conditions                                                           |
-|              **[`exclude`](#exclude)**              | `{String\|RegExp\|Array<String\|RegExp>}` |    `undefined`    | Exclude all assets matching any of these conditions                                                           |
-|            **[`algorithm`](#algorithm)**            |           `{String\|Function}`            |      `gzip`       | The compression algorithm/function                                                                            |
-|   **[`compressionOptions`](#compressionoptions)**   |                `{Object}`                 |  `{ level: 9 }`   | Compression options for `algorithm`                                                                           |
-|            **[`threshold`](#threshold)**            |                `{Number}`                 |        `0`        | Only assets bigger than this size are processed (in bytes)                                                    |
-|             **[`minRatio`](#minratio)**             |                `{Number}`                 |       `0.8`       | Only assets that compress better than this ratio are processed (`minRatio = Compressed Size / Original Size`) |
-|             **[`filename`](#filename)**             |           `{String\|Function}`            | `[path][base].gz` | The target asset filename                                                                                     |
-| **[`deleteOriginalAssets`](#deleteoriginalassets)** |                `{Boolean}`                |      `false`      | Whether to delete the original assets or not                                                                  |
-|                **[`cache`](#cache)**                |                `{Boolean}`                |      `true`       | Enable file caching                                                                                           |
+|                        Name                         |                   Type                    |                            Default                            | Description                                                                                                   |
+| :-------------------------------------------------: | :---------------------------------------: | :-----------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------ |
+|                 **[`test`](#test)**                 | `{String\|RegExp\|Array<String\|RegExp>}` |                          `undefined`                          | Include all assets that pass test assertion                                                                   |
+|              **[`include`](#include)**              | `{String\|RegExp\|Array<String\|RegExp>}` |                          `undefined`                          | Include all assets matching any of these conditions                                                           |
+|              **[`exclude`](#exclude)**              | `{String\|RegExp\|Array<String\|RegExp>}` |                          `undefined`                          | Exclude all assets matching any of these conditions                                                           |
+|            **[`algorithm`](#algorithm)**            |           `{String\|Function}`            |                            `gzip`                             | The compression algorithm/function                                                                            |
+|   **[`compressionOptions`](#compressionoptions)**   |                `{Object}`                 | maximum available compression level, for gzip: `{ level: 9 }` | Compression options for `algorithm`                                                                           |
+|            **[`threshold`](#threshold)**            |                `{Number}`                 |                              `0`                              | Only assets bigger than this size are processed (in bytes)                                                    |
+|             **[`minRatio`](#minratio)**             |                `{Number}`                 |                             `0.8`                             | Only assets that compress better than this ratio are processed (`minRatio = Compressed Size / Original Size`) |
+|             **[`filename`](#filename)**             |           `{String\|Function}`            |                       `[path][base].gz`                       | The target asset filename                                                                                     |
+| **[`deleteOriginalAssets`](#deleteoriginalassets)** |                `{Boolean}`                |                            `false`                            | Whether to delete the original assets or not                                                                  |
+|                **[`cache`](#cache)**                |                `{Boolean}`                |                            `true`                             | Enable file caching                                                                                           |
 
 ### `test`
 
@@ -401,8 +401,9 @@ module.exports = {
       algorithm: 'brotliCompress',
       test: /\.(js|css|html|svg)$/,
       compressionOptions: {
-        // zlib’s `level` option matches Brotli’s `BROTLI_PARAM_QUALITY` option.
-        level: 11,
+        params: {
+          [zlib.constants.BROTLI_PARAM_QUALITY]: 11,
+        },
       },
       threshold: 10240,
       minRatio: 0.8,
@@ -412,7 +413,8 @@ module.exports = {
 };
 ```
 
-**Note** The `level` option matches `BROTLI_PARAM_QUALITY` [for Brotli-based streams](https://nodejs.org/api/zlib.html#zlib_for_brotli_based_streams)
+**Note** Brotli’s `BROTLI_PARAM_QUALITY` option is functionally equivalent to zlib’s `level` option.
+You can find all Brotli’s options in [the relevant part of the zlib module documentation](https://nodejs.org/api/zlib.html#zlib_class_brotlioptions).
 
 ### Multiple compressed versions of assets for different algorithm
 
@@ -435,7 +437,9 @@ module.exports = {
       algorithm: 'brotliCompress',
       test: /\.(js|css|html|svg)$/,
       compressionOptions: {
-        level: 11,
+        params: {
+          [zlib.constants.BROTLI_PARAM_QUALITY]: 11,
+        },
       },
       threshold: 10240,
       minRatio: 0.8,
