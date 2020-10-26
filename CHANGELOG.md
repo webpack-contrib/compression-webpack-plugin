@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [6.0.4](https://github.com/webpack-contrib/compression-webpack-plugin/compare/v6.0.3...v6.0.4) (2020-10-26)
+
+
+### Bug Fixes
+
+* always set compression level to maximum for the custom `algorithm` ([483f328](https://github.com/webpack-contrib/compression-webpack-plugin/commit/483f328d571b1953db36fbc759570b5fa90d474e))
+
 ### [6.0.3](https://github.com/webpack-contrib/compression-webpack-plugin/compare/v6.0.2...v6.0.3) (2020-10-09)
 
 ### Chore
