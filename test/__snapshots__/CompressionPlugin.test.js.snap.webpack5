@@ -24,11 +24,11 @@ Array [
   ],
   Array [
     "main.js",
-    16390,
+    16407,
   ],
   Array [
     "main.js.gz",
-    3839,
+    3845,
   ],
 ]
 `;
@@ -57,11 +57,11 @@ Array [
   ],
   Array [
     "main.js",
-    16390,
+    16407,
   ],
   Array [
     "main.js.gz",
-    3839,
+    3845,
   ],
 ]
 `;
@@ -97,12 +97,12 @@ Array [
     179,
   ],
   Array [
-    "main.3ed4c27a6135732feb25.js",
-    16477,
+    "main.9a4fa82041b895cfa230.js",
+    16494,
   ],
   Array [
-    "main.3ed4c27a6135732feb25.js.gz",
-    3926,
+    "main.9a4fa82041b895cfa230.js.gz",
+    3932,
   ],
 ]
 `;
@@ -135,11 +135,11 @@ Array [
   ],
   Array [
     "main.js",
-    16446,
+    16463,
   ],
   Array [
     "main.js.gz",
-    3903,
+    3910,
   ],
 ]
 `;
@@ -172,11 +172,11 @@ Array [
   ],
   Array [
     "main.js",
-    16430,
+    16447,
   ],
   Array [
     "main.js.gz",
-    3900,
+    3906,
   ],
 ]
 `;
@@ -205,11 +205,11 @@ Array [
   ],
   Array [
     "main.js",
-    16452,
+    16469,
   ],
   Array [
     "main.js.gz",
-    3911,
+    3918,
   ],
 ]
 `;
@@ -266,19 +266,19 @@ Array [
   ],
   Array [
     "main.js",
-    16430,
+    16447,
   ],
   Array [
     "main.js.br",
-    3391,
+    3397,
   ],
   Array [
     "main.js.custom",
-    16430,
+    16447,
   ],
   Array [
     "main.js.gz",
-    3900,
+    3906,
   ],
 ]
 `;
@@ -327,19 +327,19 @@ Array [
   ],
   Array [
     "main.js",
-    16430,
+    16447,
   ],
   Array [
     "main.js.br",
-    3391,
+    3397,
   ],
   Array [
     "main.js.custom",
-    16430,
+    16447,
   ],
   Array [
     "main.js.gz",
-    3900,
+    3906,
   ],
 ]
 `;
@@ -376,11 +376,11 @@ Array [
   ],
   Array [
     "main.js",
-    16430,
+    16447,
   ],
   Array [
     "main.js.gz",
-    3900,
+    3906,
   ],
 ]
 `;
@@ -409,11 +409,11 @@ Array [
   ],
   Array [
     "main.js",
-    16430,
+    16447,
   ],
   Array [
     "main.js.gz",
-    3900,
+    3906,
   ],
 ]
 `;
@@ -449,12 +449,12 @@ Array [
     179,
   ],
   Array [
-    "main.57df66b21fd8eebca594.js",
-    16477,
+    "main.ccf0f4f3077b5dbe8ce3.js",
+    16494,
   ],
   Array [
-    "main.57df66b21fd8eebca594.js.gz",
-    3926,
+    "main.ccf0f4f3077b5dbe8ce3.js.gz",
+    3932,
   ],
 ]
 `;
@@ -482,12 +482,12 @@ Array [
     179,
   ],
   Array [
-    "main.57df66b21fd8eebca594.js",
-    16477,
+    "main.ccf0f4f3077b5dbe8ce3.js",
+    16494,
   ],
   Array [
-    "main.57df66b21fd8eebca594.js.gz",
-    3926,
+    "main.ccf0f4f3077b5dbe8ce3.js.gz",
+    3932,
   ],
 ]
 `;
@@ -540,11 +540,12 @@ Array [
     },
   ],
   Array [
-    "async.async.js?ver=65943692495e907c9625",
+    "async.async.js?ver=cf10ec955f8676c58f85",
     265,
     Object {
-      "fullhash": "65943692495e907c9625",
+      "fullhash": "cf10ec955f8676c58f85",
       "immutable": true,
+      "javascriptModule": false,
       "related": Object {
         "gziped": "async.async.js.gz",
       },
@@ -572,23 +573,24 @@ Array [
   ],
   Array [
     "main.js.gz",
-    3950,
+    3953,
     Object {
       "compressed": true,
       "immutable": true,
-      "size": 3950,
+      "size": 3953,
     },
   ],
   Array [
-    "main.js?var=65943692495e907c9625",
-    16633,
+    "main.js?var=cf10ec955f8676c58f85",
+    16650,
     Object {
-      "fullhash": "65943692495e907c9625",
+      "fullhash": "cf10ec955f8676c58f85",
       "immutable": true,
+      "javascriptModule": false,
       "related": Object {
         "gziped": "main.js.gz",
       },
-      "size": 16633,
+      "size": 16650,
     },
   ],
 ]
@@ -630,32 +632,24 @@ Array [
   ],
   Array [
     "async.async.js.gz",
-    234,
+    179,
     Object {
       "compressed": true,
       "immutable": true,
-      "size": 234,
+      "size": 179,
     },
   ],
   Array [
-    "async.async.js.map?ver=f41f7203ba0954c3d6fd",
-    116,
+    "async.async.js?ver=94322e0b3edcaa82eb91",
+    265,
     Object {
-      "development": true,
-      "size": 116,
-    },
-  ],
-  Array [
-    "async.async.js?ver=f41f7203ba0954c3d6fd",
-    330,
-    Object {
-      "fullhash": "f41f7203ba0954c3d6fd",
+      "fullhash": "94322e0b3edcaa82eb91",
       "immutable": true,
+      "javascriptModule": false,
       "related": Object {
         "gziped": "async.async.js.gz",
-        "sourceMap": "async.async.js.map?ver=f41f7203ba0954c3d6fd",
       },
-      "size": 330,
+      "size": 265,
     },
   ],
   Array [
@@ -679,43 +673,44 @@ Array [
   ],
   Array [
     "main.js.gz",
-    3982,
+    3987,
     Object {
       "compressed": true,
       "immutable": true,
-      "size": 3982,
+      "size": 3987,
     },
   ],
   Array [
     "main.js.map.gz",
-    3955,
+    3958,
     Object {
       "compressed": true,
-      "size": 3955,
+      "size": 3958,
     },
   ],
   Array [
-    "main.js.map?var=f41f7203ba0954c3d6fd",
-    12430,
+    "main.js.map?var=94322e0b3edcaa82eb91",
+    12447,
     Object {
       "development": true,
       "related": Object {
         "gziped": "main.js.map.gz",
       },
-      "size": 12430,
+      "size": 12447,
     },
   ],
   Array [
-    "main.js?var=f41f7203ba0954c3d6fd",
-    16694,
+    "main.js?var=94322e0b3edcaa82eb91",
+    16711,
     Object {
-      "fullhash": "f41f7203ba0954c3d6fd",
+      "fullhash": "94322e0b3edcaa82eb91",
       "immutable": true,
+      "javascriptModule": false,
       "related": Object {
         "gziped": "main.js.gz",
-        "sourceMap": "main.js.map?var=f41f7203ba0954c3d6fd",
+        "sourceMap": "main.js.map?var=94322e0b3edcaa82eb91",
       },
-      "size": 16694,
+      "size": 16711,
     },
   ],
 ]
@@ -844,11 +839,12 @@ Array [
     },
   ],
   Array [
-    "async.async.js?ver=f41f7203ba0954c3d6fd",
+    "async.async.js?ver=94322e0b3edcaa82eb91",
     265,
     Object {
-      "fullhash": "f41f7203ba0954c3d6fd",
+      "fullhash": "94322e0b3edcaa82eb91",
       "immutable": true,
+      "javascriptModule": false,
       "related": Object {
         "brotliCompressed": "async.async.js.br",
         "compressed": "async.async.js.compress",
@@ -860,53 +856,54 @@ Array [
   ],
   Array [
     "main.js.br",
-    3446,
+    3443,
     Object {
       "compressed": true,
       "immutable": true,
-      "size": 3446,
+      "size": 3443,
     },
   ],
   Array [
     "main.js.compress",
-    16636,
+    16653,
     Object {
       "compressed": true,
       "immutable": true,
-      "size": 16636,
+      "size": 16653,
     },
   ],
   Array [
     "main.js.custom?foo=bar#hash",
-    16636,
+    16653,
     Object {
       "compressed": true,
       "immutable": true,
-      "size": 16636,
+      "size": 16653,
     },
   ],
   Array [
     "main.js.gz",
-    3951,
+    3957,
     Object {
       "compressed": true,
       "immutable": true,
-      "size": 3951,
+      "size": 3957,
     },
   ],
   Array [
-    "main.js?var=f41f7203ba0954c3d6fd",
-    16636,
+    "main.js?var=94322e0b3edcaa82eb91",
+    16653,
     Object {
-      "fullhash": "f41f7203ba0954c3d6fd",
+      "fullhash": "94322e0b3edcaa82eb91",
       "immutable": true,
+      "javascriptModule": false,
       "related": Object {
         "brotliCompressed": "main.js.br",
         "compressed": "main.js.compress",
         "customed": "main.js.custom?foo=bar#hash",
         "gziped": "main.js.gz",
       },
-      "size": 16636,
+      "size": 16653,
     },
   ],
 ]
@@ -935,16 +932,16 @@ Array [
     179,
   ],
   Array [
-    "async.async.js?ver=f41f7203ba0954c3d6fd",
+    "async.async.js?ver=94322e0b3edcaa82eb91",
     265,
   ],
   Array [
     "main.js.gz",
-    3951,
+    3957,
   ],
   Array [
-    "main.js?var=f41f7203ba0954c3d6fd",
-    16636,
+    "main.js?var=94322e0b3edcaa82eb91",
+    16653,
   ],
 ]
 `;

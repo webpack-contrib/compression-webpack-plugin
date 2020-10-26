@@ -81,3 +81,151 @@ Array [
 exports[`"compressionOptions" option matches snapshot without values: errors 1`] = `Array []`;
 
 exports[`"compressionOptions" option matches snapshot without values: warnings 1`] = `Array []`;
+
+exports[`"compressionOptions" option set default compression level to maximum for brotli: assets 1`] = `
+Array [
+  Array [
+    "09a1a1112c577c2794359715edfcb5ac.png",
+    78117,
+  ],
+  Array [
+    "23fc1d3ac606d117e05a140e0de79806.svg",
+    672,
+  ],
+  Array [
+    "23fc1d3ac606d117e05a140e0de79806.svg.gz",
+    363,
+  ],
+  Array [
+    "async.async.dcbdb1dd40763448b635.js",
+    249,
+  ],
+  Array [
+    "async.async.dcbdb1dd40763448b635.js.gz",
+    141,
+  ],
+  Array [
+    "main.82c6786e32f9c77b44ef.js",
+    11645,
+  ],
+  Array [
+    "main.82c6786e32f9c77b44ef.js.gz",
+    2587,
+  ],
+]
+`;
+
+exports[`"compressionOptions" option set default compression level to maximum for brotli: errors 1`] = `Array []`;
+
+exports[`"compressionOptions" option set default compression level to maximum for brotli: warnings 1`] = `Array []`;
+
+exports[`"compressionOptions" option set default compression level to maximum for deflate: assets 1`] = `
+Array [
+  Array [
+    "09a1a1112c577c2794359715edfcb5ac.png",
+    78117,
+  ],
+  Array [
+    "23fc1d3ac606d117e05a140e0de79806.svg",
+    672,
+  ],
+  Array [
+    "23fc1d3ac606d117e05a140e0de79806.svg.gz",
+    381,
+  ],
+  Array [
+    "async.async.dcbdb1dd40763448b635.js",
+    249,
+  ],
+  Array [
+    "async.async.dcbdb1dd40763448b635.js.gz",
+    159,
+  ],
+  Array [
+    "main.82c6786e32f9c77b44ef.js",
+    11645,
+  ],
+  Array [
+    "main.82c6786e32f9c77b44ef.js.gz",
+    2988,
+  ],
+]
+`;
+
+exports[`"compressionOptions" option set default compression level to maximum for deflate: errors 1`] = `Array []`;
+
+exports[`"compressionOptions" option set default compression level to maximum for deflate: warnings 1`] = `Array []`;
+
+exports[`"compressionOptions" option set default compression level to maximum for deflateRaw: assets 1`] = `
+Array [
+  Array [
+    "09a1a1112c577c2794359715edfcb5ac.png",
+    78117,
+  ],
+  Array [
+    "23fc1d3ac606d117e05a140e0de79806.svg",
+    672,
+  ],
+  Array [
+    "23fc1d3ac606d117e05a140e0de79806.svg.gz",
+    375,
+  ],
+  Array [
+    "async.async.dcbdb1dd40763448b635.js",
+    249,
+  ],
+  Array [
+    "async.async.dcbdb1dd40763448b635.js.gz",
+    153,
+  ],
+  Array [
+    "main.82c6786e32f9c77b44ef.js",
+    11645,
+  ],
+  Array [
+    "main.82c6786e32f9c77b44ef.js.gz",
+    2982,
+  ],
+]
+`;
+
+exports[`"compressionOptions" option set default compression level to maximum for deflateRaw: errors 1`] = `Array []`;
+
+exports[`"compressionOptions" option set default compression level to maximum for deflateRaw: warnings 1`] = `Array []`;
+
+exports[`"compressionOptions" option set default compression level to maximum for gzip: assets 1`] = `
+Array [
+  Array [
+    "09a1a1112c577c2794359715edfcb5ac.png",
+    78117,
+  ],
+  Array [
+    "23fc1d3ac606d117e05a140e0de79806.svg",
+    672,
+  ],
+  Array [
+    "23fc1d3ac606d117e05a140e0de79806.svg.gz",
+    393,
+  ],
+  Array [
+    "async.async.dcbdb1dd40763448b635.js",
+    249,
+  ],
+  Array [
+    "async.async.dcbdb1dd40763448b635.js.gz",
+    171,
+  ],
+  Array [
+    "main.82c6786e32f9c77b44ef.js",
+    11645,
+  ],
+  Array [
+    "main.82c6786e32f9c77b44ef.js.gz",
+    3000,
+  ],
+]
+`;
+
+exports[`"compressionOptions" option set default compression level to maximum for gzip: errors 1`] = `Array []`;
+
+exports[`"compressionOptions" option set default compression level to maximum for gzip: warnings 1`] = `Array []`;

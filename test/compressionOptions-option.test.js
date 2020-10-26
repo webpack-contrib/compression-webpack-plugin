@@ -46,42 +46,50 @@ describe('"compressionOptions" option', () => {
   });
 
   it('set default compression level to maximum for gzip', async () => {
-    const compressionPlugin = new CompressionPlugin({
+    new CompressionPlugin({
       algorithm: 'gzip',
-    });
+    }).apply(compiler);
 
-    expect(compressionPlugin).toHaveProperty('options.compressionOptions', {
-      level: 9,
-    });
+    const stats = await compile(compiler);
+
+    expect(getAssetsNameAndSize(stats)).toMatchSnapshot('assets');
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
   it('set default compression level to maximum for deflate', async () => {
-    const compressionPlugin = new CompressionPlugin({
+    new CompressionPlugin({
       algorithm: 'deflate',
-    });
+    }).apply(compiler);
 
-    expect(compressionPlugin).toHaveProperty('options.compressionOptions', {
-      level: 9,
-    });
+    const stats = await compile(compiler);
+
+    expect(getAssetsNameAndSize(stats)).toMatchSnapshot('assets');
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
   it('set default compression level to maximum for deflateRaw', async () => {
-    const compressionPlugin = new CompressionPlugin({
+    new CompressionPlugin({
       algorithm: 'deflateRaw',
-    });
+    }).apply(compiler);
 
-    expect(compressionPlugin).toHaveProperty('options.compressionOptions', {
-      level: 9,
-    });
+    const stats = await compile(compiler);
+
+    expect(getAssetsNameAndSize(stats)).toMatchSnapshot('assets');
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
   it('set default compression level to maximum for brotli', async () => {
-    const compressionPlugin = new CompressionPlugin({
+    new CompressionPlugin({
       algorithm: 'brotliCompress',
-    });
+    }).apply(compiler);
 
-    expect(compressionPlugin).toHaveProperty('options.compressionOptions', {
-      params: { 1: 11 },
-    });
+    const stats = await compile(compiler);
+
+    expect(getAssetsNameAndSize(stats)).toMatchSnapshot('assets');
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 });
