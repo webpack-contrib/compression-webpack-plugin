@@ -372,3 +372,4 @@ class CompressionPlugin {
 }
 
 export default CompressionPlugin;
+// test
