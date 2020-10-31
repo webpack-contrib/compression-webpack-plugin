@@ -87,6 +87,9 @@
       "description": "Whether to delete the original assets or not.",
       "type": "boolean"
     },
+    "overwriteOriginalAssets": {
+      "type": "boolean"
+    },
     "filename": {
       "description": "The target asset filename.",
       "anyOf": [
