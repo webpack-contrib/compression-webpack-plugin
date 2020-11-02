@@ -1,6 +1,93 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`"deleteOriginalAssets" option matches snapshot for \`false\` value ({Boolean}): assets 1`] = `
+exports[`"deleteOriginalAssets" option should work and delete original assets: assets 1`] = `
+Array [
+  Array [
+    "09a1a1112c577c2794359715edfcb5ac.png.gz",
+    73160,
+  ],
+  Array [
+    "23fc1d3ac606d117e05a140e0de79806.svg.gz",
+    393,
+  ],
+  Array [
+    "async.async.9325220d444b0d653c03.js.gz",
+    179,
+  ],
+  Array [
+    "main.7cdd8fe3ccdaedc3726c.js.gz",
+    3933,
+  ],
+]
+`;
+
+exports[`"deleteOriginalAssets" option should work and delete original assets: errors 1`] = `Array []`;
+
+exports[`"deleteOriginalAssets" option should work and delete original assets: warnings 1`] = `Array []`;
+
+exports[`"deleteOriginalAssets" option should work and do not report errors on duplicate assets when original assets were removed: assets 1`] = `
+Array [
+  Array [
+    "09a1a1112c577c2794359715edfcb5ac.png",
+    78117,
+  ],
+  Array [
+    "23fc1d3ac606d117e05a140e0de79806.svg",
+    393,
+  ],
+  Array [
+    "async.async.9325220d444b0d653c03.js",
+    179,
+  ],
+  Array [
+    "main.7cdd8fe3ccdaedc3726c.js",
+    3933,
+  ],
+]
+`;
+
+exports[`"deleteOriginalAssets" option should work and do not report errors on duplicate assets when original assets were removed: errors 1`] = `Array []`;
+
+exports[`"deleteOriginalAssets" option should work and do not report errors on duplicate assets when original assets were removed: warnings 1`] = `Array []`;
+
+exports[`"deleteOriginalAssets" option should work and keep original assets by default: assets 1`] = `
+Array [
+  Array [
+    "09a1a1112c577c2794359715edfcb5ac.png",
+    78117,
+  ],
+  Array [
+    "23fc1d3ac606d117e05a140e0de79806.svg",
+    672,
+  ],
+  Array [
+    "23fc1d3ac606d117e05a140e0de79806.svg.gz",
+    393,
+  ],
+  Array [
+    "async.async.9325220d444b0d653c03.js",
+    265,
+  ],
+  Array [
+    "async.async.9325220d444b0d653c03.js.gz",
+    179,
+  ],
+  Array [
+    "main.7cdd8fe3ccdaedc3726c.js",
+    16494,
+  ],
+  Array [
+    "main.7cdd8fe3ccdaedc3726c.js.gz",
+    3933,
+  ],
+]
+`;
+
+exports[`"deleteOriginalAssets" option should work and keep original assets by default: errors 1`] = `Array []`;
+
+exports[`"deleteOriginalAssets" option should work and keep original assets by default: warnings 1`] = `Array []`;
+
+exports[`"deleteOriginalAssets" option should work and keep original assets: assets 1`] = `
 Array [
   Array [
     "09a1a1112c577c2794359715edfcb5ac.png",
@@ -37,31 +124,37 @@ Array [
 ]
 `;
 
-exports[`"deleteOriginalAssets" option matches snapshot for \`false\` value ({Boolean}): errors 1`] = `Array []`;
+exports[`"deleteOriginalAssets" option should work and keep original assets: errors 1`] = `Array []`;
 
-exports[`"deleteOriginalAssets" option matches snapshot for \`false\` value ({Boolean}): warnings 1`] = `Array []`;
+exports[`"deleteOriginalAssets" option should work and keep original assets: warnings 1`] = `Array []`;
 
-exports[`"deleteOriginalAssets" option matches snapshot for \`true\` value ({Boolean}): assets 1`] = `
+exports[`"deleteOriginalAssets" option should work and report errors on duplicate assets: assets 1`] = `
 Array [
   Array [
-    "09a1a1112c577c2794359715edfcb5ac.png.gz",
-    73160,
+    "09a1a1112c577c2794359715edfcb5ac.png",
+    78117,
   ],
   Array [
-    "23fc1d3ac606d117e05a140e0de79806.svg.gz",
+    "23fc1d3ac606d117e05a140e0de79806.svg",
     393,
   ],
   Array [
-    "async.async.9325220d444b0d653c03.js.gz",
+    "async.async.9325220d444b0d653c03.js",
     179,
   ],
   Array [
-    "main.7cdd8fe3ccdaedc3726c.js.gz",
+    "main.7cdd8fe3ccdaedc3726c.js",
     3933,
   ],
 ]
 `;
 
-exports[`"deleteOriginalAssets" option matches snapshot for \`true\` value ({Boolean}): errors 1`] = `Array []`;
+exports[`"deleteOriginalAssets" option should work and report errors on duplicate assets: errors 1`] = `
+Array [
+  "Error: Conflict: Multiple assets emit different content to the same filename 23fc1d3ac606d117e05a140e0de79806.svg",
+  "Error: Conflict: Multiple assets emit different content to the same filename async.async.9325220d444b0d653c03.js",
+  "Error: Conflict: Multiple assets emit different content to the same filename main.7cdd8fe3ccdaedc3726c.js",
+]
+`;
 
-exports[`"deleteOriginalAssets" option matches snapshot for \`true\` value ({Boolean}): warnings 1`] = `Array []`;
+exports[`"deleteOriginalAssets" option should work and report errors on duplicate assets: warnings 1`] = `Array []`;
