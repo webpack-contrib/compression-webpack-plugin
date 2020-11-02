@@ -37,7 +37,6 @@ class CompressionPlugin {
       threshold = 0,
       minRatio = 0.8,
       deleteOriginalAssets = false,
-      overwriteOriginalAssets = false,
     } = options;
 
     this.options = {
@@ -51,7 +50,6 @@ class CompressionPlugin {
       threshold,
       minRatio,
       deleteOriginalAssets,
-      overwriteOriginalAssets,
     };
 
     this.algorithm = this.options.algorithm;
@@ -300,17 +298,6 @@ class CompressionPlugin {
             newInfo.immutable = true;
           }
 
-          if (name === newName && this.options.overwriteOriginalAssets) {
-            CompressionPlugin.updateAsset(
-              compilation,
-              newName,
-              output,
-              newInfo
-            );
-          } else {
-            CompressionPlugin.emitAsset(compilation, newName, output, newInfo);
-          }
-
           if (this.options.deleteOriginalAssets) {
             // eslint-disable-next-line no-param-reassign
             CompressionPlugin.deleteAsset(compilation, name);
@@ -328,6 +315,8 @@ class CompressionPlugin {
               newOriginalInfo
             );
           }
+
+          CompressionPlugin.emitAsset(compilation, newName, output, newInfo);
         })()
       );
     }
