@@ -507,6 +507,7 @@ Array [
     78117,
     Object {
       "immutable": true,
+      "sourceFilename": "icon.png",
     },
   ],
   Array [
@@ -517,6 +518,7 @@ Array [
       "related": Object {
         "gziped": "23fc1d3ac606d117e05a140e0de79806.svg.gz",
       },
+      "sourceFilename": "icon.svg",
     },
   ],
   Array [
@@ -594,6 +596,7 @@ Array [
     78117,
     Object {
       "immutable": true,
+      "sourceFilename": "icon.png",
     },
   ],
   Array [
@@ -604,6 +607,7 @@ Array [
       "related": Object {
         "gziped": "23fc1d3ac606d117e05a140e0de79806.svg.gz",
       },
+      "sourceFilename": "icon.svg",
     },
   ],
   Array [
@@ -709,6 +713,7 @@ Array [
         "compressed": "09a1a1112c577c2794359715edfcb5ac.png.compress",
         "customed": "09a1a1112c577c2794359715edfcb5ac.png.custom?foo=bar#hash",
       },
+      "sourceFilename": "icon.png",
     },
   ],
   Array [
@@ -738,6 +743,7 @@ Array [
         "customed": "23fc1d3ac606d117e05a140e0de79806.svg.custom?foo=bar#hash",
         "gziped": "23fc1d3ac606d117e05a140e0de79806.svg.gz",
       },
+      "sourceFilename": "icon.svg",
     },
   ],
   Array [
