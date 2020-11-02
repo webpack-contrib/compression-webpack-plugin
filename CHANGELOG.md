@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [6.0.5](https://github.com/webpack-contrib/compression-webpack-plugin/compare/v6.0.4...v6.0.5) (2020-11-02)
+
+
+### Bug Fixes
+
+* allowed compressed assets to overwrite original assets using the `deleteOriginalAssets` option ([62d3d0a](https://github.com/webpack-contrib/compression-webpack-plugin/commit/62d3d0a39186b160b5f1e175e883bba55ba984ff))
+
 ### [6.0.4](https://github.com/webpack-contrib/compression-webpack-plugin/compare/v6.0.3...v6.0.4) (2020-10-26)
 
 
