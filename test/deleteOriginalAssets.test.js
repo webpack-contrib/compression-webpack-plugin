@@ -18,7 +18,32 @@ describe('"deleteOriginalAssets" option', () => {
     return removeCache();
   });
 
-  it('matches snapshot for `true` value ({Boolean})', async () => {
+  it('should work and keep original assets by default', async () => {
+    compiler = getCompiler('./entry.js');
+
+    new CompressionPlugin().apply(compiler);
+
+    const stats = await compile(compiler);
+
+    expect(getAssetsNameAndSize(stats)).toMatchSnapshot('assets');
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
+  });
+
+  it('should work and keep original assets', async () => {
+    new CompressionPlugin({
+      minRatio: 1,
+      deleteOriginalAssets: false,
+    }).apply(compiler);
+
+    const stats = await compile(compiler);
+
+    expect(getAssetsNameAndSize(stats)).toMatchSnapshot('assets');
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
+  });
+
+  it('should work and delete original assets', async () => {
     new CompressionPlugin({
       minRatio: 1,
       deleteOriginalAssets: true,
@@ -31,10 +56,26 @@ describe('"deleteOriginalAssets" option', () => {
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
-  it('matches snapshot for `false` value ({Boolean})', async () => {
+  it('should work and report errors on duplicate assets', async () => {
+    compiler = getCompiler('./entry.js');
+
     new CompressionPlugin({
-      minRatio: 1,
-      deleteOriginalAssets: false,
+      filename: '[path][base]',
+    }).apply(compiler);
+
+    const stats = await compile(compiler);
+
+    expect(getAssetsNameAndSize(stats)).toMatchSnapshot('assets');
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
+  });
+
+  it('should work and do not report errors on duplicate assets when original assets were removed', async () => {
+    compiler = getCompiler('./entry.js');
+
+    new CompressionPlugin({
+      filename: '[path][base]',
+      deleteOriginalAssets: true,
     }).apply(compiler);
 
     const stats = await compile(compiler);

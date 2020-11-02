@@ -298,8 +298,6 @@ class CompressionPlugin {
             newInfo.immutable = true;
           }
 
-          CompressionPlugin.emitAsset(compilation, newName, output, newInfo);
-
           if (this.options.deleteOriginalAssets) {
             // eslint-disable-next-line no-param-reassign
             CompressionPlugin.deleteAsset(compilation, name);
@@ -317,6 +315,8 @@ class CompressionPlugin {
               newOriginalInfo
             );
           }
+
+          CompressionPlugin.emitAsset(compilation, newName, output, newInfo);
         })()
       );
     }
