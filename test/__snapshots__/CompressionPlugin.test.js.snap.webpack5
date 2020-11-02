@@ -89,20 +89,20 @@ Array [
     393,
   ],
   Array [
-    "async.async.d1b531c50fe64d803595.js",
+    "async.async.27008663fa31c77100af.js",
     265,
   ],
   Array [
-    "async.async.d1b531c50fe64d803595.js.gz",
+    "async.async.27008663fa31c77100af.js.gz",
     179,
   ],
   Array [
-    "main.9a4fa82041b895cfa230.js",
+    "main.78a615f0242459e9f81e.js",
     16494,
   ],
   Array [
-    "main.9a4fa82041b895cfa230.js.gz",
-    3932,
+    "main.78a615f0242459e9f81e.js.gz",
+    3931,
   ],
 ]
 `;
@@ -441,20 +441,20 @@ Array [
     393,
   ],
   Array [
-    "async.async.99e57b92178c984aefdd.js",
+    "async.async.9325220d444b0d653c03.js",
     265,
   ],
   Array [
-    "async.async.99e57b92178c984aefdd.js.gz",
+    "async.async.9325220d444b0d653c03.js.gz",
     179,
   ],
   Array [
-    "main.ccf0f4f3077b5dbe8ce3.js",
+    "main.7cdd8fe3ccdaedc3726c.js",
     16494,
   ],
   Array [
-    "main.ccf0f4f3077b5dbe8ce3.js.gz",
-    3932,
+    "main.7cdd8fe3ccdaedc3726c.js.gz",
+    3933,
   ],
 ]
 `;
@@ -474,20 +474,20 @@ Array [
     393,
   ],
   Array [
-    "async.async.99e57b92178c984aefdd.js",
+    "async.async.9325220d444b0d653c03.js",
     265,
   ],
   Array [
-    "async.async.99e57b92178c984aefdd.js.gz",
+    "async.async.9325220d444b0d653c03.js.gz",
     179,
   ],
   Array [
-    "main.ccf0f4f3077b5dbe8ce3.js",
+    "main.7cdd8fe3ccdaedc3726c.js",
     16494,
   ],
   Array [
-    "main.ccf0f4f3077b5dbe8ce3.js.gz",
-    3932,
+    "main.7cdd8fe3ccdaedc3726c.js.gz",
+    3933,
   ],
 ]
 `;
@@ -508,6 +508,7 @@ Array [
     Object {
       "immutable": true,
       "size": 78117,
+      "sourceFilename": "icon.png",
     },
   ],
   Array [
@@ -519,6 +520,7 @@ Array [
         "gziped": "23fc1d3ac606d117e05a140e0de79806.svg.gz",
       },
       "size": 672,
+      "sourceFilename": "icon.svg",
     },
   ],
   Array [
@@ -540,10 +542,10 @@ Array [
     },
   ],
   Array [
-    "async.async.js?ver=cf10ec955f8676c58f85",
+    "async.async.js?ver=fb923fbfbe1905de10cc",
     265,
     Object {
-      "fullhash": "cf10ec955f8676c58f85",
+      "fullhash": "fb923fbfbe1905de10cc",
       "immutable": true,
       "javascriptModule": false,
       "related": Object {
@@ -573,18 +575,18 @@ Array [
   ],
   Array [
     "main.js.gz",
-    3953,
+    3952,
     Object {
       "compressed": true,
       "immutable": true,
-      "size": 3953,
+      "size": 3952,
     },
   ],
   Array [
-    "main.js?var=cf10ec955f8676c58f85",
+    "main.js?var=fb923fbfbe1905de10cc",
     16650,
     Object {
-      "fullhash": "cf10ec955f8676c58f85",
+      "fullhash": "fb923fbfbe1905de10cc",
       "immutable": true,
       "javascriptModule": false,
       "related": Object {
@@ -608,6 +610,7 @@ Array [
     Object {
       "immutable": true,
       "size": 78117,
+      "sourceFilename": "icon.png",
     },
   ],
   Array [
@@ -619,6 +622,7 @@ Array [
         "gziped": "23fc1d3ac606d117e05a140e0de79806.svg.gz",
       },
       "size": 672,
+      "sourceFilename": "icon.svg",
     },
   ],
   Array [
@@ -640,10 +644,10 @@ Array [
     },
   ],
   Array [
-    "async.async.js?ver=94322e0b3edcaa82eb91",
+    "async.async.js?ver=de308cf9f862aae72c20",
     265,
     Object {
-      "fullhash": "94322e0b3edcaa82eb91",
+      "fullhash": "de308cf9f862aae72c20",
       "immutable": true,
       "javascriptModule": false,
       "related": Object {
@@ -682,14 +686,14 @@ Array [
   ],
   Array [
     "main.js.map.gz",
-    3958,
+    3960,
     Object {
       "compressed": true,
-      "size": 3958,
+      "size": 3960,
     },
   ],
   Array [
-    "main.js.map?var=94322e0b3edcaa82eb91",
+    "main.js.map?var=de308cf9f862aae72c20",
     12447,
     Object {
       "development": true,
@@ -700,15 +704,15 @@ Array [
     },
   ],
   Array [
-    "main.js?var=94322e0b3edcaa82eb91",
+    "main.js?var=de308cf9f862aae72c20",
     16711,
     Object {
-      "fullhash": "94322e0b3edcaa82eb91",
+      "fullhash": "de308cf9f862aae72c20",
       "immutable": true,
       "javascriptModule": false,
       "related": Object {
         "gziped": "main.js.gz",
-        "sourceMap": "main.js.map?var=94322e0b3edcaa82eb91",
+        "sourceMap": "main.js.map?var=de308cf9f862aae72c20",
       },
       "size": 16711,
     },
@@ -732,6 +736,7 @@ Array [
         "customed": "09a1a1112c577c2794359715edfcb5ac.png.custom?foo=bar#hash",
       },
       "size": 78117,
+      "sourceFilename": "icon.png",
     },
   ],
   Array [
@@ -764,6 +769,7 @@ Array [
         "gziped": "23fc1d3ac606d117e05a140e0de79806.svg.gz",
       },
       "size": 672,
+      "sourceFilename": "icon.svg",
     },
   ],
   Array [
@@ -839,10 +845,10 @@ Array [
     },
   ],
   Array [
-    "async.async.js?ver=94322e0b3edcaa82eb91",
+    "async.async.js?ver=f7d7a6b10217e2699ecc",
     265,
     Object {
-      "fullhash": "94322e0b3edcaa82eb91",
+      "fullhash": "f7d7a6b10217e2699ecc",
       "immutable": true,
       "javascriptModule": false,
       "related": Object {
@@ -856,11 +862,11 @@ Array [
   ],
   Array [
     "main.js.br",
-    3443,
+    3442,
     Object {
       "compressed": true,
       "immutable": true,
-      "size": 3443,
+      "size": 3442,
     },
   ],
   Array [
@@ -891,10 +897,10 @@ Array [
     },
   ],
   Array [
-    "main.js?var=94322e0b3edcaa82eb91",
+    "main.js?var=f7d7a6b10217e2699ecc",
     16653,
     Object {
-      "fullhash": "94322e0b3edcaa82eb91",
+      "fullhash": "f7d7a6b10217e2699ecc",
       "immutable": true,
       "javascriptModule": false,
       "related": Object {
@@ -932,7 +938,7 @@ Array [
     179,
   ],
   Array [
-    "async.async.js?ver=94322e0b3edcaa82eb91",
+    "async.async.js?ver=f7d7a6b10217e2699ecc",
     265,
   ],
   Array [
@@ -940,7 +946,7 @@ Array [
     3957,
   ],
   Array [
-    "main.js?var=94322e0b3edcaa82eb91",
+    "main.js?var=f7d7a6b10217e2699ecc",
     16653,
   ],
 ]
