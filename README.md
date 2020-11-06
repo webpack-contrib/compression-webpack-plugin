@@ -289,7 +289,7 @@ module.exports = {
 
 ### `deleteOriginalAssets`
 
-Type: `Boolean|keep-source-map`
+Type: `Boolean|'keep-source-map'`
 Default: `false`
 
 Whether to delete the original assets or not.
