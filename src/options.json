@@ -85,7 +85,15 @@
     },
     "deleteOriginalAssets": {
       "description": "Whether to delete the original assets or not.",
-      "type": "boolean"
+      "anyOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "string",
+          "enum": ["keep-source-map"]
+        }
+      ]
     },
     "filename": {
       "description": "The target asset filename.",

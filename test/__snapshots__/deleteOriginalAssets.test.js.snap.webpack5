@@ -1,5 +1,34 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`"deleteOriginalAssets" option should delete original assets and keep source maps with option 'keep-source-map': assets 1`] = `
+Array [
+  Array [
+    "09a1a1112c577c2794359715edfcb5ac.png",
+    78117,
+  ],
+  Array [
+    "23fc1d3ac606d117e05a140e0de79806.svg",
+    393,
+  ],
+  Array [
+    "async.async.1c2911c7c819fc826fb7.js",
+    179,
+  ],
+  Array [
+    "main.6a5afd3ff5b2f0fa8aaa.js",
+    3973,
+  ],
+  Array [
+    "main.6a5afd3ff5b2f0fa8aaa.js.map",
+    12330,
+  ],
+]
+`;
+
+exports[`"deleteOriginalAssets" option should delete original assets and keep source maps with option 'keep-source-map': errors 1`] = `Array []`;
+
+exports[`"deleteOriginalAssets" option should delete original assets and keep source maps with option 'keep-source-map': warnings 1`] = `Array []`;
+
 exports[`"deleteOriginalAssets" option should work and delete original assets: assets 1`] = `
 Array [
   Array [
