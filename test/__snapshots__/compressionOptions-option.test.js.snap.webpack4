@@ -41,6 +41,47 @@ exports[`"compressionOptions" option matches snapshot for custom options ({Objec
 
 exports[`"compressionOptions" option matches snapshot for custom options ({Object}): warnings 1`] = `Array []`;
 
+exports[`"compressionOptions" option matches snapshot without values: assets 1`] = `
+Array [
+  Array [
+    "09a1a1112c577c2794359715edfcb5ac.png",
+    78117,
+  ],
+  Array [
+    "09a1a1112c577c2794359715edfcb5ac.png.gz",
+    73160,
+  ],
+  Array [
+    "23fc1d3ac606d117e05a140e0de79806.svg",
+    672,
+  ],
+  Array [
+    "23fc1d3ac606d117e05a140e0de79806.svg.gz",
+    393,
+  ],
+  Array [
+    "async.async.dcbdb1dd40763448b635.js",
+    249,
+  ],
+  Array [
+    "async.async.dcbdb1dd40763448b635.js.gz",
+    171,
+  ],
+  Array [
+    "main.82c6786e32f9c77b44ef.js",
+    11645,
+  ],
+  Array [
+    "main.82c6786e32f9c77b44ef.js.gz",
+    3000,
+  ],
+]
+`;
+
+exports[`"compressionOptions" option matches snapshot without values: errors 1`] = `Array []`;
+
+exports[`"compressionOptions" option matches snapshot without values: warnings 1`] = `Array []`;
+
 exports[`"compressionOptions" option set default compression level to maximum for brotli: assets 1`] = `
 Array [
   Array [
