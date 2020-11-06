@@ -15,12 +15,12 @@ Array [
     179,
   ],
   Array [
-    "main.6a5afd3ff5b2f0fa8aaa.js",
-    3973,
+    "main.6b42eac1865a72d65938.js",
+    3976,
   ],
   Array [
-    "main.6a5afd3ff5b2f0fa8aaa.js.map",
-    12330,
+    "main.6b42eac1865a72d65938.js.map",
+    12336,
   ],
 ]
 `;
@@ -44,8 +44,8 @@ Array [
     179,
   ],
   Array [
-    "main.7cdd8fe3ccdaedc3726c.js.gz",
-    3933,
+    "main.c9c6c970f01f9eb6d301.js.gz",
+    3934,
   ],
 ]
 `;
@@ -69,8 +69,8 @@ Array [
     179,
   ],
   Array [
-    "main.7cdd8fe3ccdaedc3726c.js",
-    3933,
+    "main.c9c6c970f01f9eb6d301.js",
+    3934,
   ],
 ]
 `;
@@ -102,12 +102,12 @@ Array [
     179,
   ],
   Array [
-    "main.7cdd8fe3ccdaedc3726c.js",
-    16494,
+    "main.c9c6c970f01f9eb6d301.js",
+    16495,
   ],
   Array [
-    "main.7cdd8fe3ccdaedc3726c.js.gz",
-    3933,
+    "main.c9c6c970f01f9eb6d301.js.gz",
+    3934,
   ],
 ]
 `;
@@ -143,12 +143,12 @@ Array [
     179,
   ],
   Array [
-    "main.7cdd8fe3ccdaedc3726c.js",
-    16494,
+    "main.c9c6c970f01f9eb6d301.js",
+    16495,
   ],
   Array [
-    "main.7cdd8fe3ccdaedc3726c.js.gz",
-    3933,
+    "main.c9c6c970f01f9eb6d301.js.gz",
+    3934,
   ],
 ]
 `;
@@ -172,8 +172,8 @@ Array [
     179,
   ],
   Array [
-    "main.7cdd8fe3ccdaedc3726c.js",
-    3933,
+    "main.c9c6c970f01f9eb6d301.js",
+    3934,
   ],
 ]
 `;
@@ -182,7 +182,7 @@ exports[`"deleteOriginalAssets" option should work and report errors on duplicat
 Array [
   "Error: Conflict: Multiple assets emit different content to the same filename 23fc1d3ac606d117e05a140e0de79806.svg",
   "Error: Conflict: Multiple assets emit different content to the same filename async.async.9325220d444b0d653c03.js",
-  "Error: Conflict: Multiple assets emit different content to the same filename main.7cdd8fe3ccdaedc3726c.js",
+  "Error: Conflict: Multiple assets emit different content to the same filename main.c9c6c970f01f9eb6d301.js",
 ]
 `;
 
