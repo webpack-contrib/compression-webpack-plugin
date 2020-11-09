@@ -299,7 +299,21 @@ class CompressionPlugin {
           }
 
           if (this.options.deleteOriginalAssets) {
-            // eslint-disable-next-line no-param-reassign
+            if (this.options.deleteOriginalAssets === 'keep-source-map') {
+              // TODO `...` required only for webpack@4
+              const updatedAssetInfo = {
+                ...info,
+                related: { ...info.related, sourceMap: null },
+              };
+
+              CompressionPlugin.updateAsset(
+                compilation,
+                name,
+                inputSource,
+                updatedAssetInfo
+              );
+            }
+
             CompressionPlugin.deleteAsset(compilation, name);
           } else {
             // TODO `...` required only for webpack@4

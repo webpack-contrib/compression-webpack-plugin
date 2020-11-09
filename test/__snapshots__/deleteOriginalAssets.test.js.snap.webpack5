@@ -1,5 +1,34 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`"deleteOriginalAssets" option should delete original assets and keep source maps with option 'keep-source-map': assets 1`] = `
+Array [
+  Array [
+    "09a1a1112c577c2794359715edfcb5ac.png",
+    78117,
+  ],
+  Array [
+    "23fc1d3ac606d117e05a140e0de79806.svg",
+    393,
+  ],
+  Array [
+    "async.async.1c2911c7c819fc826fb7.js",
+    179,
+  ],
+  Array [
+    "main.6b42eac1865a72d65938.js",
+    3976,
+  ],
+  Array [
+    "main.6b42eac1865a72d65938.js.map",
+    12336,
+  ],
+]
+`;
+
+exports[`"deleteOriginalAssets" option should delete original assets and keep source maps with option 'keep-source-map': errors 1`] = `Array []`;
+
+exports[`"deleteOriginalAssets" option should delete original assets and keep source maps with option 'keep-source-map': warnings 1`] = `Array []`;
+
 exports[`"deleteOriginalAssets" option should work and delete original assets: assets 1`] = `
 Array [
   Array [
@@ -15,8 +44,8 @@ Array [
     179,
   ],
   Array [
-    "main.7cdd8fe3ccdaedc3726c.js.gz",
-    3933,
+    "main.c9c6c970f01f9eb6d301.js.gz",
+    3934,
   ],
 ]
 `;
@@ -40,8 +69,8 @@ Array [
     179,
   ],
   Array [
-    "main.7cdd8fe3ccdaedc3726c.js",
-    3933,
+    "main.c9c6c970f01f9eb6d301.js",
+    3934,
   ],
 ]
 `;
@@ -73,12 +102,12 @@ Array [
     179,
   ],
   Array [
-    "main.7cdd8fe3ccdaedc3726c.js",
-    16494,
+    "main.c9c6c970f01f9eb6d301.js",
+    16495,
   ],
   Array [
-    "main.7cdd8fe3ccdaedc3726c.js.gz",
-    3933,
+    "main.c9c6c970f01f9eb6d301.js.gz",
+    3934,
   ],
 ]
 `;
@@ -114,12 +143,12 @@ Array [
     179,
   ],
   Array [
-    "main.7cdd8fe3ccdaedc3726c.js",
-    16494,
+    "main.c9c6c970f01f9eb6d301.js",
+    16495,
   ],
   Array [
-    "main.7cdd8fe3ccdaedc3726c.js.gz",
-    3933,
+    "main.c9c6c970f01f9eb6d301.js.gz",
+    3934,
   ],
 ]
 `;
@@ -143,8 +172,8 @@ Array [
     179,
   ],
   Array [
-    "main.7cdd8fe3ccdaedc3726c.js",
-    3933,
+    "main.c9c6c970f01f9eb6d301.js",
+    3934,
   ],
 ]
 `;
@@ -153,7 +182,7 @@ exports[`"deleteOriginalAssets" option should work and report errors on duplicat
 Array [
   "Error: Conflict: Multiple assets emit different content to the same filename 23fc1d3ac606d117e05a140e0de79806.svg",
   "Error: Conflict: Multiple assets emit different content to the same filename async.async.9325220d444b0d653c03.js",
-  "Error: Conflict: Multiple assets emit different content to the same filename main.7cdd8fe3ccdaedc3726c.js",
+  "Error: Conflict: Multiple assets emit different content to the same filename main.c9c6c970f01f9eb6d301.js",
 ]
 `;
 

@@ -84,4 +84,26 @@ describe('"deleteOriginalAssets" option', () => {
     expect(getWarnings(stats)).toMatchSnapshot('warnings');
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
+
+  it(`should delete original assets and keep source maps with option 'keep-source-map'`, async () => {
+    compiler = getCompiler(
+      './entry.js',
+      {},
+      {
+        devtool: 'source-map',
+      }
+    );
+
+    new CompressionPlugin({
+      filename: '[file]',
+      exclude: /.map$/,
+      deleteOriginalAssets: 'keep-source-map',
+    }).apply(compiler);
+
+    const stats = await compile(compiler);
+
+    expect(getAssetsNameAndSize(stats)).toMatchSnapshot('assets');
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
+  });
 });
