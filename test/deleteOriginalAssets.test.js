@@ -85,7 +85,7 @@ describe('"deleteOriginalAssets" option', () => {
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 
-  it(`should delete original assets and keep source maps with option 'keep-source-map'`, async () => {
+  it('should delete original assets and keep source maps with option "keep-source-map"', async () => {
     compiler = getCompiler(
       './entry.js',
       {},
@@ -95,8 +95,8 @@ describe('"deleteOriginalAssets" option', () => {
     );
 
     new CompressionPlugin({
-      filename: '[file]',
-      exclude: /.map$/,
+      filename: '[path][base]',
+      exclude: /\.map$/,
       deleteOriginalAssets: 'keep-source-map',
     }).apply(compiler);
 
