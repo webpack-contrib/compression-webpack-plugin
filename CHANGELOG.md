@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [6.1.0](https://github.com/webpack-contrib/compression-webpack-plugin/compare/v6.0.5...v6.1.0) (2020-11-09)
+
+
+### Features
+
+* added the `keep-source-maps` value to the `deleteOriginalAssets` option ([#216](https://github.com/webpack-contrib/compression-webpack-plugin/issues/216)) ([bd60650](https://github.com/webpack-contrib/compression-webpack-plugin/commit/bd6065030c387ac371a2685c445b27d96be09868))
+
 ### [6.0.5](https://github.com/webpack-contrib/compression-webpack-plugin/compare/v6.0.4...v6.0.5) (2020-11-02)
 
 
