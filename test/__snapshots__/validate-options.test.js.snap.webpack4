@@ -37,6 +37,16 @@ exports[`validate options should throw an error on the "deleteOriginalAssets" op
     * options.deleteOriginalAssets should be \\"keep-source-map\\"."
 `;
 
+exports[`validate options should throw an error on the "deleteOriginalAssets" option with "unknown" value 1`] = `
+"Invalid options object. Compression Plugin has been initialized using an options object that does not match the API schema.
+ - options.deleteOriginalAssets should be one of these:
+   boolean | \\"keep-source-map\\"
+   -> Whether to delete the original assets or not.
+   Details:
+    * options.deleteOriginalAssets should be a boolean.
+    * options.deleteOriginalAssets should be \\"keep-source-map\\"."
+`;
+
 exports[`validate options should throw an error on the "exclude" option with "[{},"foo",true]" value 1`] = `
 "Invalid options object. Compression Plugin has been initialized using an options object that does not match the API schema.
  - options.exclude should be one of these:
