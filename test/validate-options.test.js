@@ -66,8 +66,8 @@ describe('validate options', () => {
       failure: [() => {}],
     },
     deleteOriginalAssets: {
-      success: [true, false],
-      failure: ['true'],
+      success: [true, false, 'keep-source-map'],
+      failure: ['true', 'unknown'],
     },
     unknown: {
       success: [],
