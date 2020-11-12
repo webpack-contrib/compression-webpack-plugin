@@ -602,6 +602,215 @@ exports[`CompressionPlugin should work child compilations: errors 1`] = `Array [
 
 exports[`CompressionPlugin should work child compilations: warnings 1`] = `Array []`;
 
+exports[`CompressionPlugin should work with "workbox-webpack-plugin" plugin ("GenerateSW"): assets 1`] = `
+Array [
+  Array [
+    "09a1a1112c577c2794359715edfcb5ac.png",
+    78117,
+    Object {
+      "immutable": true,
+      "size": 78117,
+      "sourceFilename": "icon.png",
+    },
+  ],
+  Array [
+    "23fc1d3ac606d117e05a140e0de79806.svg",
+    672,
+    Object {
+      "immutable": true,
+      "related": Object {
+        "gziped": "23fc1d3ac606d117e05a140e0de79806.svg.gz",
+      },
+      "size": 672,
+      "sourceFilename": "icon.svg",
+    },
+  ],
+  Array [
+    "23fc1d3ac606d117e05a140e0de79806.svg.gz",
+    393,
+    Object {
+      "compressed": true,
+      "immutable": true,
+      "size": 393,
+    },
+  ],
+  Array [
+    "async.async.js",
+    265,
+    Object {
+      "javascriptModule": false,
+      "related": Object {
+        "gziped": "async.async.js.gz",
+      },
+      "size": 265,
+    },
+  ],
+  Array [
+    "async.async.js.gz",
+    179,
+    Object {
+      "compressed": true,
+      "size": 179,
+    },
+  ],
+  Array [
+    "main.js",
+    16464,
+    Object {
+      "javascriptModule": false,
+      "related": Object {
+        "gziped": "main.js.gz",
+      },
+      "size": 16464,
+    },
+  ],
+  Array [
+    "main.js.gz",
+    3911,
+    Object {
+      "compressed": true,
+      "size": 3911,
+    },
+  ],
+  Array [
+    "service-worker.js",
+    3616,
+    Object {
+      "related": Object {
+        "gziped": "service-worker.js.gz",
+      },
+      "size": 3616,
+    },
+  ],
+  Array [
+    "service-worker.js.gz",
+    1666,
+    Object {
+      "compressed": true,
+      "size": 1666,
+    },
+  ],
+  Array [
+    "workbox-41957664.js",
+    112822,
+    Object {
+      "related": Object {
+        "gziped": "workbox-41957664.js.gz",
+      },
+      "size": 112822,
+    },
+  ],
+  Array [
+    "workbox-41957664.js.gz",
+    24749,
+    Object {
+      "compressed": true,
+      "size": 24749,
+    },
+  ],
+]
+`;
+
+exports[`CompressionPlugin should work with "workbox-webpack-plugin" plugin ("GenerateSW"): errors 1`] = `Array []`;
+
+exports[`CompressionPlugin should work with "workbox-webpack-plugin" plugin ("GenerateSW"): warnings 1`] = `Array []`;
+
+exports[`CompressionPlugin should work with "workbox-webpack-plugin" plugin ("InjectManifest"): assets 1`] = `
+Array [
+  Array [
+    "09a1a1112c577c2794359715edfcb5ac.png",
+    78117,
+    Object {
+      "immutable": true,
+      "size": 78117,
+      "sourceFilename": "icon.png",
+    },
+  ],
+  Array [
+    "23fc1d3ac606d117e05a140e0de79806.svg",
+    672,
+    Object {
+      "immutable": true,
+      "related": Object {
+        "gziped": "23fc1d3ac606d117e05a140e0de79806.svg.gz",
+      },
+      "size": 672,
+      "sourceFilename": "icon.svg",
+    },
+  ],
+  Array [
+    "23fc1d3ac606d117e05a140e0de79806.svg.gz",
+    393,
+    Object {
+      "compressed": true,
+      "immutable": true,
+      "size": 393,
+    },
+  ],
+  Array [
+    "async.async.js",
+    265,
+    Object {
+      "javascriptModule": false,
+      "related": Object {
+        "gziped": "async.async.js.gz",
+      },
+      "size": 265,
+    },
+  ],
+  Array [
+    "async.async.js.gz",
+    179,
+    Object {
+      "compressed": true,
+      "size": 179,
+    },
+  ],
+  Array [
+    "main.js",
+    16464,
+    Object {
+      "javascriptModule": false,
+      "related": Object {
+        "gziped": "main.js.gz",
+      },
+      "size": 16464,
+    },
+  ],
+  Array [
+    "main.js.gz",
+    3911,
+    Object {
+      "compressed": true,
+      "size": 3911,
+    },
+  ],
+  Array [
+    "sw.js",
+    187700,
+    Object {
+      "javascriptModule": false,
+      "related": Object {
+        "gziped": "sw.js.gz",
+      },
+      "size": 187700,
+    },
+  ],
+  Array [
+    "sw.js.gz",
+    30508,
+    Object {
+      "compressed": true,
+      "size": 30508,
+    },
+  ],
+]
+`;
+
+exports[`CompressionPlugin should work with "workbox-webpack-plugin" plugin ("InjectManifest"): errors 1`] = `Array []`;
+
+exports[`CompressionPlugin should work with "workbox-webpack-plugin" plugin ("InjectManifest"): warnings 1`] = `Array []`;
+
 exports[`CompressionPlugin should work with assets info: assets 1`] = `
 Array [
   Array [

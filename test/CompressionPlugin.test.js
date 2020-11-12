@@ -4,6 +4,7 @@ import path from 'path';
 import webpack from 'webpack';
 import findCacheDir from 'find-cache-dir';
 import cacache from 'cacache';
+import WorkboxPlugin from 'workbox-webpack-plugin';
 
 import Webpack4Cache from '../src/Webpack4Cache';
 import CompressionPlugin from '../src/index';
@@ -549,5 +550,53 @@ describe('CompressionPlugin', () => {
 
       resolve();
     });
+  });
+
+  it('should work with "workbox-webpack-plugin" plugin ("GenerateSW")', async () => {
+    const compiler = getCompiler(
+      './entry.js',
+      {},
+      {
+        output: {
+          filename: '[name].js',
+          chunkFilename: '[id].[name].js',
+        },
+      }
+    );
+
+    new WorkboxPlugin.GenerateSW().apply(compiler);
+    new CompressionPlugin().apply(compiler);
+
+    const stats = await compile(compiler);
+
+    expect(getAssetsNameAndSize(stats, true)).toMatchSnapshot('assets');
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
+  });
+
+  it('should work with "workbox-webpack-plugin" plugin ("InjectManifest")', async () => {
+    const compiler = getCompiler(
+      './entry.js',
+      {},
+      {
+        output: {
+          filename: '[name].js',
+          chunkFilename: '[id].[name].js',
+        },
+      }
+    );
+
+    new WorkboxPlugin.InjectManifest({
+      swSrc: path.resolve(__dirname, './fixtures/sw.js'),
+      swDest: 'sw.js',
+      exclude: [/\.(gz|br)$/],
+    }).apply(compiler);
+    new CompressionPlugin().apply(compiler);
+
+    const stats = await compile(compiler);
+
+    expect(getAssetsNameAndSize(stats, true)).toMatchSnapshot('assets');
+    expect(getWarnings(stats)).toMatchSnapshot('warnings');
+    expect(getErrors(stats)).toMatchSnapshot('errors');
   });
 });
