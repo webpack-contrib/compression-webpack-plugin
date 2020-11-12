@@ -5,30 +5,76 @@ Array [
   Array [
     "09a1a1112c577c2794359715edfcb5ac.png",
     78117,
+    Object {
+      "immutable": true,
+      "related": Object {
+        "gzipped": "09a1a1112c577c2794359715edfcb5ac.png.gz",
+      },
+      "size": 78117,
+      "sourceFilename": "icon.png",
+    },
   ],
   Array [
     "09a1a1112c577c2794359715edfcb5ac.png.gz",
     73160,
+    Object {
+      "compressed": true,
+      "immutable": true,
+      "size": 73160,
+    },
   ],
   Array [
     "23fc1d3ac606d117e05a140e0de79806.svg",
     672,
+    Object {
+      "immutable": true,
+      "size": 672,
+      "sourceFilename": "icon.svg",
+    },
   ],
   Array [
     "async.async.js.gz",
     179,
+    Object {
+      "compressed": true,
+      "immutable": true,
+      "size": 179,
+    },
   ],
   Array [
     "async.async.js?ver=332db2bcb6b6f299224f",
     265,
+    Object {
+      "fullhash": "332db2bcb6b6f299224f",
+      "immutable": true,
+      "javascriptModule": false,
+      "related": Object {
+        "gzipped": "async.async.js.gz",
+      },
+      "size": 265,
+    },
   ],
   Array [
     "main.js.gz",
     3959,
+    Object {
+      "compressed": true,
+      "immutable": true,
+      "size": 3959,
+    },
   ],
   Array [
     "main.js?var=332db2bcb6b6f299224f",
     16654,
+    Object {
+      "fullhash": "332db2bcb6b6f299224f",
+      "immutable": true,
+      "javascriptModule": false,
+      "related": Object {
+        "gzipped": "main.js.gz",
+      },
+      "size": 16654,
+    },
   ],
 ]
 `;
@@ -42,26 +88,64 @@ Array [
   Array [
     "09a1a1112c577c2794359715edfcb5ac.png",
     78117,
+    Object {
+      "immutable": true,
+      "size": 78117,
+      "sourceFilename": "icon.png",
+    },
   ],
   Array [
     "23fc1d3ac606d117e05a140e0de79806.svg",
     672,
+    Object {
+      "immutable": true,
+      "size": 672,
+      "sourceFilename": "icon.svg",
+    },
   ],
   Array [
     "async.async.js.gz",
     179,
+    Object {
+      "compressed": true,
+      "immutable": true,
+      "size": 179,
+    },
   ],
   Array [
     "async.async.js?ver=332db2bcb6b6f299224f",
     265,
+    Object {
+      "fullhash": "332db2bcb6b6f299224f",
+      "immutable": true,
+      "javascriptModule": false,
+      "related": Object {
+        "gzipped": "async.async.js.gz",
+      },
+      "size": 265,
+    },
   ],
   Array [
     "main.js.gz",
     3959,
+    Object {
+      "compressed": true,
+      "immutable": true,
+      "size": 3959,
+    },
   ],
   Array [
     "main.js?var=332db2bcb6b6f299224f",
     16654,
+    Object {
+      "fullhash": "332db2bcb6b6f299224f",
+      "immutable": true,
+      "javascriptModule": false,
+      "related": Object {
+        "gzipped": "main.js.gz",
+      },
+      "size": 16654,
+    },
   ],
 ]
 `;

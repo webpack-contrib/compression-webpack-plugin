@@ -198,6 +198,8 @@ class CompressionPlugin {
             }
 
             relatedName = `${path.extname(filenameForRelatedName).slice(1)}ed`;
+          } else if (this.options.algorithm === 'gzip') {
+            relatedName = 'gzipped';
           } else {
             relatedName = `${this.options.algorithm}ed`;
           }
@@ -358,7 +360,7 @@ class CompressionPlugin {
       // eslint-disable-next-line global-require
       const CacheEngine = require('./Webpack5Cache').default;
 
-      compiler.hooks.compilation.tap(pluginName, (compilation) => {
+      compiler.hooks.thisCompilation.tap(pluginName, (compilation) => {
         // eslint-disable-next-line global-require
         const Compilation = require('webpack/lib/Compilation');
 

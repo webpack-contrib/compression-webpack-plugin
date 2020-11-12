@@ -5,34 +5,88 @@ Array [
   Array [
     "09a1a1112c577c2794359715edfcb5ac.png",
     78117,
+    Object {
+      "immutable": true,
+      "related": Object {
+        "gzipped": "09a1a1112c577c2794359715edfcb5ac.png.gz",
+      },
+      "size": 78117,
+      "sourceFilename": "icon.png",
+    },
   ],
   Array [
     "09a1a1112c577c2794359715edfcb5ac.png.gz",
     73160,
+    Object {
+      "compressed": true,
+      "immutable": true,
+      "size": 73160,
+    },
   ],
   Array [
     "23fc1d3ac606d117e05a140e0de79806.svg",
     672,
+    Object {
+      "immutable": true,
+      "related": Object {
+        "gzipped": "23fc1d3ac606d117e05a140e0de79806.svg.gz",
+      },
+      "size": 672,
+      "sourceFilename": "icon.svg",
+    },
   ],
   Array [
     "23fc1d3ac606d117e05a140e0de79806.svg.gz",
     393,
+    Object {
+      "compressed": true,
+      "immutable": true,
+      "size": 393,
+    },
   ],
   Array [
     "async.async.9325220d444b0d653c03.js",
     265,
+    Object {
+      "chunkhash": "9325220d444b0d653c03",
+      "immutable": true,
+      "javascriptModule": false,
+      "related": Object {
+        "gzipped": "async.async.9325220d444b0d653c03.js.gz",
+      },
+      "size": 265,
+    },
   ],
   Array [
     "async.async.9325220d444b0d653c03.js.gz",
     179,
+    Object {
+      "compressed": true,
+      "immutable": true,
+      "size": 179,
+    },
   ],
   Array [
     "main.c9c6c970f01f9eb6d301.js",
     16495,
+    Object {
+      "chunkhash": "c9c6c970f01f9eb6d301",
+      "immutable": true,
+      "javascriptModule": false,
+      "related": Object {
+        "gzipped": "main.c9c6c970f01f9eb6d301.js.gz",
+      },
+      "size": 16495,
+    },
   ],
   Array [
     "main.c9c6c970f01f9eb6d301.js.gz",
     3934,
+    Object {
+      "compressed": true,
+      "immutable": true,
+      "size": 3934,
+    },
   ],
 ]
 `;
@@ -48,34 +102,88 @@ Array [
   Array [
     "09a1a1112c577c2794359715edfcb5ac.png",
     78117,
+    Object {
+      "immutable": true,
+      "related": Object {
+        "gzed": "09a1a1112c577c2794359715edfcb5ac.png.gz",
+      },
+      "size": 78117,
+      "sourceFilename": "icon.png",
+    },
   ],
   Array [
     "09a1a1112c577c2794359715edfcb5ac.png.gz",
     78117,
+    Object {
+      "compressed": true,
+      "immutable": true,
+      "size": 78117,
+    },
   ],
   Array [
     "23fc1d3ac606d117e05a140e0de79806.svg",
     672,
+    Object {
+      "immutable": true,
+      "related": Object {
+        "gzed": "23fc1d3ac606d117e05a140e0de79806.svg.gz",
+      },
+      "size": 672,
+      "sourceFilename": "icon.svg",
+    },
   ],
   Array [
     "23fc1d3ac606d117e05a140e0de79806.svg.gz",
     672,
+    Object {
+      "compressed": true,
+      "immutable": true,
+      "size": 672,
+    },
   ],
   Array [
     "async.async.9325220d444b0d653c03.js",
     265,
+    Object {
+      "chunkhash": "9325220d444b0d653c03",
+      "immutable": true,
+      "javascriptModule": false,
+      "related": Object {
+        "gzed": "async.async.9325220d444b0d653c03.js.gz",
+      },
+      "size": 265,
+    },
   ],
   Array [
     "async.async.9325220d444b0d653c03.js.gz",
     265,
+    Object {
+      "compressed": true,
+      "immutable": true,
+      "size": 265,
+    },
   ],
   Array [
     "main.c9c6c970f01f9eb6d301.js",
     16495,
+    Object {
+      "chunkhash": "c9c6c970f01f9eb6d301",
+      "immutable": true,
+      "javascriptModule": false,
+      "related": Object {
+        "gzed": "main.c9c6c970f01f9eb6d301.js.gz",
+      },
+      "size": 16495,
+    },
   ],
   Array [
     "main.c9c6c970f01f9eb6d301.js.gz",
     16495,
+    Object {
+      "compressed": true,
+      "immutable": true,
+      "size": 16495,
+    },
   ],
 ]
 `;
@@ -97,18 +205,40 @@ Array [
   Array [
     "09a1a1112c577c2794359715edfcb5ac.png",
     78117,
+    Object {
+      "immutable": true,
+      "size": 78117,
+      "sourceFilename": "icon.png",
+    },
   ],
   Array [
     "23fc1d3ac606d117e05a140e0de79806.svg",
     672,
+    Object {
+      "immutable": true,
+      "size": 672,
+      "sourceFilename": "icon.svg",
+    },
   ],
   Array [
     "async.async.9325220d444b0d653c03.js",
     265,
+    Object {
+      "chunkhash": "9325220d444b0d653c03",
+      "immutable": true,
+      "javascriptModule": false,
+      "size": 265,
+    },
   ],
   Array [
     "main.c9c6c970f01f9eb6d301.js",
     16495,
+    Object {
+      "chunkhash": "c9c6c970f01f9eb6d301",
+      "immutable": true,
+      "javascriptModule": false,
+      "size": 16495,
+    },
   ],
 ]
 `;

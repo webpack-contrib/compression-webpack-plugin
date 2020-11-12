@@ -17,7 +17,6 @@ import {
   getCompiler,
   getErrors,
   getWarnings,
-  readAsset,
   removeCache,
 } from './helpers/index';
 
@@ -38,8 +37,6 @@ describe('CompressionPlugin', () => {
   });
 
   it('should work', async () => {
-    expect.assertions(6);
-
     const compiler = getCompiler(
       './entry.js',
       {},
@@ -55,23 +52,8 @@ describe('CompressionPlugin', () => {
     new CompressionPlugin().apply(compiler);
 
     const stats = await compile(compiler);
-    const { assets, assetsInfo } = stats.compilation;
 
-    for (const assetName of Object.keys(assets)) {
-      const info = assetsInfo.get(assetName);
-
-      if (!info.related) {
-        // eslint-disable-next-line no-continue
-        continue;
-      }
-
-      const originalBuffer = readAsset(assetName, compiler, stats);
-      const gzipedBuffer = readAsset(info.related.gziped, compiler, stats);
-
-      expect(zlib.gunzipSync(gzipedBuffer).equals(originalBuffer)).toBe(true);
-    }
-
-    expect(getAssetsNameAndSize(stats)).toMatchSnapshot('assets');
+    expect(getAssetsNameAndSize(stats, compiler)).toMatchSnapshot('assets');
     expect(getWarnings(stats)).toMatchSnapshot('warnings');
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
@@ -95,7 +77,7 @@ describe('CompressionPlugin', () => {
 
     const stats = await compile(compiler);
 
-    expect(getAssetsNameAndSize(stats, true)).toMatchSnapshot('assets');
+    expect(getAssetsNameAndSize(stats, compiler)).toMatchSnapshot('assets');
     expect(getWarnings(stats)).toMatchSnapshot('warnings');
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
@@ -141,7 +123,7 @@ describe('CompressionPlugin', () => {
     const stats = await compile(compiler);
 
     expect(gzipSpy).toHaveBeenCalledTimes(5);
-    expect(getAssetsNameAndSize(stats, true)).toMatchSnapshot('assets');
+    expect(getAssetsNameAndSize(stats, compiler)).toMatchSnapshot('assets');
     expect(getWarnings(stats)).toMatchSnapshot('warnings');
     expect(getErrors(stats)).toMatchSnapshot('errors');
 
@@ -186,7 +168,7 @@ describe('CompressionPlugin', () => {
 
     const stats = await compile(compiler);
 
-    expect(getAssetsNameAndSize(stats, true)).toMatchSnapshot('assets');
+    expect(getAssetsNameAndSize(stats, compiler)).toMatchSnapshot('assets');
     expect(getWarnings(stats)).toMatchSnapshot('warnings');
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
@@ -214,7 +196,7 @@ describe('CompressionPlugin', () => {
     expect(printedCompressed ? printedCompressed.length : 0).toBe(
       getCompiler.isWebpack4() ? 0 : 3
     );
-    expect(getAssetsNameAndSize(stats)).toMatchSnapshot('assets');
+    expect(getAssetsNameAndSize(stats, compiler)).toMatchSnapshot('assets');
     expect(getWarnings(stats)).toMatchSnapshot('warnings');
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
@@ -241,7 +223,7 @@ describe('CompressionPlugin', () => {
       expect(info.immutable).toBe(true);
     }
 
-    expect(getAssetsNameAndSize(stats)).toMatchSnapshot('assets');
+    expect(getAssetsNameAndSize(stats, compiler)).toMatchSnapshot('assets');
     expect(getWarnings(stats)).toMatchSnapshot('warnings');
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
@@ -269,7 +251,7 @@ describe('CompressionPlugin', () => {
       expect(stats.compilation.emittedAssets.size).toBe(7);
     }
 
-    expect(getAssetsNameAndSize(stats)).toMatchSnapshot('assets');
+    expect(getAssetsNameAndSize(stats, compiler)).toMatchSnapshot('assets');
     expect(getWarnings(stats)).toMatchSnapshot('warnings');
     expect(getErrors(stats)).toMatchSnapshot('errors');
 
@@ -286,7 +268,9 @@ describe('CompressionPlugin', () => {
         expect(newStats.compilation.emittedAssets.size).toBe(0);
       }
 
-      expect(getAssetsNameAndSize(newStats)).toMatchSnapshot('assets');
+      expect(getAssetsNameAndSize(newStats, compiler)).toMatchSnapshot(
+        'assets'
+      );
       expect(getWarnings(newStats)).toMatchSnapshot('errors');
       expect(getErrors(newStats)).toMatchSnapshot('warnings');
 
@@ -330,7 +314,7 @@ describe('CompressionPlugin', () => {
       expect(stats.compilation.emittedAssets.size).toBe(7);
     }
 
-    expect(getAssetsNameAndSize(stats)).toMatchSnapshot('assets');
+    expect(getAssetsNameAndSize(stats, compiler)).toMatchSnapshot('assets');
     expect(getWarnings(stats)).toMatchSnapshot('warnings');
     expect(getErrors(stats)).toMatchSnapshot('errors');
 
@@ -347,7 +331,9 @@ describe('CompressionPlugin', () => {
         expect(newStats.compilation.emittedAssets.size).toBe(0);
       }
 
-      expect(getAssetsNameAndSize(newStats)).toMatchSnapshot('assets');
+      expect(getAssetsNameAndSize(newStats, compiler)).toMatchSnapshot(
+        'assets'
+      );
       expect(getWarnings(newStats)).toMatchSnapshot('errors');
       expect(getErrors(newStats)).toMatchSnapshot('warnings');
 
@@ -391,7 +377,7 @@ describe('CompressionPlugin', () => {
       expect(stats.compilation.emittedAssets.size).toBe(7);
     }
 
-    expect(getAssetsNameAndSize(stats)).toMatchSnapshot('assets');
+    expect(getAssetsNameAndSize(stats, compiler)).toMatchSnapshot('assets');
     expect(getWarnings(stats)).toMatchSnapshot('warnings');
     expect(getErrors(stats)).toMatchSnapshot('errors');
 
@@ -410,7 +396,9 @@ describe('CompressionPlugin', () => {
         expect(newStats.compilation.emittedAssets.size).toBe(2);
       }
 
-      expect(getAssetsNameAndSize(newStats)).toMatchSnapshot('assets');
+      expect(getAssetsNameAndSize(newStats, compiler)).toMatchSnapshot(
+        'assets'
+      );
       expect(getWarnings(newStats)).toMatchSnapshot('errors');
       expect(getErrors(newStats)).toMatchSnapshot('warnings');
 
@@ -468,7 +456,7 @@ describe('CompressionPlugin', () => {
       expect(stats.compilation.emittedAssets.size).toBe(14);
     }
 
-    expect(getAssetsNameAndSize(stats)).toMatchSnapshot('assets');
+    expect(getAssetsNameAndSize(stats, compiler)).toMatchSnapshot('assets');
     expect(getWarnings(stats)).toMatchSnapshot('warnings');
     expect(getErrors(stats)).toMatchSnapshot('errors');
 
@@ -485,7 +473,9 @@ describe('CompressionPlugin', () => {
         expect(newStats.compilation.emittedAssets.size).toBe(0);
       }
 
-      expect(getAssetsNameAndSize(newStats)).toMatchSnapshot('assets');
+      expect(getAssetsNameAndSize(newStats, compiler)).toMatchSnapshot(
+        'assets'
+      );
       expect(getWarnings(newStats)).toMatchSnapshot('errors');
       expect(getErrors(newStats)).toMatchSnapshot('warnings');
 
@@ -527,7 +517,7 @@ describe('CompressionPlugin', () => {
       expect(stats.compilation.emittedAssets.size).toBe(7);
     }
 
-    expect(getAssetsNameAndSize(stats)).toMatchSnapshot('assets');
+    expect(getAssetsNameAndSize(stats, compiler)).toMatchSnapshot('assets');
     expect(getWarnings(stats)).toMatchSnapshot('warnings');
     expect(getErrors(stats)).toMatchSnapshot('errors');
 
@@ -544,7 +534,9 @@ describe('CompressionPlugin', () => {
         expect(newStats.compilation.emittedAssets.size).toBe(7);
       }
 
-      expect(getAssetsNameAndSize(newStats)).toMatchSnapshot('assets');
+      expect(getAssetsNameAndSize(newStats, compiler)).toMatchSnapshot(
+        'assets'
+      );
       expect(getWarnings(newStats)).toMatchSnapshot('errors');
       expect(getErrors(newStats)).toMatchSnapshot('warnings');
 
@@ -569,7 +561,7 @@ describe('CompressionPlugin', () => {
 
     const stats = await compile(compiler);
 
-    expect(getAssetsNameAndSize(stats, true)).toMatchSnapshot('assets');
+    expect(getAssetsNameAndSize(stats, compiler)).toMatchSnapshot('assets');
     expect(getWarnings(stats)).toMatchSnapshot('warnings');
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
@@ -595,7 +587,7 @@ describe('CompressionPlugin', () => {
 
     const stats = await compile(compiler);
 
-    expect(getAssetsNameAndSize(stats, true)).toMatchSnapshot('assets');
+    expect(getAssetsNameAndSize(stats, compiler)).toMatchSnapshot('assets');
     expect(getWarnings(stats)).toMatchSnapshot('warnings');
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
