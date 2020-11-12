@@ -544,51 +544,53 @@ describe('CompressionPlugin', () => {
     });
   });
 
-  it('should work with "workbox-webpack-plugin" plugin ("GenerateSW")', async () => {
-    const compiler = getCompiler(
-      './entry.js',
-      {},
-      {
-        output: {
-          filename: '[name].js',
-          chunkFilename: '[id].[name].js',
-        },
-      }
-    );
+  if (!getCompiler.isWebpack4()) {
+    it('should work with "workbox-webpack-plugin" plugin ("GenerateSW")', async () => {
+      const compiler = getCompiler(
+        './entry.js',
+        {},
+        {
+          output: {
+            filename: '[name].js',
+            chunkFilename: '[id].[name].js',
+          },
+        }
+      );
 
-    new WorkboxPlugin.GenerateSW().apply(compiler);
-    new CompressionPlugin().apply(compiler);
+      new WorkboxPlugin.GenerateSW().apply(compiler);
+      new CompressionPlugin().apply(compiler);
 
-    const stats = await compile(compiler);
+      const stats = await compile(compiler);
 
-    expect(getAssetsNameAndSize(stats, compiler)).toMatchSnapshot('assets');
-    expect(getWarnings(stats)).toMatchSnapshot('warnings');
-    expect(getErrors(stats)).toMatchSnapshot('errors');
-  });
+      expect(getAssetsNameAndSize(stats, compiler)).toMatchSnapshot('assets');
+      expect(getWarnings(stats)).toMatchSnapshot('warnings');
+      expect(getErrors(stats)).toMatchSnapshot('errors');
+    });
 
-  it('should work with "workbox-webpack-plugin" plugin ("InjectManifest")', async () => {
-    const compiler = getCompiler(
-      './entry.js',
-      {},
-      {
-        output: {
-          filename: '[name].js',
-          chunkFilename: '[id].[name].js',
-        },
-      }
-    );
+    it('should work with "workbox-webpack-plugin" plugin ("InjectManifest")', async () => {
+      const compiler = getCompiler(
+        './entry.js',
+        {},
+        {
+          output: {
+            filename: '[name].js',
+            chunkFilename: '[id].[name].js',
+          },
+        }
+      );
 
-    new WorkboxPlugin.InjectManifest({
-      swSrc: path.resolve(__dirname, './fixtures/sw.js'),
-      swDest: 'sw.js',
-      exclude: [/\.(gz|br)$/],
-    }).apply(compiler);
-    new CompressionPlugin().apply(compiler);
+      new WorkboxPlugin.InjectManifest({
+        swSrc: path.resolve(__dirname, './fixtures/sw.js'),
+        swDest: 'sw.js',
+        exclude: [/\.(gz|br)$/],
+      }).apply(compiler);
+      new CompressionPlugin().apply(compiler);
 
-    const stats = await compile(compiler);
+      const stats = await compile(compiler);
 
-    expect(getAssetsNameAndSize(stats, compiler)).toMatchSnapshot('assets');
-    expect(getWarnings(stats)).toMatchSnapshot('warnings');
-    expect(getErrors(stats)).toMatchSnapshot('errors');
-  });
+      expect(getAssetsNameAndSize(stats, compiler)).toMatchSnapshot('assets');
+      expect(getWarnings(stats)).toMatchSnapshot('warnings');
+      expect(getErrors(stats)).toMatchSnapshot('errors');
+    });
+  }
 });
