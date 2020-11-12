@@ -5,18 +5,32 @@ Array [
   Array [
     "09a1a1112c577c2794359715edfcb5ac.png",
     78117,
+    Object {
+      "immutable": true,
+      "sourceFilename": "icon.png",
+    },
   ],
   Array [
     "23fc1d3ac606d117e05a140e0de79806.svg",
     672,
+    Object {
+      "immutable": true,
+      "sourceFilename": "icon.svg",
+    },
   ],
   Array [
     "async.async.dcbdb1dd40763448b635.js",
     249,
+    Object {
+      "immutable": true,
+    },
   ],
   Array [
     "main.82c6786e32f9c77b44ef.js",
     11645,
+    Object {
+      "immutable": true,
+    },
   ],
 ]
 `;
@@ -30,34 +44,76 @@ Array [
   Array [
     "09a1a1112c577c2794359715edfcb5ac.png",
     78117,
+    Object {
+      "immutable": true,
+      "related": Object {
+        "gzipped": "09a1a1112c577c2794359715edfcb5ac.png.gz",
+      },
+      "sourceFilename": "icon.png",
+    },
   ],
   Array [
     "09a1a1112c577c2794359715edfcb5ac.png.gz",
     73160,
+    Object {
+      "compressed": true,
+      "immutable": true,
+    },
   ],
   Array [
     "23fc1d3ac606d117e05a140e0de79806.svg",
     672,
+    Object {
+      "immutable": true,
+      "related": Object {
+        "gzipped": "23fc1d3ac606d117e05a140e0de79806.svg.gz",
+      },
+      "sourceFilename": "icon.svg",
+    },
   ],
   Array [
     "23fc1d3ac606d117e05a140e0de79806.svg.gz",
     393,
+    Object {
+      "compressed": true,
+      "immutable": true,
+    },
   ],
   Array [
     "async.async.dcbdb1dd40763448b635.js",
     249,
+    Object {
+      "immutable": true,
+      "related": Object {
+        "gzipped": "async.async.dcbdb1dd40763448b635.js.gz",
+      },
+    },
   ],
   Array [
     "async.async.dcbdb1dd40763448b635.js.gz",
     171,
+    Object {
+      "compressed": true,
+      "immutable": true,
+    },
   ],
   Array [
     "main.82c6786e32f9c77b44ef.js",
     11645,
+    Object {
+      "immutable": true,
+      "related": Object {
+        "gzipped": "main.82c6786e32f9c77b44ef.js.gz",
+      },
+    },
   ],
   Array [
     "main.82c6786e32f9c77b44ef.js.gz",
     3000,
+    Object {
+      "compressed": true,
+      "immutable": true,
+    },
   ],
 ]
 `;
