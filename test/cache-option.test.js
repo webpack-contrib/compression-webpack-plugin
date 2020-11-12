@@ -52,7 +52,7 @@ if (getCompiler.isWebpack4()) {
 
       const stats = await compile(compiler);
 
-      expect(getAssetsNameAndSize(stats)).toMatchSnapshot('assets');
+      expect(getAssetsNameAndSize(stats, compiler)).toMatchSnapshot('assets');
       expect(getWarnings(stats)).toMatchSnapshot('warnings');
       expect(getErrors(stats)).toMatchSnapshot('errors');
 
@@ -86,7 +86,9 @@ if (getCompiler.isWebpack4()) {
 
       const stats = await compile(beforeCacheCompiler);
 
-      expect(getAssetsNameAndSize(stats)).toMatchSnapshot('assets');
+      expect(getAssetsNameAndSize(stats, beforeCacheCompiler)).toMatchSnapshot(
+        'assets'
+      );
       expect(getWarnings(stats)).toMatchSnapshot('warnings');
       expect(getErrors(stats)).toMatchSnapshot('errors');
 
@@ -127,7 +129,9 @@ if (getCompiler.isWebpack4()) {
 
       const newStats = await compile(afterCacheCompiler);
 
-      expect(getAssetsNameAndSize(newStats)).toMatchSnapshot('assets');
+      expect(
+        getAssetsNameAndSize(newStats, afterCacheCompiler)
+      ).toMatchSnapshot('assets');
       expect(getWarnings(newStats)).toMatchSnapshot('errors');
       expect(getErrors(newStats)).toMatchSnapshot('warnings');
 
@@ -152,7 +156,9 @@ if (getCompiler.isWebpack4()) {
 
       const stats = await compile(beforeCacheCompiler);
 
-      expect(getAssetsNameAndSize(stats)).toMatchSnapshot('assets');
+      expect(getAssetsNameAndSize(stats, beforeCacheCompiler)).toMatchSnapshot(
+        'assets'
+      );
       expect(getWarnings(stats)).toMatchSnapshot('warnings');
       expect(getErrors(stats)).toMatchSnapshot('errors');
 
@@ -192,7 +198,9 @@ if (getCompiler.isWebpack4()) {
 
       const newStats = await compile(afterCacheCompiler);
 
-      expect(getAssetsNameAndSize(newStats)).toMatchSnapshot('assets');
+      expect(
+        getAssetsNameAndSize(newStats, afterCacheCompiler)
+      ).toMatchSnapshot('assets');
       expect(getWarnings(newStats)).toMatchSnapshot('errors');
       expect(getErrors(newStats)).toMatchSnapshot('warnings');
 
@@ -225,7 +233,9 @@ if (getCompiler.isWebpack4()) {
 
       const stats = await compile(beforeCacheCompiler);
 
-      expect(getAssetsNameAndSize(stats)).toMatchSnapshot('assets');
+      expect(getAssetsNameAndSize(stats, beforeCacheCompiler)).toMatchSnapshot(
+        'assets'
+      );
       expect(getWarnings(stats)).toMatchSnapshot('warnings');
       expect(getErrors(stats)).toMatchSnapshot('errors');
 
@@ -275,7 +285,9 @@ if (getCompiler.isWebpack4()) {
 
       const newStats = await compile(afterCacheCompiler);
 
-      expect(getAssetsNameAndSize(newStats)).toMatchSnapshot('assets');
+      expect(
+        getAssetsNameAndSize(newStats, afterCacheCompiler)
+      ).toMatchSnapshot('assets');
       expect(getWarnings(newStats)).toMatchSnapshot('errors');
       expect(getErrors(newStats)).toMatchSnapshot('warnings');
 
@@ -330,7 +342,7 @@ if (getCompiler.isWebpack4()) {
       expect(getCounter).toBe(4);
       // Without cache webpack always try to store
       expect(storeCounter).toBe(4);
-      expect(getAssetsNameAndSize(stats)).toMatchSnapshot('assets');
+      expect(getAssetsNameAndSize(stats, compiler)).toMatchSnapshot('assets');
       expect(getErrors(stats)).toMatchSnapshot('errors');
       expect(getWarnings(stats)).toMatchSnapshot('warnings');
 
@@ -343,7 +355,9 @@ if (getCompiler.isWebpack4()) {
       expect(getCounter).toBe(4);
       // Without cache webpack always try to store
       expect(storeCounter).toBe(4);
-      expect(getAssetsNameAndSize(newStats)).toMatchSnapshot('assets');
+      expect(getAssetsNameAndSize(newStats, compiler)).toMatchSnapshot(
+        'assets'
+      );
       expect(getErrors(newStats)).toMatchSnapshot('errors');
       expect(getWarnings(newStats)).toMatchSnapshot('warnings');
     });
@@ -389,7 +403,7 @@ if (getCompiler.isWebpack4()) {
       expect(getCounter).toBe(4);
       // Store cached assets
       expect(storeCounter).toBe(4);
-      expect(getAssetsNameAndSize(stats)).toMatchSnapshot('assets');
+      expect(getAssetsNameAndSize(stats, compiler)).toMatchSnapshot('assets');
       expect(getErrors(stats)).toMatchSnapshot('errors');
       expect(getWarnings(stats)).toMatchSnapshot('warnings');
 
@@ -402,7 +416,9 @@ if (getCompiler.isWebpack4()) {
       expect(getCounter).toBe(4);
       // No need to store, we got cached assets
       expect(storeCounter).toBe(0);
-      expect(getAssetsNameAndSize(newStats)).toMatchSnapshot('assets');
+      expect(getAssetsNameAndSize(newStats, compiler)).toMatchSnapshot(
+        'assets'
+      );
       expect(getErrors(newStats)).toMatchSnapshot('errors');
       expect(getWarnings(newStats)).toMatchSnapshot('warnings');
     });
@@ -449,7 +465,7 @@ if (getCompiler.isWebpack4()) {
       expect(getCounter).toBe(4);
       // Store cached assets
       expect(storeCounter).toBe(4);
-      expect(getAssetsNameAndSize(stats)).toMatchSnapshot('assets');
+      expect(getAssetsNameAndSize(stats, compiler)).toMatchSnapshot('assets');
       expect(getErrors(stats)).toMatchSnapshot('errors');
       expect(getWarnings(stats)).toMatchSnapshot('warnings');
 
@@ -462,7 +478,9 @@ if (getCompiler.isWebpack4()) {
       expect(getCounter).toBe(4);
       // No need to store, we got cached assets
       expect(storeCounter).toBe(0);
-      expect(getAssetsNameAndSize(newStats)).toMatchSnapshot('assets');
+      expect(getAssetsNameAndSize(newStats, compiler)).toMatchSnapshot(
+        'assets'
+      );
       expect(getErrors(newStats)).toMatchSnapshot('errors');
       expect(getWarnings(newStats)).toMatchSnapshot('warnings');
     });
@@ -519,7 +537,7 @@ if (getCompiler.isWebpack4()) {
       expect(getCounter).toBe(4);
       // Store cached assets
       expect(storeCounter).toBe(4);
-      expect(getAssetsNameAndSize(stats)).toMatchSnapshot('assets');
+      expect(getAssetsNameAndSize(stats, compiler)).toMatchSnapshot('assets');
       expect(getErrors(stats)).toMatchSnapshot('errors');
       expect(getWarnings(stats)).toMatchSnapshot('warnings');
 
@@ -532,7 +550,9 @@ if (getCompiler.isWebpack4()) {
       expect(getCounter).toBe(4);
       // No need to store, we got cached assets
       expect(storeCounter).toBe(0);
-      expect(getAssetsNameAndSize(newStats)).toMatchSnapshot('assets');
+      expect(getAssetsNameAndSize(newStats, compiler)).toMatchSnapshot(
+        'assets'
+      );
       expect(getErrors(newStats)).toMatchSnapshot('errors');
       expect(getWarnings(newStats)).toMatchSnapshot('warnings');
     });

@@ -5,34 +5,76 @@ Array [
   Array [
     "09a1a1112c577c2794359715edfcb5ac.png",
     78117,
+    Object {
+      "immutable": true,
+      "related": Object {
+        "gzipped": "09a1a1112c577c2794359715edfcb5ac.super-compressed.png.gz",
+      },
+      "sourceFilename": "icon.png",
+    },
   ],
   Array [
     "09a1a1112c577c2794359715edfcb5ac.super-compressed.png.gz",
     73160,
+    Object {
+      "compressed": true,
+      "immutable": true,
+    },
   ],
   Array [
     "23fc1d3ac606d117e05a140e0de79806.super-compressed.svg.gz",
     393,
+    Object {
+      "compressed": true,
+      "immutable": true,
+    },
   ],
   Array [
     "23fc1d3ac606d117e05a140e0de79806.svg",
     672,
+    Object {
+      "immutable": true,
+      "related": Object {
+        "gzipped": "23fc1d3ac606d117e05a140e0de79806.super-compressed.svg.gz",
+      },
+      "sourceFilename": "icon.svg",
+    },
   ],
   Array [
     "async.async.js?ver=dc74724f7b13a2de5a20",
     249,
+    Object {
+      "immutable": true,
+      "related": Object {
+        "gzipped": "async.async.super-compressed.js.gz?ver=dc74724f7b13a2de5a20",
+      },
+    },
   ],
   Array [
     "async.async.super-compressed.js.gz?ver=dc74724f7b13a2de5a20",
     171,
+    Object {
+      "compressed": true,
+      "immutable": true,
+    },
   ],
   Array [
     "main.js?var=dc74724f7b13a2de5a20",
     11630,
+    Object {
+      "immutable": true,
+      "related": Object {
+        "gzipped": "main.super-compressed.js.gz?var=dc74724f7b13a2de5a20",
+      },
+    },
   ],
   Array [
     "main.super-compressed.js.gz?var=dc74724f7b13a2de5a20",
     3002,
+    Object {
+      "compressed": true,
+      "immutable": true,
+    },
   ],
 ]
 `;
@@ -46,34 +88,76 @@ Array [
   Array [
     "09a1a1112c577c2794359715edfcb5ac.png",
     78117,
+    Object {
+      "immutable": true,
+      "related": Object {
+        "gzipped": "09a1a1112c577c2794359715edfcb5ac.png.super-compressed.gz",
+      },
+      "sourceFilename": "icon.png",
+    },
   ],
   Array [
     "09a1a1112c577c2794359715edfcb5ac.png.super-compressed.gz",
     73160,
+    Object {
+      "compressed": true,
+      "immutable": true,
+    },
   ],
   Array [
     "23fc1d3ac606d117e05a140e0de79806.svg",
     672,
+    Object {
+      "immutable": true,
+      "related": Object {
+        "gzipped": "23fc1d3ac606d117e05a140e0de79806.svg.super-compressed.gz",
+      },
+      "sourceFilename": "icon.svg",
+    },
   ],
   Array [
     "23fc1d3ac606d117e05a140e0de79806.svg.super-compressed.gz",
     393,
+    Object {
+      "compressed": true,
+      "immutable": true,
+    },
   ],
   Array [
     "assets/js/async.async.js.super-compressed.gz?ver=6532e4640290c0b395f3#hash",
     171,
+    Object {
+      "compressed": true,
+      "immutable": true,
+    },
   ],
   Array [
     "assets/js/async.async.js?ver=6532e4640290c0b395f3#hash",
     249,
+    Object {
+      "immutable": true,
+      "related": Object {
+        "gzipped": "assets/js/async.async.js.super-compressed.gz?ver=6532e4640290c0b395f3#hash",
+      },
+    },
   ],
   Array [
     "assets/js/main.js.super-compressed.gz?var=6532e4640290c0b395f3#hash",
     3015,
+    Object {
+      "compressed": true,
+      "immutable": true,
+    },
   ],
   Array [
     "assets/js/main.js?var=6532e4640290c0b395f3#hash",
     11645,
+    Object {
+      "immutable": true,
+      "related": Object {
+        "gzipped": "assets/js/main.js.super-compressed.gz?var=6532e4640290c0b395f3#hash",
+      },
+    },
   ],
 ]
 `;
@@ -87,34 +171,76 @@ Array [
   Array [
     "09a1a1112c577c2794359715edfcb5ac.png",
     78117,
+    Object {
+      "immutable": true,
+      "related": Object {
+        "gzipped": "09a1a1112c577c2794359715edfcb5ac.png.gz",
+      },
+      "sourceFilename": "icon.png",
+    },
   ],
   Array [
     "09a1a1112c577c2794359715edfcb5ac.png.gz",
     73160,
+    Object {
+      "compressed": true,
+      "immutable": true,
+    },
   ],
   Array [
     "23fc1d3ac606d117e05a140e0de79806.svg",
     672,
+    Object {
+      "immutable": true,
+      "related": Object {
+        "gzipped": "23fc1d3ac606d117e05a140e0de79806.svg.gz",
+      },
+      "sourceFilename": "icon.svg",
+    },
   ],
   Array [
     "23fc1d3ac606d117e05a140e0de79806.svg.gz",
     393,
+    Object {
+      "compressed": true,
+      "immutable": true,
+    },
   ],
   Array [
     "async.async.js.gz?ver=56cecc99721c0a179d38",
     171,
+    Object {
+      "compressed": true,
+      "immutable": true,
+    },
   ],
   Array [
     "async.async.js?ver=56cecc99721c0a179d38#hash",
     249,
+    Object {
+      "immutable": true,
+      "related": Object {
+        "gzipped": "async.async.js.gz?ver=56cecc99721c0a179d38",
+      },
+    },
   ],
   Array [
     "main.js.gz?var=56cecc99721c0a179d38",
     3007,
+    Object {
+      "compressed": true,
+      "immutable": true,
+    },
   ],
   Array [
     "main.js?var=56cecc99721c0a179d38#hash",
     11635,
+    Object {
+      "immutable": true,
+      "related": Object {
+        "gzipped": "main.js.gz?var=56cecc99721c0a179d38",
+      },
+    },
   ],
 ]
 `;
@@ -128,34 +254,76 @@ Array [
   Array [
     "09a1a1112c577c2794359715edfcb5ac.png",
     78117,
+    Object {
+      "immutable": true,
+      "related": Object {
+        "gzipped": "09a1a1112c577c2794359715edfcb5ac.png.gz",
+      },
+      "sourceFilename": "icon.png",
+    },
   ],
   Array [
     "09a1a1112c577c2794359715edfcb5ac.png.gz",
     73160,
+    Object {
+      "compressed": true,
+      "immutable": true,
+    },
   ],
   Array [
     "23fc1d3ac606d117e05a140e0de79806.svg",
     672,
+    Object {
+      "immutable": true,
+      "related": Object {
+        "gzipped": "23fc1d3ac606d117e05a140e0de79806.svg.gz",
+      },
+      "sourceFilename": "icon.svg",
+    },
   ],
   Array [
     "23fc1d3ac606d117e05a140e0de79806.svg.gz",
     393,
+    Object {
+      "compressed": true,
+      "immutable": true,
+    },
   ],
   Array [
     "assets/scripts/async.async.js.gz",
     171,
+    Object {
+      "compressed": true,
+      "immutable": true,
+    },
   ],
   Array [
     "assets/scripts/async.async.js?ver=f8840db1f464954a153b#hash",
     249,
+    Object {
+      "immutable": true,
+      "related": Object {
+        "gzipped": "assets/scripts/async.async.js.gz",
+      },
+    },
   ],
   Array [
     "assets/scripts/main.js.gz",
     3016,
+    Object {
+      "compressed": true,
+      "immutable": true,
+    },
   ],
   Array [
     "assets/scripts/main.js?var=f8840db1f464954a153b#hash",
     11650,
+    Object {
+      "immutable": true,
+      "related": Object {
+        "gzipped": "assets/scripts/main.js.gz",
+      },
+    },
   ],
 ]
 `;

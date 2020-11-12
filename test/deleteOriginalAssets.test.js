@@ -25,7 +25,7 @@ describe('"deleteOriginalAssets" option', () => {
 
     const stats = await compile(compiler);
 
-    expect(getAssetsNameAndSize(stats)).toMatchSnapshot('assets');
+    expect(getAssetsNameAndSize(stats, compiler)).toMatchSnapshot('assets');
     expect(getWarnings(stats)).toMatchSnapshot('warnings');
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
@@ -38,7 +38,7 @@ describe('"deleteOriginalAssets" option', () => {
 
     const stats = await compile(compiler);
 
-    expect(getAssetsNameAndSize(stats)).toMatchSnapshot('assets');
+    expect(getAssetsNameAndSize(stats, compiler)).toMatchSnapshot('assets');
     expect(getWarnings(stats)).toMatchSnapshot('warnings');
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
@@ -51,7 +51,7 @@ describe('"deleteOriginalAssets" option', () => {
 
     const stats = await compile(compiler);
 
-    expect(getAssetsNameAndSize(stats)).toMatchSnapshot('assets');
+    expect(getAssetsNameAndSize(stats, compiler)).toMatchSnapshot('assets');
     expect(getWarnings(stats)).toMatchSnapshot('warnings');
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
@@ -65,7 +65,7 @@ describe('"deleteOriginalAssets" option', () => {
 
     const stats = await compile(compiler);
 
-    expect(getAssetsNameAndSize(stats)).toMatchSnapshot('assets');
+    expect(getAssetsNameAndSize(stats, compiler)).toMatchSnapshot('assets');
     expect(getWarnings(stats)).toMatchSnapshot('warnings');
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
@@ -80,7 +80,7 @@ describe('"deleteOriginalAssets" option', () => {
 
     const stats = await compile(compiler);
 
-    expect(getAssetsNameAndSize(stats)).toMatchSnapshot('assets');
+    expect(getAssetsNameAndSize(stats, compiler)).toMatchSnapshot('assets');
     expect(getWarnings(stats)).toMatchSnapshot('warnings');
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
@@ -102,7 +102,7 @@ describe('"deleteOriginalAssets" option', () => {
 
     const stats = await compile(compiler);
 
-    expect(getAssetsNameAndSize(stats)).toMatchSnapshot('assets');
+    expect(getAssetsNameAndSize(stats, compiler)).toMatchSnapshot('assets');
     expect(getWarnings(stats)).toMatchSnapshot('warnings');
     expect(getErrors(stats)).toMatchSnapshot('errors');
   });
