@@ -1,4 +1,4 @@
-import CompressionPlugin from '../src/index';
+import CompressionPlugin from "../src/index";
 
 import {
   compile,
@@ -7,20 +7,20 @@ import {
   getErrors,
   getWarnings,
   removeCache,
-} from './helpers/index';
+} from "./helpers/index";
 
 describe('"include" option', () => {
   let compiler;
 
   beforeEach(() => {
     compiler = getCompiler(
-      './entry.js',
+      "./entry.js",
       {},
       {
         output: {
           path: `${__dirname}/dist`,
-          filename: '[name].js?var=[hash]',
-          chunkFilename: '[id].[name].js?ver=[hash]',
+          filename: "[name].js?var=[hash]",
+          chunkFilename: "[id].[name].js?ver=[hash]",
         },
       }
     );
@@ -28,7 +28,7 @@ describe('"include" option', () => {
     return removeCache();
   });
 
-  it('matches snapshot for a single `include` value ({RegExp})', async () => {
+  it("matches snapshot for a single `include` value ({RegExp})", async () => {
     new CompressionPlugin({
       include: /\.js(\?.*)?$/i,
       minRatio: 1,
@@ -36,12 +36,12 @@ describe('"include" option', () => {
 
     const stats = await compile(compiler);
 
-    expect(getAssetsNameAndSize(stats, compiler)).toMatchSnapshot('assets');
-    expect(getWarnings(stats)).toMatchSnapshot('warnings');
-    expect(getErrors(stats)).toMatchSnapshot('errors');
+    expect(getAssetsNameAndSize(stats, compiler)).toMatchSnapshot("assets");
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
   });
 
-  it('matches snapshot for multiple `include` values ({Array<RegExp>})', async () => {
+  it("matches snapshot for multiple `include` values ({Array<RegExp>})", async () => {
     new CompressionPlugin({
       include: [/\.js(\?.*)?$/i, /\.svg(\?.*)?$/i],
       minRatio: 1,
@@ -49,8 +49,8 @@ describe('"include" option', () => {
 
     const stats = await compile(compiler);
 
-    expect(getAssetsNameAndSize(stats, compiler)).toMatchSnapshot('assets');
-    expect(getWarnings(stats)).toMatchSnapshot('warnings');
-    expect(getErrors(stats)).toMatchSnapshot('errors');
+    expect(getAssetsNameAndSize(stats, compiler)).toMatchSnapshot("assets");
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
   });
 });

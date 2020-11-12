@@ -1,4 +1,4 @@
-import CompressionPlugin from '../src/index';
+import CompressionPlugin from "../src/index";
 
 import {
   compile,
@@ -7,30 +7,30 @@ import {
   getErrors,
   getWarnings,
   removeCache,
-} from './helpers/index';
+} from "./helpers/index";
 
 describe('"deleteOriginalAssets" option', () => {
   let compiler;
 
   beforeEach(() => {
-    compiler = getCompiler('./entry.js');
+    compiler = getCompiler("./entry.js");
 
     return removeCache();
   });
 
-  it('should work and keep original assets by default', async () => {
-    compiler = getCompiler('./entry.js');
+  it("should work and keep original assets by default", async () => {
+    compiler = getCompiler("./entry.js");
 
     new CompressionPlugin().apply(compiler);
 
     const stats = await compile(compiler);
 
-    expect(getAssetsNameAndSize(stats, compiler)).toMatchSnapshot('assets');
-    expect(getWarnings(stats)).toMatchSnapshot('warnings');
-    expect(getErrors(stats)).toMatchSnapshot('errors');
+    expect(getAssetsNameAndSize(stats, compiler)).toMatchSnapshot("assets");
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
   });
 
-  it('should work and keep original assets', async () => {
+  it("should work and keep original assets", async () => {
     new CompressionPlugin({
       minRatio: 1,
       deleteOriginalAssets: false,
@@ -38,12 +38,12 @@ describe('"deleteOriginalAssets" option', () => {
 
     const stats = await compile(compiler);
 
-    expect(getAssetsNameAndSize(stats, compiler)).toMatchSnapshot('assets');
-    expect(getWarnings(stats)).toMatchSnapshot('warnings');
-    expect(getErrors(stats)).toMatchSnapshot('errors');
+    expect(getAssetsNameAndSize(stats, compiler)).toMatchSnapshot("assets");
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
   });
 
-  it('should work and delete original assets', async () => {
+  it("should work and delete original assets", async () => {
     new CompressionPlugin({
       minRatio: 1,
       deleteOriginalAssets: true,
@@ -51,59 +51,59 @@ describe('"deleteOriginalAssets" option', () => {
 
     const stats = await compile(compiler);
 
-    expect(getAssetsNameAndSize(stats, compiler)).toMatchSnapshot('assets');
-    expect(getWarnings(stats)).toMatchSnapshot('warnings');
-    expect(getErrors(stats)).toMatchSnapshot('errors');
+    expect(getAssetsNameAndSize(stats, compiler)).toMatchSnapshot("assets");
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
   });
 
-  it('should work and report errors on duplicate assets', async () => {
-    compiler = getCompiler('./entry.js');
+  it("should work and report errors on duplicate assets", async () => {
+    compiler = getCompiler("./entry.js");
 
     new CompressionPlugin({
-      filename: '[path][base]',
+      filename: "[path][base]",
     }).apply(compiler);
 
     const stats = await compile(compiler);
 
-    expect(getAssetsNameAndSize(stats, compiler)).toMatchSnapshot('assets');
-    expect(getWarnings(stats)).toMatchSnapshot('warnings');
-    expect(getErrors(stats)).toMatchSnapshot('errors');
+    expect(getAssetsNameAndSize(stats, compiler)).toMatchSnapshot("assets");
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
   });
 
-  it('should work and do not report errors on duplicate assets when original assets were removed', async () => {
-    compiler = getCompiler('./entry.js');
+  it("should work and do not report errors on duplicate assets when original assets were removed", async () => {
+    compiler = getCompiler("./entry.js");
 
     new CompressionPlugin({
-      filename: '[path][base]',
+      filename: "[path][base]",
       deleteOriginalAssets: true,
     }).apply(compiler);
 
     const stats = await compile(compiler);
 
-    expect(getAssetsNameAndSize(stats, compiler)).toMatchSnapshot('assets');
-    expect(getWarnings(stats)).toMatchSnapshot('warnings');
-    expect(getErrors(stats)).toMatchSnapshot('errors');
+    expect(getAssetsNameAndSize(stats, compiler)).toMatchSnapshot("assets");
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
   });
 
   it('should delete original assets and keep source maps with option "keep-source-map"', async () => {
     compiler = getCompiler(
-      './entry.js',
+      "./entry.js",
       {},
       {
-        devtool: 'source-map',
+        devtool: "source-map",
       }
     );
 
     new CompressionPlugin({
-      filename: '[path][base]',
+      filename: "[path][base]",
       exclude: /\.map$/,
-      deleteOriginalAssets: 'keep-source-map',
+      deleteOriginalAssets: "keep-source-map",
     }).apply(compiler);
 
     const stats = await compile(compiler);
 
-    expect(getAssetsNameAndSize(stats, compiler)).toMatchSnapshot('assets');
-    expect(getWarnings(stats)).toMatchSnapshot('warnings');
-    expect(getErrors(stats)).toMatchSnapshot('errors');
+    expect(getAssetsNameAndSize(stats, compiler)).toMatchSnapshot("assets");
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
   });
 });

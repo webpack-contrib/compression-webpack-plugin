@@ -1,8 +1,8 @@
-import os from 'os';
+import os from "os";
 
-import cacache from 'cacache';
-import findCacheDir from 'find-cache-dir';
-import serialize from 'serialize-javascript';
+import cacache from "cacache";
+import findCacheDir from "find-cache-dir";
+import serialize from "serialize-javascript";
 
 export default class Webpack4Cache {
   constructor(compilation, options, weakCache) {
@@ -14,7 +14,7 @@ export default class Webpack4Cache {
   }
 
   static getCacheDirectory() {
-    return findCacheDir({ name: 'compression-webpack-plugin' }) || os.tmpdir();
+    return findCacheDir({ name: "compression-webpack-plugin" }) || os.tmpdir();
   }
 
   async get(cacheData, { RawSource }) {

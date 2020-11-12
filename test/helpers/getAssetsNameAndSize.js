@@ -1,6 +1,6 @@
-import zlib from 'zlib';
+import zlib from "zlib";
 
-import { readAsset } from './index';
+import { readAsset } from "./index";
 
 export default (stats, compiler) => {
   const { assets, assetsInfo } = stats.compilation;

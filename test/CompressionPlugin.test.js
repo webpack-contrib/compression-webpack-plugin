@@ -1,13 +1,13 @@
-import zlib from 'zlib';
-import path from 'path';
+import zlib from "zlib";
+import path from "path";
 
-import webpack from 'webpack';
-import findCacheDir from 'find-cache-dir';
-import cacache from 'cacache';
-import WorkboxPlugin from 'workbox-webpack-plugin';
+import webpack from "webpack";
+import findCacheDir from "find-cache-dir";
+import cacache from "cacache";
+import WorkboxPlugin from "workbox-webpack-plugin";
 
-import Webpack4Cache from '../src/Webpack4Cache';
-import CompressionPlugin from '../src/index';
+import Webpack4Cache from "../src/Webpack4Cache";
+import CompressionPlugin from "../src/index";
 
 import {
   compile,
@@ -18,14 +18,14 @@ import {
   getErrors,
   getWarnings,
   removeCache,
-} from './helpers/index';
+} from "./helpers/index";
 
-const cacheDir1 = findCacheDir({ name: 'compression-webpack-plugin-cache-1' });
-const cacheDir2 = findCacheDir({ name: 'compression-webpack-plugin-cache-2' });
-const cacheDir3 = findCacheDir({ name: 'compression-webpack-plugin-cache-3' });
-const cacheDir4 = findCacheDir({ name: 'compression-webpack-plugin-cache-4' });
+const cacheDir1 = findCacheDir({ name: "compression-webpack-plugin-cache-1" });
+const cacheDir2 = findCacheDir({ name: "compression-webpack-plugin-cache-2" });
+const cacheDir3 = findCacheDir({ name: "compression-webpack-plugin-cache-3" });
+const cacheDir4 = findCacheDir({ name: "compression-webpack-plugin-cache-4" });
 
-describe('CompressionPlugin', () => {
+describe("CompressionPlugin", () => {
   beforeAll(() => {
     return Promise.all([
       removeCache(),
@@ -36,15 +36,15 @@ describe('CompressionPlugin', () => {
     ]);
   });
 
-  it('should work', async () => {
+  it("should work", async () => {
     const compiler = getCompiler(
-      './entry.js',
+      "./entry.js",
       {},
       {
         output: {
           path: `${__dirname}/dist`,
-          filename: '[name].js?var=[hash]',
-          chunkFilename: '[id].[name].js?ver=[hash]',
+          filename: "[name].js?var=[hash]",
+          chunkFilename: "[id].[name].js?ver=[hash]",
         },
       }
     );
@@ -53,21 +53,21 @@ describe('CompressionPlugin', () => {
 
     const stats = await compile(compiler);
 
-    expect(getAssetsNameAndSize(stats, compiler)).toMatchSnapshot('assets');
-    expect(getWarnings(stats)).toMatchSnapshot('warnings');
-    expect(getErrors(stats)).toMatchSnapshot('errors');
+    expect(getAssetsNameAndSize(stats, compiler)).toMatchSnapshot("assets");
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
   });
 
-  it('should work with assets info', async () => {
+  it("should work with assets info", async () => {
     const compiler = getCompiler(
-      './entry.js',
+      "./entry.js",
       {},
       {
-        devtool: 'source-map',
+        devtool: "source-map",
         output: {
           path: `${__dirname}/dist`,
-          filename: '[name].js?var=[hash]',
-          chunkFilename: '[id].[name].js?ver=[hash]',
+          filename: "[name].js?var=[hash]",
+          chunkFilename: "[id].[name].js?ver=[hash]",
         },
       }
     );
@@ -77,21 +77,21 @@ describe('CompressionPlugin', () => {
 
     const stats = await compile(compiler);
 
-    expect(getAssetsNameAndSize(stats, compiler)).toMatchSnapshot('assets');
-    expect(getWarnings(stats)).toMatchSnapshot('warnings');
-    expect(getErrors(stats)).toMatchSnapshot('errors');
+    expect(getAssetsNameAndSize(stats, compiler)).toMatchSnapshot("assets");
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
   });
 
-  it('should work child compilations', async () => {
-    const gzipSpy = jest.spyOn(zlib, 'gzip');
+  it("should work child compilations", async () => {
+    const gzipSpy = jest.spyOn(zlib, "gzip");
     const compiler = getCompiler(
-      './entry.js',
+      "./entry.js",
       {},
       {
         output: {
           path: `${__dirname}/dist`,
-          filename: '[name].js?var=[hash]',
-          chunkFilename: '[id].[name].js?ver=[hash]',
+          filename: "[name].js?var=[hash]",
+          chunkFilename: "[id].[name].js?ver=[hash]",
         },
         module: {
           rules: [
@@ -100,7 +100,7 @@ describe('CompressionPlugin', () => {
               rules: [
                 {
                   loader: require.resolve(
-                    './helpers/loader-with-child-compilation.js'
+                    "./helpers/loader-with-child-compilation.js"
                   ),
                 },
               ],
@@ -109,7 +109,7 @@ describe('CompressionPlugin', () => {
               test: /\.(png|jpg|gif|svg)$/i,
               rules: [
                 {
-                  loader: 'file-loader',
+                  loader: "file-loader",
                 },
               ],
             },
@@ -123,66 +123,66 @@ describe('CompressionPlugin', () => {
     const stats = await compile(compiler);
 
     expect(gzipSpy).toHaveBeenCalledTimes(5);
-    expect(getAssetsNameAndSize(stats, compiler)).toMatchSnapshot('assets');
-    expect(getWarnings(stats)).toMatchSnapshot('warnings');
-    expect(getErrors(stats)).toMatchSnapshot('errors');
+    expect(getAssetsNameAndSize(stats, compiler)).toMatchSnapshot("assets");
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
 
     gzipSpy.mockRestore();
   });
 
-  it('should work with multiple plugins', async () => {
+  it("should work with multiple plugins", async () => {
     const compiler = getCompiler(
-      './entry.js',
+      "./entry.js",
       {},
       {
         output: {
           path: `${__dirname}/dist`,
-          filename: '[name].js?var=[hash]',
-          chunkFilename: '[id].[name].js?ver=[hash]',
+          filename: "[name].js?var=[hash]",
+          chunkFilename: "[id].[name].js?ver=[hash]",
         },
       }
     );
 
     new CompressionPlugin({
-      algorithm: 'gzip',
-      filename: '[path][base].gz',
+      algorithm: "gzip",
+      filename: "[path][base].gz",
     }).apply(compiler);
     new CompressionPlugin({
-      algorithm: 'brotliCompress',
-      filename: '[path][base].br',
-    }).apply(compiler);
-    new CompressionPlugin({
-      minRatio: Infinity,
-      algorithm: (input, options, callback) => {
-        return callback(null, input);
-      },
-      filename: '[path][base].compress',
+      algorithm: "brotliCompress",
+      filename: "[path][base].br",
     }).apply(compiler);
     new CompressionPlugin({
       minRatio: Infinity,
       algorithm: (input, options, callback) => {
         return callback(null, input);
       },
-      filename: '[path][base].custom?foo=bar#hash',
+      filename: "[path][base].compress",
+    }).apply(compiler);
+    new CompressionPlugin({
+      minRatio: Infinity,
+      algorithm: (input, options, callback) => {
+        return callback(null, input);
+      },
+      filename: "[path][base].custom?foo=bar#hash",
     }).apply(compiler);
 
     const stats = await compile(compiler);
 
-    expect(getAssetsNameAndSize(stats, compiler)).toMatchSnapshot('assets');
-    expect(getWarnings(stats)).toMatchSnapshot('warnings');
-    expect(getErrors(stats)).toMatchSnapshot('errors');
+    expect(getAssetsNameAndSize(stats, compiler)).toMatchSnapshot("assets");
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
   });
 
-  it('should work and show compress assets in stats', async () => {
+  it("should work and show compress assets in stats", async () => {
     const compiler = getCompiler(
-      './entry.js',
+      "./entry.js",
       {},
       {
-        stats: 'verbose',
+        stats: "verbose",
         output: {
           path: `${__dirname}/dist`,
-          filename: '[name].js',
-          chunkFilename: '[id].[name].js',
+          filename: "[name].js",
+          chunkFilename: "[id].[name].js",
         },
       }
     );
@@ -196,21 +196,21 @@ describe('CompressionPlugin', () => {
     expect(printedCompressed ? printedCompressed.length : 0).toBe(
       getCompiler.isWebpack4() ? 0 : 3
     );
-    expect(getAssetsNameAndSize(stats, compiler)).toMatchSnapshot('assets');
-    expect(getWarnings(stats)).toMatchSnapshot('warnings');
-    expect(getErrors(stats)).toMatchSnapshot('errors');
+    expect(getAssetsNameAndSize(stats, compiler)).toMatchSnapshot("assets");
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
   });
 
-  it('should work and keep assets info', async () => {
+  it("should work and keep assets info", async () => {
     const compiler = getCompiler(
-      './entry.js',
+      "./entry.js",
       {},
       {
-        stats: 'verbose',
+        stats: "verbose",
         output: {
           path: `${__dirname}/dist`,
-          filename: '[name].[contenthash].js',
-          chunkFilename: '[id].[name].[contenthash].js',
+          filename: "[name].[contenthash].js",
+          chunkFilename: "[id].[name].[contenthash].js",
         },
       }
     );
@@ -223,25 +223,25 @@ describe('CompressionPlugin', () => {
       expect(info.immutable).toBe(true);
     }
 
-    expect(getAssetsNameAndSize(stats, compiler)).toMatchSnapshot('assets');
-    expect(getWarnings(stats)).toMatchSnapshot('warnings');
-    expect(getErrors(stats)).toMatchSnapshot('errors');
+    expect(getAssetsNameAndSize(stats, compiler)).toMatchSnapshot("assets");
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
   });
 
   it('should work and use memory cache without options in the "development" mode', async () => {
     const getCacheDirectorySpy = jest
-      .spyOn(Webpack4Cache, 'getCacheDirectory')
+      .spyOn(Webpack4Cache, "getCacheDirectory")
       .mockImplementation(() => {
         return cacheDir1;
       });
 
-    const compiler = getCompiler('./entry.js', {}, { mode: 'development' });
+    const compiler = getCompiler("./entry.js", {}, { mode: "development" });
 
     new CompressionPlugin().apply(compiler);
 
     const stats = await compile(compiler);
 
-    if (webpack.version[0] === '4') {
+    if (webpack.version[0] === "4") {
       expect(
         Object.keys(stats.compilation.assets).filter(
           (assetName) => stats.compilation.assets[assetName].emitted
@@ -251,14 +251,14 @@ describe('CompressionPlugin', () => {
       expect(stats.compilation.emittedAssets.size).toBe(7);
     }
 
-    expect(getAssetsNameAndSize(stats, compiler)).toMatchSnapshot('assets');
-    expect(getWarnings(stats)).toMatchSnapshot('warnings');
-    expect(getErrors(stats)).toMatchSnapshot('errors');
+    expect(getAssetsNameAndSize(stats, compiler)).toMatchSnapshot("assets");
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
 
     await new Promise(async (resolve) => {
       const newStats = await compile(compiler);
 
-      if (webpack.version[0] === '4') {
+      if (webpack.version[0] === "4") {
         expect(
           Object.keys(newStats.compilation.assets).filter(
             (assetName) => newStats.compilation.assets[assetName].emitted
@@ -269,10 +269,10 @@ describe('CompressionPlugin', () => {
       }
 
       expect(getAssetsNameAndSize(newStats, compiler)).toMatchSnapshot(
-        'assets'
+        "assets"
       );
-      expect(getWarnings(newStats)).toMatchSnapshot('errors');
-      expect(getErrors(newStats)).toMatchSnapshot('warnings');
+      expect(getWarnings(newStats)).toMatchSnapshot("errors");
+      expect(getErrors(newStats)).toMatchSnapshot("warnings");
 
       getCacheDirectorySpy.mockRestore();
 
@@ -282,20 +282,20 @@ describe('CompressionPlugin', () => {
 
   it('should work and use memory cache when the "cache" option is "true"', async () => {
     const getCacheDirectorySpy = jest
-      .spyOn(Webpack4Cache, 'getCacheDirectory')
+      .spyOn(Webpack4Cache, "getCacheDirectory")
       .mockImplementation(() => {
         return cacheDir2;
       });
 
     const compiler = getCompiler(
-      './entry.js',
+      "./entry.js",
       {},
       {
         cache: true,
         output: {
-          path: path.resolve(__dirname, './outputs'),
-          filename: '[name].js',
-          chunkFilename: '[id].js',
+          path: path.resolve(__dirname, "./outputs"),
+          filename: "[name].js",
+          chunkFilename: "[id].js",
         },
       }
     );
@@ -304,7 +304,7 @@ describe('CompressionPlugin', () => {
 
     const stats = await compile(compiler);
 
-    if (webpack.version[0] === '4') {
+    if (webpack.version[0] === "4") {
       expect(
         Object.keys(stats.compilation.assets).filter(
           (assetName) => stats.compilation.assets[assetName].emitted
@@ -314,14 +314,14 @@ describe('CompressionPlugin', () => {
       expect(stats.compilation.emittedAssets.size).toBe(7);
     }
 
-    expect(getAssetsNameAndSize(stats, compiler)).toMatchSnapshot('assets');
-    expect(getWarnings(stats)).toMatchSnapshot('warnings');
-    expect(getErrors(stats)).toMatchSnapshot('errors');
+    expect(getAssetsNameAndSize(stats, compiler)).toMatchSnapshot("assets");
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
 
     await new Promise(async (resolve) => {
       const newStats = await compile(compiler);
 
-      if (webpack.version[0] === '4') {
+      if (webpack.version[0] === "4") {
         expect(
           Object.keys(newStats.compilation.assets).filter(
             (assetName) => newStats.compilation.assets[assetName].emitted
@@ -332,10 +332,10 @@ describe('CompressionPlugin', () => {
       }
 
       expect(getAssetsNameAndSize(newStats, compiler)).toMatchSnapshot(
-        'assets'
+        "assets"
       );
-      expect(getWarnings(newStats)).toMatchSnapshot('errors');
-      expect(getErrors(newStats)).toMatchSnapshot('warnings');
+      expect(getWarnings(newStats)).toMatchSnapshot("errors");
+      expect(getErrors(newStats)).toMatchSnapshot("warnings");
 
       getCacheDirectorySpy.mockRestore();
 
@@ -345,20 +345,20 @@ describe('CompressionPlugin', () => {
 
   it('should work and use memory cache when the "cache" option is "true" and the asset has been changed', async () => {
     const getCacheDirectorySpy = jest
-      .spyOn(Webpack4Cache, 'getCacheDirectory')
+      .spyOn(Webpack4Cache, "getCacheDirectory")
       .mockImplementation(() => {
         return cacheDir3;
       });
 
     const compiler = getCompiler(
-      './entry.js',
+      "./entry.js",
       {},
       {
         cache: true,
         output: {
-          path: path.resolve(__dirname, './outputs'),
-          filename: '[name].js',
-          chunkFilename: '[id].js',
+          path: path.resolve(__dirname, "./outputs"),
+          filename: "[name].js",
+          chunkFilename: "[id].js",
         },
       }
     );
@@ -367,7 +367,7 @@ describe('CompressionPlugin', () => {
 
     const stats = await compile(compiler);
 
-    if (webpack.version[0] === '4') {
+    if (webpack.version[0] === "4") {
       expect(
         Object.keys(stats.compilation.assets).filter(
           (assetName) => stats.compilation.assets[assetName].emitted
@@ -377,16 +377,16 @@ describe('CompressionPlugin', () => {
       expect(stats.compilation.emittedAssets.size).toBe(7);
     }
 
-    expect(getAssetsNameAndSize(stats, compiler)).toMatchSnapshot('assets');
-    expect(getWarnings(stats)).toMatchSnapshot('warnings');
-    expect(getErrors(stats)).toMatchSnapshot('errors');
+    expect(getAssetsNameAndSize(stats, compiler)).toMatchSnapshot("assets");
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
 
-    new ModifyExistingAsset({ name: 'main.js' }).apply(compiler);
+    new ModifyExistingAsset({ name: "main.js" }).apply(compiler);
 
     await new Promise(async (resolve) => {
       const newStats = await compile(compiler);
 
-      if (webpack.version[0] === '4') {
+      if (webpack.version[0] === "4") {
         expect(
           Object.keys(newStats.compilation.assets).filter(
             (assetName) => newStats.compilation.assets[assetName].emitted
@@ -397,10 +397,10 @@ describe('CompressionPlugin', () => {
       }
 
       expect(getAssetsNameAndSize(newStats, compiler)).toMatchSnapshot(
-        'assets'
+        "assets"
       );
-      expect(getWarnings(newStats)).toMatchSnapshot('errors');
-      expect(getErrors(newStats)).toMatchSnapshot('warnings');
+      expect(getWarnings(newStats)).toMatchSnapshot("errors");
+      expect(getErrors(newStats)).toMatchSnapshot("warnings");
 
       getCacheDirectorySpy.mockRestore();
 
@@ -410,43 +410,43 @@ describe('CompressionPlugin', () => {
 
   it('should work and use memory cache when the "cache" option is "true" with multiple plugins', async () => {
     const getCacheDirectorySpy = jest
-      .spyOn(Webpack4Cache, 'getCacheDirectory')
+      .spyOn(Webpack4Cache, "getCacheDirectory")
       .mockImplementation(() => {
         return cacheDir4;
       });
 
     const compiler = getCompiler(
-      './entry.js',
+      "./entry.js",
       {},
       {
         cache: true,
         output: {
-          path: path.resolve(__dirname, './outputs'),
-          filename: '[name].js',
-          chunkFilename: '[id].js',
+          path: path.resolve(__dirname, "./outputs"),
+          filename: "[name].js",
+          chunkFilename: "[id].js",
         },
       }
     );
 
     new CompressionPlugin({
-      filename: '[path][base].gz',
-      algorithm: 'gzip',
+      filename: "[path][base].gz",
+      algorithm: "gzip",
     }).apply(compiler);
     new CompressionPlugin({
-      filename: '[path][base].br',
-      algorithm: 'brotliCompress',
+      filename: "[path][base].br",
+      algorithm: "brotliCompress",
     }).apply(compiler);
     new CompressionPlugin({
       minRatio: Infinity,
       algorithm: (input, options, callback) => {
         return callback(null, input);
       },
-      filename: '[path][base].custom',
+      filename: "[path][base].custom",
     }).apply(compiler);
 
     const stats = await compile(compiler);
 
-    if (webpack.version[0] === '4') {
+    if (webpack.version[0] === "4") {
       expect(
         Object.keys(stats.compilation.assets).filter(
           (assetName) => stats.compilation.assets[assetName].emitted
@@ -456,14 +456,14 @@ describe('CompressionPlugin', () => {
       expect(stats.compilation.emittedAssets.size).toBe(14);
     }
 
-    expect(getAssetsNameAndSize(stats, compiler)).toMatchSnapshot('assets');
-    expect(getWarnings(stats)).toMatchSnapshot('warnings');
-    expect(getErrors(stats)).toMatchSnapshot('errors');
+    expect(getAssetsNameAndSize(stats, compiler)).toMatchSnapshot("assets");
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
 
     await new Promise(async (resolve) => {
       const newStats = await compile(compiler);
 
-      if (webpack.version[0] === '4') {
+      if (webpack.version[0] === "4") {
         expect(
           Object.keys(newStats.compilation.assets).filter(
             (assetName) => newStats.compilation.assets[assetName].emitted
@@ -474,10 +474,10 @@ describe('CompressionPlugin', () => {
       }
 
       expect(getAssetsNameAndSize(newStats, compiler)).toMatchSnapshot(
-        'assets'
+        "assets"
       );
-      expect(getWarnings(newStats)).toMatchSnapshot('errors');
-      expect(getErrors(newStats)).toMatchSnapshot('warnings');
+      expect(getWarnings(newStats)).toMatchSnapshot("errors");
+      expect(getErrors(newStats)).toMatchSnapshot("warnings");
 
       getCacheDirectorySpy.mockRestore();
 
@@ -487,27 +487,27 @@ describe('CompressionPlugin', () => {
 
   it('should work and do not use memory cache when the "cache" option is "false"', async () => {
     const compiler = getCompiler(
-      './entry.js',
+      "./entry.js",
       {
-        name: '[name].[ext]',
+        name: "[name].[ext]",
       },
       {
         cache: false,
         output: {
-          path: path.resolve(__dirname, './outputs'),
-          filename: '[name].js',
-          chunkFilename: '[id].[name].js',
+          path: path.resolve(__dirname, "./outputs"),
+          filename: "[name].js",
+          chunkFilename: "[id].[name].js",
         },
       }
     );
 
     new CompressionPlugin(
-      webpack.version[0] === '4' ? { cache: false } : {}
+      webpack.version[0] === "4" ? { cache: false } : {}
     ).apply(compiler);
 
     const stats = await compile(compiler);
 
-    if (webpack.version[0] === '4') {
+    if (webpack.version[0] === "4") {
       expect(
         Object.keys(stats.compilation.assets).filter(
           (assetName) => stats.compilation.assets[assetName].emitted
@@ -517,14 +517,14 @@ describe('CompressionPlugin', () => {
       expect(stats.compilation.emittedAssets.size).toBe(7);
     }
 
-    expect(getAssetsNameAndSize(stats, compiler)).toMatchSnapshot('assets');
-    expect(getWarnings(stats)).toMatchSnapshot('warnings');
-    expect(getErrors(stats)).toMatchSnapshot('errors');
+    expect(getAssetsNameAndSize(stats, compiler)).toMatchSnapshot("assets");
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
 
     await new Promise(async (resolve) => {
       const newStats = await compile(compiler);
 
-      if (webpack.version[0] === '4') {
+      if (webpack.version[0] === "4") {
         expect(
           Object.keys(newStats.compilation.assets).filter(
             (assetName) => newStats.compilation.assets[assetName].emitted
@@ -535,10 +535,10 @@ describe('CompressionPlugin', () => {
       }
 
       expect(getAssetsNameAndSize(newStats, compiler)).toMatchSnapshot(
-        'assets'
+        "assets"
       );
-      expect(getWarnings(newStats)).toMatchSnapshot('errors');
-      expect(getErrors(newStats)).toMatchSnapshot('warnings');
+      expect(getWarnings(newStats)).toMatchSnapshot("errors");
+      expect(getErrors(newStats)).toMatchSnapshot("warnings");
 
       resolve();
     });
@@ -547,12 +547,12 @@ describe('CompressionPlugin', () => {
   // TODO https://github.com/webpack-contrib/compression-webpack-plugin/issues/218
   it.skip('should work with "workbox-webpack-plugin" plugin ("GenerateSW")', async () => {
     const compiler = getCompiler(
-      './entry.js',
+      "./entry.js",
       {},
       {
         output: {
-          filename: '[name].js',
-          chunkFilename: '[id].[name].js',
+          filename: "[name].js",
+          chunkFilename: "[id].[name].js",
         },
       }
     );
@@ -562,35 +562,35 @@ describe('CompressionPlugin', () => {
 
     const stats = await compile(compiler);
 
-    expect(getAssetsNameAndSize(stats, compiler)).toMatchSnapshot('assets');
-    expect(getWarnings(stats)).toMatchSnapshot('warnings');
-    expect(getErrors(stats)).toMatchSnapshot('errors');
+    expect(getAssetsNameAndSize(stats, compiler)).toMatchSnapshot("assets");
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
   });
 
   // TODO https://github.com/webpack-contrib/compression-webpack-plugin/issues/218
   it.skip('should work with "workbox-webpack-plugin" plugin ("InjectManifest")', async () => {
     const compiler = getCompiler(
-      './entry.js',
+      "./entry.js",
       {},
       {
         output: {
-          filename: '[name].js',
-          chunkFilename: '[id].[name].js',
+          filename: "[name].js",
+          chunkFilename: "[id].[name].js",
         },
       }
     );
 
     new WorkboxPlugin.InjectManifest({
-      swSrc: path.resolve(__dirname, './fixtures/sw.js'),
-      swDest: 'sw.js',
+      swSrc: path.resolve(__dirname, "./fixtures/sw.js"),
+      swDest: "sw.js",
       exclude: [/\.(gz|br)$/],
     }).apply(compiler);
     new CompressionPlugin().apply(compiler);
 
     const stats = await compile(compiler);
 
-    expect(getAssetsNameAndSize(stats, compiler)).toMatchSnapshot('assets');
-    expect(getWarnings(stats)).toMatchSnapshot('warnings');
-    expect(getErrors(stats)).toMatchSnapshot('errors');
+    expect(getAssetsNameAndSize(stats, compiler)).toMatchSnapshot("assets");
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
   });
 });
