@@ -1,4 +1,4 @@
-import CompressionPlugin from '../src/index';
+import CompressionPlugin from "../src/index";
 
 import {
   compile,
@@ -7,44 +7,44 @@ import {
   getErrors,
   getWarnings,
   removeCache,
-} from './helpers/index';
+} from "./helpers/index";
 
 describe('"algorithm" option', () => {
   let compiler;
 
   beforeEach(() => {
-    compiler = getCompiler('./entry.js');
+    compiler = getCompiler("./entry.js");
 
     return removeCache();
   });
 
-  it('matches snapshot for `unknown` value ({String})', () => {
+  it("matches snapshot for `unknown` value ({String})", () => {
     expect(() => {
       new CompressionPlugin({
         minRatio: 1,
-        algorithm: 'unknown',
+        algorithm: "unknown",
       }).apply(compiler);
     }).toThrowErrorMatchingSnapshot();
   });
 
-  it('matches snapshot for `gzip` value ({String})', async () => {
+  it("matches snapshot for `gzip` value ({String})", async () => {
     new CompressionPlugin({
       minRatio: 1,
-      algorithm: 'gzip',
+      algorithm: "gzip",
     }).apply(compiler);
 
     const stats = await compile(compiler);
 
-    expect(getAssetsNameAndSize(stats, compiler)).toMatchSnapshot('assets');
-    expect(getWarnings(stats)).toMatchSnapshot('warnings');
-    expect(getErrors(stats)).toMatchSnapshot('errors');
+    expect(getAssetsNameAndSize(stats, compiler)).toMatchSnapshot("assets");
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
   });
 
-  it('matches snapshot for custom function ({Function})', async () => {
+  it("matches snapshot for custom function ({Function})", async () => {
     new CompressionPlugin({
       minRatio: 1,
       algorithm(input, compressionOptions, callback) {
-        expect(compressionOptions).toMatchSnapshot('compressionOptions');
+        expect(compressionOptions).toMatchSnapshot("compressionOptions");
 
         return callback(null, input);
       },
@@ -52,25 +52,25 @@ describe('"algorithm" option', () => {
 
     const stats = await compile(compiler);
 
-    expect(getAssetsNameAndSize(stats, compiler)).toMatchSnapshot('assets');
-    expect(getWarnings(stats)).toMatchSnapshot('warnings');
-    expect(getErrors(stats)).toMatchSnapshot('errors');
+    expect(getAssetsNameAndSize(stats, compiler)).toMatchSnapshot("assets");
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
   });
 
-  it('matches snapshot for custom function with error ({Function})', async () => {
+  it("matches snapshot for custom function with error ({Function})", async () => {
     new CompressionPlugin({
       minRatio: 1,
       algorithm(input, compressionOptions, callback) {
-        expect(compressionOptions).toMatchSnapshot('compressionOptions');
+        expect(compressionOptions).toMatchSnapshot("compressionOptions");
 
-        return callback('Error', input);
+        return callback("Error", input);
       },
     }).apply(compiler);
 
     const stats = await compile(compiler);
 
-    expect(getAssetsNameAndSize(stats, compiler)).toMatchSnapshot('assets');
-    expect(getWarnings(stats)).toMatchSnapshot('warnings');
-    expect(getErrors(stats)).toMatchSnapshot('errors');
+    expect(getAssetsNameAndSize(stats, compiler)).toMatchSnapshot("assets");
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
   });
 });

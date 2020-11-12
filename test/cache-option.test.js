@@ -1,12 +1,12 @@
-import path from 'path';
-import zlib from 'zlib';
+import path from "path";
+import zlib from "zlib";
 
-import cacache from 'cacache';
-import findCacheDir from 'find-cache-dir';
-import del from 'del';
+import cacache from "cacache";
+import findCacheDir from "find-cache-dir";
+import del from "del";
 
-import CompressionPlugin from '../src/index';
-import Webpack4Cache from '../src/Webpack4Cache';
+import CompressionPlugin from "../src/index";
+import Webpack4Cache from "../src/Webpack4Cache";
 
 import {
   compile,
@@ -14,15 +14,15 @@ import {
   getCompiler,
   getErrors,
   getWarnings,
-} from './helpers/index';
+} from "./helpers/index";
 
-const falseCacheDirectory = findCacheDir({ name: 'false-cache-directory' });
-const cacheDir = findCacheDir({ name: 'compression-webpack-plugin' });
-const otherCacheDir = findCacheDir({ name: 'other-cache-directory' });
+const falseCacheDirectory = findCacheDir({ name: "false-cache-directory" });
+const cacheDir = findCacheDir({ name: "compression-webpack-plugin" });
+const otherCacheDir = findCacheDir({ name: "other-cache-directory" });
 const otherOtherCacheDir = findCacheDir({
-  name: 'other-other-cache-directory',
+  name: "other-other-cache-directory",
 });
-const uniqueCacheDirectory = findCacheDir({ name: 'unique-cache-directory' });
+const uniqueCacheDirectory = findCacheDir({ name: "unique-cache-directory" });
 
 if (getCompiler.isWebpack4()) {
   describe('"cache" option', () => {
@@ -36,8 +36,8 @@ if (getCompiler.isWebpack4()) {
       ]);
     });
 
-    it('matches snapshot for `false` value ({Boolean})', async () => {
-      const compiler = getCompiler('./entry.js');
+    it("matches snapshot for `false` value ({Boolean})", async () => {
+      const compiler = getCompiler("./entry.js");
 
       new CompressionPlugin({ cache: false, minRatio: 1 }).apply(compiler);
 
@@ -45,16 +45,16 @@ if (getCompiler.isWebpack4()) {
       cacache.put = jest.fn(cacache.put);
 
       const getCacheDirectorySpy = jest
-        .spyOn(Webpack4Cache, 'getCacheDirectory')
+        .spyOn(Webpack4Cache, "getCacheDirectory")
         .mockImplementation(() => {
           return falseCacheDirectory;
         });
 
       const stats = await compile(compiler);
 
-      expect(getAssetsNameAndSize(stats, compiler)).toMatchSnapshot('assets');
-      expect(getWarnings(stats)).toMatchSnapshot('warnings');
-      expect(getErrors(stats)).toMatchSnapshot('errors');
+      expect(getAssetsNameAndSize(stats, compiler)).toMatchSnapshot("assets");
+      expect(getWarnings(stats)).toMatchSnapshot("warnings");
+      expect(getErrors(stats)).toMatchSnapshot("errors");
 
       // Cache disabled so we don't run `get` or `put`
       expect(cacache.get.mock.calls.length).toBe(0);
@@ -68,8 +68,8 @@ if (getCompiler.isWebpack4()) {
       getCacheDirectorySpy.mockRestore();
     });
 
-    it('matches snapshot for `true` value ({Boolean})', async () => {
-      const beforeCacheCompiler = getCompiler('./entry.js');
+    it("matches snapshot for `true` value ({Boolean})", async () => {
+      const beforeCacheCompiler = getCompiler("./entry.js");
 
       new CompressionPlugin({ cache: true, minRatio: 1 }).apply(
         beforeCacheCompiler
@@ -79,7 +79,7 @@ if (getCompiler.isWebpack4()) {
       cacache.put = jest.fn(cacache.put);
 
       const getCacheDirectorySpy = jest
-        .spyOn(Webpack4Cache, 'getCacheDirectory')
+        .spyOn(Webpack4Cache, "getCacheDirectory")
         .mockImplementation(() => {
           return uniqueCacheDirectory;
         });
@@ -87,10 +87,10 @@ if (getCompiler.isWebpack4()) {
       const stats = await compile(beforeCacheCompiler);
 
       expect(getAssetsNameAndSize(stats, beforeCacheCompiler)).toMatchSnapshot(
-        'assets'
+        "assets"
       );
-      expect(getWarnings(stats)).toMatchSnapshot('warnings');
-      expect(getErrors(stats)).toMatchSnapshot('errors');
+      expect(getWarnings(stats)).toMatchSnapshot("warnings");
+      expect(getErrors(stats)).toMatchSnapshot("errors");
 
       const countAssets = Object.keys(stats.compilation.assets).length;
 
@@ -121,7 +121,7 @@ if (getCompiler.isWebpack4()) {
       cacache.get.mockClear();
       cacache.put.mockClear();
 
-      const afterCacheCompiler = getCompiler('./entry.js');
+      const afterCacheCompiler = getCompiler("./entry.js");
 
       new CompressionPlugin({ cache: true, minRatio: 1 }).apply(
         afterCacheCompiler
@@ -131,9 +131,9 @@ if (getCompiler.isWebpack4()) {
 
       expect(
         getAssetsNameAndSize(newStats, afterCacheCompiler)
-      ).toMatchSnapshot('assets');
-      expect(getWarnings(newStats)).toMatchSnapshot('errors');
-      expect(getErrors(newStats)).toMatchSnapshot('warnings');
+      ).toMatchSnapshot("assets");
+      expect(getWarnings(newStats)).toMatchSnapshot("errors");
+      expect(getErrors(newStats)).toMatchSnapshot("warnings");
 
       const newCountAssets = Object.keys(newStats.compilation.assets).length;
 
@@ -144,8 +144,8 @@ if (getCompiler.isWebpack4()) {
       getCacheDirectorySpy.mockRestore();
     });
 
-    it('matches snapshot for `other-cache-directory` value ({String})', async () => {
-      const beforeCacheCompiler = getCompiler('./entry.js');
+    it("matches snapshot for `other-cache-directory` value ({String})", async () => {
+      const beforeCacheCompiler = getCompiler("./entry.js");
 
       new CompressionPlugin({ cache: otherCacheDir, minRatio: 1 }).apply(
         beforeCacheCompiler
@@ -157,10 +157,10 @@ if (getCompiler.isWebpack4()) {
       const stats = await compile(beforeCacheCompiler);
 
       expect(getAssetsNameAndSize(stats, beforeCacheCompiler)).toMatchSnapshot(
-        'assets'
+        "assets"
       );
-      expect(getWarnings(stats)).toMatchSnapshot('warnings');
-      expect(getErrors(stats)).toMatchSnapshot('errors');
+      expect(getWarnings(stats)).toMatchSnapshot("warnings");
+      expect(getErrors(stats)).toMatchSnapshot("errors");
 
       const countAssets = Object.keys(stats.compilation.assets).length;
 
@@ -190,7 +190,7 @@ if (getCompiler.isWebpack4()) {
       cacache.get.mockClear();
       cacache.put.mockClear();
 
-      const afterCacheCompiler = getCompiler('./entry.js');
+      const afterCacheCompiler = getCompiler("./entry.js");
 
       new CompressionPlugin({ cache: otherCacheDir, minRatio: 1 }).apply(
         afterCacheCompiler
@@ -200,9 +200,9 @@ if (getCompiler.isWebpack4()) {
 
       expect(
         getAssetsNameAndSize(newStats, afterCacheCompiler)
-      ).toMatchSnapshot('assets');
-      expect(getWarnings(newStats)).toMatchSnapshot('errors');
-      expect(getErrors(newStats)).toMatchSnapshot('warnings');
+      ).toMatchSnapshot("assets");
+      expect(getWarnings(newStats)).toMatchSnapshot("errors");
+      expect(getErrors(newStats)).toMatchSnapshot("warnings");
 
       const newCountAssets = Object.keys(newStats.compilation.assets).length;
 
@@ -212,7 +212,7 @@ if (getCompiler.isWebpack4()) {
     });
 
     it('matches snapshot for `other-other-cache-directory` value ({String}) with the "algorithm" option', async () => {
-      const beforeCacheCompiler = getCompiler('./entry.js');
+      const beforeCacheCompiler = getCompiler("./entry.js");
 
       new CompressionPlugin({
         cache: otherOtherCacheDir,
@@ -234,10 +234,10 @@ if (getCompiler.isWebpack4()) {
       const stats = await compile(beforeCacheCompiler);
 
       expect(getAssetsNameAndSize(stats, beforeCacheCompiler)).toMatchSnapshot(
-        'assets'
+        "assets"
       );
-      expect(getWarnings(stats)).toMatchSnapshot('warnings');
-      expect(getErrors(stats)).toMatchSnapshot('errors');
+      expect(getWarnings(stats)).toMatchSnapshot("warnings");
+      expect(getErrors(stats)).toMatchSnapshot("errors");
 
       const countAssets = Object.keys(stats.compilation.assets).length;
 
@@ -267,7 +267,7 @@ if (getCompiler.isWebpack4()) {
       cacache.get.mockClear();
       cacache.put.mockClear();
 
-      const afterCacheCompiler = getCompiler('./entry.js');
+      const afterCacheCompiler = getCompiler("./entry.js");
 
       new CompressionPlugin({
         cache: otherOtherCacheDir,
@@ -287,9 +287,9 @@ if (getCompiler.isWebpack4()) {
 
       expect(
         getAssetsNameAndSize(newStats, afterCacheCompiler)
-      ).toMatchSnapshot('assets');
-      expect(getWarnings(newStats)).toMatchSnapshot('errors');
-      expect(getErrors(newStats)).toMatchSnapshot('warnings');
+      ).toMatchSnapshot("assets");
+      expect(getWarnings(newStats)).toMatchSnapshot("errors");
+      expect(getErrors(newStats)).toMatchSnapshot("warnings");
 
       const newCountAssets = Object.keys(newStats.compilation.assets).length;
 
@@ -302,24 +302,24 @@ if (getCompiler.isWebpack4()) {
   describe('"cache" option', () => {
     const fileSystemCacheDirectory = path.resolve(
       __dirname,
-      './outputs/type-filesystem'
+      "./outputs/type-filesystem"
     );
 
     beforeAll(() => {
       return Promise.all([del(fileSystemCacheDirectory)]);
     });
 
-    it('should work when `cache` is `false`', async () => {
-      const compiler = getCompiler('./entry.js', {}, { cache: false });
+    it("should work when `cache` is `false`", async () => {
+      const compiler = getCompiler("./entry.js", {}, { cache: false });
 
       new CompressionPlugin().apply(compiler);
 
       let getCounter = 0;
 
       compiler.cache.hooks.get.tap(
-        { name: 'TestCache', stage: -100 },
+        { name: "TestCache", stage: -100 },
         (identifier) => {
-          if (identifier.indexOf('CompressionWebpackPlugin') !== -1) {
+          if (identifier.indexOf("CompressionWebpackPlugin") !== -1) {
             getCounter += 1;
           }
         }
@@ -328,9 +328,9 @@ if (getCompiler.isWebpack4()) {
       let storeCounter = 0;
 
       compiler.cache.hooks.store.tap(
-        { name: 'TestCache', stage: -100 },
+        { name: "TestCache", stage: -100 },
         (identifier) => {
-          if (identifier.indexOf('CompressionWebpackPlugin') !== -1) {
+          if (identifier.indexOf("CompressionWebpackPlugin") !== -1) {
             storeCounter += 1;
           }
         }
@@ -342,9 +342,9 @@ if (getCompiler.isWebpack4()) {
       expect(getCounter).toBe(4);
       // Without cache webpack always try to store
       expect(storeCounter).toBe(4);
-      expect(getAssetsNameAndSize(stats, compiler)).toMatchSnapshot('assets');
-      expect(getErrors(stats)).toMatchSnapshot('errors');
-      expect(getWarnings(stats)).toMatchSnapshot('warnings');
+      expect(getAssetsNameAndSize(stats, compiler)).toMatchSnapshot("assets");
+      expect(getErrors(stats)).toMatchSnapshot("errors");
+      expect(getWarnings(stats)).toMatchSnapshot("warnings");
 
       getCounter = 0;
       storeCounter = 0;
@@ -356,19 +356,19 @@ if (getCompiler.isWebpack4()) {
       // Without cache webpack always try to store
       expect(storeCounter).toBe(4);
       expect(getAssetsNameAndSize(newStats, compiler)).toMatchSnapshot(
-        'assets'
+        "assets"
       );
-      expect(getErrors(newStats)).toMatchSnapshot('errors');
-      expect(getWarnings(newStats)).toMatchSnapshot('warnings');
+      expect(getErrors(newStats)).toMatchSnapshot("errors");
+      expect(getWarnings(newStats)).toMatchSnapshot("warnings");
     });
 
     it('should work with "memory" value for the "cache.type" option', async () => {
       const compiler = getCompiler(
-        './entry.js',
+        "./entry.js",
         {},
         {
           cache: {
-            type: 'memory',
+            type: "memory",
           },
         }
       );
@@ -378,9 +378,9 @@ if (getCompiler.isWebpack4()) {
       let getCounter = 0;
 
       compiler.cache.hooks.get.tap(
-        { name: 'TestCache', stage: -100 },
+        { name: "TestCache", stage: -100 },
         (identifier) => {
-          if (identifier.indexOf('CompressionWebpackPlugin') !== -1) {
+          if (identifier.indexOf("CompressionWebpackPlugin") !== -1) {
             getCounter += 1;
           }
         }
@@ -389,9 +389,9 @@ if (getCompiler.isWebpack4()) {
       let storeCounter = 0;
 
       compiler.cache.hooks.store.tap(
-        { name: 'TestCache', stage: -100 },
+        { name: "TestCache", stage: -100 },
         (identifier) => {
-          if (identifier.indexOf('CompressionWebpackPlugin') !== -1) {
+          if (identifier.indexOf("CompressionWebpackPlugin") !== -1) {
             storeCounter += 1;
           }
         }
@@ -403,9 +403,9 @@ if (getCompiler.isWebpack4()) {
       expect(getCounter).toBe(4);
       // Store cached assets
       expect(storeCounter).toBe(4);
-      expect(getAssetsNameAndSize(stats, compiler)).toMatchSnapshot('assets');
-      expect(getErrors(stats)).toMatchSnapshot('errors');
-      expect(getWarnings(stats)).toMatchSnapshot('warnings');
+      expect(getAssetsNameAndSize(stats, compiler)).toMatchSnapshot("assets");
+      expect(getErrors(stats)).toMatchSnapshot("errors");
+      expect(getWarnings(stats)).toMatchSnapshot("warnings");
 
       getCounter = 0;
       storeCounter = 0;
@@ -417,19 +417,19 @@ if (getCompiler.isWebpack4()) {
       // No need to store, we got cached assets
       expect(storeCounter).toBe(0);
       expect(getAssetsNameAndSize(newStats, compiler)).toMatchSnapshot(
-        'assets'
+        "assets"
       );
-      expect(getErrors(newStats)).toMatchSnapshot('errors');
-      expect(getWarnings(newStats)).toMatchSnapshot('warnings');
+      expect(getErrors(newStats)).toMatchSnapshot("errors");
+      expect(getWarnings(newStats)).toMatchSnapshot("warnings");
     });
 
     it('should work with "filesystem" value for the "cache.type" option', async () => {
       const compiler = getCompiler(
-        './entry.js',
+        "./entry.js",
         {},
         {
           cache: {
-            type: 'filesystem',
+            type: "filesystem",
             cacheDirectory: fileSystemCacheDirectory,
           },
         }
@@ -440,9 +440,9 @@ if (getCompiler.isWebpack4()) {
       let getCounter = 0;
 
       compiler.cache.hooks.get.tap(
-        { name: 'TestCache', stage: -100 },
+        { name: "TestCache", stage: -100 },
         (identifier) => {
-          if (identifier.indexOf('CompressionWebpackPlugin') !== -1) {
+          if (identifier.indexOf("CompressionWebpackPlugin") !== -1) {
             getCounter += 1;
           }
         }
@@ -451,9 +451,9 @@ if (getCompiler.isWebpack4()) {
       let storeCounter = 0;
 
       compiler.cache.hooks.store.tap(
-        { name: 'TestCache', stage: -100 },
+        { name: "TestCache", stage: -100 },
         (identifier) => {
-          if (identifier.indexOf('CompressionWebpackPlugin') !== -1) {
+          if (identifier.indexOf("CompressionWebpackPlugin") !== -1) {
             storeCounter += 1;
           }
         }
@@ -465,9 +465,9 @@ if (getCompiler.isWebpack4()) {
       expect(getCounter).toBe(4);
       // Store cached assets
       expect(storeCounter).toBe(4);
-      expect(getAssetsNameAndSize(stats, compiler)).toMatchSnapshot('assets');
-      expect(getErrors(stats)).toMatchSnapshot('errors');
-      expect(getWarnings(stats)).toMatchSnapshot('warnings');
+      expect(getAssetsNameAndSize(stats, compiler)).toMatchSnapshot("assets");
+      expect(getErrors(stats)).toMatchSnapshot("errors");
+      expect(getWarnings(stats)).toMatchSnapshot("warnings");
 
       getCounter = 0;
       storeCounter = 0;
@@ -479,19 +479,19 @@ if (getCompiler.isWebpack4()) {
       // No need to store, we got cached assets
       expect(storeCounter).toBe(0);
       expect(getAssetsNameAndSize(newStats, compiler)).toMatchSnapshot(
-        'assets'
+        "assets"
       );
-      expect(getErrors(newStats)).toMatchSnapshot('errors');
-      expect(getWarnings(newStats)).toMatchSnapshot('warnings');
+      expect(getErrors(newStats)).toMatchSnapshot("errors");
+      expect(getWarnings(newStats)).toMatchSnapshot("warnings");
     });
 
     it('should work with "filesystem" value for the "cache.type" option and with the "algorithm" option', async () => {
       const compiler = getCompiler(
-        './entry.js',
+        "./entry.js",
         {},
         {
           cache: {
-            type: 'filesystem',
+            type: "filesystem",
             cacheDirectory: fileSystemCacheDirectory,
           },
         }
@@ -512,9 +512,9 @@ if (getCompiler.isWebpack4()) {
       let getCounter = 0;
 
       compiler.cache.hooks.get.tap(
-        { name: 'TestCache', stage: -100 },
+        { name: "TestCache", stage: -100 },
         (identifier) => {
-          if (identifier.indexOf('CompressionWebpackPlugin') !== -1) {
+          if (identifier.indexOf("CompressionWebpackPlugin") !== -1) {
             getCounter += 1;
           }
         }
@@ -523,9 +523,9 @@ if (getCompiler.isWebpack4()) {
       let storeCounter = 0;
 
       compiler.cache.hooks.store.tap(
-        { name: 'TestCache', stage: -100 },
+        { name: "TestCache", stage: -100 },
         (identifier) => {
-          if (identifier.indexOf('CompressionWebpackPlugin') !== -1) {
+          if (identifier.indexOf("CompressionWebpackPlugin") !== -1) {
             storeCounter += 1;
           }
         }
@@ -537,9 +537,9 @@ if (getCompiler.isWebpack4()) {
       expect(getCounter).toBe(4);
       // Store cached assets
       expect(storeCounter).toBe(4);
-      expect(getAssetsNameAndSize(stats, compiler)).toMatchSnapshot('assets');
-      expect(getErrors(stats)).toMatchSnapshot('errors');
-      expect(getWarnings(stats)).toMatchSnapshot('warnings');
+      expect(getAssetsNameAndSize(stats, compiler)).toMatchSnapshot("assets");
+      expect(getErrors(stats)).toMatchSnapshot("errors");
+      expect(getWarnings(stats)).toMatchSnapshot("warnings");
 
       getCounter = 0;
       storeCounter = 0;
@@ -551,10 +551,10 @@ if (getCompiler.isWebpack4()) {
       // No need to store, we got cached assets
       expect(storeCounter).toBe(0);
       expect(getAssetsNameAndSize(newStats, compiler)).toMatchSnapshot(
-        'assets'
+        "assets"
       );
-      expect(getErrors(newStats)).toMatchSnapshot('errors');
-      expect(getWarnings(newStats)).toMatchSnapshot('warnings');
+      expect(getErrors(newStats)).toMatchSnapshot("errors");
+      expect(getWarnings(newStats)).toMatchSnapshot("warnings");
     });
   });
 }

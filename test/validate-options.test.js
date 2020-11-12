@@ -1,8 +1,8 @@
-import CompressionPlugin from '../src';
+import CompressionPlugin from "../src";
 
-import { removeCache } from './helpers';
+import { removeCache } from "./helpers";
 
-describe('validate options', () => {
+describe("validate options", () => {
   beforeEach(() => {
     return removeCache();
   });
@@ -11,74 +11,74 @@ describe('validate options', () => {
     test: {
       success: [
         /foo/,
-        'foo',
+        "foo",
         [/foo/],
         [/foo/, /bar/],
-        ['foo', 'bar'],
-        [/foo/, 'bar'],
+        ["foo", "bar"],
+        [/foo/, "bar"],
       ],
-      failure: [true, [true], [/foo/, 'foo', true]],
+      failure: [true, [true], [/foo/, "foo", true]],
     },
     include: {
       success: [
         /foo/,
-        'foo',
+        "foo",
         [/foo/],
         [/foo/, /bar/],
-        ['foo', 'bar'],
-        [/foo/, 'bar'],
+        ["foo", "bar"],
+        [/foo/, "bar"],
       ],
-      failure: [true, [true], [/foo/, 'foo', true]],
+      failure: [true, [true], [/foo/, "foo", true]],
     },
     exclude: {
       success: [
         /foo/,
-        'foo',
+        "foo",
         [/foo/],
         [/foo/, /bar/],
-        ['foo', 'bar'],
-        [/foo/, 'bar'],
+        ["foo", "bar"],
+        [/foo/, "bar"],
       ],
-      failure: [true, [true], [/foo/, 'foo', true]],
+      failure: [true, [true], [/foo/, "foo", true]],
     },
     filename: {
-      success: ['[path].gz[query]', () => {}],
+      success: ["[path].gz[query]", () => {}],
       failure: [true],
     },
     algorithm: {
-      success: ['gzip', () => {}],
+      success: ["gzip", () => {}],
       failure: [true],
     },
     compressionOptions: {
       success: [{ level: 1 }, { unknown: 1 }],
-      failure: ['1024'],
+      failure: ["1024"],
     },
     threshold: {
       success: [1024],
-      failure: ['1024'],
+      failure: ["1024"],
     },
     minRatio: {
       success: [0.8],
-      failure: ['0.8'],
+      failure: ["0.8"],
     },
     cache: {
-      success: [true, '/path/to/cache'],
+      success: [true, "/path/to/cache"],
       failure: [() => {}],
     },
     deleteOriginalAssets: {
-      success: [true, false, 'keep-source-map'],
-      failure: ['true', 'unknown'],
+      success: [true, false, "keep-source-map"],
+      failure: ["true", "unknown"],
     },
     unknown: {
       success: [],
-      failure: [1, true, false, 'test', /test/, [], {}, { foo: 'bar' }],
+      failure: [1, true, false, "test", /test/, [], {}, { foo: "bar" }],
     },
   };
 
   function stringifyValue(value) {
     if (
       Array.isArray(value) ||
-      (value && typeof value === 'object' && value.constructor === Object)
+      (value && typeof value === "object" && value.constructor === Object)
     ) {
       return JSON.stringify(value);
     }
@@ -88,7 +88,7 @@ describe('validate options', () => {
 
   async function createTestCase(key, value, type) {
     it(`should ${
-      type === 'success' ? 'successfully validate' : 'throw an error on'
+      type === "success" ? "successfully validate" : "throw an error on"
     } the "${key}" option with "${stringifyValue(value)}" value`, async () => {
       let error;
 
@@ -96,15 +96,15 @@ describe('validate options', () => {
         // eslint-disable-next-line no-new
         new CompressionPlugin({ [key]: value });
       } catch (errorFromPlugin) {
-        if (errorFromPlugin.name !== 'ValidationError') {
+        if (errorFromPlugin.name !== "ValidationError") {
           throw errorFromPlugin;
         }
 
         error = errorFromPlugin;
       } finally {
-        if (type === 'success') {
+        if (type === "success") {
           expect(error).toBeUndefined();
-        } else if (type === 'failure') {
+        } else if (type === "failure") {
           expect(() => {
             throw error;
           }).toThrowErrorMatchingSnapshot();

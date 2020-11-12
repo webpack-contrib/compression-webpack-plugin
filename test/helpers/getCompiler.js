@@ -1,18 +1,18 @@
-import path from 'path';
+import path from "path";
 
-import webpack from 'webpack';
-import { createFsFromVolume, Volume } from 'memfs';
+import webpack from "webpack";
+import { createFsFromVolume, Volume } from "memfs";
 
 export default function getCompiler(fixture, loaderOptions = {}, config = {}) {
   const fullConfig = {
-    mode: 'development',
+    mode: "development",
     devtool: config.devtool || false,
-    context: path.resolve(__dirname, '../fixtures'),
-    entry: path.resolve(__dirname, '../fixtures', fixture),
+    context: path.resolve(__dirname, "../fixtures"),
+    entry: path.resolve(__dirname, "../fixtures", fixture),
     output: {
-      path: path.resolve(__dirname, '../outputs'),
-      filename: '[name].[chunkhash].js',
-      chunkFilename: '[id].[name].[chunkhash].js',
+      path: path.resolve(__dirname, "../outputs"),
+      filename: "[name].[chunkhash].js",
+      chunkFilename: "[id].[name].[chunkhash].js",
     },
     module: {
       rules: [
@@ -20,7 +20,7 @@ export default function getCompiler(fixture, loaderOptions = {}, config = {}) {
           test: /\.(png|jpg|gif|svg|txt)$/i,
           rules: [
             {
-              loader: 'file-loader',
+              loader: "file-loader",
               options: loaderOptions || {},
             },
           ],
@@ -44,4 +44,4 @@ export default function getCompiler(fixture, loaderOptions = {}, config = {}) {
   return compiler;
 }
 
-getCompiler.isWebpack4 = () => webpack.version[0] === '4';
+getCompiler.isWebpack4 = () => webpack.version[0] === "4";

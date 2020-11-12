@@ -3,27 +3,27 @@
   Author Tobias Koppers @sokra
 */
 
-import crypto from 'crypto';
-import path from 'path';
+import crypto from "crypto";
+import path from "path";
 
 import webpack, {
   ModuleFilenameHelpers,
   version as webpackVersion,
-} from 'webpack';
-import { validate } from 'schema-utils';
-import serialize from 'serialize-javascript';
+} from "webpack";
+import { validate } from "schema-utils";
+import serialize from "serialize-javascript";
 
-import schema from './options.json';
+import schema from "./options.json";
 
 const { RawSource } =
   // eslint-disable-next-line global-require
-  webpack.sources || require('webpack-sources');
+  webpack.sources || require("webpack-sources");
 
 class CompressionPlugin {
   constructor(options = {}) {
     validate(schema, options, {
-      name: 'Compression Plugin',
-      baseDataPath: 'options',
+      name: "Compression Plugin",
+      baseDataPath: "options",
     });
 
     const {
@@ -31,9 +31,9 @@ class CompressionPlugin {
       include,
       exclude,
       cache = true,
-      algorithm = 'gzip',
+      algorithm = "gzip",
       compressionOptions = {},
-      filename = '[path][base].gz',
+      filename = "[path][base].gz",
       threshold = 0,
       minRatio = 0.8,
       deleteOriginalAssets = false,
@@ -54,9 +54,9 @@ class CompressionPlugin {
 
     this.algorithm = this.options.algorithm;
 
-    if (typeof this.algorithm === 'string') {
+    if (typeof this.algorithm === "string") {
       // eslint-disable-next-line global-require
-      const zlib = require('zlib');
+      const zlib = require("zlib");
 
       this.algorithm = zlib[this.algorithm];
 
@@ -157,7 +157,7 @@ class CompressionPlugin {
 
   async compress(compilation, assets, CacheEngine, weakCache) {
     const assetNames = Object.keys(
-      typeof assets === 'undefined' ? compilation.assets : assets
+      typeof assets === "undefined" ? compilation.assets : assets
     ).filter((assetName) =>
       // eslint-disable-next-line no-undefined
       ModuleFilenameHelpers.matchObject.bind(undefined, this.options)(assetName)
@@ -188,18 +188,18 @@ class CompressionPlugin {
 
           let relatedName;
 
-          if (typeof this.options.algorithm === 'function') {
+          if (typeof this.options.algorithm === "function") {
             let filenameForRelatedName = this.options.filename;
 
-            const index = filenameForRelatedName.lastIndexOf('?');
+            const index = filenameForRelatedName.lastIndexOf("?");
 
             if (index >= 0) {
               filenameForRelatedName = filenameForRelatedName.substr(0, index);
             }
 
             relatedName = `${path.extname(filenameForRelatedName).slice(1)}ed`;
-          } else if (this.options.algorithm === 'gzip') {
-            relatedName = 'gzipped';
+          } else if (this.options.algorithm === "gzip") {
+            relatedName = "gzipped";
           } else {
             relatedName = `${this.options.algorithm}ed`;
           }
@@ -224,12 +224,12 @@ class CompressionPlugin {
             cacheData.cacheKeys = {
               nodeVersion: process.version,
               // eslint-disable-next-line global-require
-              'compression-webpack-plugin': require('../package.json').version,
+              "compression-webpack-plugin": require("../package.json").version,
               algorithm: this.algorithm,
               originalAlgorithm: this.options.algorithm,
               compressionOptions: this.options.compressionOptions,
               name,
-              contentHash: crypto.createHash('md4').update(input).digest('hex'),
+              contentHash: crypto.createHash("md4").update(input).digest("hex"),
             };
           } else {
             cacheData.name = serialize({
@@ -261,8 +261,8 @@ class CompressionPlugin {
 
           const match = /^([^?#]*)(\?[^#]*)?(#.*)?$/.exec(name);
           const [, replacerFile] = match;
-          const replacerQuery = match[2] || '';
-          const replacerFragment = match[3] || '';
+          const replacerQuery = match[2] || "";
+          const replacerFragment = match[3] || "";
           const replacerExt = path.extname(replacerFile);
           const replacerBase = path.basename(replacerFile);
           const replacerName = replacerBase.slice(
@@ -280,12 +280,12 @@ class CompressionPlugin {
             path: replacerPath,
             base: replacerBase,
             name: replacerName,
-            ext: replacerExt || '',
+            ext: replacerExt || "",
           };
 
           let newFilename = this.options.filename;
 
-          if (typeof newFilename === 'function') {
+          if (typeof newFilename === "function") {
             newFilename = newFilename(pathData);
           }
 
@@ -301,7 +301,7 @@ class CompressionPlugin {
           }
 
           if (this.options.deleteOriginalAssets) {
-            if (this.options.deleteOriginalAssets === 'keep-source-map') {
+            if (this.options.deleteOriginalAssets === "keep-source-map") {
               // TODO `...` required only for webpack@4
               const updatedAssetInfo = {
                 ...info,
@@ -341,7 +341,7 @@ class CompressionPlugin {
   }
 
   static isWebpack4() {
-    return webpackVersion[0] === '4';
+    return webpackVersion[0] === "4";
   }
 
   apply(compiler) {
@@ -349,7 +349,7 @@ class CompressionPlugin {
 
     if (CompressionPlugin.isWebpack4()) {
       // eslint-disable-next-line global-require
-      const CacheEngine = require('./Webpack4Cache').default;
+      const CacheEngine = require("./Webpack4Cache").default;
       const weakCache = new WeakMap();
 
       compiler.hooks.emit.tapPromise({ name: pluginName }, (compilation) =>
@@ -358,11 +358,11 @@ class CompressionPlugin {
       );
     } else {
       // eslint-disable-next-line global-require
-      const CacheEngine = require('./Webpack5Cache').default;
+      const CacheEngine = require("./Webpack5Cache").default;
 
       compiler.hooks.thisCompilation.tap(pluginName, (compilation) => {
         // eslint-disable-next-line global-require
-        const Compilation = require('webpack/lib/Compilation');
+        const Compilation = require("webpack/lib/Compilation");
 
         compilation.hooks.processAssets.tapPromise(
           {
@@ -374,12 +374,12 @@ class CompressionPlugin {
 
         compilation.hooks.statsPrinter.tap(pluginName, (stats) => {
           stats.hooks.print
-            .for('asset.info.compressed')
+            .for("asset.info.compressed")
             .tap(
-              'compression-webpack-plugin',
+              "compression-webpack-plugin",
               (compressed, { green, formatFlag }) =>
                 // eslint-disable-next-line no-undefined
-                compressed ? green(formatFlag('compressed')) : undefined
+                compressed ? green(formatFlag("compressed")) : undefined
             );
         });
       });

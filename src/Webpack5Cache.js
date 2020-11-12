@@ -1,6 +1,6 @@
 export default class Cache {
   constructor(compilation) {
-    this.cache = compilation.getCache('CompressionWebpackPlugin');
+    this.cache = compilation.getCache("CompressionWebpackPlugin");
   }
 
   async get(cacheData) {

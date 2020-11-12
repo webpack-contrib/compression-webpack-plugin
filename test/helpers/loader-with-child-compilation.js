@@ -1,4 +1,4 @@
-import CopyPluginWithAssetInfo from './CopyPluginWithAssetInfo';
+import CopyPluginWithAssetInfo from "./CopyPluginWithAssetInfo";
 
 export default function loader() {
   const callback = this.async();
@@ -15,6 +15,6 @@ export default function loader() {
       return callback(error);
     }
 
-    return callback(null, 'export default 1');
+    return callback(null, "export default 1");
   });
 }

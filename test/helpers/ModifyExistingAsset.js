@@ -1,9 +1,9 @@
-import webpack from 'webpack';
+import webpack from "webpack";
 
 // webpack 5 exposes the sources property to ensure the right version of webpack-sources is used
 const { ConcatSource } =
   // eslint-disable-next-line global-require
-  webpack.sources || require('webpack-sources');
+  webpack.sources || require("webpack-sources");
 
 export default class ExistingCommentsFile {
   constructor(options = {}) {
@@ -18,7 +18,7 @@ export default class ExistingCommentsFile {
         // eslint-disable-next-line no-param-reassign
         compilation.assets[this.options.name] = new ConcatSource(
           `function changed() {} ${
-            this.options.comment ? '/*! CHANGED */' : ''
+            this.options.comment ? "/*! CHANGED */" : ""
           }`,
           compilation.assets[this.options.name]
         );
