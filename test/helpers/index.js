@@ -9,7 +9,6 @@ import ModifyExistingAsset from "./ModifyExistingAsset";
 import normalizeErrors from "./normalizeErrors";
 import readAsset from "./readAsset";
 import readsAssets from "./readAssets";
-import removeCache from "./removeCache";
 
 export {
   compile,
@@ -23,5 +22,4 @@ export {
   normalizeErrors,
   readAsset,
   readsAssets,
-  removeCache,
 };

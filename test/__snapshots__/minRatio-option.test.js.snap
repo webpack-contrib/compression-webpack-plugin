@@ -31,13 +31,13 @@ Array [
     },
   ],
   Array [
-    "main.c9c6c970f01f9eb6d301.js",
-    16495,
+    "main.a6299e4b54bcb458b330.js",
+    17020,
     Object {
-      "chunkhash": "c9c6c970f01f9eb6d301",
+      "chunkhash": "a6299e4b54bcb458b330",
       "immutable": true,
       "javascriptModule": false,
-      "size": 16495,
+      "size": 17020,
     },
   ],
 ]
@@ -114,25 +114,25 @@ Array [
     },
   ],
   Array [
-    "main.c9c6c970f01f9eb6d301.js",
-    16495,
+    "main.a6299e4b54bcb458b330.js",
+    17020,
     Object {
-      "chunkhash": "c9c6c970f01f9eb6d301",
+      "chunkhash": "a6299e4b54bcb458b330",
       "immutable": true,
       "javascriptModule": false,
       "related": Object {
-        "gzipped": "main.c9c6c970f01f9eb6d301.js.gz",
+        "gzipped": "main.a6299e4b54bcb458b330.js.gz",
       },
-      "size": 16495,
+      "size": 17020,
     },
   ],
   Array [
-    "main.c9c6c970f01f9eb6d301.js.gz",
-    3934,
+    "main.a6299e4b54bcb458b330.js.gz",
+    4077,
     Object {
       "compressed": true,
       "immutable": true,
-      "size": 3934,
+      "size": 4077,
     },
   ],
 ]
