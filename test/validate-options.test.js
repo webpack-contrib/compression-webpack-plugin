@@ -1,12 +1,6 @@
 import CompressionPlugin from "../src";
 
-import { removeCache } from "./helpers";
-
 describe("validate options", () => {
-  beforeEach(() => {
-    return removeCache();
-  });
-
   const tests = {
     test: {
       success: [
@@ -60,10 +54,6 @@ describe("validate options", () => {
     minRatio: {
       success: [0.8],
       failure: ["0.8"],
-    },
-    cache: {
-      success: [true, "/path/to/cache"],
-      failure: [() => {}],
     },
     deleteOriginalAssets: {
       success: [true, false, "keep-source-map"],

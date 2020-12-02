@@ -6,7 +6,6 @@ import {
   getCompiler,
   getErrors,
   getWarnings,
-  removeCache,
 } from "./helpers/index";
 
 describe('"test" option', () => {
@@ -24,8 +23,6 @@ describe('"test" option', () => {
         },
       }
     );
-
-    return removeCache();
   });
 
   it("matches snapshot with empty `test` value", async () => {

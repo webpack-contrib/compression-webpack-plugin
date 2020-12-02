@@ -10,16 +10,6 @@ exports[`validate options should throw an error on the "algorithm" option with "
     * options.algorithm should be an instance of function."
 `;
 
-exports[`validate options should throw an error on the "cache" option with "() => {}" value 1`] = `
-"Invalid options object. Compression Plugin has been initialized using an options object that does not match the API schema.
- - options.cache should be one of these:
-   boolean | string
-   -> Enable file caching. Ignored in webpack 5, for webpack 5 please use https://webpack.js.org/configuration/other-options/#cache.
-   Details:
-    * options.cache should be a boolean.
-    * options.cache should be a string."
-`;
-
 exports[`validate options should throw an error on the "compressionOptions" option with "1024" value 1`] = `
 "Invalid options object. Compression Plugin has been initialized using an options object that does not match the API schema.
  - options.compressionOptions should be an object:
@@ -204,47 +194,47 @@ exports[`validate options should throw an error on the "threshold" option with "
 exports[`validate options should throw an error on the "unknown" option with "/test/" value 1`] = `
 "Invalid options object. Compression Plugin has been initialized using an options object that does not match the API schema.
  - options has an unknown property 'unknown'. These properties are valid:
-   object { test?, include?, exclude?, algorithm?, compressionOptions?, threshold?, minRatio?, deleteOriginalAssets?, filename?, cache? }"
+   object { test?, include?, exclude?, algorithm?, compressionOptions?, threshold?, minRatio?, deleteOriginalAssets?, filename? }"
 `;
 
 exports[`validate options should throw an error on the "unknown" option with "[]" value 1`] = `
 "Invalid options object. Compression Plugin has been initialized using an options object that does not match the API schema.
  - options has an unknown property 'unknown'. These properties are valid:
-   object { test?, include?, exclude?, algorithm?, compressionOptions?, threshold?, minRatio?, deleteOriginalAssets?, filename?, cache? }"
+   object { test?, include?, exclude?, algorithm?, compressionOptions?, threshold?, minRatio?, deleteOriginalAssets?, filename? }"
 `;
 
 exports[`validate options should throw an error on the "unknown" option with "{"foo":"bar"}" value 1`] = `
 "Invalid options object. Compression Plugin has been initialized using an options object that does not match the API schema.
  - options has an unknown property 'unknown'. These properties are valid:
-   object { test?, include?, exclude?, algorithm?, compressionOptions?, threshold?, minRatio?, deleteOriginalAssets?, filename?, cache? }"
+   object { test?, include?, exclude?, algorithm?, compressionOptions?, threshold?, minRatio?, deleteOriginalAssets?, filename? }"
 `;
 
 exports[`validate options should throw an error on the "unknown" option with "{}" value 1`] = `
 "Invalid options object. Compression Plugin has been initialized using an options object that does not match the API schema.
  - options has an unknown property 'unknown'. These properties are valid:
-   object { test?, include?, exclude?, algorithm?, compressionOptions?, threshold?, minRatio?, deleteOriginalAssets?, filename?, cache? }"
+   object { test?, include?, exclude?, algorithm?, compressionOptions?, threshold?, minRatio?, deleteOriginalAssets?, filename? }"
 `;
 
 exports[`validate options should throw an error on the "unknown" option with "1" value 1`] = `
 "Invalid options object. Compression Plugin has been initialized using an options object that does not match the API schema.
  - options has an unknown property 'unknown'. These properties are valid:
-   object { test?, include?, exclude?, algorithm?, compressionOptions?, threshold?, minRatio?, deleteOriginalAssets?, filename?, cache? }"
+   object { test?, include?, exclude?, algorithm?, compressionOptions?, threshold?, minRatio?, deleteOriginalAssets?, filename? }"
 `;
 
 exports[`validate options should throw an error on the "unknown" option with "false" value 1`] = `
 "Invalid options object. Compression Plugin has been initialized using an options object that does not match the API schema.
  - options has an unknown property 'unknown'. These properties are valid:
-   object { test?, include?, exclude?, algorithm?, compressionOptions?, threshold?, minRatio?, deleteOriginalAssets?, filename?, cache? }"
+   object { test?, include?, exclude?, algorithm?, compressionOptions?, threshold?, minRatio?, deleteOriginalAssets?, filename? }"
 `;
 
 exports[`validate options should throw an error on the "unknown" option with "test" value 1`] = `
 "Invalid options object. Compression Plugin has been initialized using an options object that does not match the API schema.
  - options has an unknown property 'unknown'. These properties are valid:
-   object { test?, include?, exclude?, algorithm?, compressionOptions?, threshold?, minRatio?, deleteOriginalAssets?, filename?, cache? }"
+   object { test?, include?, exclude?, algorithm?, compressionOptions?, threshold?, minRatio?, deleteOriginalAssets?, filename? }"
 `;
 
 exports[`validate options should throw an error on the "unknown" option with "true" value 1`] = `
 "Invalid options object. Compression Plugin has been initialized using an options object that does not match the API schema.
  - options has an unknown property 'unknown'. These properties are valid:
-   object { test?, include?, exclude?, algorithm?, compressionOptions?, threshold?, minRatio?, deleteOriginalAssets?, filename?, cache? }"
+   object { test?, include?, exclude?, algorithm?, compressionOptions?, threshold?, minRatio?, deleteOriginalAssets?, filename? }"
 `;

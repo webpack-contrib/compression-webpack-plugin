@@ -6,7 +6,6 @@ import {
   getCompiler,
   getErrors,
   getWarnings,
-  removeCache,
 } from "./helpers/index";
 
 describe('"deleteOriginalAssets" option', () => {
@@ -14,8 +13,6 @@ describe('"deleteOriginalAssets" option', () => {
 
   beforeEach(() => {
     compiler = getCompiler("./entry.js");
-
-    return removeCache();
   });
 
   it("should work and keep original assets by default", async () => {

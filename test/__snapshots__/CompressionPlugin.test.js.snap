@@ -4,24 +4,28 @@ exports[`CompressionPlugin should work and do not use memory cache when the "cac
 Array [
   Array [
     "async.async.js",
-    249,
+    265,
     Object {
+      "javascriptModule": false,
       "related": Object {
         "gzipped": "async.async.js.gz",
       },
+      "size": 265,
     },
   ],
   Array [
     "async.async.js.gz",
-    171,
+    179,
     Object {
       "compressed": true,
+      "size": 179,
     },
   ],
   Array [
     "icon.png",
     78117,
     Object {
+      "size": 78117,
       "sourceFilename": "icon.png",
     },
   ],
@@ -32,6 +36,7 @@ Array [
       "related": Object {
         "gzipped": "icon.svg.gz",
       },
+      "size": 672,
       "sourceFilename": "icon.svg",
     },
   ],
@@ -40,22 +45,26 @@ Array [
     393,
     Object {
       "compressed": true,
+      "size": 393,
     },
   ],
   Array [
     "main.js",
-    11539,
+    16933,
     Object {
+      "javascriptModule": false,
       "related": Object {
         "gzipped": "main.js.gz",
       },
+      "size": 16933,
     },
   ],
   Array [
     "main.js.gz",
-    2910,
+    3991,
     Object {
       "compressed": true,
+      "size": 3991,
     },
   ],
 ]
@@ -65,24 +74,28 @@ exports[`CompressionPlugin should work and do not use memory cache when the "cac
 Array [
   Array [
     "async.async.js",
-    249,
+    265,
     Object {
+      "javascriptModule": false,
       "related": Object {
         "gzipped": "async.async.js.gz",
       },
+      "size": 265,
     },
   ],
   Array [
     "async.async.js.gz",
-    171,
+    179,
     Object {
       "compressed": true,
+      "size": 179,
     },
   ],
   Array [
     "icon.png",
     78117,
     Object {
+      "size": 78117,
       "sourceFilename": "icon.png",
     },
   ],
@@ -93,6 +106,7 @@ Array [
       "related": Object {
         "gzipped": "icon.svg.gz",
       },
+      "size": 672,
       "sourceFilename": "icon.svg",
     },
   ],
@@ -101,22 +115,26 @@ Array [
     393,
     Object {
       "compressed": true,
+      "size": 393,
     },
   ],
   Array [
     "main.js",
-    11539,
+    16933,
     Object {
+      "javascriptModule": false,
       "related": Object {
         "gzipped": "main.js.gz",
       },
+      "size": 16933,
     },
   ],
   Array [
     "main.js.gz",
-    2910,
+    3991,
     Object {
       "compressed": true,
+      "size": 3991,
     },
   ],
 ]
@@ -137,6 +155,7 @@ Array [
     78117,
     Object {
       "immutable": true,
+      "size": 78117,
       "sourceFilename": "icon.png",
     },
   ],
@@ -148,6 +167,7 @@ Array [
       "related": Object {
         "gzipped": "23fc1d3ac606d117e05a140e0de79806.svg.gz",
       },
+      "size": 672,
       "sourceFilename": "icon.svg",
     },
   ],
@@ -157,42 +177,51 @@ Array [
     Object {
       "compressed": true,
       "immutable": true,
+      "size": 393,
     },
   ],
   Array [
-    "async.async.e6542b36f32f25090488.js",
-    249,
+    "async.async.27008663fa31c77100af.js",
+    265,
     Object {
+      "contenthash": "27008663fa31c77100af",
       "immutable": true,
+      "javascriptModule": false,
       "related": Object {
-        "gzipped": "async.async.e6542b36f32f25090488.js.gz",
+        "gzipped": "async.async.27008663fa31c77100af.js.gz",
       },
+      "size": 265,
     },
   ],
   Array [
-    "async.async.e6542b36f32f25090488.js.gz",
-    171,
+    "async.async.27008663fa31c77100af.js.gz",
+    179,
     Object {
       "compressed": true,
       "immutable": true,
+      "size": 179,
     },
   ],
   Array [
-    "main.7d96b947e2f0d38f7c7d.js",
-    11645,
+    "main.3901817e3ed5284b5443.js",
+    17020,
     Object {
+      "contenthash": "3901817e3ed5284b5443",
       "immutable": true,
+      "javascriptModule": false,
       "related": Object {
-        "gzipped": "main.7d96b947e2f0d38f7c7d.js.gz",
+        "gzipped": "main.3901817e3ed5284b5443.js.gz",
       },
+      "size": 17020,
     },
   ],
   Array [
-    "main.7d96b947e2f0d38f7c7d.js.gz",
-    3000,
+    "main.3901817e3ed5284b5443.js.gz",
+    4077,
     Object {
       "compressed": true,
       "immutable": true,
+      "size": 4077,
     },
   ],
 ]
@@ -209,6 +238,7 @@ Array [
     78117,
     Object {
       "immutable": true,
+      "size": 78117,
       "sourceFilename": "icon.png",
     },
   ],
@@ -220,6 +250,7 @@ Array [
       "related": Object {
         "gzipped": "23fc1d3ac606d117e05a140e0de79806.svg.gz",
       },
+      "size": 672,
       "sourceFilename": "icon.svg",
     },
   ],
@@ -229,38 +260,45 @@ Array [
     Object {
       "compressed": true,
       "immutable": true,
+      "size": 393,
     },
   ],
   Array [
     "async.async.js",
-    249,
+    265,
     Object {
+      "javascriptModule": false,
       "related": Object {
         "gzipped": "async.async.js.gz",
       },
+      "size": 265,
     },
   ],
   Array [
     "async.async.js.gz",
-    171,
+    179,
     Object {
       "compressed": true,
+      "size": 179,
     },
   ],
   Array [
     "main.js",
-    11595,
+    16989,
     Object {
+      "javascriptModule": false,
       "related": Object {
         "gzipped": "main.js.gz",
       },
+      "size": 16989,
     },
   ],
   Array [
     "main.js.gz",
-    2974,
+    4054,
     Object {
       "compressed": true,
+      "size": 4054,
     },
   ],
 ]
@@ -277,6 +315,7 @@ Array [
     78117,
     Object {
       "immutable": true,
+      "size": 78117,
       "sourceFilename": "icon.png",
     },
   ],
@@ -288,6 +327,7 @@ Array [
       "related": Object {
         "gzipped": "23fc1d3ac606d117e05a140e0de79806.svg.gz",
       },
+      "size": 672,
       "sourceFilename": "icon.svg",
     },
   ],
@@ -297,38 +337,45 @@ Array [
     Object {
       "compressed": true,
       "immutable": true,
+      "size": 393,
     },
   ],
   Array [
     "async.js",
-    249,
+    265,
     Object {
+      "javascriptModule": false,
       "related": Object {
         "gzipped": "async.js.gz",
       },
+      "size": 265,
     },
   ],
   Array [
     "async.js.gz",
-    171,
+    179,
     Object {
       "compressed": true,
+      "size": 179,
     },
   ],
   Array [
     "main.js",
-    11549,
+    16973,
     Object {
+      "javascriptModule": false,
       "related": Object {
         "gzipped": "main.js.gz",
       },
+      "size": 16973,
     },
   ],
   Array [
     "main.js.gz",
-    2953,
+    4051,
     Object {
       "compressed": true,
+      "size": 4051,
     },
   ],
 ]
@@ -341,6 +388,7 @@ Array [
     78117,
     Object {
       "immutable": true,
+      "size": 78117,
       "sourceFilename": "icon.png",
     },
   ],
@@ -352,6 +400,7 @@ Array [
       "related": Object {
         "gzipped": "23fc1d3ac606d117e05a140e0de79806.svg.gz",
       },
+      "size": 672,
       "sourceFilename": "icon.svg",
     },
   ],
@@ -361,38 +410,45 @@ Array [
     Object {
       "compressed": true,
       "immutable": true,
+      "size": 393,
     },
   ],
   Array [
     "async.js",
-    249,
+    265,
     Object {
+      "javascriptModule": false,
       "related": Object {
         "gzipped": "async.js.gz",
       },
+      "size": 265,
     },
   ],
   Array [
     "async.js.gz",
-    171,
+    179,
     Object {
       "compressed": true,
+      "size": 179,
     },
   ],
   Array [
     "main.js",
-    11571,
+    16995,
     Object {
+      "javascriptModule": false,
       "related": Object {
         "gzipped": "main.js.gz",
       },
+      "size": 16995,
     },
   ],
   Array [
     "main.js.gz",
-    2961,
+    4062,
     Object {
       "compressed": true,
+      "size": 4062,
     },
   ],
 ]
@@ -416,6 +472,7 @@ Array [
       "related": Object {
         "customed": "09a1a1112c577c2794359715edfcb5ac.png.custom",
       },
+      "size": 78117,
       "sourceFilename": "icon.png",
     },
   ],
@@ -425,6 +482,7 @@ Array [
     Object {
       "compressed": true,
       "immutable": true,
+      "size": 78117,
     },
   ],
   Array [
@@ -437,6 +495,7 @@ Array [
         "customed": "23fc1d3ac606d117e05a140e0de79806.svg.custom",
         "gzipped": "23fc1d3ac606d117e05a140e0de79806.svg.gz",
       },
+      "size": 672,
       "sourceFilename": "icon.svg",
     },
   ],
@@ -446,6 +505,7 @@ Array [
     Object {
       "compressed": true,
       "immutable": true,
+      "size": 363,
     },
   ],
   Array [
@@ -454,6 +514,7 @@ Array [
     Object {
       "compressed": true,
       "immutable": true,
+      "size": 672,
     },
   ],
   Array [
@@ -462,70 +523,81 @@ Array [
     Object {
       "compressed": true,
       "immutable": true,
+      "size": 393,
     },
   ],
   Array [
     "async.js",
-    249,
+    265,
     Object {
+      "javascriptModule": false,
       "related": Object {
         "brotliCompressed": "async.js.br",
         "customed": "async.js.custom",
         "gzipped": "async.js.gz",
       },
+      "size": 265,
     },
   ],
   Array [
     "async.js.br",
-    141,
+    146,
     Object {
       "compressed": true,
+      "size": 146,
     },
   ],
   Array [
     "async.js.custom",
-    249,
+    265,
     Object {
       "compressed": true,
+      "size": 265,
     },
   ],
   Array [
     "async.js.gz",
-    171,
+    179,
     Object {
       "compressed": true,
+      "size": 179,
     },
   ],
   Array [
     "main.js",
-    11549,
+    16973,
     Object {
+      "javascriptModule": false,
       "related": Object {
         "brotliCompressed": "main.js.br",
         "customed": "main.js.custom",
         "gzipped": "main.js.gz",
       },
+      "size": 16973,
     },
   ],
   Array [
     "main.js.br",
-    2546,
+    3534,
     Object {
       "compressed": true,
+      "size": 3534,
     },
   ],
   Array [
     "main.js.custom",
-    11549,
+    16973,
     Object {
       "compressed": true,
+      "size": 16973,
     },
   ],
   Array [
     "main.js.gz",
-    2953,
+    4051,
     Object {
       "compressed": true,
+      "size": 4051,
     },
   ],
 ]
@@ -541,6 +613,7 @@ Array [
       "related": Object {
         "customed": "09a1a1112c577c2794359715edfcb5ac.png.custom",
       },
+      "size": 78117,
       "sourceFilename": "icon.png",
     },
   ],
@@ -550,6 +623,7 @@ Array [
     Object {
       "compressed": true,
       "immutable": true,
+      "size": 78117,
     },
   ],
   Array [
@@ -562,6 +636,7 @@ Array [
         "customed": "23fc1d3ac606d117e05a140e0de79806.svg.custom",
         "gzipped": "23fc1d3ac606d117e05a140e0de79806.svg.gz",
       },
+      "size": 672,
       "sourceFilename": "icon.svg",
     },
   ],
@@ -571,6 +646,7 @@ Array [
     Object {
       "compressed": true,
       "immutable": true,
+      "size": 363,
     },
   ],
   Array [
@@ -579,6 +655,7 @@ Array [
     Object {
       "compressed": true,
       "immutable": true,
+      "size": 672,
     },
   ],
   Array [
@@ -587,70 +664,81 @@ Array [
     Object {
       "compressed": true,
       "immutable": true,
+      "size": 393,
     },
   ],
   Array [
     "async.js",
-    249,
+    265,
     Object {
+      "javascriptModule": false,
       "related": Object {
         "brotliCompressed": "async.js.br",
         "customed": "async.js.custom",
         "gzipped": "async.js.gz",
       },
+      "size": 265,
     },
   ],
   Array [
     "async.js.br",
-    141,
+    146,
     Object {
       "compressed": true,
+      "size": 146,
     },
   ],
   Array [
     "async.js.custom",
-    249,
+    265,
     Object {
       "compressed": true,
+      "size": 265,
     },
   ],
   Array [
     "async.js.gz",
-    171,
+    179,
     Object {
       "compressed": true,
+      "size": 179,
     },
   ],
   Array [
     "main.js",
-    11549,
+    16973,
     Object {
+      "javascriptModule": false,
       "related": Object {
         "brotliCompressed": "main.js.br",
         "customed": "main.js.custom",
         "gzipped": "main.js.gz",
       },
+      "size": 16973,
     },
   ],
   Array [
     "main.js.br",
-    2546,
+    3534,
     Object {
       "compressed": true,
+      "size": 3534,
     },
   ],
   Array [
     "main.js.custom",
-    11549,
+    16973,
     Object {
       "compressed": true,
+      "size": 16973,
     },
   ],
   Array [
     "main.js.gz",
-    2953,
+    4051,
     Object {
       "compressed": true,
+      "size": 4051,
     },
   ],
 ]
@@ -671,6 +759,7 @@ Array [
     78117,
     Object {
       "immutable": true,
+      "size": 78117,
       "sourceFilename": "icon.png",
     },
   ],
@@ -682,6 +771,7 @@ Array [
       "related": Object {
         "gzipped": "23fc1d3ac606d117e05a140e0de79806.svg.gz",
       },
+      "size": 672,
       "sourceFilename": "icon.svg",
     },
   ],
@@ -691,38 +781,45 @@ Array [
     Object {
       "compressed": true,
       "immutable": true,
+      "size": 393,
     },
   ],
   Array [
     "async.js",
-    249,
+    265,
     Object {
+      "javascriptModule": false,
       "related": Object {
         "gzipped": "async.js.gz",
       },
+      "size": 265,
     },
   ],
   Array [
     "async.js.gz",
-    171,
+    179,
     Object {
       "compressed": true,
+      "size": 179,
     },
   ],
   Array [
     "main.js",
-    11549,
+    16973,
     Object {
+      "javascriptModule": false,
       "related": Object {
         "gzipped": "main.js.gz",
       },
+      "size": 16973,
     },
   ],
   Array [
     "main.js.gz",
-    2953,
+    4051,
     Object {
       "compressed": true,
+      "size": 4051,
     },
   ],
 ]
@@ -735,6 +832,7 @@ Array [
     78117,
     Object {
       "immutable": true,
+      "size": 78117,
       "sourceFilename": "icon.png",
     },
   ],
@@ -746,6 +844,7 @@ Array [
       "related": Object {
         "gzipped": "23fc1d3ac606d117e05a140e0de79806.svg.gz",
       },
+      "size": 672,
       "sourceFilename": "icon.svg",
     },
   ],
@@ -755,38 +854,45 @@ Array [
     Object {
       "compressed": true,
       "immutable": true,
+      "size": 393,
     },
   ],
   Array [
     "async.js",
-    249,
+    265,
     Object {
+      "javascriptModule": false,
       "related": Object {
         "gzipped": "async.js.gz",
       },
+      "size": 265,
     },
   ],
   Array [
     "async.js.gz",
-    171,
+    179,
     Object {
       "compressed": true,
+      "size": 179,
     },
   ],
   Array [
     "main.js",
-    11549,
+    16973,
     Object {
+      "javascriptModule": false,
       "related": Object {
         "gzipped": "main.js.gz",
       },
+      "size": 16973,
     },
   ],
   Array [
     "main.js.gz",
-    2953,
+    4051,
     Object {
       "compressed": true,
+      "size": 4051,
     },
   ],
 ]
@@ -807,6 +913,7 @@ Array [
     78117,
     Object {
       "immutable": true,
+      "size": 78117,
       "sourceFilename": "icon.png",
     },
   ],
@@ -818,6 +925,7 @@ Array [
       "related": Object {
         "gzipped": "23fc1d3ac606d117e05a140e0de79806.svg.gz",
       },
+      "size": 672,
       "sourceFilename": "icon.svg",
     },
   ],
@@ -827,42 +935,51 @@ Array [
     Object {
       "compressed": true,
       "immutable": true,
+      "size": 393,
     },
   ],
   Array [
-    "async.async.dcbdb1dd40763448b635.js",
-    249,
+    "async.async.9325220d444b0d653c03.js",
+    265,
     Object {
+      "chunkhash": "9325220d444b0d653c03",
       "immutable": true,
+      "javascriptModule": false,
       "related": Object {
-        "gzipped": "async.async.dcbdb1dd40763448b635.js.gz",
+        "gzipped": "async.async.9325220d444b0d653c03.js.gz",
       },
+      "size": 265,
     },
   ],
   Array [
-    "async.async.dcbdb1dd40763448b635.js.gz",
-    171,
+    "async.async.9325220d444b0d653c03.js.gz",
+    179,
     Object {
       "compressed": true,
       "immutable": true,
+      "size": 179,
     },
   ],
   Array [
-    "main.82c6786e32f9c77b44ef.js",
-    11645,
+    "main.a6299e4b54bcb458b330.js",
+    17020,
     Object {
+      "chunkhash": "a6299e4b54bcb458b330",
       "immutable": true,
+      "javascriptModule": false,
       "related": Object {
-        "gzipped": "main.82c6786e32f9c77b44ef.js.gz",
+        "gzipped": "main.a6299e4b54bcb458b330.js.gz",
       },
+      "size": 17020,
     },
   ],
   Array [
-    "main.82c6786e32f9c77b44ef.js.gz",
-    3000,
+    "main.a6299e4b54bcb458b330.js.gz",
+    4077,
     Object {
       "compressed": true,
       "immutable": true,
+      "size": 4077,
     },
   ],
 ]
@@ -875,6 +992,7 @@ Array [
     78117,
     Object {
       "immutable": true,
+      "size": 78117,
       "sourceFilename": "icon.png",
     },
   ],
@@ -886,6 +1004,7 @@ Array [
       "related": Object {
         "gzipped": "23fc1d3ac606d117e05a140e0de79806.svg.gz",
       },
+      "size": 672,
       "sourceFilename": "icon.svg",
     },
   ],
@@ -895,42 +1014,51 @@ Array [
     Object {
       "compressed": true,
       "immutable": true,
+      "size": 393,
     },
   ],
   Array [
-    "async.async.dcbdb1dd40763448b635.js",
-    249,
+    "async.async.9325220d444b0d653c03.js",
+    265,
     Object {
+      "chunkhash": "9325220d444b0d653c03",
       "immutable": true,
+      "javascriptModule": false,
       "related": Object {
-        "gzipped": "async.async.dcbdb1dd40763448b635.js.gz",
+        "gzipped": "async.async.9325220d444b0d653c03.js.gz",
       },
+      "size": 265,
     },
   ],
   Array [
-    "async.async.dcbdb1dd40763448b635.js.gz",
-    171,
+    "async.async.9325220d444b0d653c03.js.gz",
+    179,
     Object {
       "compressed": true,
       "immutable": true,
+      "size": 179,
     },
   ],
   Array [
-    "main.82c6786e32f9c77b44ef.js",
-    11645,
+    "main.a6299e4b54bcb458b330.js",
+    17020,
     Object {
+      "chunkhash": "a6299e4b54bcb458b330",
       "immutable": true,
+      "javascriptModule": false,
       "related": Object {
-        "gzipped": "main.82c6786e32f9c77b44ef.js.gz",
+        "gzipped": "main.a6299e4b54bcb458b330.js.gz",
       },
+      "size": 17020,
     },
   ],
   Array [
-    "main.82c6786e32f9c77b44ef.js.gz",
-    3000,
+    "main.a6299e4b54bcb458b330.js.gz",
+    4077,
     Object {
       "compressed": true,
       "immutable": true,
+      "size": 4077,
     },
   ],
 ]
@@ -951,6 +1079,7 @@ Array [
     78117,
     Object {
       "immutable": true,
+      "size": 78117,
       "sourceFilename": "icon.png",
     },
   ],
@@ -962,6 +1091,7 @@ Array [
       "related": Object {
         "gzipped": "23fc1d3ac606d117e05a140e0de79806.svg.gz",
       },
+      "size": 672,
       "sourceFilename": "icon.svg",
     },
   ],
@@ -971,24 +1101,29 @@ Array [
     Object {
       "compressed": true,
       "immutable": true,
+      "size": 393,
     },
   ],
   Array [
     "async.async.js.gz",
-    171,
+    179,
     Object {
       "compressed": true,
       "immutable": true,
+      "size": 179,
     },
   ],
   Array [
-    "async.async.js?ver=810493800e70254b803c",
-    249,
+    "async.async.js?ver=868541dbc182fcaf842e",
+    265,
     Object {
+      "fullhash": "868541dbc182fcaf842e",
       "immutable": true,
+      "javascriptModule": false,
       "related": Object {
         "gzipped": "async.async.js.gz",
       },
+      "size": 265,
     },
   ],
   Array [
@@ -999,6 +1134,7 @@ Array [
       "related": Object {
         "gzipped": "copied.js.gz",
       },
+      "size": 400,
     },
   ],
   Array [
@@ -1006,24 +1142,29 @@ Array [
     29,
     Object {
       "compressed": true,
+      "size": 29,
     },
   ],
   Array [
     "main.js.gz",
-    3001,
+    4098,
     Object {
       "compressed": true,
       "immutable": true,
+      "size": 4098,
     },
   ],
   Array [
-    "main.js?var=810493800e70254b803c",
-    11627,
+    "main.js?var=868541dbc182fcaf842e",
+    17176,
     Object {
+      "fullhash": "868541dbc182fcaf842e",
       "immutable": true,
+      "javascriptModule": false,
       "related": Object {
         "gzipped": "main.js.gz",
       },
+      "size": 17176,
     },
   ],
 ]
@@ -1040,6 +1181,7 @@ Array [
     78117,
     Object {
       "immutable": true,
+      "size": 78117,
       "sourceFilename": "icon.png",
     },
   ],
@@ -1051,6 +1193,7 @@ Array [
       "related": Object {
         "gzipped": "23fc1d3ac606d117e05a140e0de79806.svg.gz",
       },
+      "size": 672,
       "sourceFilename": "icon.svg",
     },
   ],
@@ -1060,31 +1203,29 @@ Array [
     Object {
       "compressed": true,
       "immutable": true,
+      "size": 393,
     },
   ],
   Array [
     "async.async.js.gz",
-    220,
+    179,
     Object {
       "compressed": true,
       "immutable": true,
+      "size": 179,
     },
   ],
   Array [
-    "async.async.js.map?ver=dc74724f7b13a2de5a20",
-    136,
+    "async.async.js?ver=f964739ef2971762249c",
+    265,
     Object {
-      "development": true,
-    },
-  ],
-  Array [
-    "async.async.js?ver=dc74724f7b13a2de5a20",
-    314,
-    Object {
+      "fullhash": "f964739ef2971762249c",
       "immutable": true,
+      "javascriptModule": false,
       "related": Object {
         "gzipped": "async.async.js.gz",
       },
+      "size": 265,
     },
   ],
   Array [
@@ -1095,6 +1236,7 @@ Array [
       "related": Object {
         "gzipped": "copied.js.gz",
       },
+      "size": 400,
     },
   ],
   Array [
@@ -1102,41 +1244,49 @@ Array [
     29,
     Object {
       "compressed": true,
+      "size": 29,
     },
   ],
   Array [
     "main.js.gz",
-    3035,
+    4135,
     Object {
       "compressed": true,
       "immutable": true,
+      "size": 4135,
     },
   ],
   Array [
     "main.js.map.gz",
-    3134,
+    4115,
     Object {
       "compressed": true,
+      "size": 4115,
     },
   ],
   Array [
-    "main.js.map?var=dc74724f7b13a2de5a20",
-    10264,
+    "main.js.map?var=f964739ef2971762249c",
+    12966,
     Object {
       "development": true,
       "related": Object {
         "gzipped": "main.js.map.gz",
       },
+      "size": 12966,
     },
   ],
   Array [
-    "main.js?var=dc74724f7b13a2de5a20",
-    11688,
+    "main.js?var=f964739ef2971762249c",
+    17237,
     Object {
+      "fullhash": "f964739ef2971762249c",
       "immutable": true,
+      "javascriptModule": false,
       "related": Object {
         "gzipped": "main.js.gz",
+        "sourceMap": "main.js.map?var=f964739ef2971762249c",
       },
+      "size": 17237,
     },
   ],
 ]
@@ -1157,6 +1307,7 @@ Array [
         "compressed": "09a1a1112c577c2794359715edfcb5ac.png.compress",
         "customed": "09a1a1112c577c2794359715edfcb5ac.png.custom?foo=bar#hash",
       },
+      "size": 78117,
       "sourceFilename": "icon.png",
     },
   ],
@@ -1166,6 +1317,7 @@ Array [
     Object {
       "compressed": true,
       "immutable": true,
+      "size": 78117,
     },
   ],
   Array [
@@ -1174,6 +1326,7 @@ Array [
     Object {
       "compressed": true,
       "immutable": true,
+      "size": 78117,
     },
   ],
   Array [
@@ -1187,6 +1340,7 @@ Array [
         "customed": "23fc1d3ac606d117e05a140e0de79806.svg.custom?foo=bar#hash",
         "gzipped": "23fc1d3ac606d117e05a140e0de79806.svg.gz",
       },
+      "size": 672,
       "sourceFilename": "icon.svg",
     },
   ],
@@ -1196,6 +1350,7 @@ Array [
     Object {
       "compressed": true,
       "immutable": true,
+      "size": 363,
     },
   ],
   Array [
@@ -1204,6 +1359,7 @@ Array [
     Object {
       "compressed": true,
       "immutable": true,
+      "size": 672,
     },
   ],
   Array [
@@ -1212,6 +1368,7 @@ Array [
     Object {
       "compressed": true,
       "immutable": true,
+      "size": 672,
     },
   ],
   Array [
@@ -1220,96 +1377,111 @@ Array [
     Object {
       "compressed": true,
       "immutable": true,
+      "size": 393,
     },
   ],
   Array [
     "async.async.js.br",
-    141,
+    146,
     Object {
       "compressed": true,
       "immutable": true,
+      "size": 146,
     },
   ],
   Array [
     "async.async.js.compress",
-    249,
+    265,
     Object {
       "compressed": true,
       "immutable": true,
+      "size": 265,
     },
   ],
   Array [
     "async.async.js.custom?foo=bar#hash",
-    249,
+    265,
     Object {
       "compressed": true,
       "immutable": true,
+      "size": 265,
     },
   ],
   Array [
     "async.async.js.gz",
-    171,
+    179,
     Object {
       "compressed": true,
       "immutable": true,
+      "size": 179,
     },
   ],
   Array [
-    "async.async.js?ver=dc74724f7b13a2de5a20",
-    249,
+    "async.async.js?ver=8b644dc8a959875e39cf",
+    265,
     Object {
+      "fullhash": "8b644dc8a959875e39cf",
       "immutable": true,
+      "javascriptModule": false,
       "related": Object {
         "brotliCompressed": "async.async.js.br",
         "compressed": "async.async.js.compress",
         "customed": "async.async.js.custom?foo=bar#hash",
         "gzipped": "async.async.js.gz",
       },
+      "size": 265,
     },
   ],
   Array [
     "main.js.br",
-    2588,
+    3584,
     Object {
       "compressed": true,
       "immutable": true,
+      "size": 3584,
     },
   ],
   Array [
     "main.js.compress",
-    11630,
+    17179,
     Object {
       "compressed": true,
       "immutable": true,
+      "size": 17179,
     },
   ],
   Array [
     "main.js.custom?foo=bar#hash",
-    11630,
+    17179,
     Object {
       "compressed": true,
       "immutable": true,
+      "size": 17179,
     },
   ],
   Array [
     "main.js.gz",
-    3002,
+    4102,
     Object {
       "compressed": true,
       "immutable": true,
+      "size": 4102,
     },
   ],
   Array [
-    "main.js?var=dc74724f7b13a2de5a20",
-    11630,
+    "main.js?var=8b644dc8a959875e39cf",
+    17179,
     Object {
+      "fullhash": "8b644dc8a959875e39cf",
       "immutable": true,
+      "javascriptModule": false,
       "related": Object {
         "brotliCompressed": "main.js.br",
         "compressed": "main.js.compress",
         "customed": "main.js.custom?foo=bar#hash",
         "gzipped": "main.js.gz",
       },
+      "size": 17179,
     },
   ],
 ]
@@ -1326,6 +1498,7 @@ Array [
     78117,
     Object {
       "immutable": true,
+      "size": 78117,
       "sourceFilename": "icon.png",
     },
   ],
@@ -1337,6 +1510,7 @@ Array [
       "related": Object {
         "gzipped": "23fc1d3ac606d117e05a140e0de79806.svg.gz",
       },
+      "size": 672,
       "sourceFilename": "icon.svg",
     },
   ],
@@ -1346,42 +1520,51 @@ Array [
     Object {
       "compressed": true,
       "immutable": true,
+      "size": 393,
     },
   ],
   Array [
     "async.async.js.gz",
-    171,
+    179,
     Object {
       "compressed": true,
       "immutable": true,
+      "size": 179,
     },
   ],
   Array [
-    "async.async.js?ver=dc74724f7b13a2de5a20",
-    249,
+    "async.async.js?ver=8b644dc8a959875e39cf",
+    265,
     Object {
+      "fullhash": "8b644dc8a959875e39cf",
       "immutable": true,
+      "javascriptModule": false,
       "related": Object {
         "gzipped": "async.async.js.gz",
       },
+      "size": 265,
     },
   ],
   Array [
     "main.js.gz",
-    3002,
+    4102,
     Object {
       "compressed": true,
       "immutable": true,
+      "size": 4102,
     },
   ],
   Array [
-    "main.js?var=dc74724f7b13a2de5a20",
-    11630,
+    "main.js?var=8b644dc8a959875e39cf",
+    17179,
     Object {
+      "fullhash": "8b644dc8a959875e39cf",
       "immutable": true,
+      "javascriptModule": false,
       "related": Object {
         "gzipped": "main.js.gz",
       },
+      "size": 17179,
     },
   ],
 ]
