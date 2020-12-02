@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [7.0.0](https://github.com/webpack-contrib/compression-webpack-plugin/compare/v6.1.1...v7.0.0) (2020-12-02)
+
+
+### ⚠ BREAKING CHANGES
+
+* minimum supported webpack version is `^5.1.0`
+* the `cache` option was removed, the plugin respects caching from configurations, please [read](https://webpack.js.org/configuration/other-options/#cache)
+
 ### [6.1.1](https://github.com/webpack-contrib/compression-webpack-plugin/compare/v6.1.0...v6.1.1) (2020-11-12)
 
 
