@@ -21,7 +21,6 @@ class CompressionPlugin {
       test,
       include,
       exclude,
-      cache = true,
       algorithm = "gzip",
       compressionOptions = {},
       filename = "[path][base].gz",
@@ -34,7 +33,6 @@ class CompressionPlugin {
       test,
       include,
       exclude,
-      cache,
       algorithm,
       compressionOptions,
       filename,
@@ -104,31 +102,64 @@ class CompressionPlugin {
     });
   }
 
-  async compress(compilation, assets, compiler) {
+  async compress(compiler, compilation, assets) {
     const cache = compilation.getCache("CompressionWebpackPlugin");
-    const assetNames = Object.keys(
-      typeof assets === "undefined" ? compilation.assets : assets
-    ).filter((assetName) =>
-      compiler.webpack.ModuleFilenameHelpers.matchObject.bind(
-        // eslint-disable-next-line no-undefined
-        undefined,
-        this.options
-      )(assetName)
-    );
+    const assetsForMinify = await Promise.all(
+      Object.keys(assets)
+        .filter((name) => {
+          const { info } = compilation.getAsset(name);
 
-    if (assetNames.length === 0) {
-      return Promise.resolve();
-    }
+          // Skip double minimize assets from child compilation
+          if (info.compressed) {
+            return false;
+          }
+
+          if (
+            !compiler.webpack.ModuleFilenameHelpers.matchObject.bind(
+              // eslint-disable-next-line no-undefined
+              undefined,
+              this.options
+            )(name)
+          ) {
+            return false;
+          }
+
+          return true;
+        })
+        .map(async (name) => {
+          const { info, source } = compilation.getAsset(name);
+
+          const eTag = cache.getLazyHashedEtag(source);
+          const cacheItem = cache.getItemCache(
+            serialize({
+              name,
+              algorithm: this.options.algorithm,
+              compressionOptions: this.options.compressionOptions,
+            }),
+            eTag
+          );
+          const output = await cacheItem.getPromise();
+
+          return { name, info, inputSource: source, output, cacheItem };
+        })
+    );
 
     const { RawSource } = compiler.webpack.sources;
     const scheduledTasks = [];
 
-    for (const name of assetNames) {
+    for (const asset of assetsForMinify) {
       scheduledTasks.push(
         (async () => {
-          const { source: inputSource, info } = compilation.getAsset(name);
+          const { name, inputSource, cacheItem, info } = asset;
+          let { output } = asset;
 
-          if (info.compressed) {
+          let input = inputSource.source();
+
+          if (!Buffer.isBuffer(input)) {
+            input = Buffer.from(input);
+          }
+
+          if (input.length < this.options.threshold) {
             return;
           }
 
@@ -153,27 +184,6 @@ class CompressionPlugin {
           if (info.related && info.related[relatedName]) {
             return;
           }
-
-          let input = inputSource.source();
-
-          if (!Buffer.isBuffer(input)) {
-            input = Buffer.from(input);
-          }
-
-          if (input.length < this.options.threshold) {
-            return;
-          }
-
-          const eTag = cache.getLazyHashedEtag(inputSource);
-          const cacheItem = cache.getItemCache(
-            serialize({
-              name,
-              algorithm: this.options.algorithm,
-            }),
-            eTag
-          );
-
-          let output = await cacheItem.getPromise();
 
           if (!output) {
             try {
@@ -234,9 +244,7 @@ class CompressionPlugin {
 
           if (this.options.deleteOriginalAssets) {
             if (this.options.deleteOriginalAssets === "keep-source-map") {
-              // TODO `...` required only for webpack@4
               const updatedAssetInfo = {
-                ...info,
                 related: { ...info.related, sourceMap: null },
               };
 
@@ -245,9 +253,7 @@ class CompressionPlugin {
 
             compilation.deleteAsset(name);
           } else {
-            // TODO `...` required only for webpack@4
             const newOriginalInfo = {
-              ...info,
               related: { [relatedName]: newName, ...info.related },
             };
 
@@ -265,16 +271,14 @@ class CompressionPlugin {
   apply(compiler) {
     const pluginName = this.constructor.name;
 
-    compiler.hooks.thisCompilation.tap(pluginName, (compilation) => {
-      // eslint-disable-next-line global-require
-      const Compilation = require("webpack/lib/Compilation");
-
+    compiler.hooks.compilation.tap(pluginName, (compilation) => {
       compilation.hooks.processAssets.tapPromise(
         {
           name: pluginName,
-          stage: Compilation.PROCESS_ASSETS_STAGE_OPTIMIZE_TRANSFER,
+          stage:
+            compiler.webpack.Compilation.PROCESS_ASSETS_STAGE_OPTIMIZE_TRANSFER,
         },
-        (assets) => this.compress(compilation, assets, compiler)
+        (assets) => this.compress(compiler, compilation, assets)
       );
 
       compilation.hooks.statsPrinter.tap(pluginName, (stats) => {
