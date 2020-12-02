@@ -105,43 +105,84 @@ class CompressionPlugin {
   async compress(compiler, compilation, assets) {
     const cache = compilation.getCache("CompressionWebpackPlugin");
     const assetsForMinify = await Promise.all(
-      Object.keys(assets)
-        .filter((name) => {
-          const { info } = compilation.getAsset(name);
+      Object.keys(assets).reduce((accumulator, name) => {
+        const { info, source } = compilation.getAsset(name);
 
-          // Skip double minimize assets from child compilation
-          if (info.compressed) {
-            return false;
+        // Skip double minimize assets from child compilation
+        if (info.compressed) {
+          return accumulator;
+        }
+
+        if (
+          !compiler.webpack.ModuleFilenameHelpers.matchObject.bind(
+            // eslint-disable-next-line no-undefined
+            undefined,
+            this.options
+          )(name)
+        ) {
+          return accumulator;
+        }
+
+        let input = source.source();
+
+        if (!Buffer.isBuffer(input)) {
+          input = Buffer.from(input);
+        }
+
+        if (input.length < this.options.threshold) {
+          return accumulator;
+        }
+
+        let relatedName;
+
+        if (typeof this.options.algorithm === "function") {
+          let filenameForRelatedName = this.options.filename;
+
+          const index = filenameForRelatedName.lastIndexOf("?");
+
+          if (index >= 0) {
+            filenameForRelatedName = filenameForRelatedName.substr(0, index);
           }
 
-          if (
-            !compiler.webpack.ModuleFilenameHelpers.matchObject.bind(
-              // eslint-disable-next-line no-undefined
-              undefined,
-              this.options
-            )(name)
-          ) {
-            return false;
-          }
+          relatedName = `${path.extname(filenameForRelatedName).slice(1)}ed`;
+        } else if (this.options.algorithm === "gzip") {
+          relatedName = "gzipped";
+        } else {
+          relatedName = `${this.options.algorithm}ed`;
+        }
 
-          return true;
-        })
-        .map(async (name) => {
-          const { info, source } = compilation.getAsset(name);
+        if (info.related && info.related[relatedName]) {
+          return accumulator;
+        }
 
-          const eTag = cache.getLazyHashedEtag(source);
-          const cacheItem = cache.getItemCache(
-            serialize({
+        const eTag = cache.getLazyHashedEtag(source);
+        const cacheItem = cache.getItemCache(
+          serialize({
+            name,
+            algorithm: this.options.algorithm,
+            compressionOptions: this.options.compressionOptions,
+          }),
+          eTag
+        );
+
+        accumulator.push(
+          (async () => {
+            const output = await cacheItem.getPromise();
+
+            return {
               name,
-              algorithm: this.options.algorithm,
-              compressionOptions: this.options.compressionOptions,
-            }),
-            eTag
-          );
-          const output = await cacheItem.getPromise();
+              inputSource: source,
+              info,
+              input,
+              output,
+              cacheItem,
+              relatedName,
+            };
+          })()
+        );
 
-          return { name, info, inputSource: source, output, cacheItem };
-        })
+        return accumulator;
+      }, [])
     );
 
     const { RawSource } = compiler.webpack.sources;
@@ -150,40 +191,15 @@ class CompressionPlugin {
     for (const asset of assetsForMinify) {
       scheduledTasks.push(
         (async () => {
-          const { name, inputSource, cacheItem, info } = asset;
+          const {
+            name,
+            inputSource,
+            input,
+            cacheItem,
+            info,
+            relatedName,
+          } = asset;
           let { output } = asset;
-
-          let input = inputSource.source();
-
-          if (!Buffer.isBuffer(input)) {
-            input = Buffer.from(input);
-          }
-
-          if (input.length < this.options.threshold) {
-            return;
-          }
-
-          let relatedName;
-
-          if (typeof this.options.algorithm === "function") {
-            let filenameForRelatedName = this.options.filename;
-
-            const index = filenameForRelatedName.lastIndexOf("?");
-
-            if (index >= 0) {
-              filenameForRelatedName = filenameForRelatedName.substr(0, index);
-            }
-
-            relatedName = `${path.extname(filenameForRelatedName).slice(1)}ed`;
-          } else if (this.options.algorithm === "gzip") {
-            relatedName = "gzipped";
-          } else {
-            relatedName = `${this.options.algorithm}ed`;
-          }
-
-          if (info.related && info.related[relatedName]) {
-            return;
-          }
 
           if (!output) {
             try {
