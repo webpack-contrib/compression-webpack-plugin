@@ -3,21 +3,12 @@
   Author Tobias Koppers @sokra
 */
 
-import crypto from "crypto";
 import path from "path";
 
-import webpack, {
-  ModuleFilenameHelpers,
-  version as webpackVersion,
-} from "webpack";
 import { validate } from "schema-utils";
 import serialize from "serialize-javascript";
 
 import schema from "./options.json";
-
-const { RawSource } =
-  // eslint-disable-next-line global-require
-  webpack.sources || require("webpack-sources");
 
 class CompressionPlugin {
   constructor(options = {}) {
@@ -92,48 +83,6 @@ class CompressionPlugin {
     }
   }
 
-  // eslint-disable-next-line consistent-return
-  static getAsset(compilation, name) {
-    // New API
-    if (compilation.getAsset) {
-      return compilation.getAsset(name);
-    }
-
-    if (compilation.assets[name]) {
-      return { name, source: compilation.assets[name], info: {} };
-    }
-  }
-
-  static emitAsset(compilation, name, source, assetInfo) {
-    // New API
-    if (compilation.emitAsset) {
-      compilation.emitAsset(name, source, assetInfo);
-    }
-
-    // eslint-disable-next-line no-param-reassign
-    compilation.assets[name] = source;
-  }
-
-  static updateAsset(compilation, name, newSource, assetInfo) {
-    // New API
-    if (compilation.updateAsset) {
-      compilation.updateAsset(name, newSource, assetInfo);
-    }
-
-    // eslint-disable-next-line no-param-reassign
-    compilation.assets[name] = newSource;
-  }
-
-  static deleteAsset(compilation, name) {
-    // New API
-    if (compilation.deleteAsset) {
-      compilation.deleteAsset(name);
-    }
-
-    // eslint-disable-next-line no-param-reassign
-    delete compilation.assets[name];
-  }
-
   runCompressionAlgorithm(input) {
     return new Promise((resolve, reject) => {
       this.algorithm(
@@ -155,32 +104,29 @@ class CompressionPlugin {
     });
   }
 
-  async compress(compilation, assets, CacheEngine, weakCache) {
+  async compress(compilation, assets, compiler) {
+    const cache = compilation.getCache("CompressionWebpackPlugin");
     const assetNames = Object.keys(
       typeof assets === "undefined" ? compilation.assets : assets
     ).filter((assetName) =>
-      // eslint-disable-next-line no-undefined
-      ModuleFilenameHelpers.matchObject.bind(undefined, this.options)(assetName)
+      compiler.webpack.ModuleFilenameHelpers.matchObject.bind(
+        // eslint-disable-next-line no-undefined
+        undefined,
+        this.options
+      )(assetName)
     );
 
     if (assetNames.length === 0) {
       return Promise.resolve();
     }
 
+    const { RawSource } = compiler.webpack.sources;
     const scheduledTasks = [];
-    const cache = new CacheEngine(
-      compilation,
-      { cache: this.options.cache },
-      weakCache
-    );
 
     for (const name of assetNames) {
       scheduledTasks.push(
         (async () => {
-          const { source: inputSource, info } = CompressionPlugin.getAsset(
-            compilation,
-            name
-          );
+          const { source: inputSource, info } = compilation.getAsset(name);
 
           if (info.compressed) {
             return;
@@ -218,28 +164,16 @@ class CompressionPlugin {
             return;
           }
 
-          const cacheData = { inputSource };
-
-          if (CompressionPlugin.isWebpack4()) {
-            cacheData.cacheKeys = {
-              nodeVersion: process.version,
-              // eslint-disable-next-line global-require
-              "compression-webpack-plugin": require("../package.json").version,
-              algorithm: this.algorithm,
-              originalAlgorithm: this.options.algorithm,
-              compressionOptions: this.options.compressionOptions,
-              name,
-              contentHash: crypto.createHash("md4").update(input).digest("hex"),
-            };
-          } else {
-            cacheData.name = serialize({
+          const eTag = cache.getLazyHashedEtag(inputSource);
+          const cacheItem = cache.getItemCache(
+            serialize({
               name,
               algorithm: this.options.algorithm,
-              compressionOptions: this.options.compressionOptions,
-            });
-          }
+            }),
+            eTag
+          );
 
-          let output = await cache.get(cacheData, { RawSource });
+          let output = await cacheItem.getPromise();
 
           if (!output) {
             try {
@@ -250,9 +184,7 @@ class CompressionPlugin {
               return;
             }
 
-            cacheData.output = output;
-
-            await cache.store(cacheData);
+            await cacheItem.storePromise(output);
           }
 
           if (output.source().length / input.length > this.options.minRatio) {
@@ -308,15 +240,10 @@ class CompressionPlugin {
                 related: { ...info.related, sourceMap: null },
               };
 
-              CompressionPlugin.updateAsset(
-                compilation,
-                name,
-                inputSource,
-                updatedAssetInfo
-              );
+              compilation.updateAsset(name, inputSource, updatedAssetInfo);
             }
 
-            CompressionPlugin.deleteAsset(compilation, name);
+            compilation.deleteAsset(name);
           } else {
             // TODO `...` required only for webpack@4
             const newOriginalInfo = {
@@ -324,15 +251,10 @@ class CompressionPlugin {
               related: { [relatedName]: newName, ...info.related },
             };
 
-            CompressionPlugin.updateAsset(
-              compilation,
-              name,
-              inputSource,
-              newOriginalInfo
-            );
+            compilation.updateAsset(name, inputSource, newOriginalInfo);
           }
 
-          CompressionPlugin.emitAsset(compilation, newName, output, newInfo);
+          compilation.emitAsset(newName, output, newInfo);
         })()
       );
     }
@@ -340,50 +262,32 @@ class CompressionPlugin {
     return Promise.all(scheduledTasks);
   }
 
-  static isWebpack4() {
-    return webpackVersion[0] === "4";
-  }
-
   apply(compiler) {
     const pluginName = this.constructor.name;
 
-    if (CompressionPlugin.isWebpack4()) {
+    compiler.hooks.thisCompilation.tap(pluginName, (compilation) => {
       // eslint-disable-next-line global-require
-      const CacheEngine = require("./Webpack4Cache").default;
-      const weakCache = new WeakMap();
+      const Compilation = require("webpack/lib/Compilation");
 
-      compiler.hooks.emit.tapPromise({ name: pluginName }, (compilation) =>
-        // eslint-disable-next-line no-undefined
-        this.compress(compilation, undefined, CacheEngine, weakCache)
+      compilation.hooks.processAssets.tapPromise(
+        {
+          name: pluginName,
+          stage: Compilation.PROCESS_ASSETS_STAGE_OPTIMIZE_TRANSFER,
+        },
+        (assets) => this.compress(compilation, assets, compiler)
       );
-    } else {
-      // eslint-disable-next-line global-require
-      const CacheEngine = require("./Webpack5Cache").default;
 
-      compiler.hooks.thisCompilation.tap(pluginName, (compilation) => {
-        // eslint-disable-next-line global-require
-        const Compilation = require("webpack/lib/Compilation");
-
-        compilation.hooks.processAssets.tapPromise(
-          {
-            name: pluginName,
-            stage: Compilation.PROCESS_ASSETS_STAGE_OPTIMIZE_TRANSFER,
-          },
-          (assets) => this.compress(compilation, assets, CacheEngine)
-        );
-
-        compilation.hooks.statsPrinter.tap(pluginName, (stats) => {
-          stats.hooks.print
-            .for("asset.info.compressed")
-            .tap(
-              "compression-webpack-plugin",
-              (compressed, { green, formatFlag }) =>
-                // eslint-disable-next-line no-undefined
-                compressed ? green(formatFlag("compressed")) : undefined
-            );
-        });
+      compilation.hooks.statsPrinter.tap(pluginName, (stats) => {
+        stats.hooks.print
+          .for("asset.info.compressed")
+          .tap(
+            "compression-webpack-plugin",
+            (compressed, { green, formatFlag }) =>
+              // eslint-disable-next-line no-undefined
+              compressed ? green(formatFlag("compressed")) : undefined
+          );
       });
-    }
+    });
   }
 }
 
