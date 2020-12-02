@@ -6,7 +6,6 @@ import {
   getCompiler,
   getErrors,
   getWarnings,
-  removeCache,
 } from "./helpers/index";
 
 describe('"include" option', () => {
@@ -24,8 +23,6 @@ describe('"include" option', () => {
         },
       }
     );
-
-    return removeCache();
   });
 
   it("matches snapshot for a single `include` value ({RegExp})", async () => {

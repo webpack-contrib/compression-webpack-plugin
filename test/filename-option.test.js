@@ -8,15 +8,10 @@ import {
   getCompiler,
   getErrors,
   getWarnings,
-  removeCache,
 } from "./helpers/index";
 
 describe('"filename" option', () => {
   let compiler;
-
-  beforeEach(() => {
-    return removeCache();
-  });
 
   it("show work", async () => {
     compiler = getCompiler(

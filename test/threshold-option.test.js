@@ -6,7 +6,6 @@ import {
   getCompiler,
   getErrors,
   getWarnings,
-  removeCache,
 } from "./helpers/index";
 
 describe('"threshold" option', () => {
@@ -14,8 +13,6 @@ describe('"threshold" option', () => {
 
   beforeEach(() => {
     compiler = getCompiler("./entry.js");
-
-    return removeCache();
   });
 
   it("matches snapshot for `0` value ({Number})", async () => {
