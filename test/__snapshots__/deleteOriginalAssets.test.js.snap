@@ -22,28 +22,28 @@ Array [
   ],
   Array [
     "async.async.1c2911c7c819fc826fb7.js",
-    179,
+    133,
     Object {
       "compressed": true,
       "immutable": true,
-      "size": 179,
+      "size": 133,
     },
   ],
   Array [
     "main.91a583805a3f414213e7.js",
-    4121,
+    3999,
     Object {
       "compressed": true,
       "immutable": true,
-      "size": 4121,
+      "size": 3999,
     },
   ],
   Array [
     "main.91a583805a3f414213e7.js.map",
-    12849,
+    12834,
     Object {
       "development": true,
-      "size": 12849,
+      "size": 12834,
     },
   ],
 ]
@@ -75,20 +75,20 @@ Array [
   ],
   Array [
     "async.async.9325220d444b0d653c03.js.gz",
-    179,
+    133,
     Object {
       "compressed": true,
       "immutable": true,
-      "size": 179,
+      "size": 133,
     },
   ],
   Array [
     "main.a6299e4b54bcb458b330.js.gz",
-    4077,
+    3957,
     Object {
       "compressed": true,
       "immutable": true,
-      "size": 4077,
+      "size": 3957,
     },
   ],
 ]
@@ -120,20 +120,20 @@ Array [
   ],
   Array [
     "async.async.9325220d444b0d653c03.js",
-    179,
+    133,
     Object {
       "compressed": true,
       "immutable": true,
-      "size": 179,
+      "size": 133,
     },
   ],
   Array [
     "main.a6299e4b54bcb458b330.js",
-    4077,
+    3957,
     Object {
       "compressed": true,
       "immutable": true,
-      "size": 4077,
+      "size": 3957,
     },
   ],
 ]
@@ -177,7 +177,7 @@ Array [
   ],
   Array [
     "async.async.9325220d444b0d653c03.js",
-    265,
+    193,
     Object {
       "chunkhash": "9325220d444b0d653c03",
       "immutable": true,
@@ -185,21 +185,21 @@ Array [
       "related": Object {
         "gzipped": "async.async.9325220d444b0d653c03.js.gz",
       },
-      "size": 265,
+      "size": 193,
     },
   ],
   Array [
     "async.async.9325220d444b0d653c03.js.gz",
-    179,
+    133,
     Object {
       "compressed": true,
       "immutable": true,
-      "size": 179,
+      "size": 133,
     },
   ],
   Array [
     "main.a6299e4b54bcb458b330.js",
-    17020,
+    15829,
     Object {
       "chunkhash": "a6299e4b54bcb458b330",
       "immutable": true,
@@ -207,16 +207,16 @@ Array [
       "related": Object {
         "gzipped": "main.a6299e4b54bcb458b330.js.gz",
       },
-      "size": 17020,
+      "size": 15829,
     },
   ],
   Array [
     "main.a6299e4b54bcb458b330.js.gz",
-    4077,
+    3957,
     Object {
       "compressed": true,
       "immutable": true,
-      "size": 4077,
+      "size": 3957,
     },
   ],
 ]
@@ -272,7 +272,7 @@ Array [
   ],
   Array [
     "async.async.9325220d444b0d653c03.js",
-    265,
+    193,
     Object {
       "chunkhash": "9325220d444b0d653c03",
       "immutable": true,
@@ -280,21 +280,21 @@ Array [
       "related": Object {
         "gzipped": "async.async.9325220d444b0d653c03.js.gz",
       },
-      "size": 265,
+      "size": 193,
     },
   ],
   Array [
     "async.async.9325220d444b0d653c03.js.gz",
-    179,
+    133,
     Object {
       "compressed": true,
       "immutable": true,
-      "size": 179,
+      "size": 133,
     },
   ],
   Array [
     "main.a6299e4b54bcb458b330.js",
-    17020,
+    15829,
     Object {
       "chunkhash": "a6299e4b54bcb458b330",
       "immutable": true,
@@ -302,16 +302,16 @@ Array [
       "related": Object {
         "gzipped": "main.a6299e4b54bcb458b330.js.gz",
       },
-      "size": 17020,
+      "size": 15829,
     },
   ],
   Array [
     "main.a6299e4b54bcb458b330.js.gz",
-    4077,
+    3957,
     Object {
       "compressed": true,
       "immutable": true,
-      "size": 4077,
+      "size": 3957,
     },
   ],
 ]
@@ -343,20 +343,20 @@ Array [
   ],
   Array [
     "async.async.9325220d444b0d653c03.js",
-    179,
+    133,
     Object {
       "compressed": true,
       "immutable": true,
-      "size": 179,
+      "size": 133,
     },
   ],
   Array [
     "main.a6299e4b54bcb458b330.js",
-    4077,
+    3957,
     Object {
       "compressed": true,
       "immutable": true,
-      "size": 4077,
+      "size": 3957,
     },
   ],
 ]
