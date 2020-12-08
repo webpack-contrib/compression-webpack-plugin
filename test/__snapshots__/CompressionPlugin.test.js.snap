@@ -1,5 +1,51 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`CompressionPlugin should run plugin against assets added later by plugins: assets 1`] = `
+Array [
+  Array [
+    "main.js",
+    3252,
+    Object {
+      "javascriptModule": false,
+      "related": Object {
+        "gzipped": "main.js.gz",
+      },
+      "size": 3252,
+    },
+  ],
+  Array [
+    "main.js.gz",
+    955,
+    Object {
+      "compressed": true,
+      "size": 955,
+    },
+  ],
+  Array [
+    "newFile.js",
+    23,
+    Object {
+      "related": Object {
+        "gzipped": "newFile.js.gz",
+      },
+      "size": 23,
+    },
+  ],
+  Array [
+    "newFile.js.gz",
+    43,
+    Object {
+      "compressed": true,
+      "size": 43,
+    },
+  ],
+]
+`;
+
+exports[`CompressionPlugin should run plugin against assets added later by plugins: errors 1`] = `Array []`;
+
+exports[`CompressionPlugin should run plugin against assets added later by plugins: warnings 1`] = `Array []`;
+
 exports[`CompressionPlugin should work and do not use memory cache when the "cache" option is "false": assets 1`] = `
 Array [
   Array [

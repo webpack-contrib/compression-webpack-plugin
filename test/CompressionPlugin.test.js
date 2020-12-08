@@ -7,6 +7,7 @@ import {
   compile,
   CopyPluginWithAssetInfo,
   ModifyExistingAsset,
+  EmitNewAsset,
   getAssetsNameAndSize,
   getCompiler,
   getErrors,
@@ -171,9 +172,7 @@ describe("CompressionPlugin", () => {
     const stringStats = stats.toString({ relatedAssets: true });
     const printedCompressed = stringStats.match(/\[compressed]/g);
 
-    expect(printedCompressed ? printedCompressed.length : 0).toBe(
-      getCompiler.isWebpack4() ? 0 : 3
-    );
+    expect(printedCompressed ? printedCompressed.length : 0).toBe(3);
     expect(getAssetsNameAndSize(stats, compiler)).toMatchSnapshot("assets");
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -406,5 +405,28 @@ describe("CompressionPlugin", () => {
 
       resolve();
     });
+  });
+
+  it("should run plugin against assets added later by plugins", async () => {
+    const compiler = getCompiler(
+      "./number.js",
+      {},
+      {
+        output: {
+          path: path.resolve(__dirname, "./outputs"),
+          filename: "[name].js",
+          chunkFilename: "[id].js",
+        },
+      }
+    );
+
+    new CompressionPlugin({ minRatio: 10 }).apply(compiler);
+    new EmitNewAsset({ name: "newFile.js" }).apply(compiler);
+
+    const stats = await compile(compiler);
+
+    expect(getAssetsNameAndSize(stats, compiler)).toMatchSnapshot("assets");
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
   });
 });
