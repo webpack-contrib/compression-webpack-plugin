@@ -68,7 +68,7 @@
     "npm-run-all": "^4.1.5",
     "prettier": "^2.1.2",
     "standard-version": "^9.0.0",
-    "webpack": "^5.9.0",
+    "webpack": "^5.10.0",
     "workbox-webpack-plugin": "^6.0.0-alpha.3"
   },
   "keywords": [

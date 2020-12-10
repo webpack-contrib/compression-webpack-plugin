@@ -293,6 +293,7 @@ class CompressionPlugin {
           name: pluginName,
           stage:
             compiler.webpack.Compilation.PROCESS_ASSETS_STAGE_OPTIMIZE_TRANSFER,
+          additionalAssets: true,
         },
         (assets) => this.compress(compiler, compilation, assets)
       );

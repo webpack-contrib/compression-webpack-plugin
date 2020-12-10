@@ -34,22 +34,22 @@ Array [
   ],
   Array [
     "async.async.js?ver=8b644dc8a959875e39cf",
-    265,
+    193,
     Object {
       "fullhash": "8b644dc8a959875e39cf",
       "immutable": true,
       "javascriptModule": false,
-      "size": 265,
+      "size": 193,
     },
   ],
   Array [
     "main.js?var=8b644dc8a959875e39cf",
-    17179,
+    15988,
     Object {
       "fullhash": "8b644dc8a959875e39cf",
       "immutable": true,
       "javascriptModule": false,
-      "size": 17179,
+      "size": 15988,
     },
   ],
 ]
@@ -105,22 +105,22 @@ Array [
   ],
   Array [
     "async.async.js?ver=8b644dc8a959875e39cf",
-    265,
+    193,
     Object {
       "fullhash": "8b644dc8a959875e39cf",
       "immutable": true,
       "javascriptModule": false,
-      "size": 265,
+      "size": 193,
     },
   ],
   Array [
     "main.js?var=8b644dc8a959875e39cf",
-    17179,
+    15988,
     Object {
       "fullhash": "8b644dc8a959875e39cf",
       "immutable": true,
       "javascriptModule": false,
-      "size": 17179,
+      "size": 15988,
     },
   ],
 ]
@@ -176,16 +176,16 @@ Array [
   ],
   Array [
     "async.async.js.gz",
-    179,
+    133,
     Object {
       "compressed": true,
       "immutable": true,
-      "size": 179,
+      "size": 133,
     },
   ],
   Array [
     "async.async.js?ver=8b644dc8a959875e39cf",
-    265,
+    193,
     Object {
       "fullhash": "8b644dc8a959875e39cf",
       "immutable": true,
@@ -193,21 +193,21 @@ Array [
       "related": Object {
         "gzipped": "async.async.js.gz",
       },
-      "size": 265,
+      "size": 193,
     },
   ],
   Array [
     "main.js.gz",
-    4102,
+    3984,
     Object {
       "compressed": true,
       "immutable": true,
-      "size": 4102,
+      "size": 3984,
     },
   ],
   Array [
     "main.js?var=8b644dc8a959875e39cf",
-    17179,
+    15988,
     Object {
       "fullhash": "8b644dc8a959875e39cf",
       "immutable": true,
@@ -215,7 +215,7 @@ Array [
       "related": Object {
         "gzipped": "main.js.gz",
       },
-      "size": 17179,
+      "size": 15988,
     },
   ],
 ]
@@ -247,22 +247,22 @@ Array [
   ],
   Array [
     "async.async.js?ver=8b644dc8a959875e39cf",
-    265,
+    193,
     Object {
       "fullhash": "8b644dc8a959875e39cf",
       "immutable": true,
       "javascriptModule": false,
-      "size": 265,
+      "size": 193,
     },
   ],
   Array [
     "main.js?var=8b644dc8a959875e39cf",
-    17179,
+    15988,
     Object {
       "fullhash": "8b644dc8a959875e39cf",
       "immutable": true,
       "javascriptModule": false,
-      "size": 17179,
+      "size": 15988,
     },
   ],
 ]

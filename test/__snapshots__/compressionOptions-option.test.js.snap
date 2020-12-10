@@ -46,7 +46,7 @@ Array [
   ],
   Array [
     "async.async.9325220d444b0d653c03.js",
-    265,
+    193,
     Object {
       "chunkhash": "9325220d444b0d653c03",
       "immutable": true,
@@ -54,21 +54,21 @@ Array [
       "related": Object {
         "gzipped": "async.async.9325220d444b0d653c03.js.gz",
       },
-      "size": 265,
+      "size": 193,
     },
   ],
   Array [
     "async.async.9325220d444b0d653c03.js.gz",
-    179,
+    133,
     Object {
       "compressed": true,
       "immutable": true,
-      "size": 179,
+      "size": 133,
     },
   ],
   Array [
     "main.a6299e4b54bcb458b330.js",
-    17020,
+    15829,
     Object {
       "chunkhash": "a6299e4b54bcb458b330",
       "immutable": true,
@@ -76,16 +76,16 @@ Array [
       "related": Object {
         "gzipped": "main.a6299e4b54bcb458b330.js.gz",
       },
-      "size": 17020,
+      "size": 15829,
     },
   ],
   Array [
     "main.a6299e4b54bcb458b330.js.gz",
-    4077,
+    3957,
     Object {
       "compressed": true,
       "immutable": true,
-      "size": 4077,
+      "size": 3957,
     },
   ],
 ]
@@ -141,7 +141,7 @@ Array [
   ],
   Array [
     "async.async.9325220d444b0d653c03.js",
-    265,
+    193,
     Object {
       "chunkhash": "9325220d444b0d653c03",
       "immutable": true,
@@ -149,21 +149,21 @@ Array [
       "related": Object {
         "gzipped": "async.async.9325220d444b0d653c03.js.gz",
       },
-      "size": 265,
+      "size": 193,
     },
   ],
   Array [
     "async.async.9325220d444b0d653c03.js.gz",
-    179,
+    133,
     Object {
       "compressed": true,
       "immutable": true,
-      "size": 179,
+      "size": 133,
     },
   ],
   Array [
     "main.a6299e4b54bcb458b330.js",
-    17020,
+    15829,
     Object {
       "chunkhash": "a6299e4b54bcb458b330",
       "immutable": true,
@@ -171,16 +171,16 @@ Array [
       "related": Object {
         "gzipped": "main.a6299e4b54bcb458b330.js.gz",
       },
-      "size": 17020,
+      "size": 15829,
     },
   ],
   Array [
     "main.a6299e4b54bcb458b330.js.gz",
-    4077,
+    3957,
     Object {
       "compressed": true,
       "immutable": true,
-      "size": 4077,
+      "size": 3957,
     },
   ],
 ]
@@ -224,7 +224,7 @@ Array [
   ],
   Array [
     "async.async.9325220d444b0d653c03.js",
-    265,
+    193,
     Object {
       "chunkhash": "9325220d444b0d653c03",
       "immutable": true,
@@ -232,21 +232,21 @@ Array [
       "related": Object {
         "brotliCompressed": "async.async.9325220d444b0d653c03.js.gz",
       },
-      "size": 265,
+      "size": 193,
     },
   ],
   Array [
     "async.async.9325220d444b0d653c03.js.gz",
-    146,
+    125,
     Object {
       "compressed": true,
       "immutable": true,
-      "size": 146,
+      "size": 125,
     },
   ],
   Array [
     "main.a6299e4b54bcb458b330.js",
-    17020,
+    15829,
     Object {
       "chunkhash": "a6299e4b54bcb458b330",
       "immutable": true,
@@ -254,16 +254,16 @@ Array [
       "related": Object {
         "brotliCompressed": "main.a6299e4b54bcb458b330.js.gz",
       },
-      "size": 17020,
+      "size": 15829,
     },
   ],
   Array [
     "main.a6299e4b54bcb458b330.js.gz",
-    3574,
+    3454,
     Object {
       "compressed": true,
       "immutable": true,
-      "size": 3574,
+      "size": 3454,
     },
   ],
 ]
@@ -307,7 +307,7 @@ Array [
   ],
   Array [
     "async.async.9325220d444b0d653c03.js",
-    265,
+    193,
     Object {
       "chunkhash": "9325220d444b0d653c03",
       "immutable": true,
@@ -315,21 +315,21 @@ Array [
       "related": Object {
         "deflateed": "async.async.9325220d444b0d653c03.js.gz",
       },
-      "size": 265,
+      "size": 193,
     },
   ],
   Array [
     "async.async.9325220d444b0d653c03.js.gz",
-    167,
+    121,
     Object {
       "compressed": true,
       "immutable": true,
-      "size": 167,
+      "size": 121,
     },
   ],
   Array [
     "main.a6299e4b54bcb458b330.js",
-    17020,
+    15829,
     Object {
       "chunkhash": "a6299e4b54bcb458b330",
       "immutable": true,
@@ -337,16 +337,16 @@ Array [
       "related": Object {
         "deflateed": "main.a6299e4b54bcb458b330.js.gz",
       },
-      "size": 17020,
+      "size": 15829,
     },
   ],
   Array [
     "main.a6299e4b54bcb458b330.js.gz",
-    4065,
+    3945,
     Object {
       "compressed": true,
       "immutable": true,
-      "size": 4065,
+      "size": 3945,
     },
   ],
 ]
@@ -390,7 +390,7 @@ Array [
   ],
   Array [
     "async.async.9325220d444b0d653c03.js",
-    265,
+    193,
     Object {
       "chunkhash": "9325220d444b0d653c03",
       "immutable": true,
@@ -398,21 +398,21 @@ Array [
       "related": Object {
         "deflateRawed": "async.async.9325220d444b0d653c03.js.gz",
       },
-      "size": 265,
+      "size": 193,
     },
   ],
   Array [
     "async.async.9325220d444b0d653c03.js.gz",
-    161,
+    115,
     Object {
       "compressed": true,
       "immutable": true,
-      "size": 161,
+      "size": 115,
     },
   ],
   Array [
     "main.a6299e4b54bcb458b330.js",
-    17020,
+    15829,
     Object {
       "chunkhash": "a6299e4b54bcb458b330",
       "immutable": true,
@@ -420,16 +420,16 @@ Array [
       "related": Object {
         "deflateRawed": "main.a6299e4b54bcb458b330.js.gz",
       },
-      "size": 17020,
+      "size": 15829,
     },
   ],
   Array [
     "main.a6299e4b54bcb458b330.js.gz",
-    4059,
+    3939,
     Object {
       "compressed": true,
       "immutable": true,
-      "size": 4059,
+      "size": 3939,
     },
   ],
 ]
@@ -473,7 +473,7 @@ Array [
   ],
   Array [
     "async.async.9325220d444b0d653c03.js",
-    265,
+    193,
     Object {
       "chunkhash": "9325220d444b0d653c03",
       "immutable": true,
@@ -481,21 +481,21 @@ Array [
       "related": Object {
         "gzipped": "async.async.9325220d444b0d653c03.js.gz",
       },
-      "size": 265,
+      "size": 193,
     },
   ],
   Array [
     "async.async.9325220d444b0d653c03.js.gz",
-    179,
+    133,
     Object {
       "compressed": true,
       "immutable": true,
-      "size": 179,
+      "size": 133,
     },
   ],
   Array [
     "main.a6299e4b54bcb458b330.js",
-    17020,
+    15829,
     Object {
       "chunkhash": "a6299e4b54bcb458b330",
       "immutable": true,
@@ -503,16 +503,16 @@ Array [
       "related": Object {
         "gzipped": "main.a6299e4b54bcb458b330.js.gz",
       },
-      "size": 17020,
+      "size": 15829,
     },
   ],
   Array [
     "main.a6299e4b54bcb458b330.js.gz",
-    4077,
+    3957,
     Object {
       "compressed": true,
       "immutable": true,
-      "size": 4077,
+      "size": 3957,
     },
   ],
 ]
