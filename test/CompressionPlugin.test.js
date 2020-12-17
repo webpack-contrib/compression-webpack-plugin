@@ -132,16 +132,12 @@ describe("CompressionPlugin", () => {
     }).apply(compiler);
     new CompressionPlugin({
       minRatio: Infinity,
-      algorithm: (input, options, callback) => {
-        return callback(null, input);
-      },
+      algorithm: (input, options, callback) => callback(null, input),
       filename: "[path][base].compress",
     }).apply(compiler);
     new CompressionPlugin({
       minRatio: Infinity,
-      algorithm: (input, options, callback) => {
-        return callback(null, input);
-      },
+      algorithm: (input, options, callback) => callback(null, input),
       filename: "[path][base].custom?foo=bar#hash",
     }).apply(compiler);
 
@@ -337,9 +333,7 @@ describe("CompressionPlugin", () => {
     }).apply(compiler);
     new CompressionPlugin({
       minRatio: Infinity,
-      algorithm: (input, options, callback) => {
-        return callback(null, input);
-      },
+      algorithm: (input, options, callback) => callback(null, input),
       filename: "[path][base].custom",
     }).apply(compiler);
 

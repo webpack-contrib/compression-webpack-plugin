@@ -260,20 +260,16 @@ class CompressionPlugin {
 
           if (this.options.deleteOriginalAssets) {
             if (this.options.deleteOriginalAssets === "keep-source-map") {
-              const updatedAssetInfo = {
-                related: { ...info.related, sourceMap: null },
-              };
-
-              compilation.updateAsset(name, inputSource, updatedAssetInfo);
+              compilation.updateAsset(name, inputSource, {
+                related: { sourceMap: null },
+              });
             }
 
             compilation.deleteAsset(name);
           } else {
-            const newOriginalInfo = {
-              related: { [relatedName]: newName, ...info.related },
-            };
-
-            compilation.updateAsset(name, inputSource, newOriginalInfo);
+            compilation.updateAsset(name, inputSource, {
+              related: { [relatedName]: newName },
+            });
           }
 
           compilation.emitAsset(newName, output, newInfo);
