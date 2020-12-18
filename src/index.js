@@ -283,7 +283,7 @@ class CompressionPlugin {
   apply(compiler) {
     const pluginName = this.constructor.name;
 
-    compiler.hooks.compilation.tap(pluginName, (compilation) => {
+    compiler.hooks.thisCompilation.tap(pluginName, (compilation) => {
       compilation.hooks.processAssets.tapPromise(
         {
           name: pluginName,
