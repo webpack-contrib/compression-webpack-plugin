@@ -153,12 +153,12 @@ class CompressionPlugin {
             }),
             cache.getLazyHashedEtag(source)
           );
-          const output = await cacheItem.getPromise();
+          const output = (await cacheItem.getPromise()) || {};
 
           let buffer;
 
           // No need original buffer for cached files
-          if (!output) {
+          if (!output.source) {
             buffer = source.buffer();
 
             if (buffer.length < this.options.threshold) {
@@ -177,25 +177,37 @@ class CompressionPlugin {
     for (const asset of assetsForMinify) {
       scheduledTasks.push(
         (async () => {
-          const { name, source, buffer, cacheItem, info, relatedName } = asset;
-          let { output } = asset;
+          const {
+            name,
+            source,
+            buffer,
+            output,
+            cacheItem,
+            info,
+            relatedName,
+          } = asset;
 
-          if (!output) {
-            let compressed;
+          if (!output.source) {
+            if (!output.compressed) {
+              try {
+                output.compressed = await this.runCompressionAlgorithm(buffer);
+              } catch (error) {
+                compilation.errors.push(error);
 
-            try {
-              compressed = await this.runCompressionAlgorithm(buffer);
-            } catch (error) {
-              compilation.errors.push(error);
+                return;
+              }
+            }
+
+            if (
+              output.compressed.length / buffer.length >
+              this.options.minRatio
+            ) {
+              await cacheItem.storePromise({ compressed: output.compressed });
 
               return;
             }
 
-            if (compressed.length / buffer.length > this.options.minRatio) {
-              return;
-            }
-
-            output = new RawSource(compressed);
+            output.source = new RawSource(output.compressed);
 
             await cacheItem.storePromise(output);
           }
@@ -255,7 +267,7 @@ class CompressionPlugin {
             });
           }
 
-          compilation.emitAsset(newName, output, newInfo);
+          compilation.emitAsset(newName, output.source, newInfo);
         })()
       );
     }

@@ -294,7 +294,56 @@ describe("CompressionPlugin", () => {
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
 
-    new ModifyExistingAsset({ name: "main.js" }).apply(compiler);
+    new ModifyExistingAsset({
+      name: "main.js",
+      content: "function changed() { /*! CHANGED */ }",
+    }).apply(compiler);
+
+    await new Promise(async (resolve) => {
+      const newStats = await compile(compiler);
+
+      expect(newStats.compilation.emittedAssets.size).toBe(2);
+
+      expect(getAssetsNameAndSize(newStats, compiler)).toMatchSnapshot(
+        "assets"
+      );
+      expect(getWarnings(newStats)).toMatchSnapshot("errors");
+      expect(getErrors(newStats)).toMatchSnapshot("warnings");
+
+      resolve();
+    });
+  });
+
+  it('should work and use memory cache when the "cache" option is "true" and the asset has been changed which filtered by the "minRation" option', async () => {
+    const compiler = getCompiler(
+      "./entry.js",
+      {
+        name: "[name].[ext]",
+      },
+      {
+        cache: true,
+        output: {
+          path: path.resolve(__dirname, "./outputs"),
+          filename: "[name].js",
+          chunkFilename: "[id].js",
+        },
+      }
+    );
+
+    new CompressionPlugin().apply(compiler);
+
+    const stats = await compile(compiler);
+
+    expect(stats.compilation.emittedAssets.size).toBe(7);
+
+    expect(getAssetsNameAndSize(stats, compiler)).toMatchSnapshot("assets");
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
+
+    new ModifyExistingAsset({
+      name: "icon.png",
+      content: `1q!Q2w@W3e#e4r$r`.repeat(1000),
+    }).apply(compiler);
 
     await new Promise(async (resolve) => {
       const newStats = await compile(compiler);
