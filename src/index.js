@@ -123,11 +123,7 @@ class CompressionPlugin {
           return accumulator;
         }
 
-        let input = source.source();
-
-        if (!Buffer.isBuffer(input)) {
-          input = Buffer.from(input);
-        }
+        const input = source.buffer();
 
         if (input.length < this.options.threshold) {
           return accumulator;
