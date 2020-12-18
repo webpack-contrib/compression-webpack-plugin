@@ -104,86 +104,72 @@ class CompressionPlugin {
 
   async compress(compiler, compilation, assets) {
     const cache = compilation.getCache("CompressionWebpackPlugin");
-    const assetsForMinify = await Promise.all(
-      Object.keys(assets).reduce((accumulator, name) => {
-        const { info, source } = compilation.getAsset(name);
+    const assetsForMinify = (
+      await Promise.all(
+        Object.keys(assets).map(async (name) => {
+          const { info, source } = compilation.getAsset(name);
 
-        // Skip double minimize assets from child compilation
-        if (info.compressed) {
-          return accumulator;
-        }
-
-        if (
-          !compiler.webpack.ModuleFilenameHelpers.matchObject.bind(
-            // eslint-disable-next-line no-undefined
-            undefined,
-            this.options
-          )(name)
-        ) {
-          return accumulator;
-        }
-
-        let input = source.source();
-
-        if (!Buffer.isBuffer(input)) {
-          input = Buffer.from(input);
-        }
-
-        if (input.length < this.options.threshold) {
-          return accumulator;
-        }
-
-        let relatedName;
-
-        if (typeof this.options.algorithm === "function") {
-          let filenameForRelatedName = this.options.filename;
-
-          const index = filenameForRelatedName.lastIndexOf("?");
-
-          if (index >= 0) {
-            filenameForRelatedName = filenameForRelatedName.substr(0, index);
+          if (info.compressed) {
+            return false;
           }
 
-          relatedName = `${path.extname(filenameForRelatedName).slice(1)}ed`;
-        } else if (this.options.algorithm === "gzip") {
-          relatedName = "gzipped";
-        } else {
-          relatedName = `${this.options.algorithm}ed`;
-        }
+          if (
+            !compiler.webpack.ModuleFilenameHelpers.matchObject.bind(
+              // eslint-disable-next-line no-undefined
+              undefined,
+              this.options
+            )(name)
+          ) {
+            return false;
+          }
 
-        if (info.related && info.related[relatedName]) {
-          return accumulator;
-        }
+          let relatedName;
 
-        const eTag = cache.getLazyHashedEtag(source);
-        const cacheItem = cache.getItemCache(
-          serialize({
-            name,
-            algorithm: this.options.algorithm,
-            compressionOptions: this.options.compressionOptions,
-          }),
-          eTag
-        );
+          if (typeof this.options.algorithm === "function") {
+            let filenameForRelatedName = this.options.filename;
 
-        accumulator.push(
-          (async () => {
-            const output = await cacheItem.getPromise();
+            const index = filenameForRelatedName.indexOf("?");
 
-            return {
+            if (index >= 0) {
+              filenameForRelatedName = filenameForRelatedName.substr(0, index);
+            }
+
+            relatedName = `${path.extname(filenameForRelatedName).slice(1)}ed`;
+          } else if (this.options.algorithm === "gzip") {
+            relatedName = "gzipped";
+          } else {
+            relatedName = `${this.options.algorithm}ed`;
+          }
+
+          if (info.related && info.related[relatedName]) {
+            return false;
+          }
+
+          const cacheItem = cache.getItemCache(
+            serialize({
               name,
-              inputSource: source,
-              info,
-              input,
-              output,
-              cacheItem,
-              relatedName,
-            };
-          })()
-        );
+              algorithm: this.options.algorithm,
+              compressionOptions: this.options.compressionOptions,
+            }),
+            cache.getLazyHashedEtag(source)
+          );
+          const output = (await cacheItem.getPromise()) || {};
 
-        return accumulator;
-      }, [])
-    );
+          let buffer;
+
+          // No need original buffer for cached files
+          if (!output.source) {
+            buffer = source.buffer();
+
+            if (buffer.length < this.options.threshold) {
+              return false;
+            }
+          }
+
+          return { name, source, info, buffer, output, cacheItem, relatedName };
+        })
+      )
+    ).filter((assetForMinify) => Boolean(assetForMinify));
 
     const { RawSource } = compiler.webpack.sources;
     const scheduledTasks = [];
@@ -193,28 +179,37 @@ class CompressionPlugin {
         (async () => {
           const {
             name,
-            inputSource,
-            input,
+            source,
+            buffer,
+            output,
             cacheItem,
             info,
             relatedName,
           } = asset;
-          let { output } = asset;
 
-          if (!output) {
-            try {
-              output = new RawSource(await this.runCompressionAlgorithm(input));
-            } catch (error) {
-              compilation.errors.push(error);
+          if (!output.source) {
+            if (!output.compressed) {
+              try {
+                output.compressed = await this.runCompressionAlgorithm(buffer);
+              } catch (error) {
+                compilation.errors.push(error);
+
+                return;
+              }
+            }
+
+            if (
+              output.compressed.length / buffer.length >
+              this.options.minRatio
+            ) {
+              await cacheItem.storePromise({ compressed: output.compressed });
 
               return;
             }
 
-            await cacheItem.storePromise(output);
-          }
+            output.source = new RawSource(output.compressed);
 
-          if (output.source().length / input.length > this.options.minRatio) {
-            return;
+            await cacheItem.storePromise(output);
           }
 
           const match = /^([^?#]*)(\?[^#]*)?(#.*)?$/.exec(name);
@@ -260,19 +255,19 @@ class CompressionPlugin {
 
           if (this.options.deleteOriginalAssets) {
             if (this.options.deleteOriginalAssets === "keep-source-map") {
-              compilation.updateAsset(name, inputSource, {
+              compilation.updateAsset(name, source, {
                 related: { sourceMap: null },
               });
             }
 
             compilation.deleteAsset(name);
           } else {
-            compilation.updateAsset(name, inputSource, {
+            compilation.updateAsset(name, source, {
               related: { [relatedName]: newName },
             });
           }
 
-          compilation.emitAsset(newName, output, newInfo);
+          compilation.emitAsset(newName, output.source, newInfo);
         })()
       );
     }
