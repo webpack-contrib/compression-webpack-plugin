@@ -134,7 +134,7 @@ class CompressionPlugin {
         if (typeof this.options.algorithm === "function") {
           let filenameForRelatedName = this.options.filename;
 
-          const index = filenameForRelatedName.lastIndexOf("?");
+          const index = filenameForRelatedName.indexOf("?");
 
           if (index >= 0) {
             filenameForRelatedName = filenameForRelatedName.substr(0, index);
