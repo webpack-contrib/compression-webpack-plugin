@@ -1,6 +1,8 @@
 import zlib from "zlib";
 import path from "path";
 
+import { GenerateSW, InjectManifest } from "workbox-webpack-plugin";
+
 import CompressionPlugin from "../src/index";
 
 import {
@@ -416,6 +418,56 @@ describe("CompressionPlugin", () => {
 
     new CompressionPlugin({ minRatio: 10 }).apply(compiler);
     new EmitNewAsset({ name: "newFile.js" }).apply(compiler);
+
+    const stats = await compile(compiler);
+
+    expect(getAssetsNameAndSize(stats, compiler)).toMatchSnapshot("assets");
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
+  });
+
+  // TODO broken on windows https://github.com/GoogleChrome/workbox/issues/2667
+  it.skip("should work with 'workbox-webpack-plugin' (GenerateSW)", async () => {
+    const compiler = getCompiler(
+      "./entry.js",
+      {},
+      {
+        output: {
+          path: `${__dirname}/dist`,
+          filename: "[name].js?var=[hash]",
+          chunkFilename: "[id].[name].js?ver=[hash]",
+        },
+      }
+    );
+
+    new CompressionPlugin().apply(compiler);
+    new GenerateSW().apply(compiler);
+
+    const stats = await compile(compiler);
+
+    expect(getAssetsNameAndSize(stats, compiler)).toMatchSnapshot("assets");
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
+  });
+
+  // TODO broken on windows https://github.com/GoogleChrome/workbox/issues/2667
+  it.skip("should work with 'workbox-webpack-plugin' (InjectManifest)", async () => {
+    const compiler = getCompiler(
+      "./entry.js",
+      {},
+      {
+        output: {
+          path: `${__dirname}/dist`,
+          filename: "[name].js?var=[hash]",
+          chunkFilename: "[id].[name].js?ver=[hash]",
+        },
+      }
+    );
+
+    new CompressionPlugin().apply(compiler);
+    new InjectManifest({
+      swSrc: path.resolve(__dirname, "./fixtures/sw.js"),
+    }).apply(compiler);
 
     const stats = await compile(compiler);
 
