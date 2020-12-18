@@ -449,7 +449,8 @@ describe("CompressionPlugin", () => {
     expect(getErrors(stats)).toMatchSnapshot("errors");
   });
 
-  it("should work with 'workbox-webpack-plugin' (InjectManifest)", async () => {
+  // TODO broken on windows https://github.com/GoogleChrome/workbox/issues/2667
+  it.skip("should work with 'workbox-webpack-plugin' (InjectManifest)", async () => {
     const compiler = getCompiler(
       "./entry.js",
       {},
