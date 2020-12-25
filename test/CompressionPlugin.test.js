@@ -2,6 +2,7 @@ import zlib from "zlib";
 import path from "path";
 
 import { GenerateSW, InjectManifest } from "workbox-webpack-plugin";
+import { StatsWriterPlugin } from "webpack-stats-plugin";
 
 import CompressionPlugin from "../src/index";
 
@@ -517,6 +518,19 @@ describe("CompressionPlugin", () => {
     new InjectManifest({
       swSrc: path.resolve(__dirname, "./fixtures/sw.js"),
     }).apply(compiler);
+
+    const stats = await compile(compiler);
+
+    expect(getAssetsNameAndSize(stats, compiler)).toMatchSnapshot("assets");
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
+  });
+
+  it("should work with 'webpack-stats-plugin'", async () => {
+    const compiler = getCompiler("./entry.js");
+
+    new CompressionPlugin().apply(compiler);
+    new StatsWriterPlugin().apply(compiler);
 
     const stats = await compile(compiler);
 
