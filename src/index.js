@@ -159,7 +159,19 @@ class CompressionPlugin {
 
           // No need original buffer for cached files
           if (!output.source) {
-            buffer = source.buffer();
+            if (typeof source.buffer === "function") {
+              buffer = source.buffer();
+            }
+            // Compatibility with webpack plugins which don't use `webpack-sources`
+            // See https://github.com/webpack-contrib/compression-webpack-plugin/issues/236
+            else {
+              buffer = source.source();
+
+              if (!Buffer.isBuffer(buffer)) {
+                // eslint-disable-next-line no-param-reassign
+                buffer = Buffer.from(buffer);
+              }
+            }
 
             if (buffer.length < this.options.threshold) {
               return false;
