@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [7.1.2](https://github.com/webpack-contrib/compression-webpack-plugin/compare/v7.1.1...v7.1.2) (2021-01-11)
+
+
+### Bug Fixes
+
+* crash when `filename` and `algorithm` options are functions ([#241](https://github.com/webpack-contrib/compression-webpack-plugin/issues/241)) ([f33424a](https://github.com/webpack-contrib/compression-webpack-plugin/commit/f33424a441323eaeb9415886f8c7f4bb95f01f6b))
+
 ### [7.1.1](https://github.com/webpack-contrib/compression-webpack-plugin/compare/v7.1.0...v7.1.1) (2020-12-25)
 
 
