@@ -4,6 +4,7 @@
 */
 
 import path from "path";
+import crypto from "crypto";
 
 import { validate } from "schema-utils";
 import serialize from "serialize-javascript";
@@ -126,15 +127,27 @@ class CompressionPlugin {
           let relatedName;
 
           if (typeof this.options.algorithm === "function") {
-            let filenameForRelatedName = this.options.filename;
+            if (typeof this.options.filename === "function") {
+              relatedName = `compression-function-${crypto
+                .createHash("md5")
+                .update(serialize(this.options.filename))
+                .digest("hex")}`;
+            } else {
+              let filenameForRelatedName = this.options.filename;
 
-            const index = filenameForRelatedName.indexOf("?");
+              const index = filenameForRelatedName.indexOf("?");
 
-            if (index >= 0) {
-              filenameForRelatedName = filenameForRelatedName.substr(0, index);
+              if (index >= 0) {
+                filenameForRelatedName = filenameForRelatedName.substr(
+                  0,
+                  index
+                );
+              }
+
+              relatedName = `${path
+                .extname(filenameForRelatedName)
+                .slice(1)}ed`;
             }
-
-            relatedName = `${path.extname(filenameForRelatedName).slice(1)}ed`;
           } else if (this.options.algorithm === "gzip") {
             relatedName = "gzipped";
           } else {

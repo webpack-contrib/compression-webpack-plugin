@@ -113,4 +113,34 @@ describe('"filename" option', () => {
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
   });
+
+  it("matches snapshot for custom function ({Function}) and custom algorithm ({Function})", async () => {
+    compiler = getCompiler(
+      "./entry.js",
+      {},
+      {
+        output: {
+          path: path.resolve(__dirname, "./outputs"),
+          filename: "[name].js?var=[hash]#hash",
+          chunkFilename: "[id].[name].js?ver=[hash]#hash",
+        },
+      }
+    );
+
+    new CompressionPlugin({
+      minRatio: 1,
+      filename(info) {
+        return `[name][ext].gz${info.query}`;
+      },
+      algorithm(input, compressionOptions, callback) {
+        callback(null, input);
+      },
+    }).apply(compiler);
+
+    const stats = await compile(compiler);
+
+    expect(getAssetsNameAndSize(stats, compiler)).toMatchSnapshot("assets");
+    expect(getWarnings(stats)).toMatchSnapshot("warnings");
+    expect(getErrors(stats)).toMatchSnapshot("errors");
+  });
 });
