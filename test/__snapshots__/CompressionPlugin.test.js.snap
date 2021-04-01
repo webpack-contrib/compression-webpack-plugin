@@ -1621,18 +1621,18 @@ Array [
   ],
   Array [
     "/br/main.js",
-    3493,
+    3465,
     Object {
       "compressed": true,
-      "size": 3493,
+      "size": 3465,
     },
   ],
   Array [
     "/br/main.js.map",
-    3582,
+    3578,
     Object {
       "compressed": true,
-      "size": 3582,
+      "size": 3578,
     },
   ],
   Array [
@@ -1663,18 +1663,18 @@ Array [
   ],
   Array [
     "main.js",
-    3978,
+    3969,
     Object {
       "compressed": true,
-      "size": 3978,
+      "size": 3969,
     },
   ],
   Array [
     "main.js.map",
-    4081,
+    4062,
     Object {
       "compressed": true,
-      "size": 4081,
+      "size": 4062,
     },
   ],
 ]
@@ -1714,10 +1714,10 @@ Array [
   ],
   Array [
     "/br/main.js",
-    3458,
+    3442,
     Object {
       "compressed": true,
-      "size": 3458,
+      "size": 3442,
     },
   ],
   Array [
@@ -1748,10 +1748,10 @@ Array [
   ],
   Array [
     "main.js",
-    3954,
+    3946,
     Object {
       "compressed": true,
-      "size": 3954,
+      "size": 3946,
     },
   ],
 ]
