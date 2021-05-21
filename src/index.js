@@ -202,15 +202,8 @@ class CompressionPlugin {
     for (const asset of assetsForMinify) {
       scheduledTasks.push(
         (async () => {
-          const {
-            name,
-            source,
-            buffer,
-            output,
-            cacheItem,
-            info,
-            relatedName,
-          } = asset;
+          const { name, source, buffer, output, cacheItem, info, relatedName } =
+            asset;
 
           if (!output.source) {
             if (!output.compressed) {
