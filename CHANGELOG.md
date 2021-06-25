@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [8.0.1](https://github.com/webpack-contrib/compression-webpack-plugin/compare/v8.0.0...v8.0.1) (2021-06-25)
+
+### Chore
+
+* update `serialize-javascript`
+
 ## [8.0.0](https://github.com/webpack-contrib/compression-webpack-plugin/compare/v7.1.2...v8.0.0) (2021-05-21)
 
 
