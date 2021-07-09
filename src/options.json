@@ -37,6 +37,7 @@
   "properties": {
     "test": {
       "description": "Include all assets that pass test assertion.",
+      "link": "https://webpack.js.org/plugins/compression-webpack-plugin/#test",
       "oneOf": [
         {
           "$ref": "#/definitions/Rules"
@@ -45,6 +46,7 @@
     },
     "include": {
       "description": "Include all assets matching any of these conditions.",
+      "link": "https://webpack.js.org/plugins/compression-webpack-plugin/#include",
       "oneOf": [
         {
           "$ref": "#/definitions/Rules"
@@ -53,6 +55,7 @@
     },
     "exclude": {
       "description": "Exclude all assets matching any of these conditions.",
+      "link": "https://webpack.js.org/plugins/compression-webpack-plugin/#exclude",
       "oneOf": [
         {
           "$ref": "#/definitions/Rules"
@@ -61,6 +64,7 @@
     },
     "algorithm": {
       "description": "The compression algorithm/function.",
+      "link": "https://webpack.js.org/plugins/compression-webpack-plugin/#algorithm",
       "anyOf": [
         {
           "type": "string"
@@ -72,19 +76,23 @@
     },
     "compressionOptions": {
       "description": "Compression options for `algorithm`.",
+      "link": "https://webpack.js.org/plugins/compression-webpack-plugin/#compressionoptions",
       "additionalProperties": true,
       "type": "object"
     },
     "threshold": {
       "description": "Only assets bigger than this size are processed. In bytes.",
+      "link": "https://webpack.js.org/plugins/compression-webpack-plugin/#threshold",
       "type": "number"
     },
     "minRatio": {
       "description": "Only assets that compress better than this ratio are processed (`minRatio = Compressed Size / Original Size`).",
+      "link": "https://webpack.js.org/plugins/compression-webpack-plugin/#minratio",
       "type": "number"
     },
     "deleteOriginalAssets": {
       "description": "Whether to delete the original assets or not.",
+      "link": "https://webpack.js.org/plugins/compression-webpack-plugin/#deleteoriginalassets",
       "anyOf": [
         {
           "type": "boolean"
@@ -96,6 +104,7 @@
     },
     "filename": {
       "description": "The target asset filename.",
+      "link": "https://webpack.js.org/plugins/compression-webpack-plugin/#filename",
       "anyOf": [
         {
           "type": "string"
