@@ -1553,21 +1553,21 @@ Array [
   ],
   Array [
     "main.js.map.gz",
-    4123,
+    4108,
     Object {
       "compressed": true,
-      "size": 4123,
+      "size": 4108,
     },
   ],
   Array [
     "main.js.map?var=48ff61f00de20eb9c685",
-    13058,
+    13093,
     Object {
       "development": true,
       "related": Object {
         "gzipped": "main.js.map.gz",
       },
-      "size": 13058,
+      "size": 13093,
     },
   ],
   Array [
