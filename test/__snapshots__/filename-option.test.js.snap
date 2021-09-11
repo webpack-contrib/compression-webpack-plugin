@@ -198,7 +198,7 @@ Array [
     Object {
       "immutable": true,
       "related": Object {
-        "compression-function-b8ad1ba770111161fc52644f2d5cfb0f": "09a1a1112c577c2794359715edfcb5ac.png.gz",
+        "compression-function-5f27f917e58a6cfd45a9fb0dbfb129f9": "09a1a1112c577c2794359715edfcb5ac.png.gz",
       },
       "size": 78117,
       "sourceFilename": "icon.png",
@@ -219,7 +219,7 @@ Array [
     Object {
       "immutable": true,
       "related": Object {
-        "compression-function-b8ad1ba770111161fc52644f2d5cfb0f": "23fc1d3ac606d117e05a140e0de79806.svg.gz",
+        "compression-function-5f27f917e58a6cfd45a9fb0dbfb129f9": "23fc1d3ac606d117e05a140e0de79806.svg.gz",
       },
       "size": 672,
       "sourceFilename": "icon.svg",
@@ -251,7 +251,7 @@ Array [
       "immutable": true,
       "javascriptModule": false,
       "related": Object {
-        "compression-function-b8ad1ba770111161fc52644f2d5cfb0f": "async.async.js.gz?ver=cae37fb4cd09acf59d1c",
+        "compression-function-5f27f917e58a6cfd45a9fb0dbfb129f9": "async.async.js.gz?ver=cae37fb4cd09acf59d1c",
       },
       "size": 194,
     },
@@ -273,7 +273,7 @@ Array [
       "immutable": true,
       "javascriptModule": false,
       "related": Object {
-        "compression-function-b8ad1ba770111161fc52644f2d5cfb0f": "main.js.gz?var=cae37fb4cd09acf59d1c",
+        "compression-function-5f27f917e58a6cfd45a9fb0dbfb129f9": "main.js.gz?var=cae37fb4cd09acf59d1c",
       },
       "size": 16218,
     },
