@@ -230,44 +230,15 @@ class CompressionPlugin {
             await cacheItem.storePromise(output);
           }
 
-          const match = /^([^?#]*)(\?[^#]*)?(#.*)?$/.exec(name);
-          const [, replacerFile] = match;
-          const replacerQuery = match[2] || "";
-          const replacerFragment = match[3] || "";
-          const replacerExt = path.extname(replacerFile);
-          const replacerBase = path.basename(replacerFile);
-          const replacerName = replacerBase.slice(
-            0,
-            replacerBase.length - replacerExt.length
-          );
-          const replacerPath = replacerFile.slice(
-            0,
-            replacerFile.length - replacerBase.length
-          );
-          const pathData = {
-            file: replacerFile,
-            query: replacerQuery,
-            fragment: replacerFragment,
-            path: replacerPath,
-            base: replacerBase,
-            name: replacerName,
-            ext: replacerExt || "",
-          };
-
-          let newFilename = this.options.filename;
-
-          if (typeof newFilename === "function") {
-            newFilename = newFilename(pathData);
-          }
-
-          const newName = newFilename.replace(
-            /\[(file|query|fragment|path|base|name|ext)]/g,
-            (p0, p1) => pathData[p1]
-          );
-
+          const newFilename = compilation.getPath(this.options.filename, {
+            filename: name,
+          });
           const newInfo = { compressed: true };
 
-          if (info.immutable && /(\[name]|\[base]|\[file])/.test(newFilename)) {
+          if (
+            info.immutable &&
+            /(\[name]|\[base]|\[file])/.test(this.options.filename)
+          ) {
             newInfo.immutable = true;
           }
 
@@ -281,11 +252,11 @@ class CompressionPlugin {
             compilation.deleteAsset(name);
           } else {
             compilation.updateAsset(name, source, {
-              related: { [relatedName]: newName },
+              related: { [relatedName]: newFilename },
             });
           }
 
-          compilation.emitAsset(newName, output.source, newInfo);
+          compilation.emitAsset(newFilename, output.source, newInfo);
         })()
       );
     }

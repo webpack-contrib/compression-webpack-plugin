@@ -68,7 +68,7 @@ Array [
   ],
   Array [
     "main.js?var=a3b4db0bb43a9c87c86e",
-    16204,
+    16213,
     Object {
       "fullhash": "a3b4db0bb43a9c87c86e",
       "immutable": true,
@@ -76,16 +76,16 @@ Array [
       "related": Object {
         "gzipped": "main.super-compressed.js.gz?var=a3b4db0bb43a9c87c86e",
       },
-      "size": 16204,
+      "size": 16213,
     },
   ],
   Array [
     "main.super-compressed.js.gz?var=a3b4db0bb43a9c87c86e",
-    4029,
+    4031,
     Object {
       "compressed": true,
       "immutable": true,
-      "size": 4029,
+      "size": 4031,
     },
   ],
 ]
@@ -163,16 +163,16 @@ Array [
   ],
   Array [
     "assets/js/main.js.super-compressed.gz?var=330ceb18c7a50e9fafac#hash",
-    4046,
+    4047,
     Object {
       "compressed": true,
       "immutable": true,
-      "size": 4046,
+      "size": 4047,
     },
   ],
   Array [
     "assets/js/main.js?var=330ceb18c7a50e9fafac#hash",
-    16230,
+    16239,
     Object {
       "fullhash": "330ceb18c7a50e9fafac",
       "immutable": true,
@@ -180,7 +180,7 @@ Array [
       "related": Object {
         "gzipped": "assets/js/main.js.super-compressed.gz?var=330ceb18c7a50e9fafac#hash",
       },
-      "size": 16230,
+      "size": 16239,
     },
   ],
 ]
@@ -198,7 +198,7 @@ Array [
     Object {
       "immutable": true,
       "related": Object {
-        "compression-function-b8ad1ba770111161fc52644f2d5cfb0f": "09a1a1112c577c2794359715edfcb5ac.png.gz",
+        "compression-function-5f27f917e58a6cfd45a9fb0dbfb129f9": "09a1a1112c577c2794359715edfcb5ac.png.gz",
       },
       "size": 78117,
       "sourceFilename": "icon.png",
@@ -219,7 +219,7 @@ Array [
     Object {
       "immutable": true,
       "related": Object {
-        "compression-function-b8ad1ba770111161fc52644f2d5cfb0f": "23fc1d3ac606d117e05a140e0de79806.svg.gz",
+        "compression-function-5f27f917e58a6cfd45a9fb0dbfb129f9": "23fc1d3ac606d117e05a140e0de79806.svg.gz",
       },
       "size": 672,
       "sourceFilename": "icon.svg",
@@ -251,31 +251,31 @@ Array [
       "immutable": true,
       "javascriptModule": false,
       "related": Object {
-        "compression-function-b8ad1ba770111161fc52644f2d5cfb0f": "async.async.js.gz?ver=cae37fb4cd09acf59d1c",
+        "compression-function-5f27f917e58a6cfd45a9fb0dbfb129f9": "async.async.js.gz?ver=cae37fb4cd09acf59d1c",
       },
       "size": 194,
     },
   ],
   Array [
     "main.js.gz?var=cae37fb4cd09acf59d1c",
-    16209,
+    16218,
     Object {
       "compressed": true,
       "immutable": true,
-      "size": 16209,
+      "size": 16218,
     },
   ],
   Array [
     "main.js?var=cae37fb4cd09acf59d1c#hash",
-    16209,
+    16218,
     Object {
       "fullhash": "cae37fb4cd09acf59d1c",
       "immutable": true,
       "javascriptModule": false,
       "related": Object {
-        "compression-function-b8ad1ba770111161fc52644f2d5cfb0f": "main.js.gz?var=cae37fb4cd09acf59d1c",
+        "compression-function-5f27f917e58a6cfd45a9fb0dbfb129f9": "main.js.gz?var=cae37fb4cd09acf59d1c",
       },
-      "size": 16209,
+      "size": 16218,
     },
   ],
 ]
@@ -353,16 +353,16 @@ Array [
   ],
   Array [
     "main.js.gz?var=cae37fb4cd09acf59d1c",
-    4032,
+    4034,
     Object {
       "compressed": true,
       "immutable": true,
-      "size": 4032,
+      "size": 4034,
     },
   ],
   Array [
     "main.js?var=cae37fb4cd09acf59d1c#hash",
-    16209,
+    16218,
     Object {
       "fullhash": "cae37fb4cd09acf59d1c",
       "immutable": true,
@@ -370,7 +370,7 @@ Array [
       "related": Object {
         "gzipped": "main.js.gz?var=cae37fb4cd09acf59d1c",
       },
-      "size": 16209,
+      "size": 16218,
     },
   ],
 ]
@@ -448,16 +448,16 @@ Array [
   ],
   Array [
     "assets/scripts/main.js.gz",
-    4048,
+    4049,
     Object {
       "compressed": true,
       "immutable": true,
-      "size": 4048,
+      "size": 4049,
     },
   ],
   Array [
     "assets/scripts/main.js?var=81fbfbf8a6522a5c2670#hash",
-    16235,
+    16244,
     Object {
       "fullhash": "81fbfbf8a6522a5c2670",
       "immutable": true,
@@ -465,7 +465,7 @@ Array [
       "related": Object {
         "gzipped": "assets/scripts/main.js.gz",
       },
-      "size": 16235,
+      "size": 16244,
     },
   ],
 ]

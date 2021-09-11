@@ -103,7 +103,9 @@ describe('"filename" option', () => {
     new CompressionPlugin({
       minRatio: 1,
       filename(info) {
-        return `[name][ext].gz${info.query}`;
+        const [, , query] = /^([^?#]*)(\?[^#]*)?(#.*)?$/.exec(info.filename);
+
+        return `[name][ext].gz${query || ""}`;
       },
     }).apply(compiler);
 
@@ -130,7 +132,9 @@ describe('"filename" option', () => {
     new CompressionPlugin({
       minRatio: 1,
       filename(info) {
-        return `[name][ext].gz${info.query}`;
+        const [, , query] = /^([^?#]*)(\?[^#]*)?(#.*)?$/.exec(info.filename);
+
+        return `[name][ext].gz${query || ""}`;
       },
       algorithm(input, compressionOptions, callback) {
         callback(null, input);
