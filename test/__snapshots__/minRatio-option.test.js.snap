@@ -32,12 +32,12 @@ Array [
   ],
   Array [
     "main.b7ebabd1d6c41d9364fc.js",
-    16043,
+    16052,
     Object {
       "chunkhash": "b7ebabd1d6c41d9364fc",
       "immutable": true,
       "javascriptModule": false,
-      "size": 16043,
+      "size": 16052,
     },
   ],
 ]
@@ -115,7 +115,7 @@ Array [
   ],
   Array [
     "main.b7ebabd1d6c41d9364fc.js",
-    16043,
+    16052,
     Object {
       "chunkhash": "b7ebabd1d6c41d9364fc",
       "immutable": true,
@@ -123,16 +123,16 @@ Array [
       "related": Object {
         "gzipped": "main.b7ebabd1d6c41d9364fc.js.gz",
       },
-      "size": 16043,
+      "size": 16052,
     },
   ],
   Array [
     "main.b7ebabd1d6c41d9364fc.js.gz",
-    4003,
+    4004,
     Object {
       "compressed": true,
       "immutable": true,
-      "size": 4003,
+      "size": 4004,
     },
   ],
 ]

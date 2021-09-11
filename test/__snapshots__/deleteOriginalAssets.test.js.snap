@@ -31,11 +31,11 @@ Array [
   ],
   Array [
     "main.d3b2440435a1cf2f17ba.js",
-    4046,
+    4048,
     Object {
       "compressed": true,
       "immutable": true,
-      "size": 4046,
+      "size": 4048,
     },
   ],
   Array [
@@ -84,11 +84,11 @@ Array [
   ],
   Array [
     "main.b7ebabd1d6c41d9364fc.js.gz",
-    4003,
+    4004,
     Object {
       "compressed": true,
       "immutable": true,
-      "size": 4003,
+      "size": 4004,
     },
   ],
 ]
@@ -129,11 +129,11 @@ Array [
   ],
   Array [
     "main.b7ebabd1d6c41d9364fc.js",
-    4003,
+    4004,
     Object {
       "compressed": true,
       "immutable": true,
-      "size": 4003,
+      "size": 4004,
     },
   ],
 ]
@@ -199,7 +199,7 @@ Array [
   ],
   Array [
     "main.b7ebabd1d6c41d9364fc.js",
-    16043,
+    16052,
     Object {
       "chunkhash": "b7ebabd1d6c41d9364fc",
       "immutable": true,
@@ -207,16 +207,16 @@ Array [
       "related": Object {
         "gzipped": "main.b7ebabd1d6c41d9364fc.js.gz",
       },
-      "size": 16043,
+      "size": 16052,
     },
   ],
   Array [
     "main.b7ebabd1d6c41d9364fc.js.gz",
-    4003,
+    4004,
     Object {
       "compressed": true,
       "immutable": true,
-      "size": 4003,
+      "size": 4004,
     },
   ],
 ]
@@ -294,7 +294,7 @@ Array [
   ],
   Array [
     "main.b7ebabd1d6c41d9364fc.js",
-    16043,
+    16052,
     Object {
       "chunkhash": "b7ebabd1d6c41d9364fc",
       "immutable": true,
@@ -302,16 +302,16 @@ Array [
       "related": Object {
         "gzipped": "main.b7ebabd1d6c41d9364fc.js.gz",
       },
-      "size": 16043,
+      "size": 16052,
     },
   ],
   Array [
     "main.b7ebabd1d6c41d9364fc.js.gz",
-    4003,
+    4004,
     Object {
       "compressed": true,
       "immutable": true,
-      "size": 4003,
+      "size": 4004,
     },
   ],
 ]
@@ -352,11 +352,11 @@ Array [
   ],
   Array [
     "main.b7ebabd1d6c41d9364fc.js",
-    4003,
+    4004,
     Object {
       "compressed": true,
       "immutable": true,
-      "size": 4003,
+      "size": 4004,
     },
   ],
 ]
