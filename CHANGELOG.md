@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [9.0.0](https://github.com/webpack-contrib/compression-webpack-plugin/compare/v8.0.1...v9.0.0) (2021-09-11)
+
+
+### ⚠ BREAKING CHANGES
+
+* `pathData` as first argument of a custom function for the `filename` option was changed, now we pass only `pathData.filename`, see [example](https://github.com/webpack-contrib/compression-webpack-plugin#function-1)
+
+### Features
+
+* migrate on webpack API for getting filename ([59fe68c](https://github.com/webpack-contrib/compression-webpack-plugin/commit/59fe68c2c6047c9a6120856b3aa4fc6ab1fc811d))
+* output documentation links on errors ([#255](https://github.com/webpack-contrib/compression-webpack-plugin/issues/255)) ([8624e44](https://github.com/webpack-contrib/compression-webpack-plugin/commit/8624e44b9e76dacb8d67d762c647777c6a8f9573))
+
 ### [8.0.1](https://github.com/webpack-contrib/compression-webpack-plugin/compare/v8.0.0...v8.0.1) (2021-06-25)
 
 ### Chore
