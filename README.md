@@ -311,7 +311,7 @@ To exclude sourcemaps from compression
 module.exports = {
   plugins: [
     new CompressionPlugin({
-      exclude: /.map$/
+      exclude: /.map$/,
       deleteOriginalAssets: 'keep-source-map',
     }),
   ],
