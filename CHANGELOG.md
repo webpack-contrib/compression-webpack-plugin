@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [9.0.1](https://github.com/webpack-contrib/compression-webpack-plugin/compare/v9.0.0...v9.0.1) (2021-11-17)
+
+
+### Chore
+
+* update `schema-utils` package to `4.0.0` version
+
 ## [9.0.0](https://github.com/webpack-contrib/compression-webpack-plugin/compare/v8.0.1...v9.0.0) (2021-09-11)
 
 
