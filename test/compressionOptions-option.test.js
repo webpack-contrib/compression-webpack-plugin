@@ -78,7 +78,7 @@ describe('"compressionOptions" option', () => {
     expect(getErrors(stats)).toMatchSnapshot("errors");
   });
 
-  it.only("set default compression level to maximum for brotli", async () => {
+  it("set default compression level to maximum for brotli", async () => {
     new CompressionPlugin({
       algorithm: "brotliCompress",
     }).apply(compiler);

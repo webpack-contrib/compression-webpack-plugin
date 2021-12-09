@@ -120,6 +120,14 @@ class CompressionPlugin {
       deleteOriginalAssets,
     };
 
+    /**
+     * @private
+     * @type {AlgorithmFunction<T>}
+     */
+    this.algorithm =
+      /** @type {AlgorithmFunction<T>} */
+      (this.options.algorithm);
+
     if (typeof this.algorithm === "string") {
       /**
        * @type {typeof import("zlib")}
@@ -166,10 +174,6 @@ class CompressionPlugin {
           .../** @type {object} */ (defaultCompressionOptions),
           .../** @type {object} */ (this.options.compressionOptions),
         });
-    } else {
-      this.algorithm = /** @type {AlgorithmFunction<T>} */ (
-        this.options.algorithm
-      );
     }
   }
 
@@ -362,8 +366,7 @@ class CompressionPlugin {
             if (this.options.deleteOriginalAssets === "keep-source-map") {
               compilation.updateAsset(name, source, {
                 // @ts-ignore
-                // eslint-disable-next-line no-undefined
-                related: { sourceMap: undefined },
+                related: { sourceMap: null },
               });
             }
 
