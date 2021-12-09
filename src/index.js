@@ -382,7 +382,7 @@ class CompressionPlugin {
       );
     }
 
-    Promise.all(scheduledTasks);
+    await Promise.all(scheduledTasks);
   }
 
   /**
