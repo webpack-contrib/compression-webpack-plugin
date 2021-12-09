@@ -11,9 +11,83 @@ import serialize from "serialize-javascript";
 
 import schema from "./options.json";
 
+/** @typedef {import("schema-utils/declarations/validate").Schema} Schema */
+/** @typedef {import("webpack").Compiler} Compiler */
+/** @typedef {import("webpack").Compilation} Compilation */
+/** @typedef {import("webpack").sources.Source} Source */
+/** @typedef {import("webpack").Asset} Asset */
+/** @typedef {import("webpack").WebpackError} WebpackError */
+
+/** @typedef {RegExp | string} Rule */
+
+/** @typedef {Rule[] | Rule} Rules */
+
+/**
+ * @typedef {{ [key: string]: any }} CustomOptions
+ */
+
+/**
+ * @template T
+ * @typedef {T extends infer U ? U : CustomOptions} InferDefaultType
+ */
+
+/**
+ * @template T
+ * @typedef {InferDefaultType<T>} CompressionOptions
+ */
+
+/**
+ * @template T
+ * @callback AlgorithmFunction
+ * @param {Buffer} input
+ * @param {CompressionOptions<T>} options
+ * @param {(error: Error, result: string | Buffer) => void} callback
+ */
+
+/**
+ * @typedef {{[key: string]: any}} PathData
+ */
+
+/**
+ * @typedef {string | ((fileData: PathData) => string)} Filename
+ */
+
+/**
+ * @typedef {boolean | "keep-source-map"} DeleteOriginalAssets
+ */
+
+/**
+ * @template T
+ * @typedef {Object} BasePluginOptions
+ * @property {Rules} [test]
+ * @property {Rules} [include]
+ * @property {Rules} [exclude]
+ * @property {string | AlgorithmFunction<T>} [algorithm]
+ * @property {CompressionOptions<T>} [compressionOptions]
+ * @property {number} [threshold]
+ * @property {number} [minRatio]
+ * @property {DeleteOriginalAssets} [deleteOriginalAssets]
+ * @property {Filename} [filename]
+ */
+
+/**
+ * @template T
+ * @typedef {BasePluginOptions<T> & { compressionOptions: CompressionOptions<T>, threshold: number, minRatio: number, deleteOriginalAssets: DeleteOriginalAssets, filename: Filename }} InternalPluginOptions
+ */
+
+/**
+ * @typedef {import("zlib").ZlibOptions} ZlibOptions
+ */
+
+/**
+ * @template [T=ZlibOptions]
+ */
 class CompressionPlugin {
+  /**
+   * @param {BasePluginOptions<T>} [options]
+   */
   constructor(options = {}) {
-    validate(schema, options, {
+    validate(/** @type {Schema} */ (schema), options, {
       name: "Compression Plugin",
       baseDataPath: "options",
     });
@@ -23,13 +97,17 @@ class CompressionPlugin {
       include,
       exclude,
       algorithm = "gzip",
-      compressionOptions = {},
+      compressionOptions = /** @type {CompressionOptions<T>} */ ({}),
       filename = "[path][base].gz",
       threshold = 0,
       minRatio = 0.8,
       deleteOriginalAssets = false,
     } = options;
 
+    /**
+     * @private
+     * @type {InternalPluginOptions<T>}
+     */
     this.options = {
       test,
       include,
@@ -42,12 +120,25 @@ class CompressionPlugin {
       deleteOriginalAssets,
     };
 
-    this.algorithm = this.options.algorithm;
+    /**
+     * @private
+     * @type {AlgorithmFunction<T>}
+     */
+    this.algorithm =
+      /** @type {AlgorithmFunction<T>} */
+      (this.options.algorithm);
 
     if (typeof this.algorithm === "string") {
+      /**
+       * @type {typeof import("zlib")}
+       */
       // eslint-disable-next-line global-require
       const zlib = require("zlib");
 
+      /**
+       * @private
+       * @type {AlgorithmFunction<T>}
+       */
       this.algorithm = zlib[this.algorithm];
 
       if (!this.algorithm) {
@@ -73,15 +164,24 @@ class CompressionPlugin {
                 zlib.constants.BROTLI_MAX_QUALITY,
             },
           },
-        }[algorithm] || {};
+        }[/** @type {string} */ (algorithm)] || {};
 
-      this.options.compressionOptions = {
-        ...defaultCompressionOptions,
-        ...this.options.compressionOptions,
-      };
+      this.options.compressionOptions =
+        /**
+         * @type {CompressionOptions<T>}
+         */
+        ({
+          .../** @type {object} */ (defaultCompressionOptions),
+          .../** @type {object} */ (this.options.compressionOptions),
+        });
     }
   }
 
+  /**
+   * @private
+   * @param {Buffer} input
+   * @returns {Promise<Buffer>}
+   */
   runCompressionAlgorithm(input) {
     return new Promise((resolve, reject) => {
       this.algorithm(
@@ -89,7 +189,9 @@ class CompressionPlugin {
         this.options.compressionOptions,
         (error, result) => {
           if (error) {
-            return reject(error);
+            reject(error);
+
+            return;
           }
 
           if (!Buffer.isBuffer(result)) {
@@ -97,18 +199,27 @@ class CompressionPlugin {
             result = Buffer.from(result);
           }
 
-          return resolve(result);
+          resolve(result);
         }
       );
     });
   }
 
+  /**
+   * @private
+   * @param {Compiler} compiler
+   * @param {Compilation} compilation
+   * @param {Record<string, Source>} assets
+   * @returns {Promise<void>}
+   */
   async compress(compiler, compilation, assets) {
     const cache = compilation.getCache("CompressionWebpackPlugin");
     const assetsForMinify = (
       await Promise.all(
         Object.keys(assets).map(async (name) => {
-          const { info, source } = compilation.getAsset(name);
+          const { info, source } = /** @type {Asset} */ (
+            compilation.getAsset(name)
+          );
 
           if (info.compressed) {
             return false;
@@ -124,6 +235,9 @@ class CompressionPlugin {
             return false;
           }
 
+          /**
+           * @type {string | undefined}
+           */
           let relatedName;
 
           if (typeof this.options.algorithm === "function") {
@@ -133,6 +247,9 @@ class CompressionPlugin {
                 .update(serialize(this.options.filename))
                 .digest("hex")}`;
             } else {
+              /**
+               * @type {string}
+               */
               let filenameForRelatedName = this.options.filename;
 
               const index = filenameForRelatedName.indexOf("?");
@@ -202,6 +319,7 @@ class CompressionPlugin {
     for (const asset of assetsForMinify) {
       scheduledTasks.push(
         (async () => {
+          // @ts-ignore
           const { name, source, buffer, output, cacheItem, info, relatedName } =
             asset;
 
@@ -210,7 +328,7 @@ class CompressionPlugin {
               try {
                 output.compressed = await this.runCompressionAlgorithm(buffer);
               } catch (error) {
-                compilation.errors.push(error);
+                compilation.errors.push(/** @type {WebpackError} */ (error));
 
                 return;
               }
@@ -235,16 +353,21 @@ class CompressionPlugin {
           });
           const newInfo = { compressed: true };
 
+          // TODO: possible problem when developer uses custom function, ideally we need to get parts of filname (i.e. name/base/ext/etc) in info
+          // otherwise we can't detect an asset as immutable
           if (
             info.immutable &&
+            typeof this.options.filename === "string" &&
             /(\[name]|\[base]|\[file])/.test(this.options.filename)
           ) {
+            // @ts-ignore
             newInfo.immutable = true;
           }
 
           if (this.options.deleteOriginalAssets) {
             if (this.options.deleteOriginalAssets === "keep-source-map") {
               compilation.updateAsset(name, source, {
+                // @ts-ignore
                 related: { sourceMap: null },
               });
             }
@@ -261,9 +384,13 @@ class CompressionPlugin {
       );
     }
 
-    return Promise.all(scheduledTasks);
+    await Promise.all(scheduledTasks);
   }
 
+  /**
+   * @param {Compiler} compiler
+   * @returns {void}
+   */
   apply(compiler) {
     const pluginName = this.constructor.name;
 
@@ -284,8 +411,11 @@ class CompressionPlugin {
           .tap(
             "compression-webpack-plugin",
             (compressed, { green, formatFlag }) =>
-              // eslint-disable-next-line no-undefined
-              compressed ? green(formatFlag("compressed")) : undefined
+              compressed
+                ? /** @type {Function} */ (green)(
+                    /** @type {Function} */ (formatFlag)("compressed")
+                  )
+                : ""
           );
       });
     });

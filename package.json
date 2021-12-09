@@ -19,11 +19,14 @@
     "start": "npm run build -- -w",
     "clean": "del-cli dist",
     "prebuild": "npm run clean",
-    "build": "cross-env NODE_ENV=production babel src -d dist --copy-files",
+    "build:types": "tsc --declaration --emitDeclarationOnly --outDir types && prettier \"types/**/*.ts\" --write && prettier types --write",
+    "build:code": "cross-env NODE_ENV=production babel src -d dist --copy-files",
+    "build": "npm-run-all -p \"build:**\"",
     "commitlint": "commitlint --from=master",
     "security": "npm audit --production",
     "lint:prettier": "prettier --list-different .",
     "lint:js": "eslint --cache .",
+    "lint:types": "tsc --pretty --noEmit",
     "lint": "npm-run-all -l -p \"lint:**\"",
     "test:only": "cross-env NODE_ENV=test jest",
     "test:watch": "npm run test:only -- --watch",
@@ -34,7 +37,8 @@
     "release": "standard-version"
   },
   "files": [
-    "dist"
+    "dist",
+    "types"
   ],
   "peerDependencies": {
     "webpack": "^5.1.0"
@@ -50,6 +54,7 @@
     "@commitlint/cli": "^15.0.0",
     "@commitlint/config-conventional": "^15.0.0",
     "@gfx/zopfli": "^1.0.15",
+    "@types/serialize-javascript": "^5.0.1",
     "@webpack-contrib/eslint-config-webpack": "^3.0.0",
     "babel-jest": "^27.0.6",
     "cross-env": "^7.0.3",
@@ -66,6 +71,7 @@
     "npm-run-all": "^4.1.5",
     "prettier": "^2.3.2",
     "standard-version": "^9.3.0",
+    "typescript": "^4.5.2",
     "webpack": "^5.51.0",
     "webpack-stats-plugin": "^1.0.3",
     "workbox-webpack-plugin": "^6.2.4"

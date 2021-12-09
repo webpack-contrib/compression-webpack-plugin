@@ -209,7 +209,6 @@ Array [
     78117,
     Object {
       "compressed": true,
-      "immutable": true,
       "size": 78117,
     },
   ],
@@ -230,7 +229,6 @@ Array [
     672,
     Object {
       "compressed": true,
-      "immutable": true,
       "size": 672,
     },
   ],
@@ -239,7 +237,6 @@ Array [
     194,
     Object {
       "compressed": true,
-      "immutable": true,
       "size": 194,
     },
   ],
@@ -261,7 +258,6 @@ Array [
     16218,
     Object {
       "compressed": true,
-      "immutable": true,
       "size": 16218,
     },
   ],
@@ -304,7 +300,6 @@ Array [
     73160,
     Object {
       "compressed": true,
-      "immutable": true,
       "size": 73160,
     },
   ],
@@ -325,7 +320,6 @@ Array [
     393,
     Object {
       "compressed": true,
-      "immutable": true,
       "size": 393,
     },
   ],
@@ -334,7 +328,6 @@ Array [
     134,
     Object {
       "compressed": true,
-      "immutable": true,
       "size": 134,
     },
   ],
@@ -356,7 +349,6 @@ Array [
     4035,
     Object {
       "compressed": true,
-      "immutable": true,
       "size": 4035,
     },
   ],
