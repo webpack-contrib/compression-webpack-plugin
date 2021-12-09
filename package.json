@@ -25,6 +25,7 @@
     "commitlint": "commitlint --from=master",
     "security": "npm audit --production",
     "lint:prettier": "prettier --list-different .",
+    "lint:js": "eslint --cache .",
     "lint:types": "tsc --pretty --noEmit",
     "lint": "npm-run-all -l -p \"lint:**\"",
     "test:only": "cross-env NODE_ENV=test jest",
