@@ -2,6 +2,7 @@
 export default CompressionPlugin;
 export type Schema = import("schema-utils/declarations/validate").Schema;
 export type Compiler = import("webpack").Compiler;
+export type WebpackPluginInstance = import("webpack").WebpackPluginInstance;
 export type Compilation = import("webpack").Compilation;
 export type Source = import("webpack").sources.Source;
 export type Asset = import("webpack").Asset;
@@ -44,6 +45,7 @@ export type InternalPluginOptions<T> = BasePluginOptions<T> & {
 export type ZlibOptions = import("zlib").ZlibOptions;
 /** @typedef {import("schema-utils/declarations/validate").Schema} Schema */
 /** @typedef {import("webpack").Compiler} Compiler */
+/** @typedef {import("webpack").WebpackPluginInstance} WebpackPluginInstance */
 /** @typedef {import("webpack").Compilation} Compilation */
 /** @typedef {import("webpack").sources.Source} Source */
 /** @typedef {import("webpack").Asset} Asset */
@@ -99,8 +101,11 @@ export type ZlibOptions = import("zlib").ZlibOptions;
  */
 /**
  * @template [T=ZlibOptions]
+ * @implements WebpackPluginInstance
  */
-declare class CompressionPlugin<T = import("zlib").ZlibOptions> {
+declare class CompressionPlugin<T = import("zlib").ZlibOptions>
+  implements WebpackPluginInstance
+{
   /**
    * @param {BasePluginOptions<T>} [options]
    */

@@ -13,6 +13,7 @@ import schema from "./options.json";
 
 /** @typedef {import("schema-utils/declarations/validate").Schema} Schema */
 /** @typedef {import("webpack").Compiler} Compiler */
+/** @typedef {import("webpack").WebpackPluginInstance} WebpackPluginInstance */
 /** @typedef {import("webpack").Compilation} Compilation */
 /** @typedef {import("webpack").sources.Source} Source */
 /** @typedef {import("webpack").Asset} Asset */
@@ -81,6 +82,7 @@ import schema from "./options.json";
 
 /**
  * @template [T=ZlibOptions]
+ * @implements WebpackPluginInstance
  */
 class CompressionPlugin {
   /**
