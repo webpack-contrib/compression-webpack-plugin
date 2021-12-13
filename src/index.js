@@ -13,10 +13,16 @@ import schema from "./options.json";
 
 /** @typedef {import("schema-utils/declarations/validate").Schema} Schema */
 /** @typedef {import("webpack").Compiler} Compiler */
+/** @typedef {import("webpack").WebpackPluginInstance} WebpackPluginInstance */
 /** @typedef {import("webpack").Compilation} Compilation */
 /** @typedef {import("webpack").sources.Source} Source */
 /** @typedef {import("webpack").Asset} Asset */
 /** @typedef {import("webpack").WebpackError} WebpackError */
+
+/**
+ * @template T
+ * @typedef {T | { valueOf(): T }} WithImplicitCoercion
+ */
 
 /** @typedef {RegExp | string} Rule */
 
@@ -41,7 +47,7 @@ import schema from "./options.json";
  * @callback AlgorithmFunction
  * @param {Buffer} input
  * @param {CompressionOptions<T>} options
- * @param {(error: Error, result: string | Buffer) => void} callback
+ * @param {(error: Error | null | undefined, result: WithImplicitCoercion<ArrayBuffer | SharedArrayBuffer> | Uint8Array | ReadonlyArray<number> | WithImplicitCoercion<Uint8Array | ReadonlyArray<number> | string> | WithImplicitCoercion<string> | { [Symbol.toPrimitive](hint: 'string'): string }) => void} callback
  */
 
 /**
@@ -81,6 +87,7 @@ import schema from "./options.json";
 
 /**
  * @template [T=ZlibOptions]
+ * @implements WebpackPluginInstance
  */
 class CompressionPlugin {
   /**
@@ -195,11 +202,11 @@ class CompressionPlugin {
           }
 
           if (!Buffer.isBuffer(result)) {
-            // eslint-disable-next-line no-param-reassign
-            result = Buffer.from(result);
+            // @ts-ignore
+            resolve(Buffer.from(result));
+          } else {
+            resolve(result);
           }
-
-          resolve(result);
         }
       );
     });
