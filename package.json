@@ -11,14 +11,14 @@
     "type": "opencollective",
     "url": "https://opencollective.com/webpack"
   },
-  "main": "dist/cjs.js",
-  "types": "types/cjs.d.ts",
+  "main": "dist/index.js",
+  "types": "types/index.d.ts",
   "engines": {
     "node": ">= 12.13.0"
   },
   "scripts": {
     "start": "npm run build -- -w",
-    "clean": "del-cli dist",
+    "clean": "del-cli dist types",
     "prebuild": "npm run clean",
     "build:types": "tsc --declaration --emitDeclarationOnly --outDir types && prettier \"types/**/*.ts\" --write && prettier types --write",
     "build:code": "cross-env NODE_ENV=production babel src -d dist --copy-files",
@@ -58,6 +58,7 @@
     "@types/serialize-javascript": "^5.0.1",
     "@webpack-contrib/eslint-config-webpack": "^3.0.0",
     "babel-jest": "^27.0.6",
+    "babel-plugin-add-module-exports": "^1.0.4",
     "cross-env": "^7.0.3",
     "del": "^6.0.0",
     "del-cli": "^4.0.0",
