@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [9.1.2](https://github.com/webpack-contrib/compression-webpack-plugin/compare/v9.1.0...v9.1.2) (2021-12-13)
+
+
+### Bug Fixes
+
+* types ([76009b7](https://github.com/webpack-contrib/compression-webpack-plugin/commit/76009b7ecd7495e56f9a59b60abfab4c20dca4b9))
+* types ([#276](https://github.com/webpack-contrib/compression-webpack-plugin/issues/276)) ([c5c3dba](https://github.com/webpack-contrib/compression-webpack-plugin/commit/c5c3dba72b91bb020c3c142c43f264869ccde3d1))
+
+### [9.1.1](https://github.com/webpack-contrib/compression-webpack-plugin/compare/v9.1.0...v9.1.1) (2021-12-09)
+
+
+### Bug Fixes
+
+* added `types` to `package.json` ([0acff90](https://github.com/webpack-contrib/compression-webpack-plugin/commit/0acff903ded3fae933e0cc2c9727e3637310f5af))
+
 ## [9.1.0](https://github.com/webpack-contrib/compression-webpack-plugin/compare/v9.0.1...v9.1.0) (2021-12-09)
 
 
