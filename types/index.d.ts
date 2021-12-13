@@ -7,6 +7,11 @@ export type Compilation = import("webpack").Compilation;
 export type Source = import("webpack").sources.Source;
 export type Asset = import("webpack").Asset;
 export type WebpackError = import("webpack").WebpackError;
+export type WithImplicitCoercion<T> =
+  | T
+  | {
+      valueOf(): T;
+    };
 export type Rule = RegExp | string;
 export type Rules = Rule[] | Rule;
 export type CustomOptions = {
@@ -17,7 +22,27 @@ export type CompressionOptions<T> = InferDefaultType<T>;
 export type AlgorithmFunction<T> = (
   input: Buffer,
   options: CompressionOptions<T>,
-  callback: (error: Error, result: string | Buffer) => void
+  callback: (
+    error: Error | null | undefined,
+    result:
+      | string
+      | ArrayBuffer
+      | SharedArrayBuffer
+      | Uint8Array
+      | readonly number[]
+      | {
+          valueOf(): ArrayBuffer | SharedArrayBuffer;
+        }
+      | {
+          valueOf(): string | Uint8Array | readonly number[];
+        }
+      | {
+          valueOf(): string;
+        }
+      | {
+          [Symbol.toPrimitive](hint: "string"): string;
+        }
+  ) => void
 ) => any;
 export type PathData = {
   [key: string]: any;
@@ -50,6 +75,10 @@ export type ZlibOptions = import("zlib").ZlibOptions;
 /** @typedef {import("webpack").sources.Source} Source */
 /** @typedef {import("webpack").Asset} Asset */
 /** @typedef {import("webpack").WebpackError} WebpackError */
+/**
+ * @template T
+ * @typedef {T | { valueOf(): T }} WithImplicitCoercion
+ */
 /** @typedef {RegExp | string} Rule */
 /** @typedef {Rule[] | Rule} Rules */
 /**
@@ -68,7 +97,7 @@ export type ZlibOptions = import("zlib").ZlibOptions;
  * @callback AlgorithmFunction
  * @param {Buffer} input
  * @param {CompressionOptions<T>} options
- * @param {(error: Error, result: string | Buffer) => void} callback
+ * @param {(error: Error | null | undefined, result: WithImplicitCoercion<ArrayBuffer | SharedArrayBuffer> | Uint8Array | ReadonlyArray<number> | WithImplicitCoercion<Uint8Array | ReadonlyArray<number> | string> | WithImplicitCoercion<string> | { [Symbol.toPrimitive](hint: 'string'): string }) => void} callback
  */
 /**
  * @typedef {{[key: string]: any}} PathData
