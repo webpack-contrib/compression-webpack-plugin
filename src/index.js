@@ -68,8 +68,6 @@ import schema from "./options.json";
  * @property {Rules} [test]
  * @property {Rules} [include]
  * @property {Rules} [exclude]
- * @property {string | AlgorithmFunction<T>} [algorithm]
- * @property {CompressionOptions<T>} [compressionOptions]
  * @property {number} [threshold]
  * @property {number} [minRatio]
  * @property {DeleteOriginalAssets} [deleteOriginalAssets]
@@ -77,12 +75,17 @@ import schema from "./options.json";
  */
 
 /**
- * @template T
- * @typedef {BasePluginOptions<T> & { compressionOptions: CompressionOptions<T>, threshold: number, minRatio: number, deleteOriginalAssets: DeleteOriginalAssets, filename: Filename }} InternalPluginOptions
+ * @typedef {import("zlib").ZlibOptions} ZlibOptions
  */
 
 /**
- * @typedef {import("zlib").ZlibOptions} ZlibOptions
+ * @template T
+ * @typedef {T extends ZlibOptions ? { algorithm?: string | AlgorithmFunction<T> | undefined, compressionOptions?: CompressionOptions<T> | undefined } : { algorithm: string | AlgorithmFunction<T>, compressionOptions?: CompressionOptions<T> | undefined }} DefinedDefaultAlgorithmAndOptions
+ */
+
+/**
+ * @template T
+ * @typedef {BasePluginOptions<T> & { algorithm: string | AlgorithmFunction<T>, compressionOptions: CompressionOptions<T>, threshold: number, minRatio: number, deleteOriginalAssets: DeleteOriginalAssets, filename: Filename }} InternalPluginOptions
  */
 
 /**
@@ -91,10 +94,10 @@ import schema from "./options.json";
  */
 class CompressionPlugin {
   /**
-   * @param {BasePluginOptions<T>} [options]
+   * @param {BasePluginOptions<T> & DefinedDefaultAlgorithmAndOptions<T>} [options]
    */
-  constructor(options = {}) {
-    validate(/** @type {Schema} */ (schema), options, {
+  constructor(options) {
+    validate(/** @type {Schema} */ (schema), options || {}, {
       name: "Compression Plugin",
       baseDataPath: "options",
     });
@@ -109,7 +112,7 @@ class CompressionPlugin {
       threshold = 0,
       minRatio = 0.8,
       deleteOriginalAssets = false,
-    } = options;
+    } = options || {};
 
     /**
      * @private
