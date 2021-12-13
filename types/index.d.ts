@@ -53,21 +53,29 @@ export type BasePluginOptions<T> = {
   test?: Rules | undefined;
   include?: Rules | undefined;
   exclude?: Rules | undefined;
-  algorithm?: string | AlgorithmFunction<T> | undefined;
-  compressionOptions?: InferDefaultType<T> | undefined;
   threshold?: number | undefined;
   minRatio?: number | undefined;
   deleteOriginalAssets?: DeleteOriginalAssets | undefined;
   filename?: Filename | undefined;
 };
+export type ZlibOptions = import("zlib").ZlibOptions;
+export type DefinedDefaultAlgorithmAndOptions<T> = T extends ZlibOptions
+  ? {
+      algorithm?: string | AlgorithmFunction<T> | undefined;
+      compressionOptions?: CompressionOptions<T> | undefined;
+    }
+  : {
+      algorithm: string | AlgorithmFunction<T>;
+      compressionOptions?: CompressionOptions<T> | undefined;
+    };
 export type InternalPluginOptions<T> = BasePluginOptions<T> & {
+  algorithm: string | AlgorithmFunction<T>;
   compressionOptions: CompressionOptions<T>;
   threshold: number;
   minRatio: number;
   deleteOriginalAssets: DeleteOriginalAssets;
   filename: Filename;
 };
-export type ZlibOptions = import("zlib").ZlibOptions;
 /** @typedef {import("schema-utils/declarations/validate").Schema} Schema */
 /** @typedef {import("webpack").Compiler} Compiler */
 /** @typedef {import("webpack").WebpackPluginInstance} WebpackPluginInstance */
@@ -114,19 +122,21 @@ export type ZlibOptions = import("zlib").ZlibOptions;
  * @property {Rules} [test]
  * @property {Rules} [include]
  * @property {Rules} [exclude]
- * @property {string | AlgorithmFunction<T>} [algorithm]
- * @property {CompressionOptions<T>} [compressionOptions]
  * @property {number} [threshold]
  * @property {number} [minRatio]
  * @property {DeleteOriginalAssets} [deleteOriginalAssets]
  * @property {Filename} [filename]
  */
 /**
- * @template T
- * @typedef {BasePluginOptions<T> & { compressionOptions: CompressionOptions<T>, threshold: number, minRatio: number, deleteOriginalAssets: DeleteOriginalAssets, filename: Filename }} InternalPluginOptions
+ * @typedef {import("zlib").ZlibOptions} ZlibOptions
  */
 /**
- * @typedef {import("zlib").ZlibOptions} ZlibOptions
+ * @template T
+ * @typedef {T extends ZlibOptions ? { algorithm?: string | AlgorithmFunction<T> | undefined, compressionOptions?: CompressionOptions<T> | undefined } : { algorithm: string | AlgorithmFunction<T>, compressionOptions?: CompressionOptions<T> | undefined }} DefinedDefaultAlgorithmAndOptions
+ */
+/**
+ * @template T
+ * @typedef {BasePluginOptions<T> & { algorithm: string | AlgorithmFunction<T>, compressionOptions: CompressionOptions<T>, threshold: number, minRatio: number, deleteOriginalAssets: DeleteOriginalAssets, filename: Filename }} InternalPluginOptions
  */
 /**
  * @template [T=ZlibOptions]
@@ -136,9 +146,13 @@ declare class CompressionPlugin<T = import("zlib").ZlibOptions>
   implements WebpackPluginInstance
 {
   /**
-   * @param {BasePluginOptions<T>} [options]
+   * @param {BasePluginOptions<T> & DefinedDefaultAlgorithmAndOptions<T>} [options]
    */
-  constructor(options?: BasePluginOptions<T> | undefined);
+  constructor(
+    options?:
+      | (BasePluginOptions<T> & DefinedDefaultAlgorithmAndOptions<T>)
+      | undefined
+  );
   /**
    * @private
    * @type {InternalPluginOptions<T>}
