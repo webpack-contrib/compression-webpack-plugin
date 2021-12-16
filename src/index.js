@@ -3,13 +3,13 @@
   Author Tobias Koppers @sokra
 */
 
-import path from "path";
-import crypto from "crypto";
+const path = require("path");
+const crypto = require("crypto");
 
-import { validate } from "schema-utils";
-import serialize from "serialize-javascript";
+const { validate } = require("schema-utils");
+const serialize = require("serialize-javascript");
 
-import schema from "./options.json";
+const schema = require("./options.json");
 
 /** @typedef {import("schema-utils/declarations/validate").Schema} Schema */
 /** @typedef {import("webpack").Compiler} Compiler */
@@ -432,4 +432,4 @@ class CompressionPlugin {
   }
 }
 
-export default CompressionPlugin;
+module.exports = CompressionPlugin;
