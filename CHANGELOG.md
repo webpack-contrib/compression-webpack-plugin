@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [9.2.0](https://github.com/webpack-contrib/compression-webpack-plugin/compare/v9.1.2...v9.2.0) (2021-12-16)
+
+
+### Features
+
+* removed cjs wrapper and generated types in commonjs format (`export =` and `namespaces` used in types), now you can directly use exported types ([#277](https://github.com/webpack-contrib/compression-webpack-plugin/issues/277)) ([8664d36](https://github.com/webpack-contrib/compression-webpack-plugin/commit/8664d36f2ea36afc52cc01998f543c055dc1da15))
+
 ### [9.1.2](https://github.com/webpack-contrib/compression-webpack-plugin/compare/v9.1.0...v9.1.2) (2021-12-13)
 
 
