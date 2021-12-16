@@ -1,81 +1,5 @@
 /// <reference types="node" />
-export default CompressionPlugin;
-export type Schema = import("schema-utils/declarations/validate").Schema;
-export type Compiler = import("webpack").Compiler;
-export type WebpackPluginInstance = import("webpack").WebpackPluginInstance;
-export type Compilation = import("webpack").Compilation;
-export type Source = import("webpack").sources.Source;
-export type Asset = import("webpack").Asset;
-export type WebpackError = import("webpack").WebpackError;
-export type WithImplicitCoercion<T> =
-  | T
-  | {
-      valueOf(): T;
-    };
-export type Rule = RegExp | string;
-export type Rules = Rule[] | Rule;
-export type CustomOptions = {
-  [key: string]: any;
-};
-export type InferDefaultType<T> = T extends infer U ? U : CustomOptions;
-export type CompressionOptions<T> = InferDefaultType<T>;
-export type AlgorithmFunction<T> = (
-  input: Buffer,
-  options: CompressionOptions<T>,
-  callback: (
-    error: Error | null | undefined,
-    result:
-      | string
-      | ArrayBuffer
-      | SharedArrayBuffer
-      | Uint8Array
-      | readonly number[]
-      | {
-          valueOf(): ArrayBuffer | SharedArrayBuffer;
-        }
-      | {
-          valueOf(): string | Uint8Array | readonly number[];
-        }
-      | {
-          valueOf(): string;
-        }
-      | {
-          [Symbol.toPrimitive](hint: "string"): string;
-        }
-  ) => void
-) => any;
-export type PathData = {
-  [key: string]: any;
-};
-export type Filename = string | ((fileData: PathData) => string);
-export type DeleteOriginalAssets = boolean | "keep-source-map";
-export type BasePluginOptions<T> = {
-  test?: Rules | undefined;
-  include?: Rules | undefined;
-  exclude?: Rules | undefined;
-  threshold?: number | undefined;
-  minRatio?: number | undefined;
-  deleteOriginalAssets?: DeleteOriginalAssets | undefined;
-  filename?: Filename | undefined;
-};
-export type ZlibOptions = import("zlib").ZlibOptions;
-export type DefinedDefaultAlgorithmAndOptions<T> = T extends ZlibOptions
-  ? {
-      algorithm?: string | AlgorithmFunction<T> | undefined;
-      compressionOptions?: CompressionOptions<T> | undefined;
-    }
-  : {
-      algorithm: string | AlgorithmFunction<T>;
-      compressionOptions?: CompressionOptions<T> | undefined;
-    };
-export type InternalPluginOptions<T> = BasePluginOptions<T> & {
-  algorithm: string | AlgorithmFunction<T>;
-  compressionOptions: CompressionOptions<T>;
-  threshold: number;
-  minRatio: number;
-  deleteOriginalAssets: DeleteOriginalAssets;
-  filename: Filename;
-};
+export = CompressionPlugin;
 /** @typedef {import("schema-utils/declarations/validate").Schema} Schema */
 /** @typedef {import("webpack").Compiler} Compiler */
 /** @typedef {import("webpack").WebpackPluginInstance} WebpackPluginInstance */
@@ -183,3 +107,104 @@ declare class CompressionPlugin<T = import("zlib").ZlibOptions>
    */
   apply(compiler: Compiler): void;
 }
+declare namespace CompressionPlugin {
+  export {
+    Schema,
+    Compiler,
+    WebpackPluginInstance,
+    Compilation,
+    Source,
+    Asset,
+    WebpackError,
+    WithImplicitCoercion,
+    Rule,
+    Rules,
+    CustomOptions,
+    InferDefaultType,
+    CompressionOptions,
+    AlgorithmFunction,
+    PathData,
+    Filename,
+    DeleteOriginalAssets,
+    BasePluginOptions,
+    ZlibOptions,
+    DefinedDefaultAlgorithmAndOptions,
+    InternalPluginOptions,
+  };
+}
+type WebpackPluginInstance = import("webpack").WebpackPluginInstance;
+type Compiler = import("webpack").Compiler;
+type BasePluginOptions<T> = {
+  test?: Rules | undefined;
+  include?: Rules | undefined;
+  exclude?: Rules | undefined;
+  threshold?: number | undefined;
+  minRatio?: number | undefined;
+  deleteOriginalAssets?: DeleteOriginalAssets | undefined;
+  filename?: Filename | undefined;
+};
+type DefinedDefaultAlgorithmAndOptions<T> = T extends ZlibOptions
+  ? {
+      algorithm?: string | AlgorithmFunction<T> | undefined;
+      compressionOptions?: CompressionOptions<T> | undefined;
+    }
+  : {
+      algorithm: string | AlgorithmFunction<T>;
+      compressionOptions?: CompressionOptions<T> | undefined;
+    };
+type Schema = import("schema-utils/declarations/validate").Schema;
+type Compilation = import("webpack").Compilation;
+type Source = import("webpack").sources.Source;
+type Asset = import("webpack").Asset;
+type WebpackError = import("webpack").WebpackError;
+type WithImplicitCoercion<T> =
+  | T
+  | {
+      valueOf(): T;
+    };
+type Rule = RegExp | string;
+type Rules = Rule[] | Rule;
+type CustomOptions = {
+  [key: string]: any;
+};
+type InferDefaultType<T> = T extends infer U ? U : CustomOptions;
+type CompressionOptions<T> = InferDefaultType<T>;
+type AlgorithmFunction<T> = (
+  input: Buffer,
+  options: CompressionOptions<T>,
+  callback: (
+    error: Error | null | undefined,
+    result:
+      | string
+      | ArrayBuffer
+      | SharedArrayBuffer
+      | Uint8Array
+      | readonly number[]
+      | {
+          valueOf(): ArrayBuffer | SharedArrayBuffer;
+        }
+      | {
+          valueOf(): string | Uint8Array | readonly number[];
+        }
+      | {
+          valueOf(): string;
+        }
+      | {
+          [Symbol.toPrimitive](hint: "string"): string;
+        }
+  ) => void
+) => any;
+type PathData = {
+  [key: string]: any;
+};
+type Filename = string | ((fileData: PathData) => string);
+type DeleteOriginalAssets = boolean | "keep-source-map";
+type ZlibOptions = import("zlib").ZlibOptions;
+type InternalPluginOptions<T> = BasePluginOptions<T> & {
+  algorithm: string | AlgorithmFunction<T>;
+  compressionOptions: CompressionOptions<T>;
+  threshold: number;
+  minRatio: number;
+  deleteOriginalAssets: DeleteOriginalAssets;
+  filename: Filename;
+};
