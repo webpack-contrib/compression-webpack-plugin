@@ -312,7 +312,7 @@ module.exports = {
   plugins: [
     new CompressionPlugin({
       exclude: /.map$/,
-      deleteOriginalAssets: 'keep-source-map',
+      deleteOriginalAssets: "keep-source-map",
     }),
   ],
 };
