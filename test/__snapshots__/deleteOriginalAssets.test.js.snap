@@ -30,20 +30,20 @@ Array [
     },
   ],
   Array [
-    "main.002d7636573d18d7a564.js",
-    4048,
+    "main.205f834d0dd9bb2d7960.js",
+    4045,
     Object {
       "compressed": true,
       "immutable": true,
-      "size": 4048,
+      "size": 4045,
     },
   ],
   Array [
-    "main.002d7636573d18d7a564.js.map",
-    13064,
+    "main.205f834d0dd9bb2d7960.js.map",
+    13060,
     Object {
       "development": true,
-      "size": 13064,
+      "size": 13060,
     },
   ],
 ]
@@ -83,12 +83,12 @@ Array [
     },
   ],
   Array [
-    "main.321e08ae64316e7496a3.js.gz",
-    4004,
+    "main.65eb86fafc0ecd0e4fc3.js.gz",
+    4002,
     Object {
       "compressed": true,
       "immutable": true,
-      "size": 4004,
+      "size": 4002,
     },
   ],
 ]
@@ -128,12 +128,12 @@ Array [
     },
   ],
   Array [
-    "main.321e08ae64316e7496a3.js",
-    4004,
+    "main.65eb86fafc0ecd0e4fc3.js",
+    4002,
     Object {
       "compressed": true,
       "immutable": true,
-      "size": 4004,
+      "size": 4002,
     },
   ],
 ]
@@ -198,25 +198,25 @@ Array [
     },
   ],
   Array [
-    "main.321e08ae64316e7496a3.js",
-    16052,
+    "main.65eb86fafc0ecd0e4fc3.js",
+    16048,
     Object {
-      "chunkhash": "321e08ae64316e7496a3",
+      "chunkhash": "65eb86fafc0ecd0e4fc3",
       "immutable": true,
       "javascriptModule": false,
       "related": Object {
-        "gzipped": "main.321e08ae64316e7496a3.js.gz",
+        "gzipped": "main.65eb86fafc0ecd0e4fc3.js.gz",
       },
-      "size": 16052,
+      "size": 16048,
     },
   ],
   Array [
-    "main.321e08ae64316e7496a3.js.gz",
-    4004,
+    "main.65eb86fafc0ecd0e4fc3.js.gz",
+    4002,
     Object {
       "compressed": true,
       "immutable": true,
-      "size": 4004,
+      "size": 4002,
     },
   ],
 ]
@@ -293,25 +293,25 @@ Array [
     },
   ],
   Array [
-    "main.321e08ae64316e7496a3.js",
-    16052,
+    "main.65eb86fafc0ecd0e4fc3.js",
+    16048,
     Object {
-      "chunkhash": "321e08ae64316e7496a3",
+      "chunkhash": "65eb86fafc0ecd0e4fc3",
       "immutable": true,
       "javascriptModule": false,
       "related": Object {
-        "gzipped": "main.321e08ae64316e7496a3.js.gz",
+        "gzipped": "main.65eb86fafc0ecd0e4fc3.js.gz",
       },
-      "size": 16052,
+      "size": 16048,
     },
   ],
   Array [
-    "main.321e08ae64316e7496a3.js.gz",
-    4004,
+    "main.65eb86fafc0ecd0e4fc3.js.gz",
+    4002,
     Object {
       "compressed": true,
       "immutable": true,
-      "size": 4004,
+      "size": 4002,
     },
   ],
 ]
@@ -351,12 +351,12 @@ Array [
     },
   ],
   Array [
-    "main.321e08ae64316e7496a3.js",
-    4004,
+    "main.65eb86fafc0ecd0e4fc3.js",
+    4002,
     Object {
       "compressed": true,
       "immutable": true,
-      "size": 4004,
+      "size": 4002,
     },
   ],
 ]
@@ -366,7 +366,7 @@ exports[`"deleteOriginalAssets" option should work and report errors on duplicat
 Array [
   "Error: Conflict: Multiple assets emit different content to the same filename 23fc1d3ac606d117e05a140e0de79806.svg",
   "Error: Conflict: Multiple assets emit different content to the same filename async.async.55e6e9a872bcc7d4b226.js",
-  "Error: Conflict: Multiple assets emit different content to the same filename main.321e08ae64316e7496a3.js",
+  "Error: Conflict: Multiple assets emit different content to the same filename main.65eb86fafc0ecd0e4fc3.js",
 ]
 `;
 
