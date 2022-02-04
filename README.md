@@ -21,7 +21,19 @@ Prepare compressed versions of assets to serve them with Content-Encoding.
 To begin, you'll need to install `compression-webpack-plugin`:
 
 ```console
-$ npm install compression-webpack-plugin --save-dev
+npm install compression-webpack-plugin --save-dev
+```
+
+or
+
+```console
+yarn add -D compression-webpack-plugin
+```
+
+or
+
+```console
+pnpm add -D compression-webpack-plugin
 ```
 
 Then add the plugin to your `webpack` config. For example:
