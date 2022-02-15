@@ -108,7 +108,9 @@ class CompressionPlugin {
       exclude,
       algorithm = "gzip",
       compressionOptions = /** @type {CompressionOptions<T>} */ ({}),
-      filename = "[path][base].gz",
+      filename = (options || {}).algorithm === "brotliCompress"
+        ? "[path][base].br"
+        : "[path][base].gz",
       threshold = 0,
       minRatio = 0.8,
       deleteOriginalAssets = false,
