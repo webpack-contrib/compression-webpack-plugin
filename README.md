@@ -52,21 +52,24 @@ And run `webpack` via your preferred method.
 
 ## Options
 
-|                        Name                         |                   Type                    |                            Default                            | Description                                                                                                   |
-| :-------------------------------------------------: | :---------------------------------------: | :-----------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------ |
-|                 **[`test`](#test)**                 | `{String\|RegExp\|Array<String\|RegExp>}` |                          `undefined`                          | Include all assets that pass test assertion                                                                   |
-|              **[`include`](#include)**              | `{String\|RegExp\|Array<String\|RegExp>}` |                          `undefined`                          | Include all assets matching any of these conditions                                                           |
-|              **[`exclude`](#exclude)**              | `{String\|RegExp\|Array<String\|RegExp>}` |                          `undefined`                          | Exclude all assets matching any of these conditions                                                           |
-|            **[`algorithm`](#algorithm)**            |           `{String\|Function}`            |                            `gzip`                             | The compression algorithm/function                                                                            |
-|   **[`compressionOptions`](#compressionoptions)**   |                `{Object}`                 | maximum available compression level, for gzip: `{ level: 9 }` | Compression options for `algorithm`                                                                           |
-|            **[`threshold`](#threshold)**            |                `{Number}`                 |                              `0`                              | Only assets bigger than this size are processed (in bytes)                                                    |
-|             **[`minRatio`](#minratio)**             |                `{Number}`                 |                             `0.8`                             | Only assets that compress better than this ratio are processed (`minRatio = Compressed Size / Original Size`) |
-|             **[`filename`](#filename)**             |           `{String\|Function}`            |                       `[path][base].gz`                       | The target asset filename                                                                                     |
-| **[`deleteOriginalAssets`](#deleteoriginalassets)** |      `{Boolean\|'keep-source-map'}`       |                            `false`                            | Whether to delete the original assets or not                                                                  |
+- **[`test`](#test)**
+- **[`include`](#include)**
+- **[`exclude`](#exclude)**
+- **[`algorithm`](#algorithm)**
+- **[`compressionOptions`](#compressionoptions)**
+- **[`threshold`](#threshold)**
+- **[`minRatio`](#minratio)**
+- **[`filename`](#filename)**
+- **[`deleteOriginalAssets`](#deleteoriginalassets)**
 
 ### `test`
 
-Type: `String|RegExp|Array<String|RegExp>`
+Type:
+
+```ts
+type test = string | RegExp | Array<string | RegExp>;
+```
+
 Default: `undefined`
 
 Include all assets that pass test assertion.
@@ -85,7 +88,12 @@ module.exports = {
 
 ### `include`
 
-Type: `String|RegExp|Array<String|RegExp>`
+Type:
+
+```ts
+type include = string | RegExp | Array<string | RegExp>;
+```
+
 Default: `undefined`
 
 Include all assets matching any of these conditions.
@@ -104,7 +112,12 @@ module.exports = {
 
 ### `exclude`
 
-Type: `String|RegExp|Array<String|RegExp>`
+Type:
+
+```ts
+type exclude = string | RegExp | Array<string | RegExp>;
+```
+
 Default: `undefined`
 
 Exclude all assets matching any of these conditions.
@@ -123,14 +136,19 @@ module.exports = {
 
 ### `algorithm`
 
-Type: `String|Function`
+Type:
+
+```ts
+type algorithm = string | Function;
+```
+
 Default: `gzip`
 
 The compression algorithm/function.
 
 > ℹ️ If you use custom function for the `algorithm` option, the default value of the `compressionOptions` option is `{}`.
 
-#### `String`
+#### `string`
 
 The algorithm is taken from [zlib](https://nodejs.org/api/zlib.html).
 
@@ -146,7 +164,7 @@ module.exports = {
 };
 ```
 
-#### `Function`
+#### `function`
 
 Allow to specify a custom compression function.
 
@@ -166,7 +184,23 @@ module.exports = {
 
 ### `compressionOptions`
 
-Type: `Object`
+Type:
+
+```ts
+type compressionOptions = {
+  flush?: number;
+  finishFlush?: number;
+  chunkSize?: number;
+  windowBits?: number;
+  level?: number;
+  memLevel?: number;
+  strategy?: number;
+  dictionary?: Buffer | TypedArray | DataView | ArrayBuffer;
+  info?: boolean;
+  maxOutputLength?: number;
+};
+```
+
 Default: `{ level: 9 }`
 
 Compression options for `algorithm`.
@@ -189,7 +223,12 @@ module.exports = {
 
 ### `threshold`
 
-Type: `Number`
+Type:
+
+```ts
+type threshold = number;
+```
+
 Default: `0`
 
 Only assets bigger than this size are processed. In bytes.
@@ -208,7 +247,12 @@ module.exports = {
 
 ### `minRatio`
 
-Type: `Number`
+Type:
+
+```ts
+type minRatio = number;
+```
+
 Default: `0.8`
 
 Only assets that compress better than this ratio are processed (`minRatio = Compressed Size / Original Size`).
@@ -241,12 +285,17 @@ module.exports = {
 
 ### `filename`
 
-Type: `String|Function`
+Type:
+
+```ts
+type filename = string | ((pathdata: PathData) => string);
+```
+
 Default: `"[path][base].gz"`
 
 The target asset filename.
 
-#### `String`
+#### `string`
 
 For example we have `assets/images/image.png?foo=bar#hash`:
 
@@ -276,7 +325,7 @@ module.exports = {
 };
 ```
 
-#### `Function`
+#### `function`
 
 **webpack.config.js**
 
@@ -300,7 +349,12 @@ module.exports = {
 
 ### `deleteOriginalAssets`
 
-Type: `Boolean | 'keep-source-map'`
+Type:
+
+```ts
+type deleteOriginalAssets = boolean | "keep-source-map";
+```
+
 Default: `false`
 
 Whether to delete the original assets or not.
