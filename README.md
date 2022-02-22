@@ -139,7 +139,33 @@ module.exports = {
 Type:
 
 ```ts
-type algorithm = string | Function;
+type algorithm =
+  | string
+  | ((
+      input: Buffer,
+      options: CompressionOptions,
+      callback: (
+        error: Error | null | undefined,
+        result:
+          | string
+          | ArrayBuffer
+          | SharedArrayBuffer
+          | Uint8Array
+          | readonly number[]
+          | {
+              valueOf(): ArrayBuffer | SharedArrayBuffer;
+            }
+          | {
+              valueOf(): string | Uint8Array | readonly number[];
+            }
+          | {
+              valueOf(): string;
+            }
+          | {
+              [Symbol.toPrimitive](hint: "string"): string;
+            }
+      ) => void
+    ) => any);
 ```
 
 Default: `gzip`
