@@ -14,7 +14,7 @@
   "main": "dist/index.js",
   "types": "types/index.d.ts",
   "engines": {
-    "node": ">= 14.16.0"
+    "node": ">= 14.15.0"
   },
   "scripts": {
     "start": "npm run build -- -w",
@@ -52,8 +52,8 @@
     "@babel/cli": "^7.17.10",
     "@babel/core": "^7.17.10",
     "@babel/preset-env": "^7.17.10",
-    "@commitlint/cli": "^16.2.4",
-    "@commitlint/config-conventional": "^16.2.4",
+    "@commitlint/cli": "^17.0.0",
+    "@commitlint/config-conventional": "^17.0.0",
     "@gfx/zopfli": "^1.0.15",
     "@types/serialize-javascript": "^5.0.2",
     "@webpack-contrib/eslint-config-webpack": "^3.0.0",
