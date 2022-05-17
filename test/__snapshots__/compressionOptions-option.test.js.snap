@@ -207,14 +207,14 @@ Array [
     Object {
       "immutable": true,
       "related": Object {
-        "brotliCompressed": "23fc1d3ac606d117e05a140e0de79806.svg.gz",
+        "brotliCompressed": "23fc1d3ac606d117e05a140e0de79806.svg.br",
       },
       "size": 672,
       "sourceFilename": "icon.svg",
     },
   ],
   Array [
-    "23fc1d3ac606d117e05a140e0de79806.svg.gz",
+    "23fc1d3ac606d117e05a140e0de79806.svg.br",
     363,
     Object {
       "compressed": true,
@@ -230,13 +230,13 @@ Array [
       "immutable": true,
       "javascriptModule": false,
       "related": Object {
-        "brotliCompressed": "async.async.55e6e9a872bcc7d4b226.js.gz",
+        "brotliCompressed": "async.async.55e6e9a872bcc7d4b226.js.br",
       },
       "size": 194,
     },
   ],
   Array [
-    "async.async.55e6e9a872bcc7d4b226.js.gz",
+    "async.async.55e6e9a872bcc7d4b226.js.br",
     123,
     Object {
       "compressed": true,
@@ -252,13 +252,13 @@ Array [
       "immutable": true,
       "javascriptModule": false,
       "related": Object {
-        "brotliCompressed": "main.65eb86fafc0ecd0e4fc3.js.gz",
+        "brotliCompressed": "main.65eb86fafc0ecd0e4fc3.js.br",
       },
       "size": 16048,
     },
   ],
   Array [
-    "main.65eb86fafc0ecd0e4fc3.js.gz",
+    "main.65eb86fafc0ecd0e4fc3.js.br",
     3505,
     Object {
       "compressed": true,
