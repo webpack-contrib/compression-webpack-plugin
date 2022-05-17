@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [10.0.0](https://github.com/webpack-contrib/compression-webpack-plugin/compare/v9.2.0...v10.0.0) (2022-05-17)
+
+
+### ⚠ BREAKING CHANGES
+
+* default filename is `[path][base].br` for brotli (#286)
+* minimum supported `Node.js` version is `14.15.0` (#301)
+
+### Bug Fixes
+
+* default filename is `[path][base].br` for brotli ([#286](https://github.com/webpack-contrib/compression-webpack-plugin/issues/286)) ([db04e14](https://github.com/webpack-contrib/compression-webpack-plugin/commit/db04e144f2beb4ff0993a007c11d51ade70cc741))
+
+
+* minimum supported `Node.js` version is `14.15.0` ([#301](https://github.com/webpack-contrib/compression-webpack-plugin/issues/301)) ([5db3255](https://github.com/webpack-contrib/compression-webpack-plugin/commit/5db32551830f58bb52c990c8ea94e0e4bd8efee6))
+
 ## [9.2.0](https://github.com/webpack-contrib/compression-webpack-plugin/compare/v9.1.2...v9.2.0) (2021-12-16)
 
 
