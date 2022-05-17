@@ -267,10 +267,7 @@ class CompressionPlugin {
               const index = filenameForRelatedName.indexOf("?");
 
               if (index >= 0) {
-                filenameForRelatedName = filenameForRelatedName.substr(
-                  0,
-                  index
-                );
+                filenameForRelatedName = filenameForRelatedName.slice(0, index);
               }
 
               relatedName = `${path
