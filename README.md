@@ -171,7 +171,9 @@ Default: `gzip`
 
 The compression algorithm/function.
 
-> ℹ️ If you use custom function for the `algorithm` option, the default value of the `compressionOptions` option is `{}`.
+> **Note**
+>
+> If you use custom function for the `algorithm` option, the default value of the `compressionOptions` option is `{}`.
 
 #### `string`
 
@@ -232,7 +234,9 @@ Compression options for `algorithm`.
 
 You can find all options here [zlib](https://nodejs.org/api/zlib.html#zlib_class_options).
 
-> ℹ️ If you use custom function for the `algorithm` option, the default value is `{}`.
+> **Note**
+>
+> If you use custom function for the `algorithm` option, the default value is `{}`.
 
 **webpack.config.js**
 
@@ -415,7 +419,9 @@ module.exports = {
 
 Prepare compressed versions of assets using `zopfli` library.
 
-> ℹ️ `@gfx/zopfli` require minimum `8` version of `node`.
+> **Note**
+>
+> `@gfx/zopfli` require minimum `8` version of `node`.
 
 To begin, you'll need to install `@gfx/zopfli`:
 
