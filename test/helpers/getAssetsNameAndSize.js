@@ -1,8 +1,8 @@
-import zlib from "zlib";
+const zlib = require("zlib");
 
-import { readAsset } from "./index";
+const readAsset = require("./readAsset");
 
-export default (stats, compiler) => {
+module.exports = (stats, compiler) => {
   const { assets, assetsInfo } = stats.compilation;
 
   return Object.keys(assets)

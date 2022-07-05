@@ -1,12 +1,12 @@
-import zlib from "zlib";
-import path from "path";
+const zlib = require("zlib");
+const path = require("path");
 
-import { GenerateSW, InjectManifest } from "workbox-webpack-plugin";
-import { StatsWriterPlugin } from "webpack-stats-plugin";
+const { GenerateSW, InjectManifest } = require("workbox-webpack-plugin");
+const { StatsWriterPlugin } = require("webpack-stats-plugin");
 
-import CompressionPlugin from "../src/index";
+const CompressionPlugin = require("../src/index");
 
-import {
+const {
   compile,
   CopyPluginWithAssetInfo,
   ModifyExistingAsset,
@@ -15,7 +15,7 @@ import {
   getCompiler,
   getErrors,
   getWarnings,
-} from "./helpers/index";
+} = require("./helpers/index");
 
 describe("CompressionPlugin", () => {
   it("should work", async () => {
@@ -104,7 +104,7 @@ describe("CompressionPlugin", () => {
 
     const stats = await compile(compiler);
 
-    expect(gzipSpy).toHaveBeenCalledTimes(5);
+    expect(gzipSpy).toHaveBeenCalledTimes(4);
     expect(getAssetsNameAndSize(stats, compiler)).toMatchSnapshot("assets");
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -171,7 +171,7 @@ describe("CompressionPlugin", () => {
     const stringStats = stats.toString({ relatedAssets: true });
     const printedCompressed = stringStats.match(/\[compressed]/g);
 
-    expect(printedCompressed ? printedCompressed.length : 0).toBe(3);
+    expect(printedCompressed ? printedCompressed.length : 0).toBe(2);
     expect(getAssetsNameAndSize(stats, compiler)).toMatchSnapshot("assets");
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
@@ -211,7 +211,7 @@ describe("CompressionPlugin", () => {
 
     const stats = await compile(compiler);
 
-    expect(stats.compilation.emittedAssets.size).toBe(7);
+    expect(stats.compilation.emittedAssets.size).toBe(5);
 
     expect(getAssetsNameAndSize(stats, compiler)).toMatchSnapshot("assets");
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
@@ -250,7 +250,7 @@ describe("CompressionPlugin", () => {
 
     const stats = await compile(compiler);
 
-    expect(stats.compilation.emittedAssets.size).toBe(7);
+    expect(stats.compilation.emittedAssets.size).toBe(5);
 
     expect(getAssetsNameAndSize(stats, compiler)).toMatchSnapshot("assets");
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
@@ -289,7 +289,7 @@ describe("CompressionPlugin", () => {
 
     const stats = await compile(compiler);
 
-    expect(stats.compilation.emittedAssets.size).toBe(7);
+    expect(stats.compilation.emittedAssets.size).toBe(5);
 
     expect(getAssetsNameAndSize(stats, compiler)).toMatchSnapshot("assets");
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
@@ -335,7 +335,7 @@ describe("CompressionPlugin", () => {
 
     const stats = await compile(compiler);
 
-    expect(stats.compilation.emittedAssets.size).toBe(7);
+    expect(stats.compilation.emittedAssets.size).toBe(5);
 
     expect(getAssetsNameAndSize(stats, compiler)).toMatchSnapshot("assets");
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
@@ -391,7 +391,7 @@ describe("CompressionPlugin", () => {
 
     const stats = await compile(compiler);
 
-    expect(stats.compilation.emittedAssets.size).toBe(14);
+    expect(stats.compilation.emittedAssets.size).toBe(10);
 
     expect(getAssetsNameAndSize(stats, compiler)).toMatchSnapshot("assets");
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
@@ -432,7 +432,7 @@ describe("CompressionPlugin", () => {
 
     const stats = await compile(compiler);
 
-    expect(stats.compilation.emittedAssets.size).toBe(7);
+    expect(stats.compilation.emittedAssets.size).toBe(5);
 
     expect(getAssetsNameAndSize(stats, compiler)).toMatchSnapshot("assets");
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
@@ -441,7 +441,7 @@ describe("CompressionPlugin", () => {
     await new Promise(async (resolve) => {
       const newStats = await compile(compiler);
 
-      expect(newStats.compilation.emittedAssets.size).toBe(7);
+      expect(newStats.compilation.emittedAssets.size).toBe(5);
 
       expect(getAssetsNameAndSize(newStats, compiler)).toMatchSnapshot(
         "assets"

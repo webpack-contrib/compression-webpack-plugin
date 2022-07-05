@@ -1,5 +1,5 @@
-import empty from './empty.txt';
+const empty = require('./empty.txt');
 
 const foo = 'bar';
 
-export { empty, foo }
+module.exports = { empty, foo }

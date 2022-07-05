@@ -1,3 +1,3 @@
-import { precacheAndRoute } from 'workbox-precaching/precacheAndRoute';
+const { precacheAndRoute } = require('workbox-precaching/precacheAndRoute');
 
 precacheAndRoute(self.__WB_MANIFEST);

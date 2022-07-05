@@ -1,4 +1,4 @@
-export default class CopyPluginWithAssetInfo {
+module.exports = class CopyPluginWithAssetInfo {
   apply(compiler) {
     const plugin = { name: this.constructor.name };
     const { RawSource } = compiler.webpack.sources;
@@ -12,4 +12,4 @@ export default class CopyPluginWithAssetInfo {
       });
     });
   }
-}
+};

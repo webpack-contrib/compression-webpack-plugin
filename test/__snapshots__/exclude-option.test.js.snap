@@ -33,47 +33,25 @@ Array [
     },
   ],
   Array [
-    "async.async.js.gz",
-    134,
-    Object {
-      "compressed": true,
-      "immutable": true,
-      "size": 134,
-    },
-  ],
-  Array [
-    "async.async.js?ver=611cf1926c28415ef007",
-    194,
-    Object {
-      "fullhash": "611cf1926c28415ef007",
-      "immutable": true,
-      "javascriptModule": false,
-      "related": Object {
-        "gzipped": "async.async.js.gz",
-      },
-      "size": 194,
-    },
-  ],
-  Array [
     "main.js.gz",
-    4028,
+    1660,
     Object {
       "compressed": true,
       "immutable": true,
-      "size": 4028,
+      "size": 1660,
     },
   ],
   Array [
-    "main.js?var=611cf1926c28415ef007",
-    16209,
+    "main.js?var=84068698136b49426631",
+    6127,
     Object {
-      "fullhash": "611cf1926c28415ef007",
+      "fullhash": "84068698136b49426631",
       "immutable": true,
       "javascriptModule": false,
       "related": Object {
         "gzipped": "main.js.gz",
       },
-      "size": 16209,
+      "size": 6127,
     },
   ],
 ]
@@ -104,47 +82,25 @@ Array [
     },
   ],
   Array [
-    "async.async.js.gz",
-    134,
-    Object {
-      "compressed": true,
-      "immutable": true,
-      "size": 134,
-    },
-  ],
-  Array [
-    "async.async.js?ver=611cf1926c28415ef007",
-    194,
-    Object {
-      "fullhash": "611cf1926c28415ef007",
-      "immutable": true,
-      "javascriptModule": false,
-      "related": Object {
-        "gzipped": "async.async.js.gz",
-      },
-      "size": 194,
-    },
-  ],
-  Array [
     "main.js.gz",
-    4028,
+    1660,
     Object {
       "compressed": true,
       "immutable": true,
-      "size": 4028,
+      "size": 1660,
     },
   ],
   Array [
-    "main.js?var=611cf1926c28415ef007",
-    16209,
+    "main.js?var=84068698136b49426631",
+    6127,
     Object {
-      "fullhash": "611cf1926c28415ef007",
+      "fullhash": "84068698136b49426631",
       "immutable": true,
       "javascriptModule": false,
       "related": Object {
         "gzipped": "main.js.gz",
       },
-      "size": 16209,
+      "size": 6127,
     },
   ],
 ]

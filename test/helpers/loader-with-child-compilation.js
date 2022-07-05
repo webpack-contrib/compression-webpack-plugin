@@ -1,6 +1,6 @@
-import CopyPluginWithAssetInfo from "./CopyPluginWithAssetInfo";
+const CopyPluginWithAssetInfo = require("./CopyPluginWithAssetInfo");
 
-export default function loader() {
+module.exports = function loader() {
   const callback = this.async();
 
   const childCompiler = this._compilation.createChildCompiler(
@@ -15,6 +15,6 @@ export default function loader() {
       return callback(error);
     }
 
-    return callback(null, "export default 1");
+    return callback(null, "module.exports = 1");
   });
-}
+};

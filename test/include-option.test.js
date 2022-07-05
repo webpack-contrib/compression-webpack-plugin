@@ -1,12 +1,12 @@
-import CompressionPlugin from "../src/index";
+const CompressionPlugin = require("../src/index");
 
-import {
+const {
   compile,
   getAssetsNameAndSize,
   getCompiler,
   getErrors,
   getWarnings,
-} from "./helpers/index";
+} = require("./helpers/index");
 
 describe('"include" option', () => {
   let compiler;

@@ -45,47 +45,25 @@ Array [
     },
   ],
   Array [
-    "async.async.js?ver=611cf1926c28415ef007",
-    194,
+    "main.js?var=84068698136b49426631",
+    6127,
     Object {
-      "fullhash": "611cf1926c28415ef007",
+      "fullhash": "84068698136b49426631",
       "immutable": true,
       "javascriptModule": false,
       "related": Object {
-        "gzipped": "async.async.super-compressed.js.gz?ver=611cf1926c28415ef007",
+        "gzipped": "main.super-compressed.js.gz?var=84068698136b49426631",
       },
-      "size": 194,
+      "size": 6127,
     },
   ],
   Array [
-    "async.async.super-compressed.js.gz?ver=611cf1926c28415ef007",
-    134,
+    "main.super-compressed.js.gz?var=84068698136b49426631",
+    1660,
     Object {
       "compressed": true,
       "immutable": true,
-      "size": 134,
-    },
-  ],
-  Array [
-    "main.js?var=611cf1926c28415ef007",
-    16209,
-    Object {
-      "fullhash": "611cf1926c28415ef007",
-      "immutable": true,
-      "javascriptModule": false,
-      "related": Object {
-        "gzipped": "main.super-compressed.js.gz?var=611cf1926c28415ef007",
-      },
-      "size": 16209,
-    },
-  ],
-  Array [
-    "main.super-compressed.js.gz?var=611cf1926c28415ef007",
-    4028,
-    Object {
-      "compressed": true,
-      "immutable": true,
-      "size": 4028,
+      "size": 1660,
     },
   ],
 ]
@@ -140,47 +118,25 @@ Array [
     },
   ],
   Array [
-    "assets/js/async.async.js.super-compressed.gz?ver=566a803494f8ccb50e64#hash",
-    134,
+    "assets/js/main.js.super-compressed.gz?var=8fd9de2e8d35ee79931e#hash",
+    1666,
     Object {
       "compressed": true,
       "immutable": true,
-      "size": 134,
+      "size": 1666,
     },
   ],
   Array [
-    "assets/js/async.async.js?ver=566a803494f8ccb50e64#hash",
-    194,
+    "assets/js/main.js?var=8fd9de2e8d35ee79931e#hash",
+    6138,
     Object {
-      "fullhash": "566a803494f8ccb50e64",
+      "fullhash": "8fd9de2e8d35ee79931e",
       "immutable": true,
       "javascriptModule": false,
       "related": Object {
-        "gzipped": "assets/js/async.async.js.super-compressed.gz?ver=566a803494f8ccb50e64#hash",
+        "gzipped": "assets/js/main.js.super-compressed.gz?var=8fd9de2e8d35ee79931e#hash",
       },
-      "size": 194,
-    },
-  ],
-  Array [
-    "assets/js/main.js.super-compressed.gz?var=566a803494f8ccb50e64#hash",
-    4047,
-    Object {
-      "compressed": true,
-      "immutable": true,
-      "size": 4047,
-    },
-  ],
-  Array [
-    "assets/js/main.js?var=566a803494f8ccb50e64#hash",
-    16235,
-    Object {
-      "fullhash": "566a803494f8ccb50e64",
-      "immutable": true,
-      "javascriptModule": false,
-      "related": Object {
-        "gzipped": "assets/js/main.js.super-compressed.gz?var=566a803494f8ccb50e64#hash",
-      },
-      "size": 16235,
+      "size": 6138,
     },
   ],
 ]
@@ -233,45 +189,24 @@ Array [
     },
   ],
   Array [
-    "async.async.js.gz?ver=bdcf41c8bb0107a0cfb0",
-    194,
+    "main.js.gz?var=84068698136b49426631",
+    6127,
     Object {
       "compressed": true,
-      "size": 194,
+      "size": 6127,
     },
   ],
   Array [
-    "async.async.js?ver=bdcf41c8bb0107a0cfb0#hash",
-    194,
+    "main.js?var=84068698136b49426631#hash",
+    6127,
     Object {
-      "fullhash": "bdcf41c8bb0107a0cfb0",
+      "fullhash": "84068698136b49426631",
       "immutable": true,
       "javascriptModule": false,
       "related": Object {
-        "compression-function-5f27f917e58a6cfd45a9fb0dbfb129f9": "async.async.js.gz?ver=bdcf41c8bb0107a0cfb0",
+        "compression-function-5f27f917e58a6cfd45a9fb0dbfb129f9": "main.js.gz?var=84068698136b49426631",
       },
-      "size": 194,
-    },
-  ],
-  Array [
-    "main.js.gz?var=bdcf41c8bb0107a0cfb0",
-    16214,
-    Object {
-      "compressed": true,
-      "size": 16214,
-    },
-  ],
-  Array [
-    "main.js?var=bdcf41c8bb0107a0cfb0#hash",
-    16214,
-    Object {
-      "fullhash": "bdcf41c8bb0107a0cfb0",
-      "immutable": true,
-      "javascriptModule": false,
-      "related": Object {
-        "compression-function-5f27f917e58a6cfd45a9fb0dbfb129f9": "main.js.gz?var=bdcf41c8bb0107a0cfb0",
-      },
-      "size": 16214,
+      "size": 6127,
     },
   ],
 ]
@@ -324,45 +259,24 @@ Array [
     },
   ],
   Array [
-    "async.async.js.gz?ver=bdcf41c8bb0107a0cfb0",
-    134,
+    "main.js.gz?var=84068698136b49426631",
+    1660,
     Object {
       "compressed": true,
-      "size": 134,
+      "size": 1660,
     },
   ],
   Array [
-    "async.async.js?ver=bdcf41c8bb0107a0cfb0#hash",
-    194,
+    "main.js?var=84068698136b49426631#hash",
+    6127,
     Object {
-      "fullhash": "bdcf41c8bb0107a0cfb0",
+      "fullhash": "84068698136b49426631",
       "immutable": true,
       "javascriptModule": false,
       "related": Object {
-        "gzipped": "async.async.js.gz?ver=bdcf41c8bb0107a0cfb0",
+        "gzipped": "main.js.gz?var=84068698136b49426631",
       },
-      "size": 194,
-    },
-  ],
-  Array [
-    "main.js.gz?var=bdcf41c8bb0107a0cfb0",
-    4032,
-    Object {
-      "compressed": true,
-      "size": 4032,
-    },
-  ],
-  Array [
-    "main.js?var=bdcf41c8bb0107a0cfb0#hash",
-    16214,
-    Object {
-      "fullhash": "bdcf41c8bb0107a0cfb0",
-      "immutable": true,
-      "javascriptModule": false,
-      "related": Object {
-        "gzipped": "main.js.gz?var=bdcf41c8bb0107a0cfb0",
-      },
-      "size": 16214,
+      "size": 6127,
     },
   ],
 ]
@@ -417,47 +331,25 @@ Array [
     },
   ],
   Array [
-    "assets/scripts/async.async.js.gz",
-    134,
-    Object {
-      "compressed": true,
-      "immutable": true,
-      "size": 134,
-    },
-  ],
-  Array [
-    "assets/scripts/async.async.js?ver=28e717bda8b7cbf1ad4b#hash",
-    194,
-    Object {
-      "fullhash": "28e717bda8b7cbf1ad4b",
-      "immutable": true,
-      "javascriptModule": false,
-      "related": Object {
-        "gzipped": "assets/scripts/async.async.js.gz",
-      },
-      "size": 194,
-    },
-  ],
-  Array [
     "assets/scripts/main.js.gz",
-    4047,
+    1666,
     Object {
       "compressed": true,
       "immutable": true,
-      "size": 4047,
+      "size": 1666,
     },
   ],
   Array [
-    "assets/scripts/main.js?var=28e717bda8b7cbf1ad4b#hash",
-    16240,
+    "assets/scripts/main.js?var=8fd9de2e8d35ee79931e#hash",
+    6138,
     Object {
-      "fullhash": "28e717bda8b7cbf1ad4b",
+      "fullhash": "8fd9de2e8d35ee79931e",
       "immutable": true,
       "javascriptModule": false,
       "related": Object {
         "gzipped": "assets/scripts/main.js.gz",
       },
-      "size": 16240,
+      "size": 6138,
     },
   ],
 ]

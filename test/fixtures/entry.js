@@ -1,8 +1,8 @@
-import imagePNG from './icon.png';
-import imageSVG from './icon.svg';
-import number from './number';
+const imagePNG = require('./icon.png');
+const imageSVG = require('./icon.svg');
+const number = require('./number');
 
-import(/* webpackChunkName: 'async' */ './async.js').then((result) => console.log(result));
+require(/* webpackChunkName: 'async' */ './async.js').then((result) => console.log(result));
 
 const a = 2 + 2;
 

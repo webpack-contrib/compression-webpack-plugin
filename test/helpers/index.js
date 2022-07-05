@@ -1,17 +1,17 @@
-import compile from "./compile";
-import CopyPluginWithAssetInfo from "./CopyPluginWithAssetInfo";
-import execute from "./execute";
-import getAssetsNameAndSize from "./getAssetsNameAndSize";
-import getCompiler from "./getCompiler";
-import getErrors from "./getErrors";
-import getWarnings from "./getWarnings";
-import ModifyExistingAsset from "./ModifyExistingAsset";
-import EmitNewAsset from "./EmitNewAsset";
-import normalizeErrors from "./normalizeErrors";
-import readAsset from "./readAsset";
-import readsAssets from "./readAssets";
+const compile = require("./compile");
+const CopyPluginWithAssetInfo = require("./CopyPluginWithAssetInfo");
+const execute = require("./execute");
+const getAssetsNameAndSize = require("./getAssetsNameAndSize");
+const getCompiler = require("./getCompiler");
+const getErrors = require("./getErrors");
+const getWarnings = require("./getWarnings");
+const ModifyExistingAsset = require("./ModifyExistingAsset");
+const EmitNewAsset = require("./EmitNewAsset");
+const normalizeErrors = require("./normalizeErrors");
+const readAsset = require("./readAsset");
+const readsAssets = require("./readAssets");
 
-export {
+module.exports = {
   compile,
   CopyPluginWithAssetInfo,
   execute,

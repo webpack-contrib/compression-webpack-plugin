@@ -1,9 +1,13 @@
-import path from "path";
+const path = require("path");
 
-import webpack from "webpack";
-import { createFsFromVolume, Volume } from "memfs";
+const webpack = require("webpack");
+const { createFsFromVolume, Volume } = require("memfs");
 
-export default function getCompiler(fixture, loaderOptions = {}, config = {}) {
+module.exports = function getCompiler(
+  fixture,
+  loaderOptions = {},
+  config = {}
+) {
   const fullConfig = {
     mode: "development",
     devtool: config.devtool || false,
@@ -38,4 +42,4 @@ export default function getCompiler(fixture, loaderOptions = {}, config = {}) {
   }
 
   return compiler;
-}
+};

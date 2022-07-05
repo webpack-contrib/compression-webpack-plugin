@@ -1,14 +1,14 @@
-import path from "path";
+const path = require("path");
 
-import CompressionPlugin from "../src/index";
+const CompressionPlugin = require("../src/index");
 
-import {
+const {
   compile,
   getAssetsNameAndSize,
   getCompiler,
   getErrors,
   getWarnings,
-} from "./helpers/index";
+} = require("./helpers/index");
 
 describe('"filename" option', () => {
   let compiler;

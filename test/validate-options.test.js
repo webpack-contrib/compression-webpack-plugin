@@ -1,4 +1,4 @@
-import CompressionPlugin from "../src";
+const CompressionPlugin = require("../src");
 
 describe("validate options", () => {
   const tests = {

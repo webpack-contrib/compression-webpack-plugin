@@ -45,47 +45,25 @@ Array [
     },
   ],
   Array [
-    "async.async.55e6e9a872bcc7d4b226.js",
-    194,
+    "main.2cdb78a69ceab38200ad.js",
+    6127,
     Object {
-      "chunkhash": "55e6e9a872bcc7d4b226",
+      "chunkhash": "2cdb78a69ceab38200ad",
       "immutable": true,
       "javascriptModule": false,
       "related": Object {
-        "gzipped": "async.async.55e6e9a872bcc7d4b226.js.gz",
+        "gzipped": "main.2cdb78a69ceab38200ad.js.gz",
       },
-      "size": 194,
+      "size": 6127,
     },
   ],
   Array [
-    "async.async.55e6e9a872bcc7d4b226.js.gz",
-    134,
+    "main.2cdb78a69ceab38200ad.js.gz",
+    1660,
     Object {
       "compressed": true,
       "immutable": true,
-      "size": 134,
-    },
-  ],
-  Array [
-    "main.65eb86fafc0ecd0e4fc3.js",
-    16048,
-    Object {
-      "chunkhash": "65eb86fafc0ecd0e4fc3",
-      "immutable": true,
-      "javascriptModule": false,
-      "related": Object {
-        "gzipped": "main.65eb86fafc0ecd0e4fc3.js.gz",
-      },
-      "size": 16048,
-    },
-  ],
-  Array [
-    "main.65eb86fafc0ecd0e4fc3.js.gz",
-    4002,
-    Object {
-      "compressed": true,
-      "immutable": true,
-      "size": 4002,
+      "size": 1660,
     },
   ],
 ]
@@ -142,47 +120,25 @@ Array [
     },
   ],
   Array [
-    "async.async.55e6e9a872bcc7d4b226.js",
-    194,
+    "main.2cdb78a69ceab38200ad.js",
+    6127,
     Object {
-      "chunkhash": "55e6e9a872bcc7d4b226",
+      "chunkhash": "2cdb78a69ceab38200ad",
       "immutable": true,
       "javascriptModule": false,
       "related": Object {
-        "gzed": "async.async.55e6e9a872bcc7d4b226.js.gz",
+        "gzed": "main.2cdb78a69ceab38200ad.js.gz",
       },
-      "size": 194,
+      "size": 6127,
     },
   ],
   Array [
-    "async.async.55e6e9a872bcc7d4b226.js.gz",
-    194,
+    "main.2cdb78a69ceab38200ad.js.gz",
+    6127,
     Object {
       "compressed": true,
       "immutable": true,
-      "size": 194,
-    },
-  ],
-  Array [
-    "main.65eb86fafc0ecd0e4fc3.js",
-    16048,
-    Object {
-      "chunkhash": "65eb86fafc0ecd0e4fc3",
-      "immutable": true,
-      "javascriptModule": false,
-      "related": Object {
-        "gzed": "main.65eb86fafc0ecd0e4fc3.js.gz",
-      },
-      "size": 16048,
-    },
-  ],
-  Array [
-    "main.65eb86fafc0ecd0e4fc3.js.gz",
-    16048,
-    Object {
-      "compressed": true,
-      "immutable": true,
-      "size": 16048,
+      "size": 6127,
     },
   ],
 ]
@@ -193,8 +149,6 @@ exports[`"algorithm" option matches snapshot for custom function ({Function}): c
 exports[`"algorithm" option matches snapshot for custom function ({Function}): compressionOptions 2`] = `Object {}`;
 
 exports[`"algorithm" option matches snapshot for custom function ({Function}): compressionOptions 3`] = `Object {}`;
-
-exports[`"algorithm" option matches snapshot for custom function ({Function}): compressionOptions 4`] = `Object {}`;
 
 exports[`"algorithm" option matches snapshot for custom function ({Function}): errors 1`] = `Array []`;
 
@@ -221,23 +175,13 @@ Array [
     },
   ],
   Array [
-    "async.async.55e6e9a872bcc7d4b226.js",
-    194,
+    "main.2cdb78a69ceab38200ad.js",
+    6127,
     Object {
-      "chunkhash": "55e6e9a872bcc7d4b226",
+      "chunkhash": "2cdb78a69ceab38200ad",
       "immutable": true,
       "javascriptModule": false,
-      "size": 194,
-    },
-  ],
-  Array [
-    "main.65eb86fafc0ecd0e4fc3.js",
-    16048,
-    Object {
-      "chunkhash": "65eb86fafc0ecd0e4fc3",
-      "immutable": true,
-      "javascriptModule": false,
-      "size": 16048,
+      "size": 6127,
     },
   ],
 ]
@@ -249,11 +193,8 @@ exports[`"algorithm" option matches snapshot for custom function with error ({Fu
 
 exports[`"algorithm" option matches snapshot for custom function with error ({Function}): compressionOptions 3`] = `Object {}`;
 
-exports[`"algorithm" option matches snapshot for custom function with error ({Function}): compressionOptions 4`] = `Object {}`;
-
 exports[`"algorithm" option matches snapshot for custom function with error ({Function}): errors 1`] = `
 Array [
-  "Error",
   "Error",
   "Error",
   "Error",
