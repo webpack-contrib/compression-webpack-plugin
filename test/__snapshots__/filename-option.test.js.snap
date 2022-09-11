@@ -1,468 +1,468 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`"filename" option matches snapshot for \`[name][ext].super-compressed.gz[query]\` value ({String}): assets 1`] = `
-Array [
-  Array [
+[
+  [
     "09a1a1112c577c2794359715edfcb5ac.png",
     78117,
-    Object {
+    {
       "immutable": true,
-      "related": Object {
+      "related": {
         "gzipped": "09a1a1112c577c2794359715edfcb5ac.super-compressed.png.gz",
       },
       "size": 78117,
       "sourceFilename": "icon.png",
     },
   ],
-  Array [
+  [
     "09a1a1112c577c2794359715edfcb5ac.super-compressed.png.gz",
     73160,
-    Object {
+    {
       "compressed": true,
       "immutable": true,
       "size": 73160,
     },
   ],
-  Array [
+  [
     "23fc1d3ac606d117e05a140e0de79806.super-compressed.svg.gz",
     393,
-    Object {
+    {
       "compressed": true,
       "immutable": true,
       "size": 393,
     },
   ],
-  Array [
+  [
     "23fc1d3ac606d117e05a140e0de79806.svg",
     672,
-    Object {
+    {
       "immutable": true,
-      "related": Object {
+      "related": {
         "gzipped": "23fc1d3ac606d117e05a140e0de79806.super-compressed.svg.gz",
       },
       "size": 672,
       "sourceFilename": "icon.svg",
     },
   ],
-  Array [
-    "async.async.js?ver=611cf1926c28415ef007",
+  [
+    "async.async.js?ver=8c46f9480c54d607e378",
     194,
-    Object {
-      "fullhash": "611cf1926c28415ef007",
+    {
+      "fullhash": "8c46f9480c54d607e378",
       "immutable": true,
       "javascriptModule": false,
-      "related": Object {
-        "gzipped": "async.async.super-compressed.js.gz?ver=611cf1926c28415ef007",
+      "related": {
+        "gzipped": "async.async.super-compressed.js.gz?ver=8c46f9480c54d607e378",
       },
       "size": 194,
     },
   ],
-  Array [
-    "async.async.super-compressed.js.gz?ver=611cf1926c28415ef007",
+  [
+    "async.async.super-compressed.js.gz?ver=8c46f9480c54d607e378",
     134,
-    Object {
+    {
       "compressed": true,
       "immutable": true,
       "size": 134,
     },
   ],
-  Array [
-    "main.js?var=611cf1926c28415ef007",
-    16209,
-    Object {
-      "fullhash": "611cf1926c28415ef007",
+  [
+    "main.js?var=8c46f9480c54d607e378",
+    16227,
+    {
+      "fullhash": "8c46f9480c54d607e378",
       "immutable": true,
       "javascriptModule": false,
-      "related": Object {
-        "gzipped": "main.super-compressed.js.gz?var=611cf1926c28415ef007",
+      "related": {
+        "gzipped": "main.super-compressed.js.gz?var=8c46f9480c54d607e378",
       },
-      "size": 16209,
+      "size": 16227,
     },
   ],
-  Array [
-    "main.super-compressed.js.gz?var=611cf1926c28415ef007",
-    4028,
-    Object {
+  [
+    "main.super-compressed.js.gz?var=8c46f9480c54d607e378",
+    4036,
+    {
       "compressed": true,
       "immutable": true,
-      "size": 4028,
+      "size": 4036,
     },
   ],
 ]
 `;
 
-exports[`"filename" option matches snapshot for \`[name][ext].super-compressed.gz[query]\` value ({String}): errors 1`] = `Array []`;
+exports[`"filename" option matches snapshot for \`[name][ext].super-compressed.gz[query]\` value ({String}): errors 1`] = `[]`;
 
-exports[`"filename" option matches snapshot for \`[name][ext].super-compressed.gz[query]\` value ({String}): warnings 1`] = `Array []`;
+exports[`"filename" option matches snapshot for \`[name][ext].super-compressed.gz[query]\` value ({String}): warnings 1`] = `[]`;
 
 exports[`"filename" option matches snapshot for \`[path][base].super-compressed.gz[query][fragment]\` value ({String}): assets 1`] = `
-Array [
-  Array [
+[
+  [
     "09a1a1112c577c2794359715edfcb5ac.png",
     78117,
-    Object {
+    {
       "immutable": true,
-      "related": Object {
+      "related": {
         "gzipped": "09a1a1112c577c2794359715edfcb5ac.png.super-compressed.gz",
       },
       "size": 78117,
       "sourceFilename": "icon.png",
     },
   ],
-  Array [
+  [
     "09a1a1112c577c2794359715edfcb5ac.png.super-compressed.gz",
     73160,
-    Object {
+    {
       "compressed": true,
       "immutable": true,
       "size": 73160,
     },
   ],
-  Array [
+  [
     "23fc1d3ac606d117e05a140e0de79806.svg",
     672,
-    Object {
+    {
       "immutable": true,
-      "related": Object {
+      "related": {
         "gzipped": "23fc1d3ac606d117e05a140e0de79806.svg.super-compressed.gz",
       },
       "size": 672,
       "sourceFilename": "icon.svg",
     },
   ],
-  Array [
+  [
     "23fc1d3ac606d117e05a140e0de79806.svg.super-compressed.gz",
     393,
-    Object {
+    {
       "compressed": true,
       "immutable": true,
       "size": 393,
     },
   ],
-  Array [
-    "assets/js/async.async.js.super-compressed.gz?ver=566a803494f8ccb50e64#hash",
+  [
+    "assets/js/async.async.js.super-compressed.gz?ver=f065e460b9c6d294d567#hash",
     134,
-    Object {
+    {
       "compressed": true,
       "immutable": true,
       "size": 134,
     },
   ],
-  Array [
-    "assets/js/async.async.js?ver=566a803494f8ccb50e64#hash",
+  [
+    "assets/js/async.async.js?ver=f065e460b9c6d294d567#hash",
     194,
-    Object {
-      "fullhash": "566a803494f8ccb50e64",
+    {
+      "fullhash": "f065e460b9c6d294d567",
       "immutable": true,
       "javascriptModule": false,
-      "related": Object {
-        "gzipped": "assets/js/async.async.js.super-compressed.gz?ver=566a803494f8ccb50e64#hash",
+      "related": {
+        "gzipped": "assets/js/async.async.js.super-compressed.gz?ver=f065e460b9c6d294d567#hash",
       },
       "size": 194,
     },
   ],
-  Array [
-    "assets/js/main.js.super-compressed.gz?var=566a803494f8ccb50e64#hash",
-    4047,
-    Object {
+  [
+    "assets/js/main.js.super-compressed.gz?var=f065e460b9c6d294d567#hash",
+    4055,
+    {
       "compressed": true,
       "immutable": true,
-      "size": 4047,
+      "size": 4055,
     },
   ],
-  Array [
-    "assets/js/main.js?var=566a803494f8ccb50e64#hash",
-    16235,
-    Object {
-      "fullhash": "566a803494f8ccb50e64",
+  [
+    "assets/js/main.js?var=f065e460b9c6d294d567#hash",
+    16253,
+    {
+      "fullhash": "f065e460b9c6d294d567",
       "immutable": true,
       "javascriptModule": false,
-      "related": Object {
-        "gzipped": "assets/js/main.js.super-compressed.gz?var=566a803494f8ccb50e64#hash",
+      "related": {
+        "gzipped": "assets/js/main.js.super-compressed.gz?var=f065e460b9c6d294d567#hash",
       },
-      "size": 16235,
+      "size": 16253,
     },
   ],
 ]
 `;
 
-exports[`"filename" option matches snapshot for \`[path][base].super-compressed.gz[query][fragment]\` value ({String}): errors 1`] = `Array []`;
+exports[`"filename" option matches snapshot for \`[path][base].super-compressed.gz[query][fragment]\` value ({String}): errors 1`] = `[]`;
 
-exports[`"filename" option matches snapshot for \`[path][base].super-compressed.gz[query][fragment]\` value ({String}): warnings 1`] = `Array []`;
+exports[`"filename" option matches snapshot for \`[path][base].super-compressed.gz[query][fragment]\` value ({String}): warnings 1`] = `[]`;
 
 exports[`"filename" option matches snapshot for custom function ({Function}) and custom algorithm ({Function}): assets 1`] = `
-Array [
-  Array [
+[
+  [
     "09a1a1112c577c2794359715edfcb5ac.png",
     78117,
-    Object {
+    {
       "immutable": true,
-      "related": Object {
+      "related": {
         "compression-function-5f27f917e58a6cfd45a9fb0dbfb129f9": "09a1a1112c577c2794359715edfcb5ac.png.gz",
       },
       "size": 78117,
       "sourceFilename": "icon.png",
     },
   ],
-  Array [
+  [
     "09a1a1112c577c2794359715edfcb5ac.png.gz",
     78117,
-    Object {
+    {
       "compressed": true,
       "size": 78117,
     },
   ],
-  Array [
+  [
     "23fc1d3ac606d117e05a140e0de79806.svg",
     672,
-    Object {
+    {
       "immutable": true,
-      "related": Object {
+      "related": {
         "compression-function-5f27f917e58a6cfd45a9fb0dbfb129f9": "23fc1d3ac606d117e05a140e0de79806.svg.gz",
       },
       "size": 672,
       "sourceFilename": "icon.svg",
     },
   ],
-  Array [
+  [
     "23fc1d3ac606d117e05a140e0de79806.svg.gz",
     672,
-    Object {
+    {
       "compressed": true,
       "size": 672,
     },
   ],
-  Array [
-    "async.async.js.gz?ver=bdcf41c8bb0107a0cfb0",
+  [
+    "async.async.js.gz?ver=5857f2789e83e20e1327",
     194,
-    Object {
+    {
       "compressed": true,
       "size": 194,
     },
   ],
-  Array [
-    "async.async.js?ver=bdcf41c8bb0107a0cfb0#hash",
+  [
+    "async.async.js?ver=5857f2789e83e20e1327#hash",
     194,
-    Object {
-      "fullhash": "bdcf41c8bb0107a0cfb0",
+    {
+      "fullhash": "5857f2789e83e20e1327",
       "immutable": true,
       "javascriptModule": false,
-      "related": Object {
-        "compression-function-5f27f917e58a6cfd45a9fb0dbfb129f9": "async.async.js.gz?ver=bdcf41c8bb0107a0cfb0",
+      "related": {
+        "compression-function-5f27f917e58a6cfd45a9fb0dbfb129f9": "async.async.js.gz?ver=5857f2789e83e20e1327",
       },
       "size": 194,
     },
   ],
-  Array [
-    "main.js.gz?var=bdcf41c8bb0107a0cfb0",
-    16214,
-    Object {
+  [
+    "main.js.gz?var=5857f2789e83e20e1327",
+    16232,
+    {
       "compressed": true,
-      "size": 16214,
+      "size": 16232,
     },
   ],
-  Array [
-    "main.js?var=bdcf41c8bb0107a0cfb0#hash",
-    16214,
-    Object {
-      "fullhash": "bdcf41c8bb0107a0cfb0",
+  [
+    "main.js?var=5857f2789e83e20e1327#hash",
+    16232,
+    {
+      "fullhash": "5857f2789e83e20e1327",
       "immutable": true,
       "javascriptModule": false,
-      "related": Object {
-        "compression-function-5f27f917e58a6cfd45a9fb0dbfb129f9": "main.js.gz?var=bdcf41c8bb0107a0cfb0",
+      "related": {
+        "compression-function-5f27f917e58a6cfd45a9fb0dbfb129f9": "main.js.gz?var=5857f2789e83e20e1327",
       },
-      "size": 16214,
+      "size": 16232,
     },
   ],
 ]
 `;
 
-exports[`"filename" option matches snapshot for custom function ({Function}) and custom algorithm ({Function}): errors 1`] = `Array []`;
+exports[`"filename" option matches snapshot for custom function ({Function}) and custom algorithm ({Function}): errors 1`] = `[]`;
 
-exports[`"filename" option matches snapshot for custom function ({Function}) and custom algorithm ({Function}): warnings 1`] = `Array []`;
+exports[`"filename" option matches snapshot for custom function ({Function}) and custom algorithm ({Function}): warnings 1`] = `[]`;
 
 exports[`"filename" option matches snapshot for custom function ({Function}): assets 1`] = `
-Array [
-  Array [
+[
+  [
     "09a1a1112c577c2794359715edfcb5ac.png",
     78117,
-    Object {
+    {
       "immutable": true,
-      "related": Object {
+      "related": {
         "gzipped": "09a1a1112c577c2794359715edfcb5ac.png.gz",
       },
       "size": 78117,
       "sourceFilename": "icon.png",
     },
   ],
-  Array [
+  [
     "09a1a1112c577c2794359715edfcb5ac.png.gz",
     73160,
-    Object {
+    {
       "compressed": true,
       "size": 73160,
     },
   ],
-  Array [
+  [
     "23fc1d3ac606d117e05a140e0de79806.svg",
     672,
-    Object {
+    {
       "immutable": true,
-      "related": Object {
+      "related": {
         "gzipped": "23fc1d3ac606d117e05a140e0de79806.svg.gz",
       },
       "size": 672,
       "sourceFilename": "icon.svg",
     },
   ],
-  Array [
+  [
     "23fc1d3ac606d117e05a140e0de79806.svg.gz",
     393,
-    Object {
+    {
       "compressed": true,
       "size": 393,
     },
   ],
-  Array [
-    "async.async.js.gz?ver=bdcf41c8bb0107a0cfb0",
+  [
+    "async.async.js.gz?ver=5857f2789e83e20e1327",
     134,
-    Object {
+    {
       "compressed": true,
       "size": 134,
     },
   ],
-  Array [
-    "async.async.js?ver=bdcf41c8bb0107a0cfb0#hash",
+  [
+    "async.async.js?ver=5857f2789e83e20e1327#hash",
     194,
-    Object {
-      "fullhash": "bdcf41c8bb0107a0cfb0",
+    {
+      "fullhash": "5857f2789e83e20e1327",
       "immutable": true,
       "javascriptModule": false,
-      "related": Object {
-        "gzipped": "async.async.js.gz?ver=bdcf41c8bb0107a0cfb0",
+      "related": {
+        "gzipped": "async.async.js.gz?ver=5857f2789e83e20e1327",
       },
       "size": 194,
     },
   ],
-  Array [
-    "main.js.gz?var=bdcf41c8bb0107a0cfb0",
-    4032,
-    Object {
+  [
+    "main.js.gz?var=5857f2789e83e20e1327",
+    4040,
+    {
       "compressed": true,
-      "size": 4032,
+      "size": 4040,
     },
   ],
-  Array [
-    "main.js?var=bdcf41c8bb0107a0cfb0#hash",
-    16214,
-    Object {
-      "fullhash": "bdcf41c8bb0107a0cfb0",
+  [
+    "main.js?var=5857f2789e83e20e1327#hash",
+    16232,
+    {
+      "fullhash": "5857f2789e83e20e1327",
       "immutable": true,
       "javascriptModule": false,
-      "related": Object {
-        "gzipped": "main.js.gz?var=bdcf41c8bb0107a0cfb0",
+      "related": {
+        "gzipped": "main.js.gz?var=5857f2789e83e20e1327",
       },
-      "size": 16214,
+      "size": 16232,
     },
   ],
 ]
 `;
 
-exports[`"filename" option matches snapshot for custom function ({Function}): errors 1`] = `Array []`;
+exports[`"filename" option matches snapshot for custom function ({Function}): errors 1`] = `[]`;
 
-exports[`"filename" option matches snapshot for custom function ({Function}): warnings 1`] = `Array []`;
+exports[`"filename" option matches snapshot for custom function ({Function}): warnings 1`] = `[]`;
 
 exports[`"filename" option show work: assets 1`] = `
-Array [
-  Array [
+[
+  [
     "09a1a1112c577c2794359715edfcb5ac.png",
     78117,
-    Object {
+    {
       "immutable": true,
-      "related": Object {
+      "related": {
         "gzipped": "09a1a1112c577c2794359715edfcb5ac.png.gz",
       },
       "size": 78117,
       "sourceFilename": "icon.png",
     },
   ],
-  Array [
+  [
     "09a1a1112c577c2794359715edfcb5ac.png.gz",
     73160,
-    Object {
+    {
       "compressed": true,
       "immutable": true,
       "size": 73160,
     },
   ],
-  Array [
+  [
     "23fc1d3ac606d117e05a140e0de79806.svg",
     672,
-    Object {
+    {
       "immutable": true,
-      "related": Object {
+      "related": {
         "gzipped": "23fc1d3ac606d117e05a140e0de79806.svg.gz",
       },
       "size": 672,
       "sourceFilename": "icon.svg",
     },
   ],
-  Array [
+  [
     "23fc1d3ac606d117e05a140e0de79806.svg.gz",
     393,
-    Object {
+    {
       "compressed": true,
       "immutable": true,
       "size": 393,
     },
   ],
-  Array [
+  [
     "assets/scripts/async.async.js.gz",
     134,
-    Object {
+    {
       "compressed": true,
       "immutable": true,
       "size": 134,
     },
   ],
-  Array [
-    "assets/scripts/async.async.js?ver=28e717bda8b7cbf1ad4b#hash",
+  [
+    "assets/scripts/async.async.js?ver=9aef21636d60cee50cc9#hash",
     194,
-    Object {
-      "fullhash": "28e717bda8b7cbf1ad4b",
+    {
+      "fullhash": "9aef21636d60cee50cc9",
       "immutable": true,
       "javascriptModule": false,
-      "related": Object {
+      "related": {
         "gzipped": "assets/scripts/async.async.js.gz",
       },
       "size": 194,
     },
   ],
-  Array [
+  [
     "assets/scripts/main.js.gz",
-    4047,
-    Object {
+    4054,
+    {
       "compressed": true,
       "immutable": true,
-      "size": 4047,
+      "size": 4054,
     },
   ],
-  Array [
-    "assets/scripts/main.js?var=28e717bda8b7cbf1ad4b#hash",
-    16240,
-    Object {
-      "fullhash": "28e717bda8b7cbf1ad4b",
+  [
+    "assets/scripts/main.js?var=9aef21636d60cee50cc9#hash",
+    16258,
+    {
+      "fullhash": "9aef21636d60cee50cc9",
       "immutable": true,
       "javascriptModule": false,
-      "related": Object {
+      "related": {
         "gzipped": "assets/scripts/main.js.gz",
       },
-      "size": 16240,
+      "size": 16258,
     },
   ],
 ]
 `;
 
-exports[`"filename" option show work: errors 1`] = `Array []`;
+exports[`"filename" option show work: errors 1`] = `[]`;
 
-exports[`"filename" option show work: warnings 1`] = `Array []`;
+exports[`"filename" option show work: warnings 1`] = `[]`;
