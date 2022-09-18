@@ -1,51 +1,51 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`"test" option matches snapshot for a single \`test\` value ({RegExp}): assets 1`] = `
-Array [
-  Array [
+[
+  [
     "09a1a1112c577c2794359715edfcb5ac.png",
     78117,
-    Object {
+    {
       "immutable": true,
-      "related": Object {
+      "related": {
         "gzipped": "09a1a1112c577c2794359715edfcb5ac.png.gz",
       },
       "size": 78117,
       "sourceFilename": "icon.png",
     },
   ],
-  Array [
+  [
     "09a1a1112c577c2794359715edfcb5ac.png.gz",
     73160,
-    Object {
+    {
       "compressed": true,
       "immutable": true,
       "size": 73160,
     },
   ],
-  Array [
+  [
     "23fc1d3ac606d117e05a140e0de79806.svg",
     672,
-    Object {
+    {
       "immutable": true,
       "size": 672,
       "sourceFilename": "icon.svg",
     },
   ],
-  Array [
+  [
     "async.async.js?ver=611cf1926c28415ef007",
     194,
-    Object {
+    {
       "fullhash": "611cf1926c28415ef007",
       "immutable": true,
       "javascriptModule": false,
       "size": 194,
     },
   ],
-  Array [
+  [
     "main.js?var=611cf1926c28415ef007",
     16209,
-    Object {
+    {
       "fullhash": "611cf1926c28415ef007",
       "immutable": true,
       "javascriptModule": false,
@@ -55,68 +55,68 @@ Array [
 ]
 `;
 
-exports[`"test" option matches snapshot for a single \`test\` value ({RegExp}): errors 1`] = `Array []`;
+exports[`"test" option matches snapshot for a single \`test\` value ({RegExp}): errors 1`] = `[]`;
 
-exports[`"test" option matches snapshot for a single \`test\` value ({RegExp}): warnings 1`] = `Array []`;
+exports[`"test" option matches snapshot for a single \`test\` value ({RegExp}): warnings 1`] = `[]`;
 
 exports[`"test" option matches snapshot for multiple \`test\` values ({Array<RegExp>}): assets 1`] = `
-Array [
-  Array [
+[
+  [
     "09a1a1112c577c2794359715edfcb5ac.png",
     78117,
-    Object {
+    {
       "immutable": true,
-      "related": Object {
+      "related": {
         "gzipped": "09a1a1112c577c2794359715edfcb5ac.png.gz",
       },
       "size": 78117,
       "sourceFilename": "icon.png",
     },
   ],
-  Array [
+  [
     "09a1a1112c577c2794359715edfcb5ac.png.gz",
     73160,
-    Object {
+    {
       "compressed": true,
       "immutable": true,
       "size": 73160,
     },
   ],
-  Array [
+  [
     "23fc1d3ac606d117e05a140e0de79806.svg",
     672,
-    Object {
+    {
       "immutable": true,
-      "related": Object {
+      "related": {
         "gzipped": "23fc1d3ac606d117e05a140e0de79806.svg.gz",
       },
       "size": 672,
       "sourceFilename": "icon.svg",
     },
   ],
-  Array [
+  [
     "23fc1d3ac606d117e05a140e0de79806.svg.gz",
     393,
-    Object {
+    {
       "compressed": true,
       "immutable": true,
       "size": 393,
     },
   ],
-  Array [
+  [
     "async.async.js?ver=611cf1926c28415ef007",
     194,
-    Object {
+    {
       "fullhash": "611cf1926c28415ef007",
       "immutable": true,
       "javascriptModule": false,
       "size": 194,
     },
   ],
-  Array [
+  [
     "main.js?var=611cf1926c28415ef007",
     16209,
-    Object {
+    {
       "fullhash": "611cf1926c28415ef007",
       "immutable": true,
       "javascriptModule": false,
@@ -126,93 +126,93 @@ Array [
 ]
 `;
 
-exports[`"test" option matches snapshot for multiple \`test\` values ({Array<RegExp>}): errors 1`] = `Array []`;
+exports[`"test" option matches snapshot for multiple \`test\` values ({Array<RegExp>}): errors 1`] = `[]`;
 
-exports[`"test" option matches snapshot for multiple \`test\` values ({Array<RegExp>}): warnings 1`] = `Array []`;
+exports[`"test" option matches snapshot for multiple \`test\` values ({Array<RegExp>}): warnings 1`] = `[]`;
 
 exports[`"test" option matches snapshot with empty \`test\` value: assets 1`] = `
-Array [
-  Array [
+[
+  [
     "09a1a1112c577c2794359715edfcb5ac.png",
     78117,
-    Object {
+    {
       "immutable": true,
-      "related": Object {
+      "related": {
         "gzipped": "09a1a1112c577c2794359715edfcb5ac.png.gz",
       },
       "size": 78117,
       "sourceFilename": "icon.png",
     },
   ],
-  Array [
+  [
     "09a1a1112c577c2794359715edfcb5ac.png.gz",
     73160,
-    Object {
+    {
       "compressed": true,
       "immutable": true,
       "size": 73160,
     },
   ],
-  Array [
+  [
     "23fc1d3ac606d117e05a140e0de79806.svg",
     672,
-    Object {
+    {
       "immutable": true,
-      "related": Object {
+      "related": {
         "gzipped": "23fc1d3ac606d117e05a140e0de79806.svg.gz",
       },
       "size": 672,
       "sourceFilename": "icon.svg",
     },
   ],
-  Array [
+  [
     "23fc1d3ac606d117e05a140e0de79806.svg.gz",
     393,
-    Object {
+    {
       "compressed": true,
       "immutable": true,
       "size": 393,
     },
   ],
-  Array [
+  [
     "async.async.js.gz",
     134,
-    Object {
+    {
       "compressed": true,
       "immutable": true,
       "size": 134,
     },
   ],
-  Array [
+  [
     "async.async.js?ver=611cf1926c28415ef007",
     194,
-    Object {
+    {
       "fullhash": "611cf1926c28415ef007",
       "immutable": true,
       "javascriptModule": false,
-      "related": Object {
+      "related": {
         "gzipped": "async.async.js.gz",
       },
       "size": 194,
     },
   ],
-  Array [
+  [
     "main.js.gz",
     4028,
-    Object {
+    {
       "compressed": true,
       "immutable": true,
       "size": 4028,
     },
   ],
-  Array [
+  [
     "main.js?var=611cf1926c28415ef007",
     16209,
-    Object {
+    {
       "fullhash": "611cf1926c28415ef007",
       "immutable": true,
       "javascriptModule": false,
-      "related": Object {
+      "related": {
         "gzipped": "main.js.gz",
       },
       "size": 16209,
@@ -221,44 +221,44 @@ Array [
 ]
 `;
 
-exports[`"test" option matches snapshot with empty \`test\` value: errors 1`] = `Array []`;
+exports[`"test" option matches snapshot with empty \`test\` value: errors 1`] = `[]`;
 
-exports[`"test" option matches snapshot with empty \`test\` value: warnings 1`] = `Array []`;
+exports[`"test" option matches snapshot with empty \`test\` value: warnings 1`] = `[]`;
 
 exports[`"test" option should work when no asset to compress : assets 1`] = `
-Array [
-  Array [
+[
+  [
     "09a1a1112c577c2794359715edfcb5ac.png",
     78117,
-    Object {
+    {
       "immutable": true,
       "size": 78117,
       "sourceFilename": "icon.png",
     },
   ],
-  Array [
+  [
     "23fc1d3ac606d117e05a140e0de79806.svg",
     672,
-    Object {
+    {
       "immutable": true,
       "size": 672,
       "sourceFilename": "icon.svg",
     },
   ],
-  Array [
+  [
     "async.async.js?ver=611cf1926c28415ef007",
     194,
-    Object {
+    {
       "fullhash": "611cf1926c28415ef007",
       "immutable": true,
       "javascriptModule": false,
       "size": 194,
     },
   ],
-  Array [
+  [
     "main.js?var=611cf1926c28415ef007",
     16209,
-    Object {
+    {
       "fullhash": "611cf1926c28415ef007",
       "immutable": true,
       "javascriptModule": false,
@@ -268,6 +268,6 @@ Array [
 ]
 `;
 
-exports[`"test" option should work when no asset to compress : errors 1`] = `Array []`;
+exports[`"test" option should work when no asset to compress : errors 1`] = `[]`;
 
-exports[`"test" option should work when no asset to compress : warnings 1`] = `Array []`;
+exports[`"test" option should work when no asset to compress : warnings 1`] = `[]`;

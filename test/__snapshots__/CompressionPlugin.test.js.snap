@@ -1,40 +1,40 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`CompressionPlugin should run plugin against assets added later by plugins: assets 1`] = `
-Array [
-  Array [
+[
+  [
     "main.js",
     1843,
-    Object {
+    {
       "javascriptModule": false,
-      "related": Object {
+      "related": {
         "gzipped": "main.js.gz",
       },
       "size": 1843,
     },
   ],
-  Array [
+  [
     "main.js.gz",
     584,
-    Object {
+    {
       "compressed": true,
       "size": 584,
     },
   ],
-  Array [
+  [
     "newFile.js",
     23,
-    Object {
-      "related": Object {
+    {
+      "related": {
         "gzipped": "newFile.js.gz",
       },
       "size": 23,
     },
   ],
-  Array [
+  [
     "newFile.js.gz",
     43,
-    Object {
+    {
       "compressed": true,
       "size": 43,
     },
@@ -42,73 +42,73 @@ Array [
 ]
 `;
 
-exports[`CompressionPlugin should run plugin against assets added later by plugins: errors 1`] = `Array []`;
+exports[`CompressionPlugin should run plugin against assets added later by plugins: errors 1`] = `[]`;
 
-exports[`CompressionPlugin should run plugin against assets added later by plugins: warnings 1`] = `Array []`;
+exports[`CompressionPlugin should run plugin against assets added later by plugins: warnings 1`] = `[]`;
 
 exports[`CompressionPlugin should work and do not use memory cache when the "cache" option is "false": assets 1`] = `
-Array [
-  Array [
+[
+  [
     "async.async.js",
     194,
-    Object {
+    {
       "javascriptModule": false,
-      "related": Object {
+      "related": {
         "gzipped": "async.async.js.gz",
       },
       "size": 194,
     },
   ],
-  Array [
+  [
     "async.async.js.gz",
     134,
-    Object {
+    {
       "compressed": true,
       "size": 134,
     },
   ],
-  Array [
+  [
     "icon.png",
     78117,
-    Object {
+    {
       "size": 78117,
       "sourceFilename": "icon.png",
     },
   ],
-  Array [
+  [
     "icon.svg",
     672,
-    Object {
-      "related": Object {
+    {
+      "related": {
         "gzipped": "icon.svg.gz",
       },
       "size": 672,
       "sourceFilename": "icon.svg",
     },
   ],
-  Array [
+  [
     "icon.svg.gz",
     393,
-    Object {
+    {
       "compressed": true,
       "size": 393,
     },
   ],
-  Array [
+  [
     "main.js",
     15961,
-    Object {
+    {
       "javascriptModule": false,
-      "related": Object {
+      "related": {
         "gzipped": "main.js.gz",
       },
       "size": 15961,
     },
   ],
-  Array [
+  [
     "main.js.gz",
     3915,
-    Object {
+    {
       "compressed": true,
       "size": 3915,
     },
@@ -117,68 +117,68 @@ Array [
 `;
 
 exports[`CompressionPlugin should work and do not use memory cache when the "cache" option is "false": assets 2`] = `
-Array [
-  Array [
+[
+  [
     "async.async.js",
     194,
-    Object {
+    {
       "javascriptModule": false,
-      "related": Object {
+      "related": {
         "gzipped": "async.async.js.gz",
       },
       "size": 194,
     },
   ],
-  Array [
+  [
     "async.async.js.gz",
     134,
-    Object {
+    {
       "compressed": true,
       "size": 134,
     },
   ],
-  Array [
+  [
     "icon.png",
     78117,
-    Object {
+    {
       "size": 78117,
       "sourceFilename": "icon.png",
     },
   ],
-  Array [
+  [
     "icon.svg",
     672,
-    Object {
-      "related": Object {
+    {
+      "related": {
         "gzipped": "icon.svg.gz",
       },
       "size": 672,
       "sourceFilename": "icon.svg",
     },
   ],
-  Array [
+  [
     "icon.svg.gz",
     393,
-    Object {
+    {
       "compressed": true,
       "size": 393,
     },
   ],
-  Array [
+  [
     "main.js",
     15961,
-    Object {
+    {
       "javascriptModule": false,
-      "related": Object {
+      "related": {
         "gzipped": "main.js.gz",
       },
       "size": 15961,
     },
   ],
-  Array [
+  [
     "main.js.gz",
     3915,
-    Object {
+    {
       "compressed": true,
       "size": 3915,
     },
@@ -186,85 +186,85 @@ Array [
 ]
 `;
 
-exports[`CompressionPlugin should work and do not use memory cache when the "cache" option is "false": errors 1`] = `Array []`;
+exports[`CompressionPlugin should work and do not use memory cache when the "cache" option is "false": errors 1`] = `[]`;
 
-exports[`CompressionPlugin should work and do not use memory cache when the "cache" option is "false": errors 2`] = `Array []`;
+exports[`CompressionPlugin should work and do not use memory cache when the "cache" option is "false": errors 2`] = `[]`;
 
-exports[`CompressionPlugin should work and do not use memory cache when the "cache" option is "false": warnings 1`] = `Array []`;
+exports[`CompressionPlugin should work and do not use memory cache when the "cache" option is "false": warnings 1`] = `[]`;
 
-exports[`CompressionPlugin should work and do not use memory cache when the "cache" option is "false": warnings 2`] = `Array []`;
+exports[`CompressionPlugin should work and do not use memory cache when the "cache" option is "false": warnings 2`] = `[]`;
 
 exports[`CompressionPlugin should work and keep assets info: assets 1`] = `
-Array [
-  Array [
+[
+  [
     "09a1a1112c577c2794359715edfcb5ac.png",
     78117,
-    Object {
+    {
       "immutable": true,
       "size": 78117,
       "sourceFilename": "icon.png",
     },
   ],
-  Array [
+  [
     "23fc1d3ac606d117e05a140e0de79806.svg",
     672,
-    Object {
+    {
       "immutable": true,
-      "related": Object {
+      "related": {
         "gzipped": "23fc1d3ac606d117e05a140e0de79806.svg.gz",
       },
       "size": 672,
       "sourceFilename": "icon.svg",
     },
   ],
-  Array [
+  [
     "23fc1d3ac606d117e05a140e0de79806.svg.gz",
     393,
-    Object {
+    {
       "compressed": true,
       "immutable": true,
       "size": 393,
     },
   ],
-  Array [
+  [
     "async.async.cd3aed5809a2faa4eb5a.js",
     194,
-    Object {
+    {
       "contenthash": "cd3aed5809a2faa4eb5a",
       "immutable": true,
       "javascriptModule": false,
-      "related": Object {
+      "related": {
         "gzipped": "async.async.cd3aed5809a2faa4eb5a.js.gz",
       },
       "size": 194,
     },
   ],
-  Array [
+  [
     "async.async.cd3aed5809a2faa4eb5a.js.gz",
     134,
-    Object {
+    {
       "compressed": true,
       "immutable": true,
       "size": 134,
     },
   ],
-  Array [
+  [
     "main.d269ef96c07761c2cb49.js",
     16048,
-    Object {
+    {
       "contenthash": "d269ef96c07761c2cb49",
       "immutable": true,
       "javascriptModule": false,
-      "related": Object {
+      "related": {
         "gzipped": "main.d269ef96c07761c2cb49.js.gz",
       },
       "size": 16048,
     },
   ],
-  Array [
+  [
     "main.d269ef96c07761c2cb49.js.gz",
     3999,
-    Object {
+    {
       "compressed": true,
       "immutable": true,
       "size": 3999,
@@ -273,76 +273,76 @@ Array [
 ]
 `;
 
-exports[`CompressionPlugin should work and keep assets info: errors 1`] = `Array []`;
+exports[`CompressionPlugin should work and keep assets info: errors 1`] = `[]`;
 
-exports[`CompressionPlugin should work and keep assets info: warnings 1`] = `Array []`;
+exports[`CompressionPlugin should work and keep assets info: warnings 1`] = `[]`;
 
 exports[`CompressionPlugin should work and show compress assets in stats: assets 1`] = `
-Array [
-  Array [
+[
+  [
     "09a1a1112c577c2794359715edfcb5ac.png",
     78117,
-    Object {
+    {
       "immutable": true,
       "size": 78117,
       "sourceFilename": "icon.png",
     },
   ],
-  Array [
+  [
     "23fc1d3ac606d117e05a140e0de79806.svg",
     672,
-    Object {
+    {
       "immutable": true,
-      "related": Object {
+      "related": {
         "gzipped": "23fc1d3ac606d117e05a140e0de79806.svg.gz",
       },
       "size": 672,
       "sourceFilename": "icon.svg",
     },
   ],
-  Array [
+  [
     "23fc1d3ac606d117e05a140e0de79806.svg.gz",
     393,
-    Object {
+    {
       "compressed": true,
       "immutable": true,
       "size": 393,
     },
   ],
-  Array [
+  [
     "async.async.js",
     194,
-    Object {
+    {
       "javascriptModule": false,
-      "related": Object {
+      "related": {
         "gzipped": "async.async.js.gz",
       },
       "size": 194,
     },
   ],
-  Array [
+  [
     "async.async.js.gz",
     134,
-    Object {
+    {
       "compressed": true,
       "size": 134,
     },
   ],
-  Array [
+  [
     "main.js",
     16017,
-    Object {
+    {
       "javascriptModule": false,
-      "related": Object {
+      "related": {
         "gzipped": "main.js.gz",
       },
       "size": 16017,
     },
   ],
-  Array [
+  [
     "main.js.gz",
     3979,
-    Object {
+    {
       "compressed": true,
       "size": 3979,
     },
@@ -350,73 +350,73 @@ Array [
 ]
 `;
 
-exports[`CompressionPlugin should work and show compress assets in stats: errors 1`] = `Array []`;
+exports[`CompressionPlugin should work and show compress assets in stats: errors 1`] = `[]`;
 
-exports[`CompressionPlugin should work and show compress assets in stats: warnings 1`] = `Array []`;
+exports[`CompressionPlugin should work and show compress assets in stats: warnings 1`] = `[]`;
 
 exports[`CompressionPlugin should work and use memory cache when the "cache" option is "true" and the asset has been changed which filtered by the "minRation" option: assets 1`] = `
-Array [
-  Array [
+[
+  [
     "async.js",
     194,
-    Object {
+    {
       "javascriptModule": false,
-      "related": Object {
+      "related": {
         "gzipped": "async.js.gz",
       },
       "size": 194,
     },
   ],
-  Array [
+  [
     "async.js.gz",
     134,
-    Object {
+    {
       "compressed": true,
       "size": 134,
     },
   ],
-  Array [
+  [
     "icon.png",
     78117,
-    Object {
+    {
       "size": 78117,
       "sourceFilename": "icon.png",
     },
   ],
-  Array [
+  [
     "icon.svg",
     672,
-    Object {
-      "related": Object {
+    {
+      "related": {
         "gzipped": "icon.svg.gz",
       },
       "size": 672,
       "sourceFilename": "icon.svg",
     },
   ],
-  Array [
+  [
     "icon.svg.gz",
     393,
-    Object {
+    {
       "compressed": true,
       "size": 393,
     },
   ],
-  Array [
+  [
     "main.js",
     15945,
-    Object {
+    {
       "javascriptModule": false,
-      "related": Object {
+      "related": {
         "gzipped": "main.js.gz",
       },
       "size": 15945,
     },
   ],
-  Array [
+  [
     "main.js.gz",
     3912,
-    Object {
+    {
       "compressed": true,
       "size": 3912,
     },
@@ -425,79 +425,79 @@ Array [
 `;
 
 exports[`CompressionPlugin should work and use memory cache when the "cache" option is "true" and the asset has been changed which filtered by the "minRation" option: assets 2`] = `
-Array [
-  Array [
+[
+  [
     "async.js",
     194,
-    Object {
+    {
       "javascriptModule": false,
-      "related": Object {
+      "related": {
         "gzipped": "async.js.gz",
       },
       "size": 194,
     },
   ],
-  Array [
+  [
     "async.js.gz",
     134,
-    Object {
+    {
       "compressed": true,
       "size": 134,
     },
   ],
-  Array [
+  [
     "icon.png",
     94117,
-    Object {
-      "related": Object {
+    {
+      "related": {
         "gzipped": "icon.png.gz",
       },
       "size": 94117,
       "sourceFilename": "icon.png",
     },
   ],
-  Array [
+  [
     "icon.png.gz",
     73309,
-    Object {
+    {
       "compressed": true,
       "size": 73309,
     },
   ],
-  Array [
+  [
     "icon.svg",
     672,
-    Object {
-      "related": Object {
+    {
+      "related": {
         "gzipped": "icon.svg.gz",
       },
       "size": 672,
       "sourceFilename": "icon.svg",
     },
   ],
-  Array [
+  [
     "icon.svg.gz",
     393,
-    Object {
+    {
       "compressed": true,
       "size": 393,
     },
   ],
-  Array [
+  [
     "main.js",
     15945,
-    Object {
+    {
       "javascriptModule": false,
-      "related": Object {
+      "related": {
         "gzipped": "main.js.gz",
       },
       "size": 15945,
     },
   ],
-  Array [
+  [
     "main.js.gz",
     3912,
-    Object {
+    {
       "compressed": true,
       "size": 3912,
     },
@@ -505,80 +505,80 @@ Array [
 ]
 `;
 
-exports[`CompressionPlugin should work and use memory cache when the "cache" option is "true" and the asset has been changed which filtered by the "minRation" option: errors 1`] = `Array []`;
+exports[`CompressionPlugin should work and use memory cache when the "cache" option is "true" and the asset has been changed which filtered by the "minRation" option: errors 1`] = `[]`;
 
-exports[`CompressionPlugin should work and use memory cache when the "cache" option is "true" and the asset has been changed which filtered by the "minRation" option: errors 2`] = `Array []`;
+exports[`CompressionPlugin should work and use memory cache when the "cache" option is "true" and the asset has been changed which filtered by the "minRation" option: errors 2`] = `[]`;
 
-exports[`CompressionPlugin should work and use memory cache when the "cache" option is "true" and the asset has been changed which filtered by the "minRation" option: warnings 1`] = `Array []`;
+exports[`CompressionPlugin should work and use memory cache when the "cache" option is "true" and the asset has been changed which filtered by the "minRation" option: warnings 1`] = `[]`;
 
-exports[`CompressionPlugin should work and use memory cache when the "cache" option is "true" and the asset has been changed which filtered by the "minRation" option: warnings 2`] = `Array []`;
+exports[`CompressionPlugin should work and use memory cache when the "cache" option is "true" and the asset has been changed which filtered by the "minRation" option: warnings 2`] = `[]`;
 
 exports[`CompressionPlugin should work and use memory cache when the "cache" option is "true" and the asset has been changed: assets 1`] = `
-Array [
-  Array [
+[
+  [
     "09a1a1112c577c2794359715edfcb5ac.png",
     78117,
-    Object {
+    {
       "immutable": true,
       "size": 78117,
       "sourceFilename": "icon.png",
     },
   ],
-  Array [
+  [
     "23fc1d3ac606d117e05a140e0de79806.svg",
     672,
-    Object {
+    {
       "immutable": true,
-      "related": Object {
+      "related": {
         "gzipped": "23fc1d3ac606d117e05a140e0de79806.svg.gz",
       },
       "size": 672,
       "sourceFilename": "icon.svg",
     },
   ],
-  Array [
+  [
     "23fc1d3ac606d117e05a140e0de79806.svg.gz",
     393,
-    Object {
+    {
       "compressed": true,
       "immutable": true,
       "size": 393,
     },
   ],
-  Array [
+  [
     "async.js",
     194,
-    Object {
+    {
       "javascriptModule": false,
-      "related": Object {
+      "related": {
         "gzipped": "async.js.gz",
       },
       "size": 194,
     },
   ],
-  Array [
+  [
     "async.js.gz",
     134,
-    Object {
+    {
       "compressed": true,
       "size": 134,
     },
   ],
-  Array [
+  [
     "main.js",
     16001,
-    Object {
+    {
       "javascriptModule": false,
-      "related": Object {
+      "related": {
         "gzipped": "main.js.gz",
       },
       "size": 16001,
     },
   ],
-  Array [
+  [
     "main.js.gz",
     3976,
-    Object {
+    {
       "compressed": true,
       "size": 3976,
     },
@@ -587,71 +587,71 @@ Array [
 `;
 
 exports[`CompressionPlugin should work and use memory cache when the "cache" option is "true" and the asset has been changed: assets 2`] = `
-Array [
-  Array [
+[
+  [
     "09a1a1112c577c2794359715edfcb5ac.png",
     78117,
-    Object {
+    {
       "immutable": true,
       "size": 78117,
       "sourceFilename": "icon.png",
     },
   ],
-  Array [
+  [
     "23fc1d3ac606d117e05a140e0de79806.svg",
     672,
-    Object {
+    {
       "immutable": true,
-      "related": Object {
+      "related": {
         "gzipped": "23fc1d3ac606d117e05a140e0de79806.svg.gz",
       },
       "size": 672,
       "sourceFilename": "icon.svg",
     },
   ],
-  Array [
+  [
     "23fc1d3ac606d117e05a140e0de79806.svg.gz",
     393,
-    Object {
+    {
       "compressed": true,
       "immutable": true,
       "size": 393,
     },
   ],
-  Array [
+  [
     "async.js",
     194,
-    Object {
+    {
       "javascriptModule": false,
-      "related": Object {
+      "related": {
         "gzipped": "async.js.gz",
       },
       "size": 194,
     },
   ],
-  Array [
+  [
     "async.js.gz",
     134,
-    Object {
+    {
       "compressed": true,
       "size": 134,
     },
   ],
-  Array [
+  [
     "main.js",
     16038,
-    Object {
+    {
       "javascriptModule": false,
-      "related": Object {
+      "related": {
         "gzipped": "main.js.gz",
       },
       "size": 16038,
     },
   ],
-  Array [
+  [
     "main.js.gz",
     4000,
-    Object {
+    {
       "compressed": true,
       "size": 4000,
     },
@@ -659,43 +659,43 @@ Array [
 ]
 `;
 
-exports[`CompressionPlugin should work and use memory cache when the "cache" option is "true" and the asset has been changed: errors 1`] = `Array []`;
+exports[`CompressionPlugin should work and use memory cache when the "cache" option is "true" and the asset has been changed: errors 1`] = `[]`;
 
-exports[`CompressionPlugin should work and use memory cache when the "cache" option is "true" and the asset has been changed: errors 2`] = `Array []`;
+exports[`CompressionPlugin should work and use memory cache when the "cache" option is "true" and the asset has been changed: errors 2`] = `[]`;
 
-exports[`CompressionPlugin should work and use memory cache when the "cache" option is "true" and the asset has been changed: warnings 1`] = `Array []`;
+exports[`CompressionPlugin should work and use memory cache when the "cache" option is "true" and the asset has been changed: warnings 1`] = `[]`;
 
-exports[`CompressionPlugin should work and use memory cache when the "cache" option is "true" and the asset has been changed: warnings 2`] = `Array []`;
+exports[`CompressionPlugin should work and use memory cache when the "cache" option is "true" and the asset has been changed: warnings 2`] = `[]`;
 
 exports[`CompressionPlugin should work and use memory cache when the "cache" option is "true" with multiple plugins: assets 1`] = `
-Array [
-  Array [
+[
+  [
     "09a1a1112c577c2794359715edfcb5ac.png",
     78117,
-    Object {
+    {
       "immutable": true,
-      "related": Object {
+      "related": {
         "customed": "09a1a1112c577c2794359715edfcb5ac.png.custom",
       },
       "size": 78117,
       "sourceFilename": "icon.png",
     },
   ],
-  Array [
+  [
     "09a1a1112c577c2794359715edfcb5ac.png.custom",
     78117,
-    Object {
+    {
       "compressed": true,
       "immutable": true,
       "size": 78117,
     },
   ],
-  Array [
+  [
     "23fc1d3ac606d117e05a140e0de79806.svg",
     672,
-    Object {
+    {
       "immutable": true,
-      "related": Object {
+      "related": {
         "brotliCompressed": "23fc1d3ac606d117e05a140e0de79806.svg.br",
         "customed": "23fc1d3ac606d117e05a140e0de79806.svg.custom",
         "gzipped": "23fc1d3ac606d117e05a140e0de79806.svg.gz",
@@ -704,39 +704,39 @@ Array [
       "sourceFilename": "icon.svg",
     },
   ],
-  Array [
+  [
     "23fc1d3ac606d117e05a140e0de79806.svg.br",
     363,
-    Object {
+    {
       "compressed": true,
       "immutable": true,
       "size": 363,
     },
   ],
-  Array [
+  [
     "23fc1d3ac606d117e05a140e0de79806.svg.custom",
     672,
-    Object {
+    {
       "compressed": true,
       "immutable": true,
       "size": 672,
     },
   ],
-  Array [
+  [
     "23fc1d3ac606d117e05a140e0de79806.svg.gz",
     393,
-    Object {
+    {
       "compressed": true,
       "immutable": true,
       "size": 393,
     },
   ],
-  Array [
+  [
     "async.js",
     194,
-    Object {
+    {
       "javascriptModule": false,
-      "related": Object {
+      "related": {
         "brotliCompressed": "async.js.br",
         "customed": "async.js.custom",
         "gzipped": "async.js.gz",
@@ -744,36 +744,36 @@ Array [
       "size": 194,
     },
   ],
-  Array [
+  [
     "async.js.br",
     123,
-    Object {
+    {
       "compressed": true,
       "size": 123,
     },
   ],
-  Array [
+  [
     "async.js.custom",
     194,
-    Object {
+    {
       "compressed": true,
       "size": 194,
     },
   ],
-  Array [
+  [
     "async.js.gz",
     134,
-    Object {
+    {
       "compressed": true,
       "size": 134,
     },
   ],
-  Array [
+  [
     "main.js",
     16001,
-    Object {
+    {
       "javascriptModule": false,
-      "related": Object {
+      "related": {
         "brotliCompressed": "main.js.br",
         "customed": "main.js.custom",
         "gzipped": "main.js.gz",
@@ -781,26 +781,26 @@ Array [
       "size": 16001,
     },
   ],
-  Array [
+  [
     "main.js.br",
     3476,
-    Object {
+    {
       "compressed": true,
       "size": 3476,
     },
   ],
-  Array [
+  [
     "main.js.custom",
     16001,
-    Object {
+    {
       "compressed": true,
       "size": 16001,
     },
   ],
-  Array [
+  [
     "main.js.gz",
     3976,
-    Object {
+    {
       "compressed": true,
       "size": 3976,
     },
@@ -809,34 +809,34 @@ Array [
 `;
 
 exports[`CompressionPlugin should work and use memory cache when the "cache" option is "true" with multiple plugins: assets 2`] = `
-Array [
-  Array [
+[
+  [
     "09a1a1112c577c2794359715edfcb5ac.png",
     78117,
-    Object {
+    {
       "immutable": true,
-      "related": Object {
+      "related": {
         "customed": "09a1a1112c577c2794359715edfcb5ac.png.custom",
       },
       "size": 78117,
       "sourceFilename": "icon.png",
     },
   ],
-  Array [
+  [
     "09a1a1112c577c2794359715edfcb5ac.png.custom",
     78117,
-    Object {
+    {
       "compressed": true,
       "immutable": true,
       "size": 78117,
     },
   ],
-  Array [
+  [
     "23fc1d3ac606d117e05a140e0de79806.svg",
     672,
-    Object {
+    {
       "immutable": true,
-      "related": Object {
+      "related": {
         "brotliCompressed": "23fc1d3ac606d117e05a140e0de79806.svg.br",
         "customed": "23fc1d3ac606d117e05a140e0de79806.svg.custom",
         "gzipped": "23fc1d3ac606d117e05a140e0de79806.svg.gz",
@@ -845,39 +845,39 @@ Array [
       "sourceFilename": "icon.svg",
     },
   ],
-  Array [
+  [
     "23fc1d3ac606d117e05a140e0de79806.svg.br",
     363,
-    Object {
+    {
       "compressed": true,
       "immutable": true,
       "size": 363,
     },
   ],
-  Array [
+  [
     "23fc1d3ac606d117e05a140e0de79806.svg.custom",
     672,
-    Object {
+    {
       "compressed": true,
       "immutable": true,
       "size": 672,
     },
   ],
-  Array [
+  [
     "23fc1d3ac606d117e05a140e0de79806.svg.gz",
     393,
-    Object {
+    {
       "compressed": true,
       "immutable": true,
       "size": 393,
     },
   ],
-  Array [
+  [
     "async.js",
     194,
-    Object {
+    {
       "javascriptModule": false,
-      "related": Object {
+      "related": {
         "brotliCompressed": "async.js.br",
         "customed": "async.js.custom",
         "gzipped": "async.js.gz",
@@ -885,36 +885,36 @@ Array [
       "size": 194,
     },
   ],
-  Array [
+  [
     "async.js.br",
     123,
-    Object {
+    {
       "compressed": true,
       "size": 123,
     },
   ],
-  Array [
+  [
     "async.js.custom",
     194,
-    Object {
+    {
       "compressed": true,
       "size": 194,
     },
   ],
-  Array [
+  [
     "async.js.gz",
     134,
-    Object {
+    {
       "compressed": true,
       "size": 134,
     },
   ],
-  Array [
+  [
     "main.js",
     16001,
-    Object {
+    {
       "javascriptModule": false,
-      "related": Object {
+      "related": {
         "brotliCompressed": "main.js.br",
         "customed": "main.js.custom",
         "gzipped": "main.js.gz",
@@ -922,26 +922,26 @@ Array [
       "size": 16001,
     },
   ],
-  Array [
+  [
     "main.js.br",
     3476,
-    Object {
+    {
       "compressed": true,
       "size": 3476,
     },
   ],
-  Array [
+  [
     "main.js.custom",
     16001,
-    Object {
+    {
       "compressed": true,
       "size": 16001,
     },
   ],
-  Array [
+  [
     "main.js.gz",
     3976,
-    Object {
+    {
       "compressed": true,
       "size": 3976,
     },
@@ -949,80 +949,80 @@ Array [
 ]
 `;
 
-exports[`CompressionPlugin should work and use memory cache when the "cache" option is "true" with multiple plugins: errors 1`] = `Array []`;
+exports[`CompressionPlugin should work and use memory cache when the "cache" option is "true" with multiple plugins: errors 1`] = `[]`;
 
-exports[`CompressionPlugin should work and use memory cache when the "cache" option is "true" with multiple plugins: errors 2`] = `Array []`;
+exports[`CompressionPlugin should work and use memory cache when the "cache" option is "true" with multiple plugins: errors 2`] = `[]`;
 
-exports[`CompressionPlugin should work and use memory cache when the "cache" option is "true" with multiple plugins: warnings 1`] = `Array []`;
+exports[`CompressionPlugin should work and use memory cache when the "cache" option is "true" with multiple plugins: warnings 1`] = `[]`;
 
-exports[`CompressionPlugin should work and use memory cache when the "cache" option is "true" with multiple plugins: warnings 2`] = `Array []`;
+exports[`CompressionPlugin should work and use memory cache when the "cache" option is "true" with multiple plugins: warnings 2`] = `[]`;
 
 exports[`CompressionPlugin should work and use memory cache when the "cache" option is "true": assets 1`] = `
-Array [
-  Array [
+[
+  [
     "09a1a1112c577c2794359715edfcb5ac.png",
     78117,
-    Object {
+    {
       "immutable": true,
       "size": 78117,
       "sourceFilename": "icon.png",
     },
   ],
-  Array [
+  [
     "23fc1d3ac606d117e05a140e0de79806.svg",
     672,
-    Object {
+    {
       "immutable": true,
-      "related": Object {
+      "related": {
         "gzipped": "23fc1d3ac606d117e05a140e0de79806.svg.gz",
       },
       "size": 672,
       "sourceFilename": "icon.svg",
     },
   ],
-  Array [
+  [
     "23fc1d3ac606d117e05a140e0de79806.svg.gz",
     393,
-    Object {
+    {
       "compressed": true,
       "immutable": true,
       "size": 393,
     },
   ],
-  Array [
+  [
     "async.js",
     194,
-    Object {
+    {
       "javascriptModule": false,
-      "related": Object {
+      "related": {
         "gzipped": "async.js.gz",
       },
       "size": 194,
     },
   ],
-  Array [
+  [
     "async.js.gz",
     134,
-    Object {
+    {
       "compressed": true,
       "size": 134,
     },
   ],
-  Array [
+  [
     "main.js",
     16001,
-    Object {
+    {
       "javascriptModule": false,
-      "related": Object {
+      "related": {
         "gzipped": "main.js.gz",
       },
       "size": 16001,
     },
   ],
-  Array [
+  [
     "main.js.gz",
     3976,
-    Object {
+    {
       "compressed": true,
       "size": 3976,
     },
@@ -1031,71 +1031,71 @@ Array [
 `;
 
 exports[`CompressionPlugin should work and use memory cache when the "cache" option is "true": assets 2`] = `
-Array [
-  Array [
+[
+  [
     "09a1a1112c577c2794359715edfcb5ac.png",
     78117,
-    Object {
+    {
       "immutable": true,
       "size": 78117,
       "sourceFilename": "icon.png",
     },
   ],
-  Array [
+  [
     "23fc1d3ac606d117e05a140e0de79806.svg",
     672,
-    Object {
+    {
       "immutable": true,
-      "related": Object {
+      "related": {
         "gzipped": "23fc1d3ac606d117e05a140e0de79806.svg.gz",
       },
       "size": 672,
       "sourceFilename": "icon.svg",
     },
   ],
-  Array [
+  [
     "23fc1d3ac606d117e05a140e0de79806.svg.gz",
     393,
-    Object {
+    {
       "compressed": true,
       "immutable": true,
       "size": 393,
     },
   ],
-  Array [
+  [
     "async.js",
     194,
-    Object {
+    {
       "javascriptModule": false,
-      "related": Object {
+      "related": {
         "gzipped": "async.js.gz",
       },
       "size": 194,
     },
   ],
-  Array [
+  [
     "async.js.gz",
     134,
-    Object {
+    {
       "compressed": true,
       "size": 134,
     },
   ],
-  Array [
+  [
     "main.js",
     16001,
-    Object {
+    {
       "javascriptModule": false,
-      "related": Object {
+      "related": {
         "gzipped": "main.js.gz",
       },
       "size": 16001,
     },
   ],
-  Array [
+  [
     "main.js.gz",
     3976,
-    Object {
+    {
       "compressed": true,
       "size": 3976,
     },
@@ -1103,85 +1103,85 @@ Array [
 ]
 `;
 
-exports[`CompressionPlugin should work and use memory cache when the "cache" option is "true": errors 1`] = `Array []`;
+exports[`CompressionPlugin should work and use memory cache when the "cache" option is "true": errors 1`] = `[]`;
 
-exports[`CompressionPlugin should work and use memory cache when the "cache" option is "true": errors 2`] = `Array []`;
+exports[`CompressionPlugin should work and use memory cache when the "cache" option is "true": errors 2`] = `[]`;
 
-exports[`CompressionPlugin should work and use memory cache when the "cache" option is "true": warnings 1`] = `Array []`;
+exports[`CompressionPlugin should work and use memory cache when the "cache" option is "true": warnings 1`] = `[]`;
 
-exports[`CompressionPlugin should work and use memory cache when the "cache" option is "true": warnings 2`] = `Array []`;
+exports[`CompressionPlugin should work and use memory cache when the "cache" option is "true": warnings 2`] = `[]`;
 
 exports[`CompressionPlugin should work and use memory cache without options in the "development" mode: assets 1`] = `
-Array [
-  Array [
+[
+  [
     "09a1a1112c577c2794359715edfcb5ac.png",
     78117,
-    Object {
+    {
       "immutable": true,
       "size": 78117,
       "sourceFilename": "icon.png",
     },
   ],
-  Array [
+  [
     "23fc1d3ac606d117e05a140e0de79806.svg",
     672,
-    Object {
+    {
       "immutable": true,
-      "related": Object {
+      "related": {
         "gzipped": "23fc1d3ac606d117e05a140e0de79806.svg.gz",
       },
       "size": 672,
       "sourceFilename": "icon.svg",
     },
   ],
-  Array [
+  [
     "23fc1d3ac606d117e05a140e0de79806.svg.gz",
     393,
-    Object {
+    {
       "compressed": true,
       "immutable": true,
       "size": 393,
     },
   ],
-  Array [
+  [
     "async.async.55e6e9a872bcc7d4b226.js",
     194,
-    Object {
+    {
       "chunkhash": "55e6e9a872bcc7d4b226",
       "immutable": true,
       "javascriptModule": false,
-      "related": Object {
+      "related": {
         "gzipped": "async.async.55e6e9a872bcc7d4b226.js.gz",
       },
       "size": 194,
     },
   ],
-  Array [
+  [
     "async.async.55e6e9a872bcc7d4b226.js.gz",
     134,
-    Object {
+    {
       "compressed": true,
       "immutable": true,
       "size": 134,
     },
   ],
-  Array [
+  [
     "main.65eb86fafc0ecd0e4fc3.js",
     16048,
-    Object {
+    {
       "chunkhash": "65eb86fafc0ecd0e4fc3",
       "immutable": true,
       "javascriptModule": false,
-      "related": Object {
+      "related": {
         "gzipped": "main.65eb86fafc0ecd0e4fc3.js.gz",
       },
       "size": 16048,
     },
   ],
-  Array [
+  [
     "main.65eb86fafc0ecd0e4fc3.js.gz",
     4002,
-    Object {
+    {
       "compressed": true,
       "immutable": true,
       "size": 4002,
@@ -1191,76 +1191,76 @@ Array [
 `;
 
 exports[`CompressionPlugin should work and use memory cache without options in the "development" mode: assets 2`] = `
-Array [
-  Array [
+[
+  [
     "09a1a1112c577c2794359715edfcb5ac.png",
     78117,
-    Object {
+    {
       "immutable": true,
       "size": 78117,
       "sourceFilename": "icon.png",
     },
   ],
-  Array [
+  [
     "23fc1d3ac606d117e05a140e0de79806.svg",
     672,
-    Object {
+    {
       "immutable": true,
-      "related": Object {
+      "related": {
         "gzipped": "23fc1d3ac606d117e05a140e0de79806.svg.gz",
       },
       "size": 672,
       "sourceFilename": "icon.svg",
     },
   ],
-  Array [
+  [
     "23fc1d3ac606d117e05a140e0de79806.svg.gz",
     393,
-    Object {
+    {
       "compressed": true,
       "immutable": true,
       "size": 393,
     },
   ],
-  Array [
+  [
     "async.async.55e6e9a872bcc7d4b226.js",
     194,
-    Object {
+    {
       "chunkhash": "55e6e9a872bcc7d4b226",
       "immutable": true,
       "javascriptModule": false,
-      "related": Object {
+      "related": {
         "gzipped": "async.async.55e6e9a872bcc7d4b226.js.gz",
       },
       "size": 194,
     },
   ],
-  Array [
+  [
     "async.async.55e6e9a872bcc7d4b226.js.gz",
     134,
-    Object {
+    {
       "compressed": true,
       "immutable": true,
       "size": 134,
     },
   ],
-  Array [
+  [
     "main.65eb86fafc0ecd0e4fc3.js",
     16048,
-    Object {
+    {
       "chunkhash": "65eb86fafc0ecd0e4fc3",
       "immutable": true,
       "javascriptModule": false,
-      "related": Object {
+      "related": {
         "gzipped": "main.65eb86fafc0ecd0e4fc3.js.gz",
       },
       "size": 16048,
     },
   ],
-  Array [
+  [
     "main.65eb86fafc0ecd0e4fc3.js.gz",
     4002,
-    Object {
+    {
       "compressed": true,
       "immutable": true,
       "size": 4002,
@@ -1269,104 +1269,104 @@ Array [
 ]
 `;
 
-exports[`CompressionPlugin should work and use memory cache without options in the "development" mode: errors 1`] = `Array []`;
+exports[`CompressionPlugin should work and use memory cache without options in the "development" mode: errors 1`] = `[]`;
 
-exports[`CompressionPlugin should work and use memory cache without options in the "development" mode: errors 2`] = `Array []`;
+exports[`CompressionPlugin should work and use memory cache without options in the "development" mode: errors 2`] = `[]`;
 
-exports[`CompressionPlugin should work and use memory cache without options in the "development" mode: warnings 1`] = `Array []`;
+exports[`CompressionPlugin should work and use memory cache without options in the "development" mode: warnings 1`] = `[]`;
 
-exports[`CompressionPlugin should work and use memory cache without options in the "development" mode: warnings 2`] = `Array []`;
+exports[`CompressionPlugin should work and use memory cache without options in the "development" mode: warnings 2`] = `[]`;
 
 exports[`CompressionPlugin should work child compilations: assets 1`] = `
-Array [
-  Array [
+[
+  [
     "09a1a1112c577c2794359715edfcb5ac.png",
     78117,
-    Object {
+    {
       "immutable": true,
       "size": 78117,
       "sourceFilename": "icon.png",
     },
   ],
-  Array [
+  [
     "23fc1d3ac606d117e05a140e0de79806.svg",
     672,
-    Object {
+    {
       "immutable": true,
-      "related": Object {
+      "related": {
         "gzipped": "23fc1d3ac606d117e05a140e0de79806.svg.gz",
       },
       "size": 672,
       "sourceFilename": "icon.svg",
     },
   ],
-  Array [
+  [
     "23fc1d3ac606d117e05a140e0de79806.svg.gz",
     393,
-    Object {
+    {
       "compressed": true,
       "immutable": true,
       "size": 393,
     },
   ],
-  Array [
+  [
     "async.async.js.gz",
     134,
-    Object {
+    {
       "compressed": true,
       "immutable": true,
       "size": 134,
     },
   ],
-  Array [
+  [
     "async.async.js?ver=1571d063aa39afd5796d",
     194,
-    Object {
+    {
       "fullhash": "1571d063aa39afd5796d",
       "immutable": true,
       "javascriptModule": false,
-      "related": Object {
+      "related": {
         "gzipped": "async.async.js.gz",
       },
       "size": 194,
     },
   ],
-  Array [
+  [
     "copied.js",
     400,
-    Object {
+    {
       "copied": true,
-      "related": Object {
+      "related": {
         "gzipped": "copied.js.gz",
       },
       "size": 400,
     },
   ],
-  Array [
+  [
     "copied.js.gz",
     29,
-    Object {
+    {
       "compressed": true,
       "size": 29,
     },
   ],
-  Array [
+  [
     "main.js.gz",
     4025,
-    Object {
+    {
       "compressed": true,
       "immutable": true,
       "size": 4025,
     },
   ],
-  Array [
+  [
     "main.js?var=1571d063aa39afd5796d",
     16206,
-    Object {
+    {
       "fullhash": "1571d063aa39afd5796d",
       "immutable": true,
       "javascriptModule": false,
-      "related": Object {
+      "related": {
         "gzipped": "main.js.gz",
       },
       "size": 16206,
@@ -1375,209 +1375,209 @@ Array [
 ]
 `;
 
-exports[`CompressionPlugin should work child compilations: errors 1`] = `Array []`;
+exports[`CompressionPlugin should work child compilations: errors 1`] = `[]`;
 
-exports[`CompressionPlugin should work child compilations: warnings 1`] = `Array []`;
+exports[`CompressionPlugin should work child compilations: warnings 1`] = `[]`;
 
 exports[`CompressionPlugin should work with 'webpack-stats-plugin': assets 1`] = `
-Array [
-  Array [
+[
+  [
     "09a1a1112c577c2794359715edfcb5ac.png",
     78117,
-    Object {
+    {
       "immutable": true,
       "size": 78117,
       "sourceFilename": "icon.png",
     },
   ],
-  Array [
+  [
     "23fc1d3ac606d117e05a140e0de79806.svg",
     672,
-    Object {
+    {
       "immutable": true,
-      "related": Object {
+      "related": {
         "gzipped": "23fc1d3ac606d117e05a140e0de79806.svg.gz",
       },
       "size": 672,
       "sourceFilename": "icon.svg",
     },
   ],
-  Array [
+  [
     "23fc1d3ac606d117e05a140e0de79806.svg.gz",
     393,
-    Object {
+    {
       "compressed": true,
       "immutable": true,
       "size": 393,
     },
   ],
-  Array [
+  [
     "async.async.55e6e9a872bcc7d4b226.js",
     194,
-    Object {
+    {
       "chunkhash": "55e6e9a872bcc7d4b226",
       "immutable": true,
       "javascriptModule": false,
-      "related": Object {
+      "related": {
         "gzipped": "async.async.55e6e9a872bcc7d4b226.js.gz",
       },
       "size": 194,
     },
   ],
-  Array [
+  [
     "async.async.55e6e9a872bcc7d4b226.js.gz",
     134,
-    Object {
+    {
       "compressed": true,
       "immutable": true,
       "size": 134,
     },
   ],
-  Array [
+  [
     "main.65eb86fafc0ecd0e4fc3.js",
     16048,
-    Object {
+    {
       "chunkhash": "65eb86fafc0ecd0e4fc3",
       "immutable": true,
       "javascriptModule": false,
-      "related": Object {
+      "related": {
         "gzipped": "main.65eb86fafc0ecd0e4fc3.js.gz",
       },
       "size": 16048,
     },
   ],
-  Array [
+  [
     "main.65eb86fafc0ecd0e4fc3.js.gz",
     4002,
-    Object {
+    {
       "compressed": true,
       "immutable": true,
       "size": 4002,
     },
   ],
-  Array [
+  [
     "stats.json",
     155,
-    Object {
+    {
       "size": 155,
     },
   ],
 ]
 `;
 
-exports[`CompressionPlugin should work with 'webpack-stats-plugin': errors 1`] = `Array []`;
+exports[`CompressionPlugin should work with 'webpack-stats-plugin': errors 1`] = `[]`;
 
-exports[`CompressionPlugin should work with 'webpack-stats-plugin': warnings 1`] = `Array []`;
+exports[`CompressionPlugin should work with 'webpack-stats-plugin': warnings 1`] = `[]`;
 
 exports[`CompressionPlugin should work with assets info: assets 1`] = `
-Array [
-  Array [
+[
+  [
     "09a1a1112c577c2794359715edfcb5ac.png",
     78117,
-    Object {
+    {
       "immutable": true,
       "size": 78117,
       "sourceFilename": "icon.png",
     },
   ],
-  Array [
+  [
     "23fc1d3ac606d117e05a140e0de79806.svg",
     672,
-    Object {
+    {
       "immutable": true,
-      "related": Object {
+      "related": {
         "gzipped": "23fc1d3ac606d117e05a140e0de79806.svg.gz",
       },
       "size": 672,
       "sourceFilename": "icon.svg",
     },
   ],
-  Array [
+  [
     "23fc1d3ac606d117e05a140e0de79806.svg.gz",
     393,
-    Object {
+    {
       "compressed": true,
       "immutable": true,
       "size": 393,
     },
   ],
-  Array [
+  [
     "async.async.js.gz",
     134,
-    Object {
+    {
       "compressed": true,
       "immutable": true,
       "size": 134,
     },
   ],
-  Array [
+  [
     "async.async.js?ver=a96b6cedcf53690a6903",
     194,
-    Object {
+    {
       "fullhash": "a96b6cedcf53690a6903",
       "immutable": true,
       "javascriptModule": false,
-      "related": Object {
+      "related": {
         "gzipped": "async.async.js.gz",
       },
       "size": 194,
     },
   ],
-  Array [
+  [
     "copied.js",
     400,
-    Object {
+    {
       "copied": true,
-      "related": Object {
+      "related": {
         "gzipped": "copied.js.gz",
       },
       "size": 400,
     },
   ],
-  Array [
+  [
     "copied.js.gz",
     29,
-    Object {
+    {
       "compressed": true,
       "size": 29,
     },
   ],
-  Array [
+  [
     "main.js.gz",
     4057,
-    Object {
+    {
       "compressed": true,
       "immutable": true,
       "size": 4057,
     },
   ],
-  Array [
+  [
     "main.js.map.gz",
     4133,
-    Object {
+    {
       "compressed": true,
       "size": 4133,
     },
   ],
-  Array [
+  [
     "main.js.map?var=a96b6cedcf53690a6903",
     13176,
-    Object {
+    {
       "development": true,
-      "related": Object {
+      "related": {
         "gzipped": "main.js.map.gz",
       },
       "size": 13176,
     },
   ],
-  Array [
+  [
     "main.js?var=a96b6cedcf53690a6903",
     16267,
-    Object {
+    {
       "fullhash": "a96b6cedcf53690a6903",
       "immutable": true,
       "javascriptModule": false,
-      "related": Object {
+      "related": {
         "gzipped": "main.js.gz",
         "sourceMap": "main.js.map?var=a96b6cedcf53690a6903",
       },
@@ -1587,18 +1587,18 @@ Array [
 ]
 `;
 
-exports[`CompressionPlugin should work with assets info: errors 1`] = `Array []`;
+exports[`CompressionPlugin should work with assets info: errors 1`] = `[]`;
 
-exports[`CompressionPlugin should work with assets info: warnings 1`] = `Array []`;
+exports[`CompressionPlugin should work with assets info: warnings 1`] = `[]`;
 
 exports[`CompressionPlugin should work with multiple plugins: assets 1`] = `
-Array [
-  Array [
+[
+  [
     "09a1a1112c577c2794359715edfcb5ac.png",
     78117,
-    Object {
+    {
       "immutable": true,
-      "related": Object {
+      "related": {
         "compressed": "09a1a1112c577c2794359715edfcb5ac.png.compress",
         "customed": "09a1a1112c577c2794359715edfcb5ac.png.custom?foo=bar#hash",
       },
@@ -1606,30 +1606,30 @@ Array [
       "sourceFilename": "icon.png",
     },
   ],
-  Array [
+  [
     "09a1a1112c577c2794359715edfcb5ac.png.compress",
     78117,
-    Object {
+    {
       "compressed": true,
       "immutable": true,
       "size": 78117,
     },
   ],
-  Array [
+  [
     "09a1a1112c577c2794359715edfcb5ac.png.custom?foo=bar#hash",
     78117,
-    Object {
+    {
       "compressed": true,
       "immutable": true,
       "size": 78117,
     },
   ],
-  Array [
+  [
     "23fc1d3ac606d117e05a140e0de79806.svg",
     672,
-    Object {
+    {
       "immutable": true,
-      "related": Object {
+      "related": {
         "brotliCompressed": "23fc1d3ac606d117e05a140e0de79806.svg.br",
         "compressed": "23fc1d3ac606d117e05a140e0de79806.svg.compress",
         "customed": "23fc1d3ac606d117e05a140e0de79806.svg.custom?foo=bar#hash",
@@ -1639,86 +1639,86 @@ Array [
       "sourceFilename": "icon.svg",
     },
   ],
-  Array [
+  [
     "23fc1d3ac606d117e05a140e0de79806.svg.br",
     363,
-    Object {
+    {
       "compressed": true,
       "immutable": true,
       "size": 363,
     },
   ],
-  Array [
+  [
     "23fc1d3ac606d117e05a140e0de79806.svg.compress",
     672,
-    Object {
+    {
       "compressed": true,
       "immutable": true,
       "size": 672,
     },
   ],
-  Array [
+  [
     "23fc1d3ac606d117e05a140e0de79806.svg.custom?foo=bar#hash",
     672,
-    Object {
+    {
       "compressed": true,
       "immutable": true,
       "size": 672,
     },
   ],
-  Array [
+  [
     "23fc1d3ac606d117e05a140e0de79806.svg.gz",
     393,
-    Object {
+    {
       "compressed": true,
       "immutable": true,
       "size": 393,
     },
   ],
-  Array [
+  [
     "async.async.js.br",
     123,
-    Object {
+    {
       "compressed": true,
       "immutable": true,
       "size": 123,
     },
   ],
-  Array [
+  [
     "async.async.js.compress",
     194,
-    Object {
+    {
       "compressed": true,
       "immutable": true,
       "size": 194,
     },
   ],
-  Array [
+  [
     "async.async.js.custom?foo=bar#hash",
     194,
-    Object {
+    {
       "compressed": true,
       "immutable": true,
       "size": 194,
     },
   ],
-  Array [
+  [
     "async.async.js.gz",
     134,
-    Object {
+    {
       "compressed": true,
       "immutable": true,
       "size": 134,
     },
   ],
-  Array [
+  [
     "async.async.js?ver=611cf1926c28415ef007",
     194,
-    Object {
+    {
       "fullhash": "611cf1926c28415ef007",
       "immutable": true,
       "javascriptModule": false,
-      "related": Object {
+      "related": {
         "brotliCompressed": "async.async.js.br",
         "compressed": "async.async.js.compress",
         "customed": "async.async.js.custom?foo=bar#hash",
@@ -1727,50 +1727,50 @@ Array [
       "size": 194,
     },
   ],
-  Array [
+  [
     "main.js.br",
     3534,
-    Object {
+    {
       "compressed": true,
       "immutable": true,
       "size": 3534,
     },
   ],
-  Array [
+  [
     "main.js.compress",
     16209,
-    Object {
+    {
       "compressed": true,
       "immutable": true,
       "size": 16209,
     },
   ],
-  Array [
+  [
     "main.js.custom?foo=bar#hash",
     16209,
-    Object {
+    {
       "compressed": true,
       "immutable": true,
       "size": 16209,
     },
   ],
-  Array [
+  [
     "main.js.gz",
     4028,
-    Object {
+    {
       "compressed": true,
       "immutable": true,
       "size": 4028,
     },
   ],
-  Array [
+  [
     "main.js?var=611cf1926c28415ef007",
     16209,
-    Object {
+    {
       "fullhash": "611cf1926c28415ef007",
       "immutable": true,
       "javascriptModule": false,
-      "related": Object {
+      "related": {
         "brotliCompressed": "main.js.br",
         "compressed": "main.js.compress",
         "customed": "main.js.custom?foo=bar#hash",
@@ -1782,81 +1782,81 @@ Array [
 ]
 `;
 
-exports[`CompressionPlugin should work with multiple plugins: errors 1`] = `Array []`;
+exports[`CompressionPlugin should work with multiple plugins: errors 1`] = `[]`;
 
-exports[`CompressionPlugin should work with multiple plugins: warnings 1`] = `Array []`;
+exports[`CompressionPlugin should work with multiple plugins: warnings 1`] = `[]`;
 
 exports[`CompressionPlugin should work: assets 1`] = `
-Array [
-  Array [
+[
+  [
     "09a1a1112c577c2794359715edfcb5ac.png",
     78117,
-    Object {
+    {
       "immutable": true,
       "size": 78117,
       "sourceFilename": "icon.png",
     },
   ],
-  Array [
+  [
     "23fc1d3ac606d117e05a140e0de79806.svg",
     672,
-    Object {
+    {
       "immutable": true,
-      "related": Object {
+      "related": {
         "gzipped": "23fc1d3ac606d117e05a140e0de79806.svg.gz",
       },
       "size": 672,
       "sourceFilename": "icon.svg",
     },
   ],
-  Array [
+  [
     "23fc1d3ac606d117e05a140e0de79806.svg.gz",
     393,
-    Object {
+    {
       "compressed": true,
       "immutable": true,
       "size": 393,
     },
   ],
-  Array [
+  [
     "async.async.js.gz",
     134,
-    Object {
+    {
       "compressed": true,
       "immutable": true,
       "size": 134,
     },
   ],
-  Array [
+  [
     "async.async.js?ver=611cf1926c28415ef007",
     194,
-    Object {
+    {
       "fullhash": "611cf1926c28415ef007",
       "immutable": true,
       "javascriptModule": false,
-      "related": Object {
+      "related": {
         "gzipped": "async.async.js.gz",
       },
       "size": 194,
     },
   ],
-  Array [
+  [
     "main.js.gz",
     4028,
-    Object {
+    {
       "compressed": true,
       "immutable": true,
       "size": 4028,
     },
   ],
-  Array [
+  [
     "main.js?var=611cf1926c28415ef007",
     16209,
-    Object {
+    {
       "fullhash": "611cf1926c28415ef007",
       "immutable": true,
       "javascriptModule": false,
-      "related": Object {
+      "related": {
         "gzipped": "main.js.gz",
       },
       "size": 16209,
@@ -1865,6 +1865,6 @@ Array [
 ]
 `;
 
-exports[`CompressionPlugin should work: errors 1`] = `Array []`;
+exports[`CompressionPlugin should work: errors 1`] = `[]`;
 
-exports[`CompressionPlugin should work: warnings 1`] = `Array []`;
+exports[`CompressionPlugin should work: warnings 1`] = `[]`;

@@ -22,23 +22,23 @@ exports[`validate options should throw an error on the "compressionOptions" opti
 exports[`validate options should throw an error on the "deleteOriginalAssets" option with "true" value 1`] = `
 "Invalid options object. Compression Plugin has been initialized using an options object that does not match the API schema.
  - options.deleteOriginalAssets should be one of these:
-   boolean | \\"keep-source-map\\"
+   boolean | "keep-source-map"
    -> Whether to delete the original assets or not.
    -> Read more at https://github.com/webpack-contrib/compression-webpack-plugin/#deleteoriginalassets
    Details:
     * options.deleteOriginalAssets should be a boolean.
-    * options.deleteOriginalAssets should be \\"keep-source-map\\"."
+    * options.deleteOriginalAssets should be "keep-source-map"."
 `;
 
 exports[`validate options should throw an error on the "deleteOriginalAssets" option with "unknown" value 1`] = `
 "Invalid options object. Compression Plugin has been initialized using an options object that does not match the API schema.
  - options.deleteOriginalAssets should be one of these:
-   boolean | \\"keep-source-map\\"
+   boolean | "keep-source-map"
    -> Whether to delete the original assets or not.
    -> Read more at https://github.com/webpack-contrib/compression-webpack-plugin/#deleteoriginalassets
    Details:
     * options.deleteOriginalAssets should be a boolean.
-    * options.deleteOriginalAssets should be \\"keep-source-map\\"."
+    * options.deleteOriginalAssets should be "keep-source-map"."
 `;
 
 exports[`validate options should throw an error on the "exclude" option with "[{},"foo",true]" value 1`] = `
