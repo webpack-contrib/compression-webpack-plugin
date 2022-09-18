@@ -67,25 +67,25 @@ exports[`"threshold" option matches snapshot for \`0\` value ({Number}): assets 
     },
   ],
   [
-    "main.adca8291bb4e86fce82a.js",
-    16066,
+    "main.65eb86fafc0ecd0e4fc3.js",
+    16048,
     {
-      "chunkhash": "adca8291bb4e86fce82a",
+      "chunkhash": "65eb86fafc0ecd0e4fc3",
       "immutable": true,
       "javascriptModule": false,
       "related": {
-        "gzipped": "main.adca8291bb4e86fce82a.js.gz",
+        "gzipped": "main.65eb86fafc0ecd0e4fc3.js.gz",
       },
-      "size": 16066,
+      "size": 16048,
     },
   ],
   [
-    "main.adca8291bb4e86fce82a.js.gz",
-    4009,
+    "main.65eb86fafc0ecd0e4fc3.js.gz",
+    4002,
     {
       "compressed": true,
       "immutable": true,
-      "size": 4009,
+      "size": 4002,
     },
   ],
 ]
@@ -138,25 +138,25 @@ exports[`"threshold" option matches snapshot for \`8192\` value ({Number}): asse
     },
   ],
   [
-    "main.adca8291bb4e86fce82a.js",
-    16066,
+    "main.65eb86fafc0ecd0e4fc3.js",
+    16048,
     {
-      "chunkhash": "adca8291bb4e86fce82a",
+      "chunkhash": "65eb86fafc0ecd0e4fc3",
       "immutable": true,
       "javascriptModule": false,
       "related": {
-        "gzipped": "main.adca8291bb4e86fce82a.js.gz",
+        "gzipped": "main.65eb86fafc0ecd0e4fc3.js.gz",
       },
-      "size": 16066,
+      "size": 16048,
     },
   ],
   [
-    "main.adca8291bb4e86fce82a.js.gz",
-    4009,
+    "main.65eb86fafc0ecd0e4fc3.js.gz",
+    4002,
     {
       "compressed": true,
       "immutable": true,
-      "size": 4009,
+      "size": 4002,
     },
   ],
 ]
@@ -178,25 +178,25 @@ exports[`"threshold" option should compress all assets excluding assets with "0"
     },
   ],
   [
-    "main.1f070e05b4d16858d649.js",
-    5111,
+    "main.d6f9aecb01ad9f44759c.js",
+    5106,
     {
-      "chunkhash": "1f070e05b4d16858d649",
+      "chunkhash": "d6f9aecb01ad9f44759c",
       "immutable": true,
       "javascriptModule": false,
       "related": {
-        "gzipped": "main.1f070e05b4d16858d649.js.gz",
+        "gzipped": "main.d6f9aecb01ad9f44759c.js.gz",
       },
-      "size": 5111,
+      "size": 5106,
     },
   ],
   [
-    "main.1f070e05b4d16858d649.js.gz",
-    1525,
+    "main.d6f9aecb01ad9f44759c.js.gz",
+    1521,
     {
       "compressed": true,
       "immutable": true,
-      "size": 1525,
+      "size": 1521,
     },
   ],
 ]
@@ -230,25 +230,25 @@ exports[`"threshold" option should compress all assets including assets with "0"
     },
   ],
   [
-    "main.1f070e05b4d16858d649.js",
-    5111,
+    "main.d6f9aecb01ad9f44759c.js",
+    5106,
     {
-      "chunkhash": "1f070e05b4d16858d649",
+      "chunkhash": "d6f9aecb01ad9f44759c",
       "immutable": true,
       "javascriptModule": false,
       "related": {
-        "gzipped": "main.1f070e05b4d16858d649.js.gz",
+        "gzipped": "main.d6f9aecb01ad9f44759c.js.gz",
       },
-      "size": 5111,
+      "size": 5106,
     },
   ],
   [
-    "main.1f070e05b4d16858d649.js.gz",
-    1525,
+    "main.d6f9aecb01ad9f44759c.js.gz",
+    1521,
     {
       "compressed": true,
       "immutable": true,
-      "size": 1525,
+      "size": 1521,
     },
   ],
 ]
