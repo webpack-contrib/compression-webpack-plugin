@@ -362,7 +362,7 @@ class CompressionPlugin {
           });
           const newInfo = { compressed: true };
 
-          // TODO: possible problem when developer uses custom function, ideally we need to get parts of filname (i.e. name/base/ext/etc) in info
+          // TODO: possible problem when developer uses custom function, ideally we need to get parts of filename (i.e. name/base/ext/etc) in info
           // otherwise we can't detect an asset as immutable
           if (
             info.immutable &&
