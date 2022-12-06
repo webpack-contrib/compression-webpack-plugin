@@ -30,20 +30,20 @@ exports[`"deleteOriginalAssets" option should delete original assets and keep so
     },
   ],
   [
-    "main.205f834d0dd9bb2d7960.js",
-    4045,
+    "main.289b797d9f10b2863550.js",
+    4046,
     {
       "compressed": true,
       "immutable": true,
-      "size": 4045,
+      "size": 4046,
     },
   ],
   [
-    "main.205f834d0dd9bb2d7960.js.map",
-    13060,
+    "main.289b797d9f10b2863550.js.map",
+    13051,
     {
       "development": true,
-      "size": 13060,
+      "size": 13051,
     },
   ],
 ]
@@ -83,12 +83,12 @@ exports[`"deleteOriginalAssets" option should work and delete original assets: a
     },
   ],
   [
-    "main.65eb86fafc0ecd0e4fc3.js.gz",
-    4002,
+    "main.7ec9076a30af0f4e444d.js.gz",
+    4001,
     {
       "compressed": true,
       "immutable": true,
-      "size": 4002,
+      "size": 4001,
     },
   ],
 ]
@@ -128,12 +128,12 @@ exports[`"deleteOriginalAssets" option should work and do not report errors on d
     },
   ],
   [
-    "main.65eb86fafc0ecd0e4fc3.js",
-    4002,
+    "main.7ec9076a30af0f4e444d.js",
+    4001,
     {
       "compressed": true,
       "immutable": true,
-      "size": 4002,
+      "size": 4001,
     },
   ],
 ]
@@ -198,25 +198,25 @@ exports[`"deleteOriginalAssets" option should work and keep original assets by d
     },
   ],
   [
-    "main.65eb86fafc0ecd0e4fc3.js",
-    16048,
+    "main.7ec9076a30af0f4e444d.js",
+    16035,
     {
-      "chunkhash": "65eb86fafc0ecd0e4fc3",
+      "chunkhash": "7ec9076a30af0f4e444d",
       "immutable": true,
       "javascriptModule": false,
       "related": {
-        "gzipped": "main.65eb86fafc0ecd0e4fc3.js.gz",
+        "gzipped": "main.7ec9076a30af0f4e444d.js.gz",
       },
-      "size": 16048,
+      "size": 16035,
     },
   ],
   [
-    "main.65eb86fafc0ecd0e4fc3.js.gz",
-    4002,
+    "main.7ec9076a30af0f4e444d.js.gz",
+    4001,
     {
       "compressed": true,
       "immutable": true,
-      "size": 4002,
+      "size": 4001,
     },
   ],
 ]
@@ -293,25 +293,25 @@ exports[`"deleteOriginalAssets" option should work and keep original assets: ass
     },
   ],
   [
-    "main.65eb86fafc0ecd0e4fc3.js",
-    16048,
+    "main.7ec9076a30af0f4e444d.js",
+    16035,
     {
-      "chunkhash": "65eb86fafc0ecd0e4fc3",
+      "chunkhash": "7ec9076a30af0f4e444d",
       "immutable": true,
       "javascriptModule": false,
       "related": {
-        "gzipped": "main.65eb86fafc0ecd0e4fc3.js.gz",
+        "gzipped": "main.7ec9076a30af0f4e444d.js.gz",
       },
-      "size": 16048,
+      "size": 16035,
     },
   ],
   [
-    "main.65eb86fafc0ecd0e4fc3.js.gz",
-    4002,
+    "main.7ec9076a30af0f4e444d.js.gz",
+    4001,
     {
       "compressed": true,
       "immutable": true,
-      "size": 4002,
+      "size": 4001,
     },
   ],
 ]
@@ -351,12 +351,12 @@ exports[`"deleteOriginalAssets" option should work and report errors on duplicat
     },
   ],
   [
-    "main.65eb86fafc0ecd0e4fc3.js",
-    4002,
+    "main.7ec9076a30af0f4e444d.js",
+    4001,
     {
       "compressed": true,
       "immutable": true,
-      "size": 4002,
+      "size": 4001,
     },
   ],
 ]
@@ -366,7 +366,7 @@ exports[`"deleteOriginalAssets" option should work and report errors on duplicat
 [
   "Error: Conflict: Multiple assets emit different content to the same filename 23fc1d3ac606d117e05a140e0de79806.svg",
   "Error: Conflict: Multiple assets emit different content to the same filename async.async.55e6e9a872bcc7d4b226.js",
-  "Error: Conflict: Multiple assets emit different content to the same filename main.65eb86fafc0ecd0e4fc3.js",
+  "Error: Conflict: Multiple assets emit different content to the same filename main.7ec9076a30af0f4e444d.js",
 ]
 `;
 
