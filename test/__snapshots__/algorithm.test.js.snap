@@ -67,25 +67,25 @@ exports[`"algorithm" option matches snapshot for \`gzip\` value ({String}): asse
     },
   ],
   [
-    "main.65eb86fafc0ecd0e4fc3.js",
-    16048,
+    "main.7ec9076a30af0f4e444d.js",
+    16035,
     {
-      "chunkhash": "65eb86fafc0ecd0e4fc3",
+      "chunkhash": "7ec9076a30af0f4e444d",
       "immutable": true,
       "javascriptModule": false,
       "related": {
-        "gzipped": "main.65eb86fafc0ecd0e4fc3.js.gz",
+        "gzipped": "main.7ec9076a30af0f4e444d.js.gz",
       },
-      "size": 16048,
+      "size": 16035,
     },
   ],
   [
-    "main.65eb86fafc0ecd0e4fc3.js.gz",
-    4002,
+    "main.7ec9076a30af0f4e444d.js.gz",
+    4001,
     {
       "compressed": true,
       "immutable": true,
-      "size": 4002,
+      "size": 4001,
     },
   ],
 ]
@@ -164,25 +164,25 @@ exports[`"algorithm" option matches snapshot for custom function ({Function}): a
     },
   ],
   [
-    "main.65eb86fafc0ecd0e4fc3.js",
-    16048,
+    "main.7ec9076a30af0f4e444d.js",
+    16035,
     {
-      "chunkhash": "65eb86fafc0ecd0e4fc3",
+      "chunkhash": "7ec9076a30af0f4e444d",
       "immutable": true,
       "javascriptModule": false,
       "related": {
-        "gzed": "main.65eb86fafc0ecd0e4fc3.js.gz",
+        "gzed": "main.7ec9076a30af0f4e444d.js.gz",
       },
-      "size": 16048,
+      "size": 16035,
     },
   ],
   [
-    "main.65eb86fafc0ecd0e4fc3.js.gz",
-    16048,
+    "main.7ec9076a30af0f4e444d.js.gz",
+    16035,
     {
       "compressed": true,
       "immutable": true,
-      "size": 16048,
+      "size": 16035,
     },
   ],
 ]
@@ -231,13 +231,13 @@ exports[`"algorithm" option matches snapshot for custom function with error ({Fu
     },
   ],
   [
-    "main.65eb86fafc0ecd0e4fc3.js",
-    16048,
+    "main.7ec9076a30af0f4e444d.js",
+    16035,
     {
-      "chunkhash": "65eb86fafc0ecd0e4fc3",
+      "chunkhash": "7ec9076a30af0f4e444d",
       "immutable": true,
       "javascriptModule": false,
-      "size": 16048,
+      "size": 16035,
     },
   ],
 ]
