@@ -67,20 +67,20 @@ exports[`"compressionOptions" option matches snapshot for custom options ({Objec
     },
   ],
   [
-    "main.7ec9076a30af0f4e444d.js",
+    "main.11c0901cd673d3552004.js",
     16035,
     {
-      "chunkhash": "7ec9076a30af0f4e444d",
+      "chunkhash": "11c0901cd673d3552004",
       "immutable": true,
       "javascriptModule": false,
       "related": {
-        "gzipped": "main.7ec9076a30af0f4e444d.js.gz",
+        "gzipped": "main.11c0901cd673d3552004.js.gz",
       },
       "size": 16035,
     },
   ],
   [
-    "main.7ec9076a30af0f4e444d.js.gz",
+    "main.11c0901cd673d3552004.js.gz",
     4001,
     {
       "compressed": true,
@@ -162,20 +162,20 @@ exports[`"compressionOptions" option matches snapshot without values: assets 1`]
     },
   ],
   [
-    "main.7ec9076a30af0f4e444d.js",
+    "main.11c0901cd673d3552004.js",
     16035,
     {
-      "chunkhash": "7ec9076a30af0f4e444d",
+      "chunkhash": "11c0901cd673d3552004",
       "immutable": true,
       "javascriptModule": false,
       "related": {
-        "gzipped": "main.7ec9076a30af0f4e444d.js.gz",
+        "gzipped": "main.11c0901cd673d3552004.js.gz",
       },
       "size": 16035,
     },
   ],
   [
-    "main.7ec9076a30af0f4e444d.js.gz",
+    "main.11c0901cd673d3552004.js.gz",
     4001,
     {
       "compressed": true,
@@ -245,25 +245,25 @@ exports[`"compressionOptions" option set default compression level to maximum fo
     },
   ],
   [
-    "main.7ec9076a30af0f4e444d.js",
+    "main.11c0901cd673d3552004.js",
     16035,
     {
-      "chunkhash": "7ec9076a30af0f4e444d",
+      "chunkhash": "11c0901cd673d3552004",
       "immutable": true,
       "javascriptModule": false,
       "related": {
-        "brotliCompressed": "main.7ec9076a30af0f4e444d.js.br",
+        "brotliCompressed": "main.11c0901cd673d3552004.js.br",
       },
       "size": 16035,
     },
   ],
   [
-    "main.7ec9076a30af0f4e444d.js.br",
-    3507,
+    "main.11c0901cd673d3552004.js.br",
+    3503,
     {
       "compressed": true,
       "immutable": true,
-      "size": 3507,
+      "size": 3503,
     },
   ],
 ]
@@ -328,20 +328,20 @@ exports[`"compressionOptions" option set default compression level to maximum fo
     },
   ],
   [
-    "main.7ec9076a30af0f4e444d.js",
+    "main.11c0901cd673d3552004.js",
     16035,
     {
-      "chunkhash": "7ec9076a30af0f4e444d",
+      "chunkhash": "11c0901cd673d3552004",
       "immutable": true,
       "javascriptModule": false,
       "related": {
-        "deflateed": "main.7ec9076a30af0f4e444d.js.gz",
+        "deflateed": "main.11c0901cd673d3552004.js.gz",
       },
       "size": 16035,
     },
   ],
   [
-    "main.7ec9076a30af0f4e444d.js.gz",
+    "main.11c0901cd673d3552004.js.gz",
     3989,
     {
       "compressed": true,
@@ -411,20 +411,20 @@ exports[`"compressionOptions" option set default compression level to maximum fo
     },
   ],
   [
-    "main.7ec9076a30af0f4e444d.js",
+    "main.11c0901cd673d3552004.js",
     16035,
     {
-      "chunkhash": "7ec9076a30af0f4e444d",
+      "chunkhash": "11c0901cd673d3552004",
       "immutable": true,
       "javascriptModule": false,
       "related": {
-        "deflateRawed": "main.7ec9076a30af0f4e444d.js.gz",
+        "deflateRawed": "main.11c0901cd673d3552004.js.gz",
       },
       "size": 16035,
     },
   ],
   [
-    "main.7ec9076a30af0f4e444d.js.gz",
+    "main.11c0901cd673d3552004.js.gz",
     3983,
     {
       "compressed": true,
@@ -494,20 +494,20 @@ exports[`"compressionOptions" option set default compression level to maximum fo
     },
   ],
   [
-    "main.7ec9076a30af0f4e444d.js",
+    "main.11c0901cd673d3552004.js",
     16035,
     {
-      "chunkhash": "7ec9076a30af0f4e444d",
+      "chunkhash": "11c0901cd673d3552004",
       "immutable": true,
       "javascriptModule": false,
       "related": {
-        "gzipped": "main.7ec9076a30af0f4e444d.js.gz",
+        "gzipped": "main.11c0901cd673d3552004.js.gz",
       },
       "size": 16035,
     },
   ],
   [
-    "main.7ec9076a30af0f4e444d.js.gz",
+    "main.11c0901cd673d3552004.js.gz",
     4001,
     {
       "compressed": true,

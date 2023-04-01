@@ -33,20 +33,20 @@ exports[`"test" option matches snapshot for a single \`test\` value ({RegExp}): 
     },
   ],
   [
-    "async.async.js?ver=952d22f0ea77a7b0ae56",
+    "async.async.js?ver=cb02b96d6ec6740f05f8",
     194,
     {
-      "fullhash": "952d22f0ea77a7b0ae56",
+      "fullhash": "cb02b96d6ec6740f05f8",
       "immutable": true,
       "javascriptModule": false,
       "size": 194,
     },
   ],
   [
-    "main.js?var=952d22f0ea77a7b0ae56",
+    "main.js?var=cb02b96d6ec6740f05f8",
     16196,
     {
-      "fullhash": "952d22f0ea77a7b0ae56",
+      "fullhash": "cb02b96d6ec6740f05f8",
       "immutable": true,
       "javascriptModule": false,
       "size": 16196,
@@ -104,20 +104,20 @@ exports[`"test" option matches snapshot for multiple \`test\` values ({Array<Reg
     },
   ],
   [
-    "async.async.js?ver=952d22f0ea77a7b0ae56",
+    "async.async.js?ver=cb02b96d6ec6740f05f8",
     194,
     {
-      "fullhash": "952d22f0ea77a7b0ae56",
+      "fullhash": "cb02b96d6ec6740f05f8",
       "immutable": true,
       "javascriptModule": false,
       "size": 194,
     },
   ],
   [
-    "main.js?var=952d22f0ea77a7b0ae56",
+    "main.js?var=cb02b96d6ec6740f05f8",
     16196,
     {
-      "fullhash": "952d22f0ea77a7b0ae56",
+      "fullhash": "cb02b96d6ec6740f05f8",
       "immutable": true,
       "javascriptModule": false,
       "size": 16196,
@@ -184,10 +184,10 @@ exports[`"test" option matches snapshot with empty \`test\` value: assets 1`] = 
     },
   ],
   [
-    "async.async.js?ver=952d22f0ea77a7b0ae56",
+    "async.async.js?ver=cb02b96d6ec6740f05f8",
     194,
     {
-      "fullhash": "952d22f0ea77a7b0ae56",
+      "fullhash": "cb02b96d6ec6740f05f8",
       "immutable": true,
       "javascriptModule": false,
       "related": {
@@ -198,18 +198,18 @@ exports[`"test" option matches snapshot with empty \`test\` value: assets 1`] = 
   ],
   [
     "main.js.gz",
-    4028,
+    4027,
     {
       "compressed": true,
       "immutable": true,
-      "size": 4028,
+      "size": 4027,
     },
   ],
   [
-    "main.js?var=952d22f0ea77a7b0ae56",
+    "main.js?var=cb02b96d6ec6740f05f8",
     16196,
     {
-      "fullhash": "952d22f0ea77a7b0ae56",
+      "fullhash": "cb02b96d6ec6740f05f8",
       "immutable": true,
       "javascriptModule": false,
       "related": {
@@ -246,20 +246,20 @@ exports[`"test" option should work when no asset to compress : assets 1`] = `
     },
   ],
   [
-    "async.async.js?ver=952d22f0ea77a7b0ae56",
+    "async.async.js?ver=cb02b96d6ec6740f05f8",
     194,
     {
-      "fullhash": "952d22f0ea77a7b0ae56",
+      "fullhash": "cb02b96d6ec6740f05f8",
       "immutable": true,
       "javascriptModule": false,
       "size": 194,
     },
   ],
   [
-    "main.js?var=952d22f0ea77a7b0ae56",
+    "main.js?var=cb02b96d6ec6740f05f8",
     16196,
     {
-      "fullhash": "952d22f0ea77a7b0ae56",
+      "fullhash": "cb02b96d6ec6740f05f8",
       "immutable": true,
       "javascriptModule": false,
       "size": 16196,

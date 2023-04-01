@@ -45,20 +45,20 @@ exports[`"filename" option matches snapshot for \`[name][ext].super-compressed.g
     },
   ],
   [
-    "async.async.js?ver=952d22f0ea77a7b0ae56",
+    "async.async.js?ver=cb02b96d6ec6740f05f8",
     194,
     {
-      "fullhash": "952d22f0ea77a7b0ae56",
+      "fullhash": "cb02b96d6ec6740f05f8",
       "immutable": true,
       "javascriptModule": false,
       "related": {
-        "gzipped": "async.async.super-compressed.js.gz?ver=952d22f0ea77a7b0ae56",
+        "gzipped": "async.async.super-compressed.js.gz?ver=cb02b96d6ec6740f05f8",
       },
       "size": 194,
     },
   ],
   [
-    "async.async.super-compressed.js.gz?ver=952d22f0ea77a7b0ae56",
+    "async.async.super-compressed.js.gz?ver=cb02b96d6ec6740f05f8",
     134,
     {
       "compressed": true,
@@ -67,25 +67,25 @@ exports[`"filename" option matches snapshot for \`[name][ext].super-compressed.g
     },
   ],
   [
-    "main.js?var=952d22f0ea77a7b0ae56",
+    "main.js?var=cb02b96d6ec6740f05f8",
     16196,
     {
-      "fullhash": "952d22f0ea77a7b0ae56",
+      "fullhash": "cb02b96d6ec6740f05f8",
       "immutable": true,
       "javascriptModule": false,
       "related": {
-        "gzipped": "main.super-compressed.js.gz?var=952d22f0ea77a7b0ae56",
+        "gzipped": "main.super-compressed.js.gz?var=cb02b96d6ec6740f05f8",
       },
       "size": 16196,
     },
   ],
   [
-    "main.super-compressed.js.gz?var=952d22f0ea77a7b0ae56",
-    4028,
+    "main.super-compressed.js.gz?var=cb02b96d6ec6740f05f8",
+    4027,
     {
       "compressed": true,
       "immutable": true,
-      "size": 4028,
+      "size": 4027,
     },
   ],
 ]
@@ -140,7 +140,7 @@ exports[`"filename" option matches snapshot for \`[path][base].super-compressed.
     },
   ],
   [
-    "assets/js/async.async.js.super-compressed.gz?ver=4f042084df2567c1a1fd#hash",
+    "assets/js/async.async.js.super-compressed.gz?ver=c45511ba0ee8b89b249e#hash",
     134,
     {
       "compressed": true,
@@ -149,36 +149,36 @@ exports[`"filename" option matches snapshot for \`[path][base].super-compressed.
     },
   ],
   [
-    "assets/js/async.async.js?ver=4f042084df2567c1a1fd#hash",
+    "assets/js/async.async.js?ver=c45511ba0ee8b89b249e#hash",
     194,
     {
-      "fullhash": "4f042084df2567c1a1fd",
+      "fullhash": "c45511ba0ee8b89b249e",
       "immutable": true,
       "javascriptModule": false,
       "related": {
-        "gzipped": "assets/js/async.async.js.super-compressed.gz?ver=4f042084df2567c1a1fd#hash",
+        "gzipped": "assets/js/async.async.js.super-compressed.gz?ver=c45511ba0ee8b89b249e#hash",
       },
       "size": 194,
     },
   ],
   [
-    "assets/js/main.js.super-compressed.gz?var=4f042084df2567c1a1fd#hash",
-    4045,
+    "assets/js/main.js.super-compressed.gz?var=c45511ba0ee8b89b249e#hash",
+    4044,
     {
       "compressed": true,
       "immutable": true,
-      "size": 4045,
+      "size": 4044,
     },
   ],
   [
-    "assets/js/main.js?var=4f042084df2567c1a1fd#hash",
+    "assets/js/main.js?var=c45511ba0ee8b89b249e#hash",
     16222,
     {
-      "fullhash": "4f042084df2567c1a1fd",
+      "fullhash": "c45511ba0ee8b89b249e",
       "immutable": true,
       "javascriptModule": false,
       "related": {
-        "gzipped": "assets/js/main.js.super-compressed.gz?var=4f042084df2567c1a1fd#hash",
+        "gzipped": "assets/js/main.js.super-compressed.gz?var=c45511ba0ee8b89b249e#hash",
       },
       "size": 16222,
     },
@@ -233,7 +233,7 @@ exports[`"filename" option matches snapshot for custom function ({Function}) and
     },
   ],
   [
-    "async.async.js.gz?ver=98d22b06c3faa19d5b8b",
+    "async.async.js.gz?ver=54939b56eddfbd93cccf",
     194,
     {
       "compressed": true,
@@ -241,20 +241,20 @@ exports[`"filename" option matches snapshot for custom function ({Function}) and
     },
   ],
   [
-    "async.async.js?ver=98d22b06c3faa19d5b8b#hash",
+    "async.async.js?ver=54939b56eddfbd93cccf#hash",
     194,
     {
-      "fullhash": "98d22b06c3faa19d5b8b",
+      "fullhash": "54939b56eddfbd93cccf",
       "immutable": true,
       "javascriptModule": false,
       "related": {
-        "compression-function-5f27f917e58a6cfd45a9fb0dbfb129f9": "async.async.js.gz?ver=98d22b06c3faa19d5b8b",
+        "compression-function-5f27f917e58a6cfd45a9fb0dbfb129f9": "async.async.js.gz?ver=54939b56eddfbd93cccf",
       },
       "size": 194,
     },
   ],
   [
-    "main.js.gz?var=98d22b06c3faa19d5b8b",
+    "main.js.gz?var=54939b56eddfbd93cccf",
     16201,
     {
       "compressed": true,
@@ -262,14 +262,14 @@ exports[`"filename" option matches snapshot for custom function ({Function}) and
     },
   ],
   [
-    "main.js?var=98d22b06c3faa19d5b8b#hash",
+    "main.js?var=54939b56eddfbd93cccf#hash",
     16201,
     {
-      "fullhash": "98d22b06c3faa19d5b8b",
+      "fullhash": "54939b56eddfbd93cccf",
       "immutable": true,
       "javascriptModule": false,
       "related": {
-        "compression-function-5f27f917e58a6cfd45a9fb0dbfb129f9": "main.js.gz?var=98d22b06c3faa19d5b8b",
+        "compression-function-5f27f917e58a6cfd45a9fb0dbfb129f9": "main.js.gz?var=54939b56eddfbd93cccf",
       },
       "size": 16201,
     },
@@ -324,7 +324,7 @@ exports[`"filename" option matches snapshot for custom function ({Function}): as
     },
   ],
   [
-    "async.async.js.gz?ver=98d22b06c3faa19d5b8b",
+    "async.async.js.gz?ver=54939b56eddfbd93cccf",
     134,
     {
       "compressed": true,
@@ -332,20 +332,20 @@ exports[`"filename" option matches snapshot for custom function ({Function}): as
     },
   ],
   [
-    "async.async.js?ver=98d22b06c3faa19d5b8b#hash",
+    "async.async.js?ver=54939b56eddfbd93cccf#hash",
     194,
     {
-      "fullhash": "98d22b06c3faa19d5b8b",
+      "fullhash": "54939b56eddfbd93cccf",
       "immutable": true,
       "javascriptModule": false,
       "related": {
-        "gzipped": "async.async.js.gz?ver=98d22b06c3faa19d5b8b",
+        "gzipped": "async.async.js.gz?ver=54939b56eddfbd93cccf",
       },
       "size": 194,
     },
   ],
   [
-    "main.js.gz?var=98d22b06c3faa19d5b8b",
+    "main.js.gz?var=54939b56eddfbd93cccf",
     4032,
     {
       "compressed": true,
@@ -353,14 +353,14 @@ exports[`"filename" option matches snapshot for custom function ({Function}): as
     },
   ],
   [
-    "main.js?var=98d22b06c3faa19d5b8b#hash",
+    "main.js?var=54939b56eddfbd93cccf#hash",
     16201,
     {
-      "fullhash": "98d22b06c3faa19d5b8b",
+      "fullhash": "54939b56eddfbd93cccf",
       "immutable": true,
       "javascriptModule": false,
       "related": {
-        "gzipped": "main.js.gz?var=98d22b06c3faa19d5b8b",
+        "gzipped": "main.js.gz?var=54939b56eddfbd93cccf",
       },
       "size": 16201,
     },
@@ -426,10 +426,10 @@ exports[`"filename" option show work: assets 1`] = `
     },
   ],
   [
-    "assets/scripts/async.async.js?ver=4c8703fed87c1e25c6a2#hash",
+    "assets/scripts/async.async.js?ver=7b6b9a731886651e2a92#hash",
     194,
     {
-      "fullhash": "4c8703fed87c1e25c6a2",
+      "fullhash": "7b6b9a731886651e2a92",
       "immutable": true,
       "javascriptModule": false,
       "related": {
@@ -440,18 +440,18 @@ exports[`"filename" option show work: assets 1`] = `
   ],
   [
     "assets/scripts/main.js.gz",
-    4047,
+    4048,
     {
       "compressed": true,
       "immutable": true,
-      "size": 4047,
+      "size": 4048,
     },
   ],
   [
-    "assets/scripts/main.js?var=4c8703fed87c1e25c6a2#hash",
+    "assets/scripts/main.js?var=7b6b9a731886651e2a92#hash",
     16227,
     {
-      "fullhash": "4c8703fed87c1e25c6a2",
+      "fullhash": "7b6b9a731886651e2a92",
       "immutable": true,
       "javascriptModule": false,
       "related": {
