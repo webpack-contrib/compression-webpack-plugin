@@ -30,10 +30,10 @@ exports[`"include" option matches snapshot for a single \`include\` value ({RegE
     },
   ],
   [
-    "async.async.js?ver=952d22f0ea77a7b0ae56",
+    "async.async.js?ver=cb02b96d6ec6740f05f8",
     194,
     {
-      "fullhash": "952d22f0ea77a7b0ae56",
+      "fullhash": "cb02b96d6ec6740f05f8",
       "immutable": true,
       "javascriptModule": false,
       "related": {
@@ -44,18 +44,18 @@ exports[`"include" option matches snapshot for a single \`include\` value ({RegE
   ],
   [
     "main.js.gz",
-    4028,
+    4027,
     {
       "compressed": true,
       "immutable": true,
-      "size": 4028,
+      "size": 4027,
     },
   ],
   [
-    "main.js?var=952d22f0ea77a7b0ae56",
+    "main.js?var=cb02b96d6ec6740f05f8",
     16196,
     {
-      "fullhash": "952d22f0ea77a7b0ae56",
+      "fullhash": "cb02b96d6ec6740f05f8",
       "immutable": true,
       "javascriptModule": false,
       "related": {
@@ -113,10 +113,10 @@ exports[`"include" option matches snapshot for multiple \`include\` values ({Arr
     },
   ],
   [
-    "async.async.js?ver=952d22f0ea77a7b0ae56",
+    "async.async.js?ver=cb02b96d6ec6740f05f8",
     194,
     {
-      "fullhash": "952d22f0ea77a7b0ae56",
+      "fullhash": "cb02b96d6ec6740f05f8",
       "immutable": true,
       "javascriptModule": false,
       "related": {
@@ -127,18 +127,18 @@ exports[`"include" option matches snapshot for multiple \`include\` values ({Arr
   ],
   [
     "main.js.gz",
-    4028,
+    4027,
     {
       "compressed": true,
       "immutable": true,
-      "size": 4028,
+      "size": 4027,
     },
   ],
   [
-    "main.js?var=952d22f0ea77a7b0ae56",
+    "main.js?var=cb02b96d6ec6740f05f8",
     16196,
     {
-      "fullhash": "952d22f0ea77a7b0ae56",
+      "fullhash": "cb02b96d6ec6740f05f8",
       "immutable": true,
       "javascriptModule": false,
       "related": {
