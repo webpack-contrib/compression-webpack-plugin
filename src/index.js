@@ -24,9 +24,7 @@ const schema = require("./options.json");
  * @typedef {T | { valueOf(): T }} WithImplicitCoercion
  */
 
-/** @typedef {RegExp | string} Rule */
-
-/** @typedef {Rule[] | Rule} Rules */
+/** @typedef {string | RegExp | string[] | RegExp[]} Rule */
 
 /**
  * @typedef {{ [key: string]: any }} CustomOptions
@@ -65,9 +63,9 @@ const schema = require("./options.json");
 /**
  * @template T
  * @typedef {Object} BasePluginOptions
- * @property {Rules} [test]
- * @property {Rules} [include]
- * @property {Rules} [exclude]
+ * @property {Rule} [test]
+ * @property {Rule} [include]
+ * @property {Rule} [exclude]
  * @property {number} [threshold]
  * @property {number} [minRatio]
  * @property {DeleteOriginalAssets} [deleteOriginalAssets]
