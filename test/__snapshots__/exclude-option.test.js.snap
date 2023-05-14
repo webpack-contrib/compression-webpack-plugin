@@ -42,10 +42,10 @@ exports[`"exclude" option matches snapshot for a single \`exclude\` value ({RegE
     },
   ],
   [
-    "async.async.js?ver=cb02b96d6ec6740f05f8",
+    "async.async.js?ver=e3505a1ac03af418b2b6",
     194,
     {
-      "fullhash": "cb02b96d6ec6740f05f8",
+      "fullhash": "e3505a1ac03af418b2b6",
       "immutable": true,
       "javascriptModule": false,
       "related": {
@@ -56,24 +56,24 @@ exports[`"exclude" option matches snapshot for a single \`exclude\` value ({RegE
   ],
   [
     "main.js.gz",
-    4027,
+    4053,
     {
       "compressed": true,
       "immutable": true,
-      "size": 4027,
+      "size": 4053,
     },
   ],
   [
-    "main.js?var=cb02b96d6ec6740f05f8",
-    16196,
+    "main.js?var=e3505a1ac03af418b2b6",
+    16284,
     {
-      "fullhash": "cb02b96d6ec6740f05f8",
+      "fullhash": "e3505a1ac03af418b2b6",
       "immutable": true,
       "javascriptModule": false,
       "related": {
         "gzipped": "main.js.gz",
       },
-      "size": 16196,
+      "size": 16284,
     },
   ],
 ]
@@ -113,10 +113,10 @@ exports[`"exclude" option matches snapshot for multiple \`exclude\` values ({Arr
     },
   ],
   [
-    "async.async.js?ver=cb02b96d6ec6740f05f8",
+    "async.async.js?ver=e3505a1ac03af418b2b6",
     194,
     {
-      "fullhash": "cb02b96d6ec6740f05f8",
+      "fullhash": "e3505a1ac03af418b2b6",
       "immutable": true,
       "javascriptModule": false,
       "related": {
@@ -127,24 +127,24 @@ exports[`"exclude" option matches snapshot for multiple \`exclude\` values ({Arr
   ],
   [
     "main.js.gz",
-    4027,
+    4053,
     {
       "compressed": true,
       "immutable": true,
-      "size": 4027,
+      "size": 4053,
     },
   ],
   [
-    "main.js?var=cb02b96d6ec6740f05f8",
-    16196,
+    "main.js?var=e3505a1ac03af418b2b6",
+    16284,
     {
-      "fullhash": "cb02b96d6ec6740f05f8",
+      "fullhash": "e3505a1ac03af418b2b6",
       "immutable": true,
       "javascriptModule": false,
       "related": {
         "gzipped": "main.js.gz",
       },
-      "size": 16196,
+      "size": 16284,
     },
   ],
 ]
