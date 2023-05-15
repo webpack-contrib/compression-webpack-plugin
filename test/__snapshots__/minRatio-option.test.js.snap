@@ -32,12 +32,12 @@ exports[`"minRatio" option matches snapshot for \`0\` value ({Number}): assets 1
   ],
   [
     "main.11c0901cd673d3552004.js",
-    16035,
+    16123,
     {
       "chunkhash": "11c0901cd673d3552004",
       "immutable": true,
       "javascriptModule": false,
-      "size": 16035,
+      "size": 16123,
     },
   ],
 ]
@@ -115,7 +115,7 @@ exports[`"minRatio" option matches snapshot for \`1\` value ({Number}): assets 1
   ],
   [
     "main.11c0901cd673d3552004.js",
-    16035,
+    16123,
     {
       "chunkhash": "11c0901cd673d3552004",
       "immutable": true,
@@ -123,16 +123,16 @@ exports[`"minRatio" option matches snapshot for \`1\` value ({Number}): assets 1
       "related": {
         "gzipped": "main.11c0901cd673d3552004.js.gz",
       },
-      "size": 16035,
+      "size": 16123,
     },
   ],
   [
     "main.11c0901cd673d3552004.js.gz",
-    4001,
+    4028,
     {
       "compressed": true,
       "immutable": true,
-      "size": 4001,
+      "size": 4028,
     },
   ],
 ]

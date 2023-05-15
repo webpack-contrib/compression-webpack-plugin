@@ -11,8 +11,7 @@ export = CompressionPlugin;
  * @template T
  * @typedef {T | { valueOf(): T }} WithImplicitCoercion
  */
-/** @typedef {RegExp | string} Rule */
-/** @typedef {Rule[] | Rule} Rules */
+/** @typedef {string | RegExp | string[] | RegExp[]} Rule */
 /**
  * @typedef {{ [key: string]: any }} CustomOptions
  */
@@ -43,9 +42,9 @@ export = CompressionPlugin;
 /**
  * @template T
  * @typedef {Object} BasePluginOptions
- * @property {Rules} [test]
- * @property {Rules} [include]
- * @property {Rules} [exclude]
+ * @property {Rule} [test]
+ * @property {Rule} [include]
+ * @property {Rule} [exclude]
  * @property {number} [threshold]
  * @property {number} [minRatio]
  * @property {DeleteOriginalAssets} [deleteOriginalAssets]
@@ -118,7 +117,6 @@ declare namespace CompressionPlugin {
     WebpackError,
     WithImplicitCoercion,
     Rule,
-    Rules,
     CustomOptions,
     InferDefaultType,
     CompressionOptions,
@@ -135,9 +133,9 @@ declare namespace CompressionPlugin {
 type WebpackPluginInstance = import("webpack").WebpackPluginInstance;
 type Compiler = import("webpack").Compiler;
 type BasePluginOptions<T> = {
-  test?: Rules | undefined;
-  include?: Rules | undefined;
-  exclude?: Rules | undefined;
+  test?: Rule | undefined;
+  include?: Rule | undefined;
+  exclude?: Rule | undefined;
   threshold?: number | undefined;
   minRatio?: number | undefined;
   deleteOriginalAssets?: DeleteOriginalAssets | undefined;
@@ -162,8 +160,7 @@ type WithImplicitCoercion<T> =
   | {
       valueOf(): T;
     };
-type Rule = RegExp | string;
-type Rules = Rule[] | Rule;
+type Rule = string | RegExp | string[] | RegExp[];
 type CustomOptions = {
   [key: string]: any;
 };

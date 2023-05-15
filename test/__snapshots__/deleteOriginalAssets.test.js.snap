@@ -31,19 +31,19 @@ exports[`"deleteOriginalAssets" option should delete original assets and keep so
   ],
   [
     "main.299c69b3ffcc5196f2a2.js",
-    4044,
+    4071,
     {
       "compressed": true,
       "immutable": true,
-      "size": 4044,
+      "size": 4071,
     },
   ],
   [
     "main.299c69b3ffcc5196f2a2.js.map",
-    13051,
+    13133,
     {
       "development": true,
-      "size": 13051,
+      "size": 13133,
     },
   ],
 ]
@@ -84,11 +84,11 @@ exports[`"deleteOriginalAssets" option should work and delete original assets: a
   ],
   [
     "main.11c0901cd673d3552004.js.gz",
-    4001,
+    4028,
     {
       "compressed": true,
       "immutable": true,
-      "size": 4001,
+      "size": 4028,
     },
   ],
 ]
@@ -129,11 +129,11 @@ exports[`"deleteOriginalAssets" option should work and do not report errors on d
   ],
   [
     "main.11c0901cd673d3552004.js",
-    4001,
+    4028,
     {
       "compressed": true,
       "immutable": true,
-      "size": 4001,
+      "size": 4028,
     },
   ],
 ]
@@ -199,7 +199,7 @@ exports[`"deleteOriginalAssets" option should work and keep original assets by d
   ],
   [
     "main.11c0901cd673d3552004.js",
-    16035,
+    16123,
     {
       "chunkhash": "11c0901cd673d3552004",
       "immutable": true,
@@ -207,16 +207,16 @@ exports[`"deleteOriginalAssets" option should work and keep original assets by d
       "related": {
         "gzipped": "main.11c0901cd673d3552004.js.gz",
       },
-      "size": 16035,
+      "size": 16123,
     },
   ],
   [
     "main.11c0901cd673d3552004.js.gz",
-    4001,
+    4028,
     {
       "compressed": true,
       "immutable": true,
-      "size": 4001,
+      "size": 4028,
     },
   ],
 ]
@@ -294,7 +294,7 @@ exports[`"deleteOriginalAssets" option should work and keep original assets: ass
   ],
   [
     "main.11c0901cd673d3552004.js",
-    16035,
+    16123,
     {
       "chunkhash": "11c0901cd673d3552004",
       "immutable": true,
@@ -302,16 +302,16 @@ exports[`"deleteOriginalAssets" option should work and keep original assets: ass
       "related": {
         "gzipped": "main.11c0901cd673d3552004.js.gz",
       },
-      "size": 16035,
+      "size": 16123,
     },
   ],
   [
     "main.11c0901cd673d3552004.js.gz",
-    4001,
+    4028,
     {
       "compressed": true,
       "immutable": true,
-      "size": 4001,
+      "size": 4028,
     },
   ],
 ]
@@ -352,11 +352,11 @@ exports[`"deleteOriginalAssets" option should work and report errors on duplicat
   ],
   [
     "main.11c0901cd673d3552004.js",
-    4001,
+    4028,
     {
       "compressed": true,
       "immutable": true,
-      "size": 4001,
+      "size": 4028,
     },
   ],
 ]
