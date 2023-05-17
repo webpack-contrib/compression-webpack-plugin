@@ -24,7 +24,8 @@ const schema = require("./options.json");
  * @typedef {T | { valueOf(): T }} WithImplicitCoercion
  */
 
-/** @typedef {string | RegExp | string[] | RegExp[]} Rule */
+/** @typedef {RegExp | string} Rule */
+/** @typedef {Rule[] | Rule} Rules */
 
 /**
  * @typedef {{ [key: string]: any }} CustomOptions

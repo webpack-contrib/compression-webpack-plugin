@@ -11,7 +11,8 @@ export = CompressionPlugin;
  * @template T
  * @typedef {T | { valueOf(): T }} WithImplicitCoercion
  */
-/** @typedef {string | RegExp | string[] | RegExp[]} Rule */
+/** @typedef {RegExp | string} Rule */
+/** @typedef {Rule[] | Rule} Rules */
 /**
  * @typedef {{ [key: string]: any }} CustomOptions
  */
@@ -117,6 +118,7 @@ declare namespace CompressionPlugin {
     WebpackError,
     WithImplicitCoercion,
     Rule,
+    Rules,
     CustomOptions,
     InferDefaultType,
     CompressionOptions,
@@ -160,7 +162,8 @@ type WithImplicitCoercion<T> =
   | {
       valueOf(): T;
     };
-type Rule = string | RegExp | string[] | RegExp[];
+type Rule = RegExp | string;
+type Rules = Rule[] | Rule;
 type CustomOptions = {
   [key: string]: any;
 };
