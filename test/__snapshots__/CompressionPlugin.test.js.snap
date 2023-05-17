@@ -96,21 +96,21 @@ exports[`CompressionPlugin should work and do not use memory cache when the "cac
   ],
   [
     "main.js",
-    16036,
+    16001,
     {
       "javascriptModule": false,
       "related": {
         "gzipped": "main.js.gz",
       },
-      "size": 16036,
+      "size": 16001,
     },
   ],
   [
     "main.js.gz",
-    3943,
+    3938,
     {
       "compressed": true,
-      "size": 3943,
+      "size": 3938,
     },
   ],
 ]
@@ -166,21 +166,21 @@ exports[`CompressionPlugin should work and do not use memory cache when the "cac
   ],
   [
     "main.js",
-    16036,
+    16001,
     {
       "javascriptModule": false,
       "related": {
         "gzipped": "main.js.gz",
       },
-      "size": 16036,
+      "size": 16001,
     },
   ],
   [
     "main.js.gz",
-    3943,
+    3938,
     {
       "compressed": true,
-      "size": 3943,
+      "size": 3938,
     },
   ],
 ]
@@ -249,25 +249,25 @@ exports[`CompressionPlugin should work and keep assets info: assets 1`] = `
     },
   ],
   [
-    "main.997e03f80180ff3efac8.js",
-    16123,
+    "main.35119587dcca57ae9d1c.js",
+    16088,
     {
-      "contenthash": "997e03f80180ff3efac8",
+      "contenthash": "35119587dcca57ae9d1c",
       "immutable": true,
       "javascriptModule": false,
       "related": {
-        "gzipped": "main.997e03f80180ff3efac8.js.gz",
+        "gzipped": "main.35119587dcca57ae9d1c.js.gz",
       },
-      "size": 16123,
+      "size": 16088,
     },
   ],
   [
-    "main.997e03f80180ff3efac8.js.gz",
-    4026,
+    "main.35119587dcca57ae9d1c.js.gz",
+    4022,
     {
       "compressed": true,
       "immutable": true,
-      "size": 4026,
+      "size": 4022,
     },
   ],
 ]
@@ -330,21 +330,21 @@ exports[`CompressionPlugin should work and show compress assets in stats: assets
   ],
   [
     "main.js",
-    16092,
+    16057,
     {
       "javascriptModule": false,
       "related": {
         "gzipped": "main.js.gz",
       },
-      "size": 16092,
+      "size": 16057,
     },
   ],
   [
     "main.js.gz",
-    4006,
+    4001,
     {
       "compressed": true,
-      "size": 4006,
+      "size": 4001,
     },
   ],
 ]
@@ -404,21 +404,21 @@ exports[`CompressionPlugin should work and use memory cache when the "cache" opt
   ],
   [
     "main.js",
-    16020,
+    15985,
     {
       "javascriptModule": false,
       "related": {
         "gzipped": "main.js.gz",
       },
-      "size": 16020,
+      "size": 15985,
     },
   ],
   [
     "main.js.gz",
-    3939,
+    3935,
     {
       "compressed": true,
-      "size": 3939,
+      "size": 3935,
     },
   ],
 ]
@@ -485,21 +485,21 @@ exports[`CompressionPlugin should work and use memory cache when the "cache" opt
   ],
   [
     "main.js",
-    16020,
+    15985,
     {
       "javascriptModule": false,
       "related": {
         "gzipped": "main.js.gz",
       },
-      "size": 16020,
+      "size": 15985,
     },
   ],
   [
     "main.js.gz",
-    3939,
+    3935,
     {
       "compressed": true,
-      "size": 3939,
+      "size": 3935,
     },
   ],
 ]
@@ -566,21 +566,21 @@ exports[`CompressionPlugin should work and use memory cache when the "cache" opt
   ],
   [
     "main.js",
-    16076,
+    16041,
     {
       "javascriptModule": false,
       "related": {
         "gzipped": "main.js.gz",
       },
-      "size": 16076,
+      "size": 16041,
     },
   ],
   [
     "main.js.gz",
-    4002,
+    3998,
     {
       "compressed": true,
-      "size": 4002,
+      "size": 3998,
     },
   ],
 ]
@@ -639,21 +639,21 @@ exports[`CompressionPlugin should work and use memory cache when the "cache" opt
   ],
   [
     "main.js",
-    16113,
+    16078,
     {
       "javascriptModule": false,
       "related": {
         "gzipped": "main.js.gz",
       },
-      "size": 16113,
+      "size": 16078,
     },
   ],
   [
     "main.js.gz",
-    4026,
+    4022,
     {
       "compressed": true,
-      "size": 4026,
+      "size": 4022,
     },
   ],
 ]
@@ -770,7 +770,7 @@ exports[`CompressionPlugin should work and use memory cache when the "cache" opt
   ],
   [
     "main.js",
-    16076,
+    16041,
     {
       "javascriptModule": false,
       "related": {
@@ -778,31 +778,31 @@ exports[`CompressionPlugin should work and use memory cache when the "cache" opt
         "customed": "main.js.custom",
         "gzipped": "main.js.gz",
       },
-      "size": 16076,
+      "size": 16041,
     },
   ],
   [
     "main.js.br",
-    3493,
+    3491,
     {
       "compressed": true,
-      "size": 3493,
+      "size": 3491,
     },
   ],
   [
     "main.js.custom",
-    16076,
+    16041,
     {
       "compressed": true,
-      "size": 16076,
+      "size": 16041,
     },
   ],
   [
     "main.js.gz",
-    4002,
+    3998,
     {
       "compressed": true,
-      "size": 4002,
+      "size": 3998,
     },
   ],
 ]
@@ -911,7 +911,7 @@ exports[`CompressionPlugin should work and use memory cache when the "cache" opt
   ],
   [
     "main.js",
-    16076,
+    16041,
     {
       "javascriptModule": false,
       "related": {
@@ -919,31 +919,31 @@ exports[`CompressionPlugin should work and use memory cache when the "cache" opt
         "customed": "main.js.custom",
         "gzipped": "main.js.gz",
       },
-      "size": 16076,
+      "size": 16041,
     },
   ],
   [
     "main.js.br",
-    3493,
+    3491,
     {
       "compressed": true,
-      "size": 3493,
+      "size": 3491,
     },
   ],
   [
     "main.js.custom",
-    16076,
+    16041,
     {
       "compressed": true,
-      "size": 16076,
+      "size": 16041,
     },
   ],
   [
     "main.js.gz",
-    4002,
+    3998,
     {
       "compressed": true,
-      "size": 4002,
+      "size": 3998,
     },
   ],
 ]
@@ -1010,21 +1010,21 @@ exports[`CompressionPlugin should work and use memory cache when the "cache" opt
   ],
   [
     "main.js",
-    16076,
+    16041,
     {
       "javascriptModule": false,
       "related": {
         "gzipped": "main.js.gz",
       },
-      "size": 16076,
+      "size": 16041,
     },
   ],
   [
     "main.js.gz",
-    4002,
+    3998,
     {
       "compressed": true,
-      "size": 4002,
+      "size": 3998,
     },
   ],
 ]
@@ -1083,21 +1083,21 @@ exports[`CompressionPlugin should work and use memory cache when the "cache" opt
   ],
   [
     "main.js",
-    16076,
+    16041,
     {
       "javascriptModule": false,
       "related": {
         "gzipped": "main.js.gz",
       },
-      "size": 16076,
+      "size": 16041,
     },
   ],
   [
     "main.js.gz",
-    4002,
+    3998,
     {
       "compressed": true,
-      "size": 4002,
+      "size": 3998,
     },
   ],
 ]
@@ -1166,25 +1166,25 @@ exports[`CompressionPlugin should work and use memory cache without options in t
     },
   ],
   [
-    "main.11c0901cd673d3552004.js",
-    16123,
+    "main.886cd1a733e4ad7fc29d.js",
+    16088,
     {
-      "chunkhash": "11c0901cd673d3552004",
+      "chunkhash": "886cd1a733e4ad7fc29d",
       "immutable": true,
       "javascriptModule": false,
       "related": {
-        "gzipped": "main.11c0901cd673d3552004.js.gz",
+        "gzipped": "main.886cd1a733e4ad7fc29d.js.gz",
       },
-      "size": 16123,
+      "size": 16088,
     },
   ],
   [
-    "main.11c0901cd673d3552004.js.gz",
-    4028,
+    "main.886cd1a733e4ad7fc29d.js.gz",
+    4024,
     {
       "compressed": true,
       "immutable": true,
-      "size": 4028,
+      "size": 4024,
     },
   ],
 ]
@@ -1245,25 +1245,25 @@ exports[`CompressionPlugin should work and use memory cache without options in t
     },
   ],
   [
-    "main.11c0901cd673d3552004.js",
-    16123,
+    "main.886cd1a733e4ad7fc29d.js",
+    16088,
     {
-      "chunkhash": "11c0901cd673d3552004",
+      "chunkhash": "886cd1a733e4ad7fc29d",
       "immutable": true,
       "javascriptModule": false,
       "related": {
-        "gzipped": "main.11c0901cd673d3552004.js.gz",
+        "gzipped": "main.886cd1a733e4ad7fc29d.js.gz",
       },
-      "size": 16123,
+      "size": 16088,
     },
   ],
   [
-    "main.11c0901cd673d3552004.js.gz",
-    4028,
+    "main.886cd1a733e4ad7fc29d.js.gz",
+    4024,
     {
       "compressed": true,
       "immutable": true,
-      "size": 4028,
+      "size": 4024,
     },
   ],
 ]
@@ -1319,10 +1319,10 @@ exports[`CompressionPlugin should work child compilations: assets 1`] = `
     },
   ],
   [
-    "async.async.js?ver=4a7ba0c6d4e9e8a40b1d",
+    "async.async.js?ver=29cf9989712837e3d862",
     194,
     {
-      "fullhash": "4a7ba0c6d4e9e8a40b1d",
+      "fullhash": "29cf9989712837e3d862",
       "immutable": true,
       "javascriptModule": false,
       "related": {
@@ -1352,24 +1352,24 @@ exports[`CompressionPlugin should work child compilations: assets 1`] = `
   ],
   [
     "main.js.gz",
-    4049,
+    4048,
     {
       "compressed": true,
       "immutable": true,
-      "size": 4049,
+      "size": 4048,
     },
   ],
   [
-    "main.js?var=4a7ba0c6d4e9e8a40b1d",
-    16281,
+    "main.js?var=29cf9989712837e3d862",
+    16246,
     {
-      "fullhash": "4a7ba0c6d4e9e8a40b1d",
+      "fullhash": "29cf9989712837e3d862",
       "immutable": true,
       "javascriptModule": false,
       "related": {
         "gzipped": "main.js.gz",
       },
-      "size": 16281,
+      "size": 16246,
     },
   ],
 ]
@@ -1434,25 +1434,25 @@ exports[`CompressionPlugin should work with 'webpack-stats-plugin': assets 1`] =
     },
   ],
   [
-    "main.11c0901cd673d3552004.js",
-    16123,
+    "main.886cd1a733e4ad7fc29d.js",
+    16088,
     {
-      "chunkhash": "11c0901cd673d3552004",
+      "chunkhash": "886cd1a733e4ad7fc29d",
       "immutable": true,
       "javascriptModule": false,
       "related": {
-        "gzipped": "main.11c0901cd673d3552004.js.gz",
+        "gzipped": "main.886cd1a733e4ad7fc29d.js.gz",
       },
-      "size": 16123,
+      "size": 16088,
     },
   ],
   [
-    "main.11c0901cd673d3552004.js.gz",
-    4028,
+    "main.886cd1a733e4ad7fc29d.js.gz",
+    4024,
     {
       "compressed": true,
       "immutable": true,
-      "size": 4028,
+      "size": 4024,
     },
   ],
   [
@@ -1511,10 +1511,10 @@ exports[`CompressionPlugin should work with assets info: assets 1`] = `
     },
   ],
   [
-    "async.async.js?ver=2b24ea86b41464a076e6",
+    "async.async.js?ver=f79c277b31518845de3d",
     194,
     {
-      "fullhash": "2b24ea86b41464a076e6",
+      "fullhash": "f79c277b31518845de3d",
       "immutable": true,
       "javascriptModule": false,
       "related": {
@@ -1544,44 +1544,44 @@ exports[`CompressionPlugin should work with assets info: assets 1`] = `
   ],
   [
     "main.js.gz",
-    4085,
+    4082,
     {
       "compressed": true,
       "immutable": true,
-      "size": 4085,
+      "size": 4082,
     },
   ],
   [
     "main.js.map.gz",
-    4161,
+    4151,
     {
       "compressed": true,
-      "size": 4161,
+      "size": 4151,
     },
   ],
   [
-    "main.js.map?var=2b24ea86b41464a076e6",
-    13249,
+    "main.js.map?var=f79c277b31518845de3d",
+    13209,
     {
       "development": true,
       "related": {
         "gzipped": "main.js.map.gz",
       },
-      "size": 13249,
+      "size": 13209,
     },
   ],
   [
-    "main.js?var=2b24ea86b41464a076e6",
-    16342,
+    "main.js?var=f79c277b31518845de3d",
+    16307,
     {
-      "fullhash": "2b24ea86b41464a076e6",
+      "fullhash": "f79c277b31518845de3d",
       "immutable": true,
       "javascriptModule": false,
       "related": {
         "gzipped": "main.js.gz",
-        "sourceMap": "main.js.map?var=2b24ea86b41464a076e6",
+        "sourceMap": "main.js.map?var=f79c277b31518845de3d",
       },
-      "size": 16342,
+      "size": 16307,
     },
   ],
 ]
@@ -1712,10 +1712,10 @@ exports[`CompressionPlugin should work with multiple plugins: assets 1`] = `
     },
   ],
   [
-    "async.async.js?ver=e3505a1ac03af418b2b6",
+    "async.async.js?ver=3a35395ff71216ac1a55",
     194,
     {
-      "fullhash": "e3505a1ac03af418b2b6",
+      "fullhash": "3a35395ff71216ac1a55",
       "immutable": true,
       "javascriptModule": false,
       "related": {
@@ -1729,45 +1729,45 @@ exports[`CompressionPlugin should work with multiple plugins: assets 1`] = `
   ],
   [
     "main.js.br",
-    3538,
+    3548,
     {
       "compressed": true,
       "immutable": true,
-      "size": 3538,
+      "size": 3548,
     },
   ],
   [
     "main.js.compress",
-    16284,
+    16249,
     {
       "compressed": true,
       "immutable": true,
-      "size": 16284,
+      "size": 16249,
     },
   ],
   [
     "main.js.custom?foo=bar#hash",
-    16284,
+    16249,
     {
       "compressed": true,
       "immutable": true,
-      "size": 16284,
+      "size": 16249,
     },
   ],
   [
     "main.js.gz",
-    4053,
+    4051,
     {
       "compressed": true,
       "immutable": true,
-      "size": 4053,
+      "size": 4051,
     },
   ],
   [
-    "main.js?var=e3505a1ac03af418b2b6",
-    16284,
+    "main.js?var=3a35395ff71216ac1a55",
+    16249,
     {
-      "fullhash": "e3505a1ac03af418b2b6",
+      "fullhash": "3a35395ff71216ac1a55",
       "immutable": true,
       "javascriptModule": false,
       "related": {
@@ -1776,7 +1776,7 @@ exports[`CompressionPlugin should work with multiple plugins: assets 1`] = `
         "customed": "main.js.custom?foo=bar#hash",
         "gzipped": "main.js.gz",
       },
-      "size": 16284,
+      "size": 16249,
     },
   ],
 ]
@@ -1828,10 +1828,10 @@ exports[`CompressionPlugin should work: assets 1`] = `
     },
   ],
   [
-    "async.async.js?ver=e3505a1ac03af418b2b6",
+    "async.async.js?ver=3a35395ff71216ac1a55",
     194,
     {
-      "fullhash": "e3505a1ac03af418b2b6",
+      "fullhash": "3a35395ff71216ac1a55",
       "immutable": true,
       "javascriptModule": false,
       "related": {
@@ -1842,24 +1842,24 @@ exports[`CompressionPlugin should work: assets 1`] = `
   ],
   [
     "main.js.gz",
-    4053,
+    4051,
     {
       "compressed": true,
       "immutable": true,
-      "size": 4053,
+      "size": 4051,
     },
   ],
   [
-    "main.js?var=e3505a1ac03af418b2b6",
-    16284,
+    "main.js?var=3a35395ff71216ac1a55",
+    16249,
     {
-      "fullhash": "e3505a1ac03af418b2b6",
+      "fullhash": "3a35395ff71216ac1a55",
       "immutable": true,
       "javascriptModule": false,
       "related": {
         "gzipped": "main.js.gz",
       },
-      "size": 16284,
+      "size": 16249,
     },
   ],
 ]

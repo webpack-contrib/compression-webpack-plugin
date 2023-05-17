@@ -67,25 +67,25 @@ exports[`"compressionOptions" option matches snapshot for custom options ({Objec
     },
   ],
   [
-    "main.11c0901cd673d3552004.js",
-    16123,
+    "main.886cd1a733e4ad7fc29d.js",
+    16088,
     {
-      "chunkhash": "11c0901cd673d3552004",
+      "chunkhash": "886cd1a733e4ad7fc29d",
       "immutable": true,
       "javascriptModule": false,
       "related": {
-        "gzipped": "main.11c0901cd673d3552004.js.gz",
+        "gzipped": "main.886cd1a733e4ad7fc29d.js.gz",
       },
-      "size": 16123,
+      "size": 16088,
     },
   ],
   [
-    "main.11c0901cd673d3552004.js.gz",
-    4028,
+    "main.886cd1a733e4ad7fc29d.js.gz",
+    4024,
     {
       "compressed": true,
       "immutable": true,
-      "size": 4028,
+      "size": 4024,
     },
   ],
 ]
@@ -162,25 +162,25 @@ exports[`"compressionOptions" option matches snapshot without values: assets 1`]
     },
   ],
   [
-    "main.11c0901cd673d3552004.js",
-    16123,
+    "main.886cd1a733e4ad7fc29d.js",
+    16088,
     {
-      "chunkhash": "11c0901cd673d3552004",
+      "chunkhash": "886cd1a733e4ad7fc29d",
       "immutable": true,
       "javascriptModule": false,
       "related": {
-        "gzipped": "main.11c0901cd673d3552004.js.gz",
+        "gzipped": "main.886cd1a733e4ad7fc29d.js.gz",
       },
-      "size": 16123,
+      "size": 16088,
     },
   ],
   [
-    "main.11c0901cd673d3552004.js.gz",
-    4028,
+    "main.886cd1a733e4ad7fc29d.js.gz",
+    4024,
     {
       "compressed": true,
       "immutable": true,
-      "size": 4028,
+      "size": 4024,
     },
   ],
 ]
@@ -245,25 +245,25 @@ exports[`"compressionOptions" option set default compression level to maximum fo
     },
   ],
   [
-    "main.11c0901cd673d3552004.js",
-    16123,
+    "main.886cd1a733e4ad7fc29d.js",
+    16088,
     {
-      "chunkhash": "11c0901cd673d3552004",
+      "chunkhash": "886cd1a733e4ad7fc29d",
       "immutable": true,
       "javascriptModule": false,
       "related": {
-        "brotliCompressed": "main.11c0901cd673d3552004.js.br",
+        "brotliCompressed": "main.886cd1a733e4ad7fc29d.js.br",
       },
-      "size": 16123,
+      "size": 16088,
     },
   ],
   [
-    "main.11c0901cd673d3552004.js.br",
-    3529,
+    "main.886cd1a733e4ad7fc29d.js.br",
+    3518,
     {
       "compressed": true,
       "immutable": true,
-      "size": 3529,
+      "size": 3518,
     },
   ],
 ]
@@ -328,25 +328,25 @@ exports[`"compressionOptions" option set default compression level to maximum fo
     },
   ],
   [
-    "main.11c0901cd673d3552004.js",
-    16123,
+    "main.886cd1a733e4ad7fc29d.js",
+    16088,
     {
-      "chunkhash": "11c0901cd673d3552004",
+      "chunkhash": "886cd1a733e4ad7fc29d",
       "immutable": true,
       "javascriptModule": false,
       "related": {
-        "deflateed": "main.11c0901cd673d3552004.js.gz",
+        "deflateed": "main.886cd1a733e4ad7fc29d.js.gz",
       },
-      "size": 16123,
+      "size": 16088,
     },
   ],
   [
-    "main.11c0901cd673d3552004.js.gz",
-    4016,
+    "main.886cd1a733e4ad7fc29d.js.gz",
+    4012,
     {
       "compressed": true,
       "immutable": true,
-      "size": 4016,
+      "size": 4012,
     },
   ],
 ]
@@ -411,25 +411,25 @@ exports[`"compressionOptions" option set default compression level to maximum fo
     },
   ],
   [
-    "main.11c0901cd673d3552004.js",
-    16123,
+    "main.886cd1a733e4ad7fc29d.js",
+    16088,
     {
-      "chunkhash": "11c0901cd673d3552004",
+      "chunkhash": "886cd1a733e4ad7fc29d",
       "immutable": true,
       "javascriptModule": false,
       "related": {
-        "deflateRawed": "main.11c0901cd673d3552004.js.gz",
+        "deflateRawed": "main.886cd1a733e4ad7fc29d.js.gz",
       },
-      "size": 16123,
+      "size": 16088,
     },
   ],
   [
-    "main.11c0901cd673d3552004.js.gz",
-    4010,
+    "main.886cd1a733e4ad7fc29d.js.gz",
+    4006,
     {
       "compressed": true,
       "immutable": true,
-      "size": 4010,
+      "size": 4006,
     },
   ],
 ]
@@ -494,25 +494,25 @@ exports[`"compressionOptions" option set default compression level to maximum fo
     },
   ],
   [
-    "main.11c0901cd673d3552004.js",
-    16123,
+    "main.886cd1a733e4ad7fc29d.js",
+    16088,
     {
-      "chunkhash": "11c0901cd673d3552004",
+      "chunkhash": "886cd1a733e4ad7fc29d",
       "immutable": true,
       "javascriptModule": false,
       "related": {
-        "gzipped": "main.11c0901cd673d3552004.js.gz",
+        "gzipped": "main.886cd1a733e4ad7fc29d.js.gz",
       },
-      "size": 16123,
+      "size": 16088,
     },
   ],
   [
-    "main.11c0901cd673d3552004.js.gz",
-    4028,
+    "main.886cd1a733e4ad7fc29d.js.gz",
+    4024,
     {
       "compressed": true,
       "immutable": true,
-      "size": 4028,
+      "size": 4024,
     },
   ],
 ]
