@@ -67,20 +67,20 @@ exports[`"compressionOptions" option matches snapshot for custom options ({Objec
     },
   ],
   [
-    "main.886cd1a733e4ad7fc29d.js",
-    16088,
+    "main.3d33e8cae1a5b505b55e.js",
+    16100,
     {
-      "chunkhash": "886cd1a733e4ad7fc29d",
+      "chunkhash": "3d33e8cae1a5b505b55e",
       "immutable": true,
       "javascriptModule": false,
       "related": {
-        "gzipped": "main.886cd1a733e4ad7fc29d.js.gz",
+        "gzipped": "main.3d33e8cae1a5b505b55e.js.gz",
       },
-      "size": 16088,
+      "size": 16100,
     },
   ],
   [
-    "main.886cd1a733e4ad7fc29d.js.gz",
+    "main.3d33e8cae1a5b505b55e.js.gz",
     4024,
     {
       "compressed": true,
@@ -162,20 +162,20 @@ exports[`"compressionOptions" option matches snapshot without values: assets 1`]
     },
   ],
   [
-    "main.886cd1a733e4ad7fc29d.js",
-    16088,
+    "main.3d33e8cae1a5b505b55e.js",
+    16100,
     {
-      "chunkhash": "886cd1a733e4ad7fc29d",
+      "chunkhash": "3d33e8cae1a5b505b55e",
       "immutable": true,
       "javascriptModule": false,
       "related": {
-        "gzipped": "main.886cd1a733e4ad7fc29d.js.gz",
+        "gzipped": "main.3d33e8cae1a5b505b55e.js.gz",
       },
-      "size": 16088,
+      "size": 16100,
     },
   ],
   [
-    "main.886cd1a733e4ad7fc29d.js.gz",
+    "main.3d33e8cae1a5b505b55e.js.gz",
     4024,
     {
       "compressed": true,
@@ -245,25 +245,25 @@ exports[`"compressionOptions" option set default compression level to maximum fo
     },
   ],
   [
-    "main.886cd1a733e4ad7fc29d.js",
-    16088,
+    "main.3d33e8cae1a5b505b55e.js",
+    16100,
     {
-      "chunkhash": "886cd1a733e4ad7fc29d",
+      "chunkhash": "3d33e8cae1a5b505b55e",
       "immutable": true,
       "javascriptModule": false,
       "related": {
-        "brotliCompressed": "main.886cd1a733e4ad7fc29d.js.br",
+        "brotliCompressed": "main.3d33e8cae1a5b505b55e.js.br",
       },
-      "size": 16088,
+      "size": 16100,
     },
   ],
   [
-    "main.886cd1a733e4ad7fc29d.js.br",
-    3518,
+    "main.3d33e8cae1a5b505b55e.js.br",
+    3519,
     {
       "compressed": true,
       "immutable": true,
-      "size": 3518,
+      "size": 3519,
     },
   ],
 ]
@@ -328,20 +328,20 @@ exports[`"compressionOptions" option set default compression level to maximum fo
     },
   ],
   [
-    "main.886cd1a733e4ad7fc29d.js",
-    16088,
+    "main.3d33e8cae1a5b505b55e.js",
+    16100,
     {
-      "chunkhash": "886cd1a733e4ad7fc29d",
+      "chunkhash": "3d33e8cae1a5b505b55e",
       "immutable": true,
       "javascriptModule": false,
       "related": {
-        "deflateed": "main.886cd1a733e4ad7fc29d.js.gz",
+        "deflateed": "main.3d33e8cae1a5b505b55e.js.gz",
       },
-      "size": 16088,
+      "size": 16100,
     },
   ],
   [
-    "main.886cd1a733e4ad7fc29d.js.gz",
+    "main.3d33e8cae1a5b505b55e.js.gz",
     4012,
     {
       "compressed": true,
@@ -411,20 +411,20 @@ exports[`"compressionOptions" option set default compression level to maximum fo
     },
   ],
   [
-    "main.886cd1a733e4ad7fc29d.js",
-    16088,
+    "main.3d33e8cae1a5b505b55e.js",
+    16100,
     {
-      "chunkhash": "886cd1a733e4ad7fc29d",
+      "chunkhash": "3d33e8cae1a5b505b55e",
       "immutable": true,
       "javascriptModule": false,
       "related": {
-        "deflateRawed": "main.886cd1a733e4ad7fc29d.js.gz",
+        "deflateRawed": "main.3d33e8cae1a5b505b55e.js.gz",
       },
-      "size": 16088,
+      "size": 16100,
     },
   ],
   [
-    "main.886cd1a733e4ad7fc29d.js.gz",
+    "main.3d33e8cae1a5b505b55e.js.gz",
     4006,
     {
       "compressed": true,
@@ -494,20 +494,20 @@ exports[`"compressionOptions" option set default compression level to maximum fo
     },
   ],
   [
-    "main.886cd1a733e4ad7fc29d.js",
-    16088,
+    "main.3d33e8cae1a5b505b55e.js",
+    16100,
     {
-      "chunkhash": "886cd1a733e4ad7fc29d",
+      "chunkhash": "3d33e8cae1a5b505b55e",
       "immutable": true,
       "javascriptModule": false,
       "related": {
-        "gzipped": "main.886cd1a733e4ad7fc29d.js.gz",
+        "gzipped": "main.3d33e8cae1a5b505b55e.js.gz",
       },
-      "size": 16088,
+      "size": 16100,
     },
   ],
   [
-    "main.886cd1a733e4ad7fc29d.js.gz",
+    "main.3d33e8cae1a5b505b55e.js.gz",
     4024,
     {
       "compressed": true,
