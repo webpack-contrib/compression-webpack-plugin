@@ -3,7 +3,6 @@
   Author Tobias Koppers @sokra
 */
 
-import crypto from "crypto";
 import path from "path";
 
 import webpack, {
@@ -14,6 +13,20 @@ import { validate } from "schema-utils";
 import serialize from "serialize-javascript";
 
 import schema from "./options.json";
+
+const internalCreateHash = (algorithm) => {
+  try {
+    // eslint-disable-next-line global-require import/no-unresolved
+    const createHash = require("webpack/lib/util/createHash");
+
+    return createHash(algorithm);
+  } catch (err) {
+    // Ignore
+  }
+
+  return require("crypto").createHash(algorithm);
+};
+
 
 const { RawSource } =
   // eslint-disable-next-line global-require
@@ -229,7 +242,7 @@ class CompressionPlugin {
               originalAlgorithm: this.options.algorithm,
               compressionOptions: this.options.compressionOptions,
               name,
-              contentHash: crypto.createHash("md4").update(input).digest("hex"),
+              contentHash: internalCreateHash("md4").update(input).digest("hex"),
             };
           } else {
             cacheData.name = serialize({
