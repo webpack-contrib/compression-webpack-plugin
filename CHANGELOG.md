@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [6.1.2](https://github.com/webpack-contrib/compression-webpack-plugin/compare/v6.1.1...v6.1.2) (2023-12-26)
+
+
+### Bug Fixes
+
+* compatibility with Node.js@18 ([#373](https://github.com/webpack-contrib/compression-webpack-plugin/issues/373)) ([c2e40dc](https://github.com/webpack-contrib/compression-webpack-plugin/commit/c2e40dc8327a40ca69a20223f27925a960c9f568))
+
 ### [6.1.1](https://github.com/webpack-contrib/compression-webpack-plugin/compare/v6.1.0...v6.1.1) (2020-11-12)
 
 
