@@ -88,7 +88,7 @@ describe('"deleteOriginalAssets" option', () => {
       {},
       {
         devtool: "source-map",
-      }
+      },
     );
 
     new CompressionPlugin({

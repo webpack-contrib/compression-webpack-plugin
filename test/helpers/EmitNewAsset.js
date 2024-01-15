@@ -18,9 +18,9 @@ export default class EmitNewAsset {
           // eslint-disable-next-line no-param-reassign
           compilation.emitAsset(
             this.options.name,
-            new RawSource('console.log("content");')
+            new RawSource('console.log("content");'),
           );
-        }
+        },
       );
     });
   }

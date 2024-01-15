@@ -16,20 +16,20 @@ exports[`"filename" option matches snapshot for \`[name][ext].super-compressed.g
   ],
   [
     "09a1a1112c577c2794359715edfcb5ac.super-compressed.png.gz",
-    73160,
+    73507,
     {
       "compressed": true,
       "immutable": true,
-      "size": 73160,
+      "size": 73507,
     },
   ],
   [
     "23fc1d3ac606d117e05a140e0de79806.super-compressed.svg.gz",
-    393,
+    390,
     {
       "compressed": true,
       "immutable": true,
-      "size": 393,
+      "size": 390,
     },
   ],
   [
@@ -59,11 +59,11 @@ exports[`"filename" option matches snapshot for \`[name][ext].super-compressed.g
   ],
   [
     "async.async.super-compressed.js.gz?ver=5bff95cff1ab52803d05",
-    134,
+    136,
     {
       "compressed": true,
       "immutable": true,
-      "size": 134,
+      "size": 136,
     },
   ],
   [
@@ -81,11 +81,11 @@ exports[`"filename" option matches snapshot for \`[name][ext].super-compressed.g
   ],
   [
     "main.super-compressed.js.gz?var=5bff95cff1ab52803d05",
-    4050,
+    4045,
     {
       "compressed": true,
       "immutable": true,
-      "size": 4050,
+      "size": 4045,
     },
   ],
 ]
@@ -111,11 +111,11 @@ exports[`"filename" option matches snapshot for \`[path][base].super-compressed.
   ],
   [
     "09a1a1112c577c2794359715edfcb5ac.png.super-compressed.gz",
-    73160,
+    73507,
     {
       "compressed": true,
       "immutable": true,
-      "size": 73160,
+      "size": 73507,
     },
   ],
   [
@@ -132,20 +132,20 @@ exports[`"filename" option matches snapshot for \`[path][base].super-compressed.
   ],
   [
     "23fc1d3ac606d117e05a140e0de79806.svg.super-compressed.gz",
-    393,
+    390,
     {
       "compressed": true,
       "immutable": true,
-      "size": 393,
+      "size": 390,
     },
   ],
   [
     "assets/js/async.async.js.super-compressed.gz?ver=a6f81a60f5edef35055e#hash",
-    134,
+    136,
     {
       "compressed": true,
       "immutable": true,
-      "size": 134,
+      "size": 136,
     },
   ],
   [
@@ -163,11 +163,11 @@ exports[`"filename" option matches snapshot for \`[path][base].super-compressed.
   ],
   [
     "assets/js/main.js.super-compressed.gz?var=a6f81a60f5edef35055e#hash",
-    4068,
+    4063,
     {
       "compressed": true,
       "immutable": true,
-      "size": 4068,
+      "size": 4063,
     },
   ],
   [
@@ -297,10 +297,10 @@ exports[`"filename" option matches snapshot for custom function ({Function}): as
   ],
   [
     "09a1a1112c577c2794359715edfcb5ac.png.gz",
-    73160,
+    73507,
     {
       "compressed": true,
-      "size": 73160,
+      "size": 73507,
     },
   ],
   [
@@ -317,18 +317,18 @@ exports[`"filename" option matches snapshot for custom function ({Function}): as
   ],
   [
     "23fc1d3ac606d117e05a140e0de79806.svg.gz",
-    393,
+    390,
     {
       "compressed": true,
-      "size": 393,
+      "size": 390,
     },
   ],
   [
     "async.async.js.gz?ver=3e5e2bd85ea9f94ad524",
-    134,
+    136,
     {
       "compressed": true,
-      "size": 134,
+      "size": 136,
     },
   ],
   [
@@ -346,10 +346,10 @@ exports[`"filename" option matches snapshot for custom function ({Function}): as
   ],
   [
     "main.js.gz?var=3e5e2bd85ea9f94ad524",
-    4055,
+    4049,
     {
       "compressed": true,
-      "size": 4055,
+      "size": 4049,
     },
   ],
   [
@@ -388,11 +388,11 @@ exports[`"filename" option show work: assets 1`] = `
   ],
   [
     "09a1a1112c577c2794359715edfcb5ac.png.gz",
-    73160,
+    73507,
     {
       "compressed": true,
       "immutable": true,
-      "size": 73160,
+      "size": 73507,
     },
   ],
   [
@@ -409,20 +409,20 @@ exports[`"filename" option show work: assets 1`] = `
   ],
   [
     "23fc1d3ac606d117e05a140e0de79806.svg.gz",
-    393,
+    390,
     {
       "compressed": true,
       "immutable": true,
-      "size": 393,
+      "size": 390,
     },
   ],
   [
     "assets/scripts/async.async.js.gz",
-    134,
+    136,
     {
       "compressed": true,
       "immutable": true,
-      "size": 134,
+      "size": 136,
     },
   ],
   [
@@ -440,11 +440,11 @@ exports[`"filename" option show work: assets 1`] = `
   ],
   [
     "assets/scripts/main.js.gz",
-    4070,
+    4065,
     {
       "compressed": true,
       "immutable": true,
-      "size": 4070,
+      "size": 4065,
     },
   ],
   [

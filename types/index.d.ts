@@ -75,7 +75,7 @@ declare class CompressionPlugin<T = import("zlib").ZlibOptions>
   constructor(
     options?:
       | (BasePluginOptions<T> & DefinedDefaultAlgorithmAndOptions<T>)
-      | undefined
+      | undefined,
   );
   /**
    * @private
@@ -133,26 +133,8 @@ declare namespace CompressionPlugin {
   };
 }
 type WebpackPluginInstance = import("webpack").WebpackPluginInstance;
-type Compiler = import("webpack").Compiler;
-type BasePluginOptions<T> = {
-  test?: Rule | undefined;
-  include?: Rule | undefined;
-  exclude?: Rule | undefined;
-  threshold?: number | undefined;
-  minRatio?: number | undefined;
-  deleteOriginalAssets?: DeleteOriginalAssets | undefined;
-  filename?: Filename | undefined;
-};
-type DefinedDefaultAlgorithmAndOptions<T> = T extends ZlibOptions
-  ? {
-      algorithm?: string | AlgorithmFunction<T> | undefined;
-      compressionOptions?: CompressionOptions<T> | undefined;
-    }
-  : {
-      algorithm: string | AlgorithmFunction<T>;
-      compressionOptions?: CompressionOptions<T> | undefined;
-    };
 type Schema = import("schema-utils/declarations/validate").Schema;
+type Compiler = import("webpack").Compiler;
 type Compilation = import("webpack").Compilation;
 type Source = import("webpack").sources.Source;
 type Asset = import("webpack").Asset;
@@ -191,15 +173,33 @@ type AlgorithmFunction<T> = (
         }
       | {
           [Symbol.toPrimitive](hint: "string"): string;
-        }
-  ) => void
+        },
+  ) => void,
 ) => any;
 type PathData = {
   [key: string]: any;
 };
 type Filename = string | ((fileData: PathData) => string);
 type DeleteOriginalAssets = boolean | "keep-source-map";
+type BasePluginOptions<T> = {
+  test?: Rule | undefined;
+  include?: Rule | undefined;
+  exclude?: Rule | undefined;
+  threshold?: number | undefined;
+  minRatio?: number | undefined;
+  deleteOriginalAssets?: DeleteOriginalAssets | undefined;
+  filename?: Filename | undefined;
+};
 type ZlibOptions = import("zlib").ZlibOptions;
+type DefinedDefaultAlgorithmAndOptions<T> = T extends ZlibOptions
+  ? {
+      algorithm?: string | AlgorithmFunction<T> | undefined;
+      compressionOptions?: CompressionOptions<T> | undefined;
+    }
+  : {
+      algorithm: string | AlgorithmFunction<T>;
+      compressionOptions?: CompressionOptions<T> | undefined;
+    };
 type InternalPluginOptions<T> = BasePluginOptions<T> & {
   algorithm: string | AlgorithmFunction<T>;
   compressionOptions: CompressionOptions<T>;
