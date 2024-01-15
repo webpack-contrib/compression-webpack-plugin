@@ -16,11 +16,11 @@ exports[`"test" option matches snapshot for a single \`test\` value ({RegExp}): 
   ],
   [
     "09a1a1112c577c2794359715edfcb5ac.png.gz",
-    73160,
+    73507,
     {
       "compressed": true,
       "immutable": true,
-      "size": 73160,
+      "size": 73507,
     },
   ],
   [
@@ -75,11 +75,11 @@ exports[`"test" option matches snapshot for multiple \`test\` values ({Array<Reg
   ],
   [
     "09a1a1112c577c2794359715edfcb5ac.png.gz",
-    73160,
+    73507,
     {
       "compressed": true,
       "immutable": true,
-      "size": 73160,
+      "size": 73507,
     },
   ],
   [
@@ -96,11 +96,11 @@ exports[`"test" option matches snapshot for multiple \`test\` values ({Array<Reg
   ],
   [
     "23fc1d3ac606d117e05a140e0de79806.svg.gz",
-    393,
+    390,
     {
       "compressed": true,
       "immutable": true,
-      "size": 393,
+      "size": 390,
     },
   ],
   [
@@ -146,11 +146,11 @@ exports[`"test" option matches snapshot with empty \`test\` value: assets 1`] = 
   ],
   [
     "09a1a1112c577c2794359715edfcb5ac.png.gz",
-    73160,
+    73507,
     {
       "compressed": true,
       "immutable": true,
-      "size": 73160,
+      "size": 73507,
     },
   ],
   [
@@ -167,20 +167,20 @@ exports[`"test" option matches snapshot with empty \`test\` value: assets 1`] = 
   ],
   [
     "23fc1d3ac606d117e05a140e0de79806.svg.gz",
-    393,
+    390,
     {
       "compressed": true,
       "immutable": true,
-      "size": 393,
+      "size": 390,
     },
   ],
   [
     "async.async.js.gz",
-    134,
+    136,
     {
       "compressed": true,
       "immutable": true,
-      "size": 134,
+      "size": 136,
     },
   ],
   [
@@ -198,11 +198,11 @@ exports[`"test" option matches snapshot with empty \`test\` value: assets 1`] = 
   ],
   [
     "main.js.gz",
-    4050,
+    4045,
     {
       "compressed": true,
       "immutable": true,
-      "size": 4050,
+      "size": 4045,
     },
   ],
   [

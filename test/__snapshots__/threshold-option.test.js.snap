@@ -16,11 +16,11 @@ exports[`"threshold" option matches snapshot for \`0\` value ({Number}): assets 
   ],
   [
     "09a1a1112c577c2794359715edfcb5ac.png.gz",
-    73160,
+    73507,
     {
       "compressed": true,
       "immutable": true,
-      "size": 73160,
+      "size": 73507,
     },
   ],
   [
@@ -37,11 +37,11 @@ exports[`"threshold" option matches snapshot for \`0\` value ({Number}): assets 
   ],
   [
     "23fc1d3ac606d117e05a140e0de79806.svg.gz",
-    393,
+    390,
     {
       "compressed": true,
       "immutable": true,
-      "size": 393,
+      "size": 390,
     },
   ],
   [
@@ -59,11 +59,11 @@ exports[`"threshold" option matches snapshot for \`0\` value ({Number}): assets 
   ],
   [
     "async.async.55e6e9a872bcc7d4b226.js.gz",
-    134,
+    136,
     {
       "compressed": true,
       "immutable": true,
-      "size": 134,
+      "size": 136,
     },
   ],
   [
@@ -81,11 +81,11 @@ exports[`"threshold" option matches snapshot for \`0\` value ({Number}): assets 
   ],
   [
     "main.3d33e8cae1a5b505b55e.js.gz",
-    4024,
+    4019,
     {
       "compressed": true,
       "immutable": true,
-      "size": 4024,
+      "size": 4019,
     },
   ],
 ]
@@ -111,11 +111,11 @@ exports[`"threshold" option matches snapshot for \`8192\` value ({Number}): asse
   ],
   [
     "09a1a1112c577c2794359715edfcb5ac.png.gz",
-    73160,
+    73507,
     {
       "compressed": true,
       "immutable": true,
-      "size": 73160,
+      "size": 73507,
     },
   ],
   [
@@ -152,11 +152,11 @@ exports[`"threshold" option matches snapshot for \`8192\` value ({Number}): asse
   ],
   [
     "main.3d33e8cae1a5b505b55e.js.gz",
-    4024,
+    4019,
     {
       "compressed": true,
       "immutable": true,
-      "size": 4024,
+      "size": 4019,
     },
   ],
 ]
@@ -192,11 +192,11 @@ exports[`"threshold" option should compress all assets excluding assets with "0"
   ],
   [
     "main.d6f9aecb01ad9f44759c.js.gz",
-    1551,
+    1542,
     {
       "compressed": true,
       "immutable": true,
-      "size": 1551,
+      "size": 1542,
     },
   ],
 ]
@@ -244,11 +244,11 @@ exports[`"threshold" option should compress all assets including assets with "0"
   ],
   [
     "main.d6f9aecb01ad9f44759c.js.gz",
-    1551,
+    1542,
     {
       "compressed": true,
       "immutable": true,
-      "size": 1551,
+      "size": 1542,
     },
   ],
 ]

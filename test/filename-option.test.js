@@ -23,7 +23,7 @@ describe('"filename" option', () => {
           filename: "assets/scripts/[name].js?var=[hash]#hash",
           chunkFilename: "assets/scripts/[id].[name].js?ver=[hash]#hash",
         },
-      }
+      },
     );
 
     new CompressionPlugin({
@@ -47,7 +47,7 @@ describe('"filename" option', () => {
           filename: "assets/js/[name].js?var=[hash]#hash",
           chunkFilename: "assets/js/[id].[name].js?ver=[hash]#hash",
         },
-      }
+      },
     );
 
     new CompressionPlugin({
@@ -72,7 +72,7 @@ describe('"filename" option', () => {
           filename: "[name].js?var=[hash]",
           chunkFilename: "[id].[name].js?ver=[hash]",
         },
-      }
+      },
     );
 
     new CompressionPlugin({
@@ -97,7 +97,7 @@ describe('"filename" option', () => {
           filename: "[name].js?var=[hash]#hash",
           chunkFilename: "[id].[name].js?ver=[hash]#hash",
         },
-      }
+      },
     );
 
     new CompressionPlugin({
@@ -126,7 +126,7 @@ describe('"filename" option', () => {
           filename: "[name].js?var=[hash]#hash",
           chunkFilename: "[id].[name].js?ver=[hash]#hash",
         },
-      }
+      },
     );
 
     new CompressionPlugin({

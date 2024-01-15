@@ -21,7 +21,7 @@ export default (stats, compiler) => {
 
           if (!isEquals) {
             throw new Error(
-              `Ungzipped version of "${name}" is not equal to original`
+              `Ungzipped version of "${name}" is not equal to original`,
             );
           }
         }

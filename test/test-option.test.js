@@ -21,7 +21,7 @@ describe('"test" option', () => {
           filename: "[name].js?var=[hash]",
           chunkFilename: "[id].[name].js?ver=[hash]",
         },
-      }
+      },
     );
   });
 

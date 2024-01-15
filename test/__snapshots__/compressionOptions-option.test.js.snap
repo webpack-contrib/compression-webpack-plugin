@@ -16,11 +16,11 @@ exports[`"compressionOptions" option matches snapshot for custom options ({Objec
   ],
   [
     "09a1a1112c577c2794359715edfcb5ac.png.gz",
-    73160,
+    73507,
     {
       "compressed": true,
       "immutable": true,
-      "size": 73160,
+      "size": 73507,
     },
   ],
   [
@@ -37,11 +37,11 @@ exports[`"compressionOptions" option matches snapshot for custom options ({Objec
   ],
   [
     "23fc1d3ac606d117e05a140e0de79806.svg.gz",
-    393,
+    390,
     {
       "compressed": true,
       "immutable": true,
-      "size": 393,
+      "size": 390,
     },
   ],
   [
@@ -59,11 +59,11 @@ exports[`"compressionOptions" option matches snapshot for custom options ({Objec
   ],
   [
     "async.async.55e6e9a872bcc7d4b226.js.gz",
-    134,
+    136,
     {
       "compressed": true,
       "immutable": true,
-      "size": 134,
+      "size": 136,
     },
   ],
   [
@@ -81,11 +81,11 @@ exports[`"compressionOptions" option matches snapshot for custom options ({Objec
   ],
   [
     "main.3d33e8cae1a5b505b55e.js.gz",
-    4024,
+    4019,
     {
       "compressed": true,
       "immutable": true,
-      "size": 4024,
+      "size": 4019,
     },
   ],
 ]
@@ -111,11 +111,11 @@ exports[`"compressionOptions" option matches snapshot without values: assets 1`]
   ],
   [
     "09a1a1112c577c2794359715edfcb5ac.png.gz",
-    73160,
+    73507,
     {
       "compressed": true,
       "immutable": true,
-      "size": 73160,
+      "size": 73507,
     },
   ],
   [
@@ -132,11 +132,11 @@ exports[`"compressionOptions" option matches snapshot without values: assets 1`]
   ],
   [
     "23fc1d3ac606d117e05a140e0de79806.svg.gz",
-    393,
+    390,
     {
       "compressed": true,
       "immutable": true,
-      "size": 393,
+      "size": 390,
     },
   ],
   [
@@ -154,11 +154,11 @@ exports[`"compressionOptions" option matches snapshot without values: assets 1`]
   ],
   [
     "async.async.55e6e9a872bcc7d4b226.js.gz",
-    134,
+    136,
     {
       "compressed": true,
       "immutable": true,
-      "size": 134,
+      "size": 136,
     },
   ],
   [
@@ -176,11 +176,11 @@ exports[`"compressionOptions" option matches snapshot without values: assets 1`]
   ],
   [
     "main.3d33e8cae1a5b505b55e.js.gz",
-    4024,
+    4019,
     {
       "compressed": true,
       "immutable": true,
-      "size": 4024,
+      "size": 4019,
     },
   ],
 ]
@@ -298,11 +298,11 @@ exports[`"compressionOptions" option set default compression level to maximum fo
   ],
   [
     "23fc1d3ac606d117e05a140e0de79806.svg.gz",
-    381,
+    378,
     {
       "compressed": true,
       "immutable": true,
-      "size": 381,
+      "size": 378,
     },
   ],
   [
@@ -320,11 +320,11 @@ exports[`"compressionOptions" option set default compression level to maximum fo
   ],
   [
     "async.async.55e6e9a872bcc7d4b226.js.gz",
-    122,
+    124,
     {
       "compressed": true,
       "immutable": true,
-      "size": 122,
+      "size": 124,
     },
   ],
   [
@@ -342,11 +342,11 @@ exports[`"compressionOptions" option set default compression level to maximum fo
   ],
   [
     "main.3d33e8cae1a5b505b55e.js.gz",
-    4012,
+    4007,
     {
       "compressed": true,
       "immutable": true,
-      "size": 4012,
+      "size": 4007,
     },
   ],
 ]
@@ -381,11 +381,11 @@ exports[`"compressionOptions" option set default compression level to maximum fo
   ],
   [
     "23fc1d3ac606d117e05a140e0de79806.svg.gz",
-    375,
+    372,
     {
       "compressed": true,
       "immutable": true,
-      "size": 375,
+      "size": 372,
     },
   ],
   [
@@ -403,11 +403,11 @@ exports[`"compressionOptions" option set default compression level to maximum fo
   ],
   [
     "async.async.55e6e9a872bcc7d4b226.js.gz",
-    116,
+    118,
     {
       "compressed": true,
       "immutable": true,
-      "size": 116,
+      "size": 118,
     },
   ],
   [
@@ -425,11 +425,11 @@ exports[`"compressionOptions" option set default compression level to maximum fo
   ],
   [
     "main.3d33e8cae1a5b505b55e.js.gz",
-    4006,
+    4001,
     {
       "compressed": true,
       "immutable": true,
-      "size": 4006,
+      "size": 4001,
     },
   ],
 ]
@@ -464,11 +464,11 @@ exports[`"compressionOptions" option set default compression level to maximum fo
   ],
   [
     "23fc1d3ac606d117e05a140e0de79806.svg.gz",
-    393,
+    390,
     {
       "compressed": true,
       "immutable": true,
-      "size": 393,
+      "size": 390,
     },
   ],
   [
@@ -486,11 +486,11 @@ exports[`"compressionOptions" option set default compression level to maximum fo
   ],
   [
     "async.async.55e6e9a872bcc7d4b226.js.gz",
-    134,
+    136,
     {
       "compressed": true,
       "immutable": true,
-      "size": 134,
+      "size": 136,
     },
   ],
   [
@@ -508,11 +508,11 @@ exports[`"compressionOptions" option set default compression level to maximum fo
   ],
   [
     "main.3d33e8cae1a5b505b55e.js.gz",
-    4024,
+    4019,
     {
       "compressed": true,
       "immutable": true,
-      "size": 4024,
+      "size": 4019,
     },
   ],
 ]

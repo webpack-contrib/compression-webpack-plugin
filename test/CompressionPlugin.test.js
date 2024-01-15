@@ -28,7 +28,7 @@ describe("CompressionPlugin", () => {
           filename: "[name].js?var=[hash]",
           chunkFilename: "[id].[name].js?ver=[hash]",
         },
-      }
+      },
     );
 
     new CompressionPlugin().apply(compiler);
@@ -51,7 +51,7 @@ describe("CompressionPlugin", () => {
           filename: "[name].js?var=[hash]",
           chunkFilename: "[id].[name].js?ver=[hash]",
         },
-      }
+      },
     );
 
     new CompressionPlugin().apply(compiler);
@@ -82,7 +82,7 @@ describe("CompressionPlugin", () => {
               rules: [
                 {
                   loader: require.resolve(
-                    "./helpers/loader-with-child-compilation.js"
+                    "./helpers/loader-with-child-compilation.js",
                   ),
                 },
               ],
@@ -97,7 +97,7 @@ describe("CompressionPlugin", () => {
             },
           ],
         },
-      }
+      },
     );
 
     new CompressionPlugin().apply(compiler);
@@ -122,7 +122,7 @@ describe("CompressionPlugin", () => {
           filename: "[name].js?var=[hash]",
           chunkFilename: "[id].[name].js?ver=[hash]",
         },
-      }
+      },
     );
 
     new CompressionPlugin({
@@ -162,7 +162,7 @@ describe("CompressionPlugin", () => {
           filename: "[name].js",
           chunkFilename: "[id].[name].js",
         },
-      }
+      },
     );
 
     new CompressionPlugin().apply(compiler);
@@ -188,7 +188,7 @@ describe("CompressionPlugin", () => {
           filename: "[name].[contenthash].js",
           chunkFilename: "[id].[name].[contenthash].js",
         },
-      }
+      },
     );
 
     new CompressionPlugin().apply(compiler);
@@ -223,7 +223,7 @@ describe("CompressionPlugin", () => {
       expect(newStats.compilation.emittedAssets.size).toBe(0);
 
       expect(getAssetsNameAndSize(newStats, compiler)).toMatchSnapshot(
-        "assets"
+        "assets",
       );
       expect(getWarnings(newStats)).toMatchSnapshot("errors");
       expect(getErrors(newStats)).toMatchSnapshot("warnings");
@@ -243,7 +243,7 @@ describe("CompressionPlugin", () => {
           filename: "[name].js",
           chunkFilename: "[id].js",
         },
-      }
+      },
     );
 
     new CompressionPlugin().apply(compiler);
@@ -262,7 +262,7 @@ describe("CompressionPlugin", () => {
       expect(newStats.compilation.emittedAssets.size).toBe(0);
 
       expect(getAssetsNameAndSize(newStats, compiler)).toMatchSnapshot(
-        "assets"
+        "assets",
       );
       expect(getWarnings(newStats)).toMatchSnapshot("errors");
       expect(getErrors(newStats)).toMatchSnapshot("warnings");
@@ -282,7 +282,7 @@ describe("CompressionPlugin", () => {
           filename: "[name].js",
           chunkFilename: "[id].js",
         },
-      }
+      },
     );
 
     new CompressionPlugin().apply(compiler);
@@ -306,7 +306,7 @@ describe("CompressionPlugin", () => {
       expect(newStats.compilation.emittedAssets.size).toBe(2);
 
       expect(getAssetsNameAndSize(newStats, compiler)).toMatchSnapshot(
-        "assets"
+        "assets",
       );
       expect(getWarnings(newStats)).toMatchSnapshot("errors");
       expect(getErrors(newStats)).toMatchSnapshot("warnings");
@@ -328,7 +328,7 @@ describe("CompressionPlugin", () => {
           filename: "[name].js",
           chunkFilename: "[id].js",
         },
-      }
+      },
     );
 
     new CompressionPlugin().apply(compiler);
@@ -352,7 +352,7 @@ describe("CompressionPlugin", () => {
       expect(newStats.compilation.emittedAssets.size).toBe(2);
 
       expect(getAssetsNameAndSize(newStats, compiler)).toMatchSnapshot(
-        "assets"
+        "assets",
       );
       expect(getWarnings(newStats)).toMatchSnapshot("errors");
       expect(getErrors(newStats)).toMatchSnapshot("warnings");
@@ -372,7 +372,7 @@ describe("CompressionPlugin", () => {
           filename: "[name].js",
           chunkFilename: "[id].js",
         },
-      }
+      },
     );
 
     new CompressionPlugin({
@@ -403,7 +403,7 @@ describe("CompressionPlugin", () => {
       expect(newStats.compilation.emittedAssets.size).toBe(0);
 
       expect(getAssetsNameAndSize(newStats, compiler)).toMatchSnapshot(
-        "assets"
+        "assets",
       );
       expect(getWarnings(newStats)).toMatchSnapshot("errors");
       expect(getErrors(newStats)).toMatchSnapshot("warnings");
@@ -425,7 +425,7 @@ describe("CompressionPlugin", () => {
           filename: "[name].js",
           chunkFilename: "[id].[name].js",
         },
-      }
+      },
     );
 
     new CompressionPlugin().apply(compiler);
@@ -444,7 +444,7 @@ describe("CompressionPlugin", () => {
       expect(newStats.compilation.emittedAssets.size).toBe(7);
 
       expect(getAssetsNameAndSize(newStats, compiler)).toMatchSnapshot(
-        "assets"
+        "assets",
       );
       expect(getWarnings(newStats)).toMatchSnapshot("errors");
       expect(getErrors(newStats)).toMatchSnapshot("warnings");
@@ -463,7 +463,7 @@ describe("CompressionPlugin", () => {
           filename: "[name].js",
           chunkFilename: "[id].js",
         },
-      }
+      },
     );
 
     new CompressionPlugin({ minRatio: 10 }).apply(compiler);
@@ -487,7 +487,7 @@ describe("CompressionPlugin", () => {
           filename: "[name].js?var=[hash]",
           chunkFilename: "[id].[name].js?ver=[hash]",
         },
-      }
+      },
     );
 
     new CompressionPlugin().apply(compiler);
@@ -511,7 +511,7 @@ describe("CompressionPlugin", () => {
           filename: "[name].js?var=[hash]",
           chunkFilename: "[id].[name].js?ver=[hash]",
         },
-      }
+      },
     );
 
     new CompressionPlugin().apply(compiler);

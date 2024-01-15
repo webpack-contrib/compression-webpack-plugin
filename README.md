@@ -162,8 +162,8 @@ type algorithm =
             }
           | {
               [Symbol.toPrimitive](hint: "string"): string;
-            }
-      ) => void
+            },
+      ) => void,
     ) => any);
 ```
 

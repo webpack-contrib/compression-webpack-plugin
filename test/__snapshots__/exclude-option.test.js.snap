@@ -16,11 +16,11 @@ exports[`"exclude" option matches snapshot for a single \`exclude\` value ({RegE
   ],
   [
     "09a1a1112c577c2794359715edfcb5ac.png.gz",
-    73160,
+    73507,
     {
       "compressed": true,
       "immutable": true,
-      "size": 73160,
+      "size": 73507,
     },
   ],
   [
@@ -34,11 +34,11 @@ exports[`"exclude" option matches snapshot for a single \`exclude\` value ({RegE
   ],
   [
     "async.async.js.gz",
-    134,
+    136,
     {
       "compressed": true,
       "immutable": true,
-      "size": 134,
+      "size": 136,
     },
   ],
   [
@@ -56,11 +56,11 @@ exports[`"exclude" option matches snapshot for a single \`exclude\` value ({RegE
   ],
   [
     "main.js.gz",
-    4050,
+    4045,
     {
       "compressed": true,
       "immutable": true,
-      "size": 4050,
+      "size": 4045,
     },
   ],
   [
@@ -105,11 +105,11 @@ exports[`"exclude" option matches snapshot for multiple \`exclude\` values ({Arr
   ],
   [
     "async.async.js.gz",
-    134,
+    136,
     {
       "compressed": true,
       "immutable": true,
-      "size": 134,
+      "size": 136,
     },
   ],
   [
@@ -127,11 +127,11 @@ exports[`"exclude" option matches snapshot for multiple \`exclude\` values ({Arr
   ],
   [
     "main.js.gz",
-    4050,
+    4045,
     {
       "compressed": true,
       "immutable": true,
-      "size": 4050,
+      "size": 4045,
     },
   ],
   [

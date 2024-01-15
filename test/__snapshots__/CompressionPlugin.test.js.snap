@@ -15,10 +15,10 @@ exports[`CompressionPlugin should run plugin against assets added later by plugi
   ],
   [
     "main.js.gz",
-    584,
+    585,
     {
       "compressed": true,
-      "size": 584,
+      "size": 585,
     },
   ],
   [
@@ -61,10 +61,10 @@ exports[`CompressionPlugin should work and do not use memory cache when the "cac
   ],
   [
     "async.async.js.gz",
-    134,
+    136,
     {
       "compressed": true,
-      "size": 134,
+      "size": 136,
     },
   ],
   [
@@ -88,10 +88,10 @@ exports[`CompressionPlugin should work and do not use memory cache when the "cac
   ],
   [
     "icon.svg.gz",
-    393,
+    390,
     {
       "compressed": true,
-      "size": 393,
+      "size": 390,
     },
   ],
   [
@@ -107,10 +107,10 @@ exports[`CompressionPlugin should work and do not use memory cache when the "cac
   ],
   [
     "main.js.gz",
-    3939,
+    3933,
     {
       "compressed": true,
-      "size": 3939,
+      "size": 3933,
     },
   ],
 ]
@@ -131,10 +131,10 @@ exports[`CompressionPlugin should work and do not use memory cache when the "cac
   ],
   [
     "async.async.js.gz",
-    134,
+    136,
     {
       "compressed": true,
-      "size": 134,
+      "size": 136,
     },
   ],
   [
@@ -158,10 +158,10 @@ exports[`CompressionPlugin should work and do not use memory cache when the "cac
   ],
   [
     "icon.svg.gz",
-    393,
+    390,
     {
       "compressed": true,
-      "size": 393,
+      "size": 390,
     },
   ],
   [
@@ -177,10 +177,10 @@ exports[`CompressionPlugin should work and do not use memory cache when the "cac
   ],
   [
     "main.js.gz",
-    3939,
+    3933,
     {
       "compressed": true,
-      "size": 3939,
+      "size": 3933,
     },
   ],
 ]
@@ -219,11 +219,11 @@ exports[`CompressionPlugin should work and keep assets info: assets 1`] = `
   ],
   [
     "23fc1d3ac606d117e05a140e0de79806.svg.gz",
-    393,
+    390,
     {
       "compressed": true,
       "immutable": true,
-      "size": 393,
+      "size": 390,
     },
   ],
   [
@@ -241,11 +241,11 @@ exports[`CompressionPlugin should work and keep assets info: assets 1`] = `
   ],
   [
     "async.async.cd3aed5809a2faa4eb5a.js.gz",
-    134,
+    136,
     {
       "compressed": true,
       "immutable": true,
-      "size": 134,
+      "size": 136,
     },
   ],
   [
@@ -263,11 +263,11 @@ exports[`CompressionPlugin should work and keep assets info: assets 1`] = `
   ],
   [
     "main.68e61e02648eb0a96ddb.js.gz",
-    4022,
+    4017,
     {
       "compressed": true,
       "immutable": true,
-      "size": 4022,
+      "size": 4017,
     },
   ],
 ]
@@ -302,11 +302,11 @@ exports[`CompressionPlugin should work and show compress assets in stats: assets
   ],
   [
     "23fc1d3ac606d117e05a140e0de79806.svg.gz",
-    393,
+    390,
     {
       "compressed": true,
       "immutable": true,
-      "size": 393,
+      "size": 390,
     },
   ],
   [
@@ -322,10 +322,10 @@ exports[`CompressionPlugin should work and show compress assets in stats: assets
   ],
   [
     "async.async.js.gz",
-    134,
+    136,
     {
       "compressed": true,
-      "size": 134,
+      "size": 136,
     },
   ],
   [
@@ -341,10 +341,10 @@ exports[`CompressionPlugin should work and show compress assets in stats: assets
   ],
   [
     "main.js.gz",
-    4002,
+    3998,
     {
       "compressed": true,
-      "size": 4002,
+      "size": 3998,
     },
   ],
 ]
@@ -369,10 +369,10 @@ exports[`CompressionPlugin should work and use memory cache when the "cache" opt
   ],
   [
     "async.js.gz",
-    134,
+    136,
     {
       "compressed": true,
-      "size": 134,
+      "size": 136,
     },
   ],
   [
@@ -396,10 +396,10 @@ exports[`CompressionPlugin should work and use memory cache when the "cache" opt
   ],
   [
     "icon.svg.gz",
-    393,
+    390,
     {
       "compressed": true,
-      "size": 393,
+      "size": 390,
     },
   ],
   [
@@ -415,10 +415,10 @@ exports[`CompressionPlugin should work and use memory cache when the "cache" opt
   ],
   [
     "main.js.gz",
-    3935,
+    3930,
     {
       "compressed": true,
-      "size": 3935,
+      "size": 3930,
     },
   ],
 ]
@@ -439,10 +439,10 @@ exports[`CompressionPlugin should work and use memory cache when the "cache" opt
   ],
   [
     "async.js.gz",
-    134,
+    136,
     {
       "compressed": true,
-      "size": 134,
+      "size": 136,
     },
   ],
   [
@@ -458,10 +458,10 @@ exports[`CompressionPlugin should work and use memory cache when the "cache" opt
   ],
   [
     "icon.png.gz",
-    73309,
+    73650,
     {
       "compressed": true,
-      "size": 73309,
+      "size": 73650,
     },
   ],
   [
@@ -477,10 +477,10 @@ exports[`CompressionPlugin should work and use memory cache when the "cache" opt
   ],
   [
     "icon.svg.gz",
-    393,
+    390,
     {
       "compressed": true,
-      "size": 393,
+      "size": 390,
     },
   ],
   [
@@ -496,10 +496,10 @@ exports[`CompressionPlugin should work and use memory cache when the "cache" opt
   ],
   [
     "main.js.gz",
-    3935,
+    3930,
     {
       "compressed": true,
-      "size": 3935,
+      "size": 3930,
     },
   ],
 ]
@@ -538,11 +538,11 @@ exports[`CompressionPlugin should work and use memory cache when the "cache" opt
   ],
   [
     "23fc1d3ac606d117e05a140e0de79806.svg.gz",
-    393,
+    390,
     {
       "compressed": true,
       "immutable": true,
-      "size": 393,
+      "size": 390,
     },
   ],
   [
@@ -558,10 +558,10 @@ exports[`CompressionPlugin should work and use memory cache when the "cache" opt
   ],
   [
     "async.js.gz",
-    134,
+    136,
     {
       "compressed": true,
-      "size": 134,
+      "size": 136,
     },
   ],
   [
@@ -577,10 +577,10 @@ exports[`CompressionPlugin should work and use memory cache when the "cache" opt
   ],
   [
     "main.js.gz",
-    3999,
+    3995,
     {
       "compressed": true,
-      "size": 3999,
+      "size": 3995,
     },
   ],
 ]
@@ -611,11 +611,11 @@ exports[`CompressionPlugin should work and use memory cache when the "cache" opt
   ],
   [
     "23fc1d3ac606d117e05a140e0de79806.svg.gz",
-    393,
+    390,
     {
       "compressed": true,
       "immutable": true,
-      "size": 393,
+      "size": 390,
     },
   ],
   [
@@ -631,10 +631,10 @@ exports[`CompressionPlugin should work and use memory cache when the "cache" opt
   ],
   [
     "async.js.gz",
-    134,
+    136,
     {
       "compressed": true,
-      "size": 134,
+      "size": 136,
     },
   ],
   [
@@ -650,10 +650,10 @@ exports[`CompressionPlugin should work and use memory cache when the "cache" opt
   ],
   [
     "main.js.gz",
-    4023,
+    4017,
     {
       "compressed": true,
-      "size": 4023,
+      "size": 4017,
     },
   ],
 ]
@@ -724,11 +724,11 @@ exports[`CompressionPlugin should work and use memory cache when the "cache" opt
   ],
   [
     "23fc1d3ac606d117e05a140e0de79806.svg.gz",
-    393,
+    390,
     {
       "compressed": true,
       "immutable": true,
-      "size": 393,
+      "size": 390,
     },
   ],
   [
@@ -762,10 +762,10 @@ exports[`CompressionPlugin should work and use memory cache when the "cache" opt
   ],
   [
     "async.js.gz",
-    134,
+    136,
     {
       "compressed": true,
-      "size": 134,
+      "size": 136,
     },
   ],
   [
@@ -799,10 +799,10 @@ exports[`CompressionPlugin should work and use memory cache when the "cache" opt
   ],
   [
     "main.js.gz",
-    3999,
+    3995,
     {
       "compressed": true,
-      "size": 3999,
+      "size": 3995,
     },
   ],
 ]
@@ -865,11 +865,11 @@ exports[`CompressionPlugin should work and use memory cache when the "cache" opt
   ],
   [
     "23fc1d3ac606d117e05a140e0de79806.svg.gz",
-    393,
+    390,
     {
       "compressed": true,
       "immutable": true,
-      "size": 393,
+      "size": 390,
     },
   ],
   [
@@ -903,10 +903,10 @@ exports[`CompressionPlugin should work and use memory cache when the "cache" opt
   ],
   [
     "async.js.gz",
-    134,
+    136,
     {
       "compressed": true,
-      "size": 134,
+      "size": 136,
     },
   ],
   [
@@ -940,10 +940,10 @@ exports[`CompressionPlugin should work and use memory cache when the "cache" opt
   ],
   [
     "main.js.gz",
-    3999,
+    3995,
     {
       "compressed": true,
-      "size": 3999,
+      "size": 3995,
     },
   ],
 ]
@@ -982,11 +982,11 @@ exports[`CompressionPlugin should work and use memory cache when the "cache" opt
   ],
   [
     "23fc1d3ac606d117e05a140e0de79806.svg.gz",
-    393,
+    390,
     {
       "compressed": true,
       "immutable": true,
-      "size": 393,
+      "size": 390,
     },
   ],
   [
@@ -1002,10 +1002,10 @@ exports[`CompressionPlugin should work and use memory cache when the "cache" opt
   ],
   [
     "async.js.gz",
-    134,
+    136,
     {
       "compressed": true,
-      "size": 134,
+      "size": 136,
     },
   ],
   [
@@ -1021,10 +1021,10 @@ exports[`CompressionPlugin should work and use memory cache when the "cache" opt
   ],
   [
     "main.js.gz",
-    3999,
+    3995,
     {
       "compressed": true,
-      "size": 3999,
+      "size": 3995,
     },
   ],
 ]
@@ -1055,11 +1055,11 @@ exports[`CompressionPlugin should work and use memory cache when the "cache" opt
   ],
   [
     "23fc1d3ac606d117e05a140e0de79806.svg.gz",
-    393,
+    390,
     {
       "compressed": true,
       "immutable": true,
-      "size": 393,
+      "size": 390,
     },
   ],
   [
@@ -1075,10 +1075,10 @@ exports[`CompressionPlugin should work and use memory cache when the "cache" opt
   ],
   [
     "async.js.gz",
-    134,
+    136,
     {
       "compressed": true,
-      "size": 134,
+      "size": 136,
     },
   ],
   [
@@ -1094,10 +1094,10 @@ exports[`CompressionPlugin should work and use memory cache when the "cache" opt
   ],
   [
     "main.js.gz",
-    3999,
+    3995,
     {
       "compressed": true,
-      "size": 3999,
+      "size": 3995,
     },
   ],
 ]
@@ -1136,11 +1136,11 @@ exports[`CompressionPlugin should work and use memory cache without options in t
   ],
   [
     "23fc1d3ac606d117e05a140e0de79806.svg.gz",
-    393,
+    390,
     {
       "compressed": true,
       "immutable": true,
-      "size": 393,
+      "size": 390,
     },
   ],
   [
@@ -1158,11 +1158,11 @@ exports[`CompressionPlugin should work and use memory cache without options in t
   ],
   [
     "async.async.55e6e9a872bcc7d4b226.js.gz",
-    134,
+    136,
     {
       "compressed": true,
       "immutable": true,
-      "size": 134,
+      "size": 136,
     },
   ],
   [
@@ -1180,11 +1180,11 @@ exports[`CompressionPlugin should work and use memory cache without options in t
   ],
   [
     "main.3d33e8cae1a5b505b55e.js.gz",
-    4024,
+    4019,
     {
       "compressed": true,
       "immutable": true,
-      "size": 4024,
+      "size": 4019,
     },
   ],
 ]
@@ -1215,11 +1215,11 @@ exports[`CompressionPlugin should work and use memory cache without options in t
   ],
   [
     "23fc1d3ac606d117e05a140e0de79806.svg.gz",
-    393,
+    390,
     {
       "compressed": true,
       "immutable": true,
-      "size": 393,
+      "size": 390,
     },
   ],
   [
@@ -1237,11 +1237,11 @@ exports[`CompressionPlugin should work and use memory cache without options in t
   ],
   [
     "async.async.55e6e9a872bcc7d4b226.js.gz",
-    134,
+    136,
     {
       "compressed": true,
       "immutable": true,
-      "size": 134,
+      "size": 136,
     },
   ],
   [
@@ -1259,11 +1259,11 @@ exports[`CompressionPlugin should work and use memory cache without options in t
   ],
   [
     "main.3d33e8cae1a5b505b55e.js.gz",
-    4024,
+    4019,
     {
       "compressed": true,
       "immutable": true,
-      "size": 4024,
+      "size": 4019,
     },
   ],
 ]
@@ -1302,20 +1302,20 @@ exports[`CompressionPlugin should work child compilations: assets 1`] = `
   ],
   [
     "23fc1d3ac606d117e05a140e0de79806.svg.gz",
-    393,
+    390,
     {
       "compressed": true,
       "immutable": true,
-      "size": 393,
+      "size": 390,
     },
   ],
   [
     "async.async.js.gz",
-    134,
+    136,
     {
       "compressed": true,
       "immutable": true,
-      "size": 134,
+      "size": 136,
     },
   ],
   [
@@ -1352,11 +1352,11 @@ exports[`CompressionPlugin should work child compilations: assets 1`] = `
   ],
   [
     "main.js.gz",
-    4048,
+    4042,
     {
       "compressed": true,
       "immutable": true,
-      "size": 4048,
+      "size": 4042,
     },
   ],
   [
@@ -1404,11 +1404,11 @@ exports[`CompressionPlugin should work with 'webpack-stats-plugin': assets 1`] =
   ],
   [
     "23fc1d3ac606d117e05a140e0de79806.svg.gz",
-    393,
+    390,
     {
       "compressed": true,
       "immutable": true,
-      "size": 393,
+      "size": 390,
     },
   ],
   [
@@ -1426,11 +1426,11 @@ exports[`CompressionPlugin should work with 'webpack-stats-plugin': assets 1`] =
   ],
   [
     "async.async.55e6e9a872bcc7d4b226.js.gz",
-    134,
+    136,
     {
       "compressed": true,
       "immutable": true,
-      "size": 134,
+      "size": 136,
     },
   ],
   [
@@ -1448,11 +1448,11 @@ exports[`CompressionPlugin should work with 'webpack-stats-plugin': assets 1`] =
   ],
   [
     "main.3d33e8cae1a5b505b55e.js.gz",
-    4024,
+    4019,
     {
       "compressed": true,
       "immutable": true,
-      "size": 4024,
+      "size": 4019,
     },
   ],
   [
@@ -1494,20 +1494,20 @@ exports[`CompressionPlugin should work with assets info: assets 1`] = `
   ],
   [
     "23fc1d3ac606d117e05a140e0de79806.svg.gz",
-    393,
+    390,
     {
       "compressed": true,
       "immutable": true,
-      "size": 393,
+      "size": 390,
     },
   ],
   [
     "async.async.js.gz",
-    134,
+    136,
     {
       "compressed": true,
       "immutable": true,
-      "size": 134,
+      "size": 136,
     },
   ],
   [
@@ -1544,19 +1544,19 @@ exports[`CompressionPlugin should work with assets info: assets 1`] = `
   ],
   [
     "main.js.gz",
-    4081,
+    4078,
     {
       "compressed": true,
       "immutable": true,
-      "size": 4081,
+      "size": 4078,
     },
   ],
   [
     "main.js.map.gz",
-    4153,
+    4164,
     {
       "compressed": true,
-      "size": 4153,
+      "size": 4164,
     },
   ],
   [
@@ -1668,11 +1668,11 @@ exports[`CompressionPlugin should work with multiple plugins: assets 1`] = `
   ],
   [
     "23fc1d3ac606d117e05a140e0de79806.svg.gz",
-    393,
+    390,
     {
       "compressed": true,
       "immutable": true,
-      "size": 393,
+      "size": 390,
     },
   ],
   [
@@ -1704,11 +1704,11 @@ exports[`CompressionPlugin should work with multiple plugins: assets 1`] = `
   ],
   [
     "async.async.js.gz",
-    134,
+    136,
     {
       "compressed": true,
       "immutable": true,
-      "size": 134,
+      "size": 136,
     },
   ],
   [
@@ -1756,11 +1756,11 @@ exports[`CompressionPlugin should work with multiple plugins: assets 1`] = `
   ],
   [
     "main.js.gz",
-    4050,
+    4045,
     {
       "compressed": true,
       "immutable": true,
-      "size": 4050,
+      "size": 4045,
     },
   ],
   [
@@ -1811,20 +1811,20 @@ exports[`CompressionPlugin should work: assets 1`] = `
   ],
   [
     "23fc1d3ac606d117e05a140e0de79806.svg.gz",
-    393,
+    390,
     {
       "compressed": true,
       "immutable": true,
-      "size": 393,
+      "size": 390,
     },
   ],
   [
     "async.async.js.gz",
-    134,
+    136,
     {
       "compressed": true,
       "immutable": true,
-      "size": 134,
+      "size": 136,
     },
   ],
   [
@@ -1842,11 +1842,11 @@ exports[`CompressionPlugin should work: assets 1`] = `
   ],
   [
     "main.js.gz",
-    4050,
+    4045,
     {
       "compressed": true,
       "immutable": true,
-      "size": 4050,
+      "size": 4045,
     },
   ],
   [

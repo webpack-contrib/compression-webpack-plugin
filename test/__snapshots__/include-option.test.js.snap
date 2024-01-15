@@ -22,11 +22,11 @@ exports[`"include" option matches snapshot for a single \`include\` value ({RegE
   ],
   [
     "async.async.js.gz",
-    134,
+    136,
     {
       "compressed": true,
       "immutable": true,
-      "size": 134,
+      "size": 136,
     },
   ],
   [
@@ -44,11 +44,11 @@ exports[`"include" option matches snapshot for a single \`include\` value ({RegE
   ],
   [
     "main.js.gz",
-    4050,
+    4045,
     {
       "compressed": true,
       "immutable": true,
-      "size": 4050,
+      "size": 4045,
     },
   ],
   [
@@ -96,20 +96,20 @@ exports[`"include" option matches snapshot for multiple \`include\` values ({Arr
   ],
   [
     "23fc1d3ac606d117e05a140e0de79806.svg.gz",
-    393,
+    390,
     {
       "compressed": true,
       "immutable": true,
-      "size": 393,
+      "size": 390,
     },
   ],
   [
     "async.async.js.gz",
-    134,
+    136,
     {
       "compressed": true,
       "immutable": true,
-      "size": 134,
+      "size": 136,
     },
   ],
   [
@@ -127,11 +127,11 @@ exports[`"include" option matches snapshot for multiple \`include\` values ({Arr
   ],
   [
     "main.js.gz",
-    4050,
+    4045,
     {
       "compressed": true,
       "immutable": true,
-      "size": 4050,
+      "size": 4045,
     },
   ],
   [

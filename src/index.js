@@ -154,7 +154,7 @@ class CompressionPlugin {
 
       if (!this.algorithm) {
         throw new Error(
-          `Algorithm "${this.options.algorithm}" is not found in "zlib"`
+          `Algorithm "${this.options.algorithm}" is not found in "zlib"`,
         );
       }
 
@@ -211,7 +211,7 @@ class CompressionPlugin {
           } else {
             resolve(result);
           }
-        }
+        },
       );
     });
   }
@@ -240,7 +240,7 @@ class CompressionPlugin {
             !compiler.webpack.ModuleFilenameHelpers.matchObject.bind(
               // eslint-disable-next-line no-undefined
               undefined,
-              this.options
+              this.options,
             )(name)
           ) {
             return false;
@@ -289,7 +289,7 @@ class CompressionPlugin {
               algorithm: this.options.algorithm,
               compressionOptions: this.options.compressionOptions,
             }),
-            cache.getLazyHashedEtag(source)
+            cache.getLazyHashedEtag(source),
           );
           const output = (await cacheItem.getPromise()) || {};
 
@@ -317,7 +317,7 @@ class CompressionPlugin {
           }
 
           return { name, source, info, buffer, output, cacheItem, relatedName };
-        })
+        }),
       )
     ).filter((assetForMinify) => Boolean(assetForMinify));
 
@@ -388,7 +388,7 @@ class CompressionPlugin {
           }
 
           compilation.emitAsset(newFilename, output.source, newInfo);
-        })()
+        })(),
       );
     }
 
@@ -410,7 +410,7 @@ class CompressionPlugin {
             compiler.webpack.Compilation.PROCESS_ASSETS_STAGE_OPTIMIZE_TRANSFER,
           additionalAssets: true,
         },
-        (assets) => this.compress(compiler, compilation, assets)
+        (assets) => this.compress(compiler, compilation, assets),
       );
 
       compilation.hooks.statsPrinter.tap(pluginName, (stats) => {
@@ -421,9 +421,9 @@ class CompressionPlugin {
             (compressed, { green, formatFlag }) =>
               compressed
                 ? /** @type {Function} */ (green)(
-                    /** @type {Function} */ (formatFlag)("compressed")
+                    /** @type {Function} */ (formatFlag)("compressed"),
                   )
-                : ""
+                : "",
           );
       });
     });
