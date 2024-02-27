@@ -43,9 +43,9 @@ export = CompressionPlugin;
 /**
  * @template T
  * @typedef {Object} BasePluginOptions
- * @property {Rule} [test]
- * @property {Rule} [include]
- * @property {Rule} [exclude]
+ * @property {Rules} [test]
+ * @property {Rules} [include]
+ * @property {Rules} [exclude]
  * @property {number} [threshold]
  * @property {number} [minRatio]
  * @property {DeleteOriginalAssets} [deleteOriginalAssets]
@@ -182,9 +182,9 @@ type PathData = {
 type Filename = string | ((fileData: PathData) => string);
 type DeleteOriginalAssets = boolean | "keep-source-map";
 type BasePluginOptions<T> = {
-  test?: Rule | undefined;
-  include?: Rule | undefined;
-  exclude?: Rule | undefined;
+  test?: Rules | undefined;
+  include?: Rules | undefined;
+  exclude?: Rules | undefined;
   threshold?: number | undefined;
   minRatio?: number | undefined;
   deleteOriginalAssets?: DeleteOriginalAssets | undefined;
