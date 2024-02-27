@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [11.1.0](https://github.com/webpack-contrib/compression-webpack-plugin/compare/v11.0.0...v11.1.0) (2024-02-27)
+
+
+### Features
+
+* support the `deleteOriginalAssets` option as a function ([#380](https://github.com/webpack-contrib/compression-webpack-plugin/issues/380)) ([1be8955](https://github.com/webpack-contrib/compression-webpack-plugin/commit/1be895599c15c7da796ef5131de4f705de3f2635))
+
+
+### Bug Fixes
+
+* `test`/`include`/`exclude` types ([#379](https://github.com/webpack-contrib/compression-webpack-plugin/issues/379)) ([4c9f6f4](https://github.com/webpack-contrib/compression-webpack-plugin/commit/4c9f6f4f4b3a1e61962e190ea2d651d23175aa18))
+
 ## [11.0.0](https://github.com/webpack-contrib/compression-webpack-plugin/compare/v10.0.0...v11.0.0) (2024-01-15)
 
 
