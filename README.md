@@ -381,7 +381,10 @@ module.exports = {
 Type:
 
 ```ts
-type deleteOriginalAssets = boolean | "keep-source-map";
+type deleteOriginalAssets =
+  | boolean
+  | "keep-source-map"
+  | ((name: string) => boolean);
 ```
 
 Default: `false`
@@ -400,7 +403,7 @@ module.exports = {
 };
 ```
 
-To exclude sourcemaps from compression
+To exclude sourcemaps from compression:
 
 ```js
 module.exports = {
@@ -408,6 +411,25 @@ module.exports = {
     new CompressionPlugin({
       exclude: /.map$/,
       deleteOriginalAssets: "keep-source-map",
+    }),
+  ],
+};
+```
+
+Using a custom function:
+
+```js
+module.exports = {
+  plugins: [
+    new CompressionPlugin({
+      exclude: /.map$/,
+      deleteOriginalAssets: (name) => {
+        if (/\.js$/.test(name)) {
+          return false;
+        }
+
+        return true;
+      },
     }),
   ],
 };

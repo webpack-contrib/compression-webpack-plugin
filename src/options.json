@@ -99,6 +99,9 @@
           "type": "boolean"
         },
         {
+          "instanceof": "Function"
+        },
+        {
           "enum": ["keep-source-map"]
         }
       ]

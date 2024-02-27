@@ -58,7 +58,7 @@ const schema = require("./options.json");
  */
 
 /**
- * @typedef {boolean | "keep-source-map"} DeleteOriginalAssets
+ * @typedef {boolean | "keep-source-map" | ((name: string) => boolean)} DeleteOriginalAssets
  */
 
 /**
@@ -378,9 +378,17 @@ class CompressionPlugin {
                 // @ts-ignore
                 related: { sourceMap: null },
               });
-            }
 
-            compilation.deleteAsset(name);
+              compilation.deleteAsset(name);
+            } else if (
+              typeof this.options.deleteOriginalAssets === "function"
+            ) {
+              if (this.options.deleteOriginalAssets(name)) {
+                compilation.deleteAsset(name);
+              }
+            } else {
+              compilation.deleteAsset(name);
+            }
           } else {
             compilation.updateAsset(name, source, {
               related: { [relatedName]: newFilename },

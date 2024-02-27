@@ -25,8 +25,8 @@ describe("CompressionPlugin", () => {
       {
         output: {
           path: `${__dirname}/dist`,
-          filename: "[name].js?var=[hash]",
-          chunkFilename: "[id].[name].js?ver=[hash]",
+          filename: "[name].js?var=[contenthash]",
+          chunkFilename: "[id].[name].js?ver=[contenthash]",
         },
       },
     );
@@ -48,8 +48,8 @@ describe("CompressionPlugin", () => {
         devtool: "source-map",
         output: {
           path: `${__dirname}/dist`,
-          filename: "[name].js?var=[hash]",
-          chunkFilename: "[id].[name].js?ver=[hash]",
+          filename: "[name].js?var=[contenthash]",
+          chunkFilename: "[id].[name].js?ver=[contenthash]",
         },
       },
     );
@@ -72,8 +72,8 @@ describe("CompressionPlugin", () => {
       {
         output: {
           path: `${__dirname}/dist`,
-          filename: "[name].js?var=[hash]",
-          chunkFilename: "[id].[name].js?ver=[hash]",
+          filename: "[name].js?var=[contenthash]",
+          chunkFilename: "[id].[name].js?ver=[contenthash]",
         },
         module: {
           rules: [
@@ -119,8 +119,8 @@ describe("CompressionPlugin", () => {
       {
         output: {
           path: `${__dirname}/dist`,
-          filename: "[name].js?var=[hash]",
-          chunkFilename: "[id].[name].js?ver=[hash]",
+          filename: "[name].js?var=[contenthash]",
+          chunkFilename: "[id].[name].js?ver=[contenthash]",
         },
       },
     );
@@ -484,8 +484,8 @@ describe("CompressionPlugin", () => {
       {
         output: {
           path: `${__dirname}/dist`,
-          filename: "[name].js?var=[hash]",
-          chunkFilename: "[id].[name].js?ver=[hash]",
+          filename: "[name].js?var=[contenthash]",
+          chunkFilename: "[id].[name].js?ver=[contenthash]",
         },
       },
     );
@@ -508,8 +508,8 @@ describe("CompressionPlugin", () => {
       {
         output: {
           path: `${__dirname}/dist`,
-          filename: "[name].js?var=[hash]",
-          chunkFilename: "[id].[name].js?ver=[hash]",
+          filename: "[name].js?var=[contenthash]",
+          chunkFilename: "[id].[name].js?ver=[contenthash]",
         },
       },
     );
