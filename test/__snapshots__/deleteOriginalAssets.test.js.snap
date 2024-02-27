@@ -53,6 +53,69 @@ exports[`"deleteOriginalAssets" option should delete original assets and keep so
 
 exports[`"deleteOriginalAssets" option should delete original assets and keep source maps with option "keep-source-map": warnings 1`] = `[]`;
 
+exports[`"deleteOriginalAssets" option should work and delete original assets when function used : assets 1`] = `
+[
+  [
+    "09a1a1112c577c2794359715edfcb5ac.png",
+    78117,
+    {
+      "immutable": true,
+      "size": 78117,
+      "sourceFilename": "icon.png",
+    },
+  ],
+  [
+    "09a1a1112c577c2794359715edfcb5ac.png.gz",
+    73507,
+    {
+      "compressed": true,
+      "immutable": true,
+      "size": 73507,
+    },
+  ],
+  [
+    "23fc1d3ac606d117e05a140e0de79806.svg",
+    672,
+    {
+      "immutable": true,
+      "size": 672,
+      "sourceFilename": "icon.svg",
+    },
+  ],
+  [
+    "23fc1d3ac606d117e05a140e0de79806.svg.gz",
+    390,
+    {
+      "compressed": true,
+      "immutable": true,
+      "size": 390,
+    },
+  ],
+  [
+    "async.async.55e6e9a872bcc7d4b226.js.gz",
+    136,
+    {
+      "compressed": true,
+      "immutable": true,
+      "size": 136,
+    },
+  ],
+  [
+    "main.3d33e8cae1a5b505b55e.js.gz",
+    4019,
+    {
+      "compressed": true,
+      "immutable": true,
+      "size": 4019,
+    },
+  ],
+]
+`;
+
+exports[`"deleteOriginalAssets" option should work and delete original assets when function used : errors 1`] = `[]`;
+
+exports[`"deleteOriginalAssets" option should work and delete original assets when function used : warnings 1`] = `[]`;
+
 exports[`"deleteOriginalAssets" option should work and delete original assets: assets 1`] = `
 [
   [

@@ -38,7 +38,7 @@ export = CompressionPlugin;
  * @typedef {string | ((fileData: PathData) => string)} Filename
  */
 /**
- * @typedef {boolean | "keep-source-map"} DeleteOriginalAssets
+ * @typedef {boolean | "keep-source-map" | ((name: string) => boolean)} DeleteOriginalAssets
  */
 /**
  * @template T
@@ -180,7 +180,10 @@ type PathData = {
   [key: string]: any;
 };
 type Filename = string | ((fileData: PathData) => string);
-type DeleteOriginalAssets = boolean | "keep-source-map";
+type DeleteOriginalAssets =
+  | boolean
+  | "keep-source-map"
+  | ((name: string) => boolean);
 type BasePluginOptions<T> = {
   test?: Rules | undefined;
   include?: Rules | undefined;
