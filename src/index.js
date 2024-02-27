@@ -64,9 +64,9 @@ const schema = require("./options.json");
 /**
  * @template T
  * @typedef {Object} BasePluginOptions
- * @property {Rule} [test]
- * @property {Rule} [include]
- * @property {Rule} [exclude]
+ * @property {Rules} [test]
+ * @property {Rules} [include]
+ * @property {Rules} [exclude]
  * @property {number} [threshold]
  * @property {number} [minRatio]
  * @property {DeleteOriginalAssets} [deleteOriginalAssets]
