@@ -157,20 +157,11 @@ type AlgorithmFunction<T> = (
   callback: (
     error: Error | null | undefined,
     result:
-      | string
-      | ArrayBuffer
-      | SharedArrayBuffer
+      | WithImplicitCoercion<ArrayBuffer | SharedArrayBuffer>
       | Uint8Array
-      | readonly number[]
-      | {
-          valueOf(): ArrayBuffer | SharedArrayBuffer;
-        }
-      | {
-          valueOf(): string | Uint8Array | readonly number[];
-        }
-      | {
-          valueOf(): string;
-        }
+      | ReadonlyArray<number>
+      | WithImplicitCoercion<Uint8Array | ReadonlyArray<number> | string>
+      | WithImplicitCoercion<string>
       | {
           [Symbol.toPrimitive](hint: "string"): string;
         },
