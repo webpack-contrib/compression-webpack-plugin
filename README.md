@@ -171,7 +171,7 @@ Default: `gzip`
 
 The compression algorithm/function.
 
-> **Note**
+> [!NOTE]
 >
 > If you use custom function for the `algorithm` option, the default value of the `compressionOptions` option is `{}`.
 
@@ -234,7 +234,7 @@ Compression options for `algorithm`.
 
 You can find all options here [zlib](https://nodejs.org/api/zlib.html#zlib_class_options).
 
-> **Note**
+> [!NOTE]
 >
 > If you use custom function for the `algorithm` option, the default value is `{}`.
 
@@ -441,7 +441,7 @@ module.exports = {
 
 Prepare compressed versions of assets using `zopfli` library.
 
-> **Note**
+> [!NOTE]
 >
 > `@gfx/zopfli` require minimum `8` version of `node`.
 
@@ -502,7 +502,7 @@ module.exports = {
 };
 ```
 
-**Note** Brotli’s `BROTLI_PARAM_QUALITY` option is functionally equivalent to zlib’s `level` option.
+[!NOTE] Brotli’s `BROTLI_PARAM_QUALITY` option is functionally equivalent to zlib’s `level` option.
 You can find all Brotli’s options in [the relevant part of the zlib module documentation](https://nodejs.org/api/zlib.html#zlib_class_brotlioptions).
 
 ### Multiple compressed versions of assets for different algorithm
