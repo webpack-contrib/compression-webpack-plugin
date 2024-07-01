@@ -1587,9 +1587,131 @@ exports[`CompressionPlugin should work with assets info: assets 1`] = `
 ]
 `;
 
+exports[`CompressionPlugin should work with assets info: assets 2`] = `
+[
+  [
+    "09a1a1112c577c2794359715edfcb5ac.png",
+    78117,
+    {
+      "immutable": true,
+      "size": 78117,
+      "sourceFilename": "icon.png",
+    },
+  ],
+  [
+    "23fc1d3ac606d117e05a140e0de79806.svg",
+    672,
+    {
+      "immutable": true,
+      "related": {
+        "gzipped": "23fc1d3ac606d117e05a140e0de79806.svg.gz",
+      },
+      "size": 672,
+      "sourceFilename": "icon.svg",
+    },
+  ],
+  [
+    "23fc1d3ac606d117e05a140e0de79806.svg.gz",
+    390,
+    {
+      "compressed": true,
+      "immutable": true,
+      "size": 390,
+    },
+  ],
+  [
+    "async.async.js.gz",
+    136,
+    {
+      "compressed": true,
+      "immutable": true,
+      "size": 136,
+    },
+  ],
+  [
+    "async.async.js?ver=ff0ad4032ae148f14da4",
+    194,
+    {
+      "contenthash": "ff0ad4032ae148f14da4",
+      "immutable": true,
+      "javascriptModule": false,
+      "related": {
+        "gzipped": "async.async.js.gz",
+      },
+      "size": 194,
+    },
+  ],
+  [
+    "copied.js",
+    400,
+    {
+      "copied": true,
+      "related": {
+        "gzipped": "copied.js.gz",
+      },
+      "size": 400,
+    },
+  ],
+  [
+    "copied.js.gz",
+    29,
+    {
+      "compressed": true,
+      "size": 29,
+    },
+  ],
+  [
+    "main.js.gz",
+    4099,
+    {
+      "compressed": true,
+      "immutable": true,
+      "size": 4099,
+    },
+  ],
+  [
+    "main.js.map.gz",
+    4181,
+    {
+      "compressed": true,
+      "size": 4181,
+    },
+  ],
+  [
+    "main.js.map?var=dc5faaa7f7aed5b5a77f",
+    13191,
+    {
+      "development": true,
+      "related": {
+        "gzipped": "main.js.map.gz",
+      },
+      "size": 13191,
+    },
+  ],
+  [
+    "main.js?var=dc5faaa7f7aed5b5a77f",
+    16215,
+    {
+      "contenthash": "dc5faaa7f7aed5b5a77f",
+      "immutable": true,
+      "javascriptModule": false,
+      "related": {
+        "gzipped": "main.js.gz",
+        "sourceMap": "main.js.map?var=dc5faaa7f7aed5b5a77f",
+      },
+      "size": 16215,
+    },
+  ],
+]
+`;
+
 exports[`CompressionPlugin should work with assets info: errors 1`] = `[]`;
 
+exports[`CompressionPlugin should work with assets info: errors 2`] = `[]`;
+
 exports[`CompressionPlugin should work with assets info: warnings 1`] = `[]`;
+
+exports[`CompressionPlugin should work with assets info: warnings 2`] = `[]`;
 
 exports[`CompressionPlugin should work with multiple plugins: assets 1`] = `
 [
