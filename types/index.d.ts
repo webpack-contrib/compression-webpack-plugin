@@ -1,4 +1,3 @@
-/// <reference types="node" />
 export = CompressionPlugin;
 /** @typedef {import("schema-utils/declarations/validate").Schema} Schema */
 /** @typedef {import("webpack").Compiler} Compiler */
@@ -132,9 +131,9 @@ declare namespace CompressionPlugin {
     InternalPluginOptions,
   };
 }
-type WebpackPluginInstance = import("webpack").WebpackPluginInstance;
 type Schema = import("schema-utils/declarations/validate").Schema;
 type Compiler = import("webpack").Compiler;
+type WebpackPluginInstance = import("webpack").WebpackPluginInstance;
 type Compilation = import("webpack").Compilation;
 type Source = import("webpack").sources.Source;
 type Asset = import("webpack").Asset;

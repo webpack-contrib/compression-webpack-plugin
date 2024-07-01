@@ -179,7 +179,7 @@ exports[`"threshold" option should compress all assets excluding assets with "0"
   ],
   [
     "main.d6f9aecb01ad9f44759c.js",
-    5226,
+    5099,
     {
       "chunkhash": "d6f9aecb01ad9f44759c",
       "immutable": true,
@@ -187,16 +187,16 @@ exports[`"threshold" option should compress all assets excluding assets with "0"
       "related": {
         "gzipped": "main.d6f9aecb01ad9f44759c.js.gz",
       },
-      "size": 5226,
+      "size": 5099,
     },
   ],
   [
     "main.d6f9aecb01ad9f44759c.js.gz",
-    1561,
+    1498,
     {
       "compressed": true,
       "immutable": true,
-      "size": 1561,
+      "size": 1498,
     },
   ],
 ]
@@ -231,7 +231,7 @@ exports[`"threshold" option should compress all assets including assets with "0"
   ],
   [
     "main.d6f9aecb01ad9f44759c.js",
-    5226,
+    5099,
     {
       "chunkhash": "d6f9aecb01ad9f44759c",
       "immutable": true,
@@ -239,16 +239,16 @@ exports[`"threshold" option should compress all assets including assets with "0"
       "related": {
         "gzipped": "main.d6f9aecb01ad9f44759c.js.gz",
       },
-      "size": 5226,
+      "size": 5099,
     },
   ],
   [
     "main.d6f9aecb01ad9f44759c.js.gz",
-    1561,
+    1498,
     {
       "compressed": true,
       "immutable": true,
-      "size": 1561,
+      "size": 1498,
     },
   ],
 ]
