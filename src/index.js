@@ -254,7 +254,7 @@ class CompressionPlugin {
           if (typeof this.options.algorithm === "function") {
             if (typeof this.options.filename === "function") {
               relatedName = `compression-function-${crypto
-                .createHash("md5")
+                .createHash("md4")
                 .update(serialize(this.options.filename))
                 .digest("hex")}`;
             } else {
