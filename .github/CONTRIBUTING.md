@@ -132,8 +132,7 @@ Migration: see webpack/webpack#5225
 
 ## Testing Your Pull Request
 
-You may need to test your changes in a real-world project or dependent
-module. Thankfully, Github provides a means to do this. To add a dependency to the `package.json` of such a project, use the following syntax:
+You may need to test your changes in a real-world project or dependent module. Thankfully, Github provides a means to do this. To add a dependency to the `package.json` of such a project, use the following syntax:
 
 ```json
 {
