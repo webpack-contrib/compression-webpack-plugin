@@ -286,7 +286,7 @@ Only assets that compress better than this ratio are processed (`minRatio = Comp
 For example, if you have a `image.png` file with a size of 1024 bytes, and its compressed version is of 768 bytes, the `minRatio` is `0.75`.
 In other words, assets will be processed only when the ratio of `Compressed Size / Original Size` is less than the specified `minRatio`.
 
-You can ese a value of `1` to process assets that are smaller than or equal to the original size.
+You can use a value of `1` to process assets that are smaller than or equal to the original size.
 
 Use a value of `Infinity` to process all assets, even if they are larger than the original size or their original size is `0` bytes (useful when you are pre-zipping all assets for AWS).
 
