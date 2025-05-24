@@ -47,7 +47,7 @@ module.exports = {
 };
 ```
 
-And run `webpack` via your preferred method.
+Finally, run `webpack` using the method you normally use (e.g., via CLI or an npm script).
 
 ## Options
 
@@ -167,17 +167,15 @@ type algorithm =
     ) => any);
 ```
 
-Default: `gzip`
-
-The compression algorithm/function.
+Defines the compression algorithm or function to use. Defaults to `gzip`.
 
 > [!NOTE]
 >
-> If you use custom function for the `algorithm` option, the default value of the `compressionOptions` option is `{}`.
+> If you use a custom function for the `algorithm` option, the default value of `compressionOptions` will be an empty object `{}`.
 
 #### `string`
 
-The algorithm is taken from [zlib](https://nodejs.org/api/zlib.html).
+The algorithm is based on the Node.js [zlib](https://nodejs.org/api/zlib.html) module.
 
 **webpack.config.js**
 
@@ -193,7 +191,7 @@ module.exports = {
 
 #### `function`
 
-Allow to specify a custom compression function.
+Allow you to specify a custom compression function.
 
 **webpack.config.js**
 
@@ -232,11 +230,11 @@ Default: `{ level: 9 }`
 
 Compression options for `algorithm`.
 
-You can find all options here [zlib](https://nodejs.org/api/zlib.html#zlib_class_options).
+You can find all available options in the [zlib](https://nodejs.org/api/zlib.html#zlib_class_options) documentation.
 
 > [!NOTE]
 >
-> If you use custom function for the `algorithm` option, the default value is `{}`.
+> If you use a custom function for the `algorithm` option, the default value of `compressionOptions` will be an empty object `{}`.
 
 **webpack.config.js**
 
@@ -260,7 +258,7 @@ type threshold = number;
 
 Default: `0`
 
-Only assets bigger than this size are processed. In bytes.
+Only assets larger than this size (in bytes) are processed.
 
 **webpack.config.js**
 
@@ -285,12 +283,12 @@ type minRatio = number;
 Default: `0.8`
 
 Only assets that compress better than this ratio are processed (`minRatio = Compressed Size / Original Size`).
-Example: you have `image.png` file with 1024b size, compressed version of file has 768b size, so `minRatio` equal `0.75`.
-In other words assets will be processed when the `Compressed Size / Original Size` value less `minRatio` value.
+For example, if you have a `image.png` file with a size of 1024 bytes, and its compressed version is of 768 bytes, the `minRatio` is `0.75`.
+In other words, assets will be processed only when the ratio of `Compressed Size / Original Size` is less than the specified `minRatio`.
 
-You can use `1` value to process assets that are smaller than the original.
+You can ese a value of `1` to process assets that are smaller than or equal to the original size.
 
-Use a value of `Infinity` to process all assets even if they are larger than the original size or their original size is `0` bytes (useful when you are pre-zipping all assets for AWS).
+Use a value of `Infinity` to process all assets, even if they are larger than the original size or their original size is `0` bytes (useful when you are pre-zipping all assets for AWS).
 
 Use a value of `Number.MAX_SAFE_INTEGER` to process all assets even if they are larger than the original size, excluding assets with their original size is `0` bytes.
 
@@ -326,19 +324,19 @@ The target asset filename.
 
 #### `string`
 
-For example we have `assets/images/image.png?foo=bar#hash`:
+For example, given an asset path: `assets/images/image.png?foo=bar#hash`:
 
-`[path]` is replaced with the directories to the original asset, included trailing `/` (`assets/images/`).
+`[path]` is replaced with the directories of the original asset, including the trailing `/` (`assets/images/`).
 
-`[file]` is replaced with the path of original asset (`assets/images/image.png`).
+`[file]` is replaced with the path of the original asset (`assets/images/image.png`).
 
-`[base]` is replaced with the base (`[name]` + `[ext]`) of the original asset (`image.png`).
+`[base]` is replaced with the base name (`[name]` + `[ext]`) of the original asset (`image.png`).
 
 `[name]` is replaced with the name of the original asset (`image`).
 
-`[ext]` is replaced with the extension of the original asset, included `.` (`.png`).
+`[ext]` is replaced with the extension of the original asset, including the `.` (`.png`).
 
-`[query]` is replaced with the query of the original asset, included `?` (`?foo=bar`).
+`[query]` is replaced with the query of the original asset, including the `?` (`?foo=bar`).
 
 `[fragment]` is replaced with the fragment (in the concept of URL it is called `hash`) of the original asset (`#hash`).
 
@@ -389,7 +387,28 @@ type deleteOriginalAssets =
 
 Default: `false`
 
-Whether to delete the original assets or not.
+Determines whether the original (uncompressed) assets should be deleted after compression.
+
+- If set to `true` , all original assets will be deleted.
+
+- If set to `"keep-source-map"`, all original assets except source maps (`.map` files) will be deleted.
+
+- If a function is provided, it will be called with each asset’s name and should return `true` to delete the asset or `false` to keep it.
+
+Example:
+
+```js
+module.exports = {
+  plugins: [
+    new CompressionPlugin({
+      deleteOriginalAssets: (assetName) => {
+        // Delete all assets except images
+        return !assetName.endsWith(".png") && !assetName.endsWith(".jpg");
+      },
+    }),
+  ],
+};
+```
 
 **webpack.config.js**
 
@@ -439,11 +458,11 @@ module.exports = {
 
 ### Using Zopfli
 
-Prepare compressed versions of assets using `zopfli` library.
+Prepare compressed versions of assets using the `zopfli` library.
 
 > [!NOTE]
 >
-> `@gfx/zopfli` require minimum `8` version of `node`.
+> `@gfx/zopfli` requires at least `Node.js` version `8`.
 
 To begin, you'll need to install `@gfx/zopfli`:
 
@@ -474,9 +493,9 @@ module.exports = {
 
 [Brotli](https://en.wikipedia.org/wiki/Brotli) is a compression algorithm originally developed by Google, and offers compression superior to gzip.
 
-Node 10.16.0 and later has [native support](https://nodejs.org/api/zlib.html#zlib_zlib_createbrotlicompress_options) for Brotli compression in its zlib module.
+Node.js v10.16.0 and later includes [native support](https://nodejs.org/api/zlib.html#zlib_zlib_createbrotlicompress_options) for Brotli compression in its `zlib` module.
 
-We can take advantage of this built-in support for Brotli in Node 10.16.0 and later by just passing in the appropriate `algorithm` to the CompressionPlugin:
+You can take advantage of this built-in support for Brotli in Node 10.16.0 and later by just passing in the appropriate `algorithm` to the CompressionPlugin:
 
 **webpack.config.js**
 
@@ -538,6 +557,8 @@ module.exports = {
 ```
 
 ## Contributing
+
+We welcome contributions!
 
 Please take a moment to read our contributing guidelines if you haven't yet done so.
 
