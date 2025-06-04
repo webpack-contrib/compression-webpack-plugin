@@ -28,7 +28,6 @@ about: Something went awry and you'd like to tell us about it.
 <!-- Minimal reproductions with clear instructions on how to reproduce are the most helpful. -->
 <!-- Repositories with too many files or large `webpack.config.js` files are not suitable. -->
 <!-- Please include only small code snippets directly in this issue. -->
-<!-- https://gist.github.com is a good place for longer code snippets. -->
 <!-- If your issue is caused by a plugin or loader, please create an issue in the corresponding repository instead. -->
 
 ### Please paste the results of `npx webpack-cli info` here, and mention other relevant information.
