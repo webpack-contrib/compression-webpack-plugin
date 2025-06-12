@@ -72,9 +72,7 @@ declare class CompressionPlugin<T = import("zlib").ZlibOptions>
    * @param {BasePluginOptions<T> & DefinedDefaultAlgorithmAndOptions<T>} [options]
    */
   constructor(
-    options?:
-      | (BasePluginOptions<T> & DefinedDefaultAlgorithmAndOptions<T>)
-      | undefined,
+    options?: BasePluginOptions<T> & DefinedDefaultAlgorithmAndOptions<T>,
   );
   /**
    * @private
