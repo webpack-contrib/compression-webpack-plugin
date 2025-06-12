@@ -68,7 +68,7 @@ exports[`"compressionOptions" option matches snapshot for custom options ({Objec
   ],
   [
     "main.3d33e8cae1a5b505b55e.js",
-    16135,
+    16218,
     {
       "chunkhash": "3d33e8cae1a5b505b55e",
       "immutable": true,
@@ -76,16 +76,16 @@ exports[`"compressionOptions" option matches snapshot for custom options ({Objec
       "related": {
         "gzipped": "main.3d33e8cae1a5b505b55e.js.gz",
       },
-      "size": 16135,
+      "size": 16218,
     },
   ],
   [
     "main.3d33e8cae1a5b505b55e.js.gz",
-    4040,
+    4087,
     {
       "compressed": true,
       "immutable": true,
-      "size": 4040,
+      "size": 4087,
     },
   ],
 ]
@@ -163,7 +163,7 @@ exports[`"compressionOptions" option matches snapshot without values: assets 1`]
   ],
   [
     "main.3d33e8cae1a5b505b55e.js",
-    16135,
+    16218,
     {
       "chunkhash": "3d33e8cae1a5b505b55e",
       "immutable": true,
@@ -171,16 +171,16 @@ exports[`"compressionOptions" option matches snapshot without values: assets 1`]
       "related": {
         "gzipped": "main.3d33e8cae1a5b505b55e.js.gz",
       },
-      "size": 16135,
+      "size": 16218,
     },
   ],
   [
     "main.3d33e8cae1a5b505b55e.js.gz",
-    4040,
+    4087,
     {
       "compressed": true,
       "immutable": true,
-      "size": 4040,
+      "size": 4087,
     },
   ],
 ]
@@ -246,7 +246,7 @@ exports[`"compressionOptions" option set default compression level to maximum fo
   ],
   [
     "main.3d33e8cae1a5b505b55e.js",
-    16135,
+    16218,
     {
       "chunkhash": "3d33e8cae1a5b505b55e",
       "immutable": true,
@@ -254,16 +254,16 @@ exports[`"compressionOptions" option set default compression level to maximum fo
       "related": {
         "brotliCompressed": "main.3d33e8cae1a5b505b55e.js.br",
       },
-      "size": 16135,
+      "size": 16218,
     },
   ],
   [
     "main.3d33e8cae1a5b505b55e.js.br",
-    3534,
+    3564,
     {
       "compressed": true,
       "immutable": true,
-      "size": 3534,
+      "size": 3564,
     },
   ],
 ]
@@ -329,7 +329,7 @@ exports[`"compressionOptions" option set default compression level to maximum fo
   ],
   [
     "main.3d33e8cae1a5b505b55e.js",
-    16135,
+    16218,
     {
       "chunkhash": "3d33e8cae1a5b505b55e",
       "immutable": true,
@@ -337,16 +337,16 @@ exports[`"compressionOptions" option set default compression level to maximum fo
       "related": {
         "deflateed": "main.3d33e8cae1a5b505b55e.js.gz",
       },
-      "size": 16135,
+      "size": 16218,
     },
   ],
   [
     "main.3d33e8cae1a5b505b55e.js.gz",
-    4028,
+    4075,
     {
       "compressed": true,
       "immutable": true,
-      "size": 4028,
+      "size": 4075,
     },
   ],
 ]
@@ -412,7 +412,7 @@ exports[`"compressionOptions" option set default compression level to maximum fo
   ],
   [
     "main.3d33e8cae1a5b505b55e.js",
-    16135,
+    16218,
     {
       "chunkhash": "3d33e8cae1a5b505b55e",
       "immutable": true,
@@ -420,16 +420,16 @@ exports[`"compressionOptions" option set default compression level to maximum fo
       "related": {
         "deflateRawed": "main.3d33e8cae1a5b505b55e.js.gz",
       },
-      "size": 16135,
+      "size": 16218,
     },
   ],
   [
     "main.3d33e8cae1a5b505b55e.js.gz",
-    4022,
+    4069,
     {
       "compressed": true,
       "immutable": true,
-      "size": 4022,
+      "size": 4069,
     },
   ],
 ]
@@ -495,7 +495,7 @@ exports[`"compressionOptions" option set default compression level to maximum fo
   ],
   [
     "main.3d33e8cae1a5b505b55e.js",
-    16135,
+    16218,
     {
       "chunkhash": "3d33e8cae1a5b505b55e",
       "immutable": true,
@@ -503,16 +503,16 @@ exports[`"compressionOptions" option set default compression level to maximum fo
       "related": {
         "gzipped": "main.3d33e8cae1a5b505b55e.js.gz",
       },
-      "size": 16135,
+      "size": 16218,
     },
   ],
   [
     "main.3d33e8cae1a5b505b55e.js.gz",
-    4040,
+    4087,
     {
       "compressed": true,
       "immutable": true,
-      "size": 4040,
+      "size": 4087,
     },
   ],
 ]
