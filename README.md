@@ -524,6 +524,41 @@ module.exports = {
 [!NOTE] Brotli’s `BROTLI_PARAM_QUALITY` option is functionally equivalent to zlib’s `level` option.
 You can find all Brotli’s options in [the relevant part of the zlib module documentation](https://nodejs.org/api/zlib.html#zlib_class_brotlioptions).
 
+### Using Zstandard
+
+[Zstandard](https://facebook.github.io/zstd/) (zstd) is a fast lossless compression algorithm, targeting real-time compression scenarios at zlib-level and better compression ratios.
+
+Node.js 22.15.0 and later includes [native support](https://nodejs.org/api/zlib.html#zlibcreatezstdcompressoptions) for Zstandard compression in its `zlib` module.
+
+You can take advantage of this built-in support for zstd in Node 22.15.0 and later by just passing in the appropriate `algorithm` to the CompressionPlugin:
+
+**webpack.config.js**
+
+```js
+const zlib = require("zlib");
+
+module.exports = {
+  plugins: [
+    new CompressionPlugin({
+      filename: "[path][base].zst",
+      algorithm: "zstdCompress",
+      test: /\.(js|css|html|svg)$/,
+      compressionOptions: {
+        params: {
+          [zlib.constants.ZSTD_c_compressionLevel]: 10,
+        },
+      },
+      threshold: 10240,
+      minRatio: 0.8,
+      deleteOriginalAssets: false,
+    }),
+  ],
+};
+```
+
+You can find all Zstandard's options in [the relevant part of the zlib module documentation](https://nodejs.org/api/zlib.html#class-zstdoptions).
+
+
 ### Multiple compressed versions of assets for different algorithm
 
 **webpack.config.js**
