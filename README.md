@@ -558,7 +558,6 @@ module.exports = {
 
 You can find all Zstandard's options in [the relevant part of the zlib module documentation](https://nodejs.org/api/zlib.html#class-zstdoptions).
 
-
 ### Multiple compressed versions of assets for different algorithm
 
 **webpack.config.js**
