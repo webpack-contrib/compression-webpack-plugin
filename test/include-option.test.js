@@ -1,3 +1,4 @@
+import path from "node:path";
 import CompressionPlugin from "../src/index";
 
 import {
@@ -17,7 +18,7 @@ describe('"include" option', () => {
       {},
       {
         output: {
-          path: `${__dirname}/dist`,
+          path: path.join(__dirname, "./dist"),
           filename: "[name].js?var=[hash]",
           chunkFilename: "[id].[name].js?ver=[hash]",
         },

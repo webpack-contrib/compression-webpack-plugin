@@ -15,7 +15,6 @@ export default class EmitNewAsset {
           stage: compiler.webpack.Compilation.PROCESS_ASSETS_STAGE_REPORT,
         },
         () => {
-          // eslint-disable-next-line no-param-reassign
           compilation.emitAsset(
             this.options.name,
             new RawSource('console.log("content");'),

@@ -53,7 +53,7 @@ describe('"deleteOriginalAssets" option', () => {
     expect(getErrors(stats)).toMatchSnapshot("errors");
   });
 
-  it("should work and delete original assets when function used ", async () => {
+  it("should work and delete original assets when function used", async () => {
     new CompressionPlugin({
       minRatio: 1,
       deleteOriginalAssets: (name) => {

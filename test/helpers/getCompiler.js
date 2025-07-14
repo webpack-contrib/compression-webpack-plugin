@@ -1,8 +1,17 @@
-import path from "path";
+import path from "node:path";
 
+import { Volume, createFsFromVolume } from "memfs";
 import webpack from "webpack";
-import { createFsFromVolume, Volume } from "memfs";
 
+/** @type {import("webpack").Configuration} Configuration */
+/** @type {import("../../src/index.js")} EXPECTED_ANY */
+
+/**
+ * @param {string} fixture fixture
+ * @param {Record<string, EXPECTED_ANY>} loaderOptions loader options
+ * @param {Configuration} config extra configuration
+ * @returns {Configuration} configuration
+ */
 export default function getCompiler(fixture, loaderOptions = {}, config = {}) {
   const fullConfig = {
     mode: "development",

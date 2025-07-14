@@ -1,6 +1,8 @@
 export = CompressionPlugin;
 /** @typedef {import("schema-utils/declarations/validate").Schema} Schema */
+/** @typedef {import("webpack").AssetInfo} AssetInfo */
 /** @typedef {import("webpack").Compiler} Compiler */
+/** @typedef {import("webpack").PathData} PathData */
 /** @typedef {import("webpack").WebpackPluginInstance} WebpackPluginInstance */
 /** @typedef {import("webpack").Compilation} Compilation */
 /** @typedef {import("webpack").sources.Source} Source */
@@ -12,8 +14,9 @@ export = CompressionPlugin;
  */
 /** @typedef {RegExp | string} Rule */
 /** @typedef {Rule[] | Rule} Rules */
+/** @typedef {any} EXPECTED_ANY */
 /**
- * @typedef {{ [key: string]: any }} CustomOptions
+ * @typedef {{ [key: string]: EXPECTED_ANY }} CustomOptions
  */
 /**
  * @template T
@@ -31,9 +34,6 @@ export = CompressionPlugin;
  * @param {(error: Error | null | undefined, result: WithImplicitCoercion<ArrayBuffer | SharedArrayBuffer> | Uint8Array | ReadonlyArray<number> | WithImplicitCoercion<Uint8Array | ReadonlyArray<number> | string> | WithImplicitCoercion<string> | { [Symbol.toPrimitive](hint: 'string'): string }) => void} callback
  */
 /**
- * @typedef {{[key: string]: any}} PathData
- */
-/**
  * @typedef {string | ((fileData: PathData) => string)} Filename
  */
 /**
@@ -41,14 +41,14 @@ export = CompressionPlugin;
  */
 /**
  * @template T
- * @typedef {Object} BasePluginOptions
- * @property {Rules} [test]
- * @property {Rules} [include]
- * @property {Rules} [exclude]
- * @property {number} [threshold]
- * @property {number} [minRatio]
- * @property {DeleteOriginalAssets} [deleteOriginalAssets]
- * @property {Filename} [filename]
+ * @typedef {object} BasePluginOptions
+ * @property {Rules=} test include all assets that pass test assertion
+ * @property {Rules=} include include all assets matching any of these conditions
+ * @property {Rules=} exclude exclude all assets matching any of these conditions
+ * @property {number=} threshold only assets bigger than this size are processed, in bytes
+ * @property {number=} minRatio only assets that compress better than this ratio are processed (`minRatio = Compressed Size / Original Size`)
+ * @property {DeleteOriginalAssets=} deleteOriginalAssets whether to delete the original assets or not
+ * @property {Filename=} filename the target asset filename
  */
 /**
  * @typedef {import("zlib").ZlibOptions} ZlibOptions
@@ -69,10 +69,12 @@ declare class CompressionPlugin<T = import("zlib").ZlibOptions>
   implements WebpackPluginInstance
 {
   /**
-   * @param {BasePluginOptions<T> & DefinedDefaultAlgorithmAndOptions<T>} [options]
+   * @param {(BasePluginOptions<T> & DefinedDefaultAlgorithmAndOptions<T>)=} options options
    */
   constructor(
-    options?: BasePluginOptions<T> & DefinedDefaultAlgorithmAndOptions<T>,
+    options?:
+      | (BasePluginOptions<T> & DefinedDefaultAlgorithmAndOptions<T>)
+      | undefined,
   );
   /**
    * @private
@@ -86,20 +88,20 @@ declare class CompressionPlugin<T = import("zlib").ZlibOptions>
   private algorithm;
   /**
    * @private
-   * @param {Buffer} input
-   * @returns {Promise<Buffer>}
+   * @param {Buffer} input input
+   * @returns {Promise<Buffer>} compressed buffer
    */
   private runCompressionAlgorithm;
   /**
    * @private
-   * @param {Compiler} compiler
-   * @param {Compilation} compilation
-   * @param {Record<string, Source>} assets
+   * @param {Compiler} compiler compiler
+   * @param {Compilation} compilation compilation
+   * @param {Record<string, Source>} assets assets
    * @returns {Promise<void>}
    */
   private compress;
   /**
-   * @param {Compiler} compiler
+   * @param {Compiler} compiler compiler
    * @returns {void}
    */
   apply(compiler: Compiler): void;
@@ -107,7 +109,9 @@ declare class CompressionPlugin<T = import("zlib").ZlibOptions>
 declare namespace CompressionPlugin {
   export {
     Schema,
+    AssetInfo,
     Compiler,
+    PathData,
     WebpackPluginInstance,
     Compilation,
     Source,
@@ -116,11 +120,11 @@ declare namespace CompressionPlugin {
     WithImplicitCoercion,
     Rule,
     Rules,
+    EXPECTED_ANY,
     CustomOptions,
     InferDefaultType,
     CompressionOptions,
     AlgorithmFunction,
-    PathData,
     Filename,
     DeleteOriginalAssets,
     BasePluginOptions,
@@ -130,7 +134,9 @@ declare namespace CompressionPlugin {
   };
 }
 type Schema = import("schema-utils/declarations/validate").Schema;
+type AssetInfo = import("webpack").AssetInfo;
 type Compiler = import("webpack").Compiler;
+type PathData = import("webpack").PathData;
 type WebpackPluginInstance = import("webpack").WebpackPluginInstance;
 type Compilation = import("webpack").Compilation;
 type Source = import("webpack").sources.Source;
@@ -143,8 +149,9 @@ type WithImplicitCoercion<T> =
     };
 type Rule = RegExp | string;
 type Rules = Rule[] | Rule;
+type EXPECTED_ANY = any;
 type CustomOptions = {
-  [key: string]: any;
+  [key: string]: EXPECTED_ANY;
 };
 type InferDefaultType<T> = T extends infer U ? U : CustomOptions;
 type CompressionOptions<T> = InferDefaultType<T>;
@@ -164,21 +171,39 @@ type AlgorithmFunction<T> = (
         },
   ) => void,
 ) => any;
-type PathData = {
-  [key: string]: any;
-};
 type Filename = string | ((fileData: PathData) => string);
 type DeleteOriginalAssets =
   | boolean
   | "keep-source-map"
   | ((name: string) => boolean);
 type BasePluginOptions<T> = {
+  /**
+   * include all assets that pass test assertion
+   */
   test?: Rules | undefined;
+  /**
+   * include all assets matching any of these conditions
+   */
   include?: Rules | undefined;
+  /**
+   * exclude all assets matching any of these conditions
+   */
   exclude?: Rules | undefined;
+  /**
+   * only assets bigger than this size are processed, in bytes
+   */
   threshold?: number | undefined;
+  /**
+   * only assets that compress better than this ratio are processed (`minRatio = Compressed Size / Original Size`)
+   */
   minRatio?: number | undefined;
+  /**
+   * whether to delete the original assets or not
+   */
   deleteOriginalAssets?: DeleteOriginalAssets | undefined;
+  /**
+   * the target asset filename
+   */
   filename?: Filename | undefined;
 };
 type ZlibOptions = import("zlib").ZlibOptions;

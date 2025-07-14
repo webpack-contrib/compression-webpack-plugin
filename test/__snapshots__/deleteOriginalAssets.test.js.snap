@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`"deleteOriginalAssets" option should delete original assets and keep source maps with option "keep-source-map": assets 1`] = `
 [
@@ -30,20 +30,20 @@ exports[`"deleteOriginalAssets" option should delete original assets and keep so
     },
   ],
   [
-    "main.7e3d526b181e001bca3a.js",
-    4132,
+    "main.0a8b31f817fe5c5f8985.js",
+    4144,
     {
       "compressed": true,
       "immutable": true,
-      "size": 4132,
+      "size": 4144,
     },
   ],
   [
-    "main.7e3d526b181e001bca3a.js.map",
-    13217,
+    "main.0a8b31f817fe5c5f8985.js.map",
+    13280,
     {
       "development": true,
-      "size": 13217,
+      "size": 13280,
     },
   ],
 ]
@@ -53,7 +53,7 @@ exports[`"deleteOriginalAssets" option should delete original assets and keep so
 
 exports[`"deleteOriginalAssets" option should delete original assets and keep source maps with option "keep-source-map": warnings 1`] = `[]`;
 
-exports[`"deleteOriginalAssets" option should work and delete original assets when function used : assets 1`] = `
+exports[`"deleteOriginalAssets" option should work and delete original assets when function used: assets 1`] = `
 [
   [
     "09a1a1112c577c2794359715edfcb5ac.png",
@@ -101,20 +101,20 @@ exports[`"deleteOriginalAssets" option should work and delete original assets wh
     },
   ],
   [
-    "main.3d33e8cae1a5b505b55e.js.gz",
-    4087,
+    "main.4d75ca3dcb0ac1fb976b.js.gz",
+    4097,
     {
       "compressed": true,
       "immutable": true,
-      "size": 4087,
+      "size": 4097,
     },
   ],
 ]
 `;
 
-exports[`"deleteOriginalAssets" option should work and delete original assets when function used : errors 1`] = `[]`;
+exports[`"deleteOriginalAssets" option should work and delete original assets when function used: errors 1`] = `[]`;
 
-exports[`"deleteOriginalAssets" option should work and delete original assets when function used : warnings 1`] = `[]`;
+exports[`"deleteOriginalAssets" option should work and delete original assets when function used: warnings 1`] = `[]`;
 
 exports[`"deleteOriginalAssets" option should work and delete original assets: assets 1`] = `
 [
@@ -146,12 +146,12 @@ exports[`"deleteOriginalAssets" option should work and delete original assets: a
     },
   ],
   [
-    "main.3d33e8cae1a5b505b55e.js.gz",
-    4087,
+    "main.4d75ca3dcb0ac1fb976b.js.gz",
+    4097,
     {
       "compressed": true,
       "immutable": true,
-      "size": 4087,
+      "size": 4097,
     },
   ],
 ]
@@ -191,12 +191,12 @@ exports[`"deleteOriginalAssets" option should work and do not report errors on d
     },
   ],
   [
-    "main.3d33e8cae1a5b505b55e.js",
-    4087,
+    "main.4d75ca3dcb0ac1fb976b.js",
+    4097,
     {
       "compressed": true,
       "immutable": true,
-      "size": 4087,
+      "size": 4097,
     },
   ],
 ]
@@ -261,25 +261,25 @@ exports[`"deleteOriginalAssets" option should work and keep original assets by d
     },
   ],
   [
-    "main.3d33e8cae1a5b505b55e.js",
-    16218,
+    "main.4d75ca3dcb0ac1fb976b.js",
+    16252,
     {
-      "chunkhash": "3d33e8cae1a5b505b55e",
+      "chunkhash": "4d75ca3dcb0ac1fb976b",
       "immutable": true,
       "javascriptModule": false,
       "related": {
-        "gzipped": "main.3d33e8cae1a5b505b55e.js.gz",
+        "gzipped": "main.4d75ca3dcb0ac1fb976b.js.gz",
       },
-      "size": 16218,
+      "size": 16252,
     },
   ],
   [
-    "main.3d33e8cae1a5b505b55e.js.gz",
-    4087,
+    "main.4d75ca3dcb0ac1fb976b.js.gz",
+    4097,
     {
       "compressed": true,
       "immutable": true,
-      "size": 4087,
+      "size": 4097,
     },
   ],
 ]
@@ -356,25 +356,25 @@ exports[`"deleteOriginalAssets" option should work and keep original assets: ass
     },
   ],
   [
-    "main.3d33e8cae1a5b505b55e.js",
-    16218,
+    "main.4d75ca3dcb0ac1fb976b.js",
+    16252,
     {
-      "chunkhash": "3d33e8cae1a5b505b55e",
+      "chunkhash": "4d75ca3dcb0ac1fb976b",
       "immutable": true,
       "javascriptModule": false,
       "related": {
-        "gzipped": "main.3d33e8cae1a5b505b55e.js.gz",
+        "gzipped": "main.4d75ca3dcb0ac1fb976b.js.gz",
       },
-      "size": 16218,
+      "size": 16252,
     },
   ],
   [
-    "main.3d33e8cae1a5b505b55e.js.gz",
-    4087,
+    "main.4d75ca3dcb0ac1fb976b.js.gz",
+    4097,
     {
       "compressed": true,
       "immutable": true,
-      "size": 4087,
+      "size": 4097,
     },
   ],
 ]
@@ -414,12 +414,12 @@ exports[`"deleteOriginalAssets" option should work and report errors on duplicat
     },
   ],
   [
-    "main.3d33e8cae1a5b505b55e.js",
-    4087,
+    "main.4d75ca3dcb0ac1fb976b.js",
+    4097,
     {
       "compressed": true,
       "immutable": true,
-      "size": 4087,
+      "size": 4097,
     },
   ],
 ]
@@ -429,7 +429,7 @@ exports[`"deleteOriginalAssets" option should work and report errors on duplicat
 [
   "Error: Conflict: Multiple assets emit different content to the same filename 23fc1d3ac606d117e05a140e0de79806.svg",
   "Error: Conflict: Multiple assets emit different content to the same filename async.async.55e6e9a872bcc7d4b226.js",
-  "Error: Conflict: Multiple assets emit different content to the same filename main.3d33e8cae1a5b505b55e.js",
+  "Error: Conflict: Multiple assets emit different content to the same filename main.4d75ca3dcb0ac1fb976b.js",
 ]
 `;
 

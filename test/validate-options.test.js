@@ -85,12 +85,12 @@ describe("validate options", () => {
       try {
         // eslint-disable-next-line no-new
         new CompressionPlugin({ [key]: value });
-      } catch (errorFromPlugin) {
-        if (errorFromPlugin.name !== "ValidationError") {
-          throw errorFromPlugin;
+      } catch (err) {
+        if (err.name !== "ValidationError") {
+          throw err;
         }
 
-        error = errorFromPlugin;
+        error = err;
       } finally {
         if (type === "success") {
           expect(error).toBeUndefined();

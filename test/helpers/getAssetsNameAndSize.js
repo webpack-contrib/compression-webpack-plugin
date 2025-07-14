@@ -1,4 +1,4 @@
-import zlib from "zlib";
+import zlib from "node:zlib";
 
 import { readAsset } from "./index";
 
@@ -11,19 +11,17 @@ export default (stats, compiler) => {
       const info = assetsInfo.get(name);
       const item = [name, assets[name].size(), info];
 
-      if (info.related) {
-        if (info.related.gzipped) {
-          const original = readAsset(name, compiler, stats);
-          const gzipped = readAsset(info.related.gzipped, compiler, stats);
-          const ungzipped = zlib.gunzipSync(gzipped);
+      if (info.related && info.related.gzipped) {
+        const original = readAsset(name, compiler, stats);
+        const gzipped = readAsset(info.related.gzipped, compiler, stats);
+        const ungzipped = zlib.gunzipSync(gzipped);
 
-          const isEquals = ungzipped.equals(original);
+        const isEquals = ungzipped.equals(original);
 
-          if (!isEquals) {
-            throw new Error(
-              `Ungzipped version of "${name}" is not equal to original`,
-            );
-          }
+        if (!isEquals) {
+          throw new Error(
+            `Ungzipped version of "${name}" is not equal to original`,
+          );
         }
       }
 

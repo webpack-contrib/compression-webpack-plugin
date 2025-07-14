@@ -1,3 +1,4 @@
+import path from "node:path";
 import CompressionPlugin from "../src/index";
 
 import {
@@ -17,7 +18,7 @@ describe('"test" option', () => {
       {},
       {
         output: {
-          path: `${__dirname}/dist`,
+          path: path.join(__dirname, "./dist"),
           filename: "[name].js?var=[hash]",
           chunkFilename: "[id].[name].js?ver=[hash]",
         },
@@ -63,7 +64,7 @@ describe('"test" option', () => {
     expect(getErrors(stats)).toMatchSnapshot("errors");
   });
 
-  it("should work when no asset to compress ", async () => {
+  it("should work when no asset to compress", async () => {
     new CompressionPlugin({
       test: /\.(unknown)$/i,
       minRatio: 1,

@@ -5,7 +5,6 @@ export default class CopyPluginWithAssetInfo {
 
     compiler.hooks.thisCompilation.tap(plugin, (compilation) => {
       compilation.hooks.additionalAssets.tap(plugin, () => {
-        // eslint-disable-next-line no-param-reassign
         compilation.emitAsset("copied.js", new RawSource("Text".repeat(100)), {
           copied: true,
         });
