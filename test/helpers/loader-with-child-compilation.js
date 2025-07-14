@@ -1,10 +1,15 @@
 import CopyPluginWithAssetInfo from "./CopyPluginWithAssetInfo";
 
+/** @typedef {import("../../../../types").LoaderDefinition} LoaderDefinition */
+
+/**
+ * @type {LoaderDefinition}
+ */
 export default function loader() {
   const callback = this.async();
 
   const childCompiler = this._compilation.createChildCompiler(
-    `preloader`,
+    "preloader",
     this.options,
   );
 

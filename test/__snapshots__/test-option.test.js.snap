@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`"test" option matches snapshot for a single \`test\` value ({RegExp}): assets 1`] = `
 [
@@ -33,23 +33,23 @@ exports[`"test" option matches snapshot for a single \`test\` value ({RegExp}): 
     },
   ],
   [
-    "async.async.js?ver=80be5ce1906c659d3ef4",
+    "async.async.js?ver=8bb94238bc82ebe7567e",
     194,
     {
-      "fullhash": "80be5ce1906c659d3ef4",
+      "fullhash": "8bb94238bc82ebe7567e",
       "immutable": true,
       "javascriptModule": false,
       "size": 194,
     },
   ],
   [
-    "main.js?var=80be5ce1906c659d3ef4",
-    16379,
+    "main.js?var=8bb94238bc82ebe7567e",
+    16413,
     {
-      "fullhash": "80be5ce1906c659d3ef4",
+      "fullhash": "8bb94238bc82ebe7567e",
       "immutable": true,
       "javascriptModule": false,
-      "size": 16379,
+      "size": 16413,
     },
   ],
 ]
@@ -104,23 +104,23 @@ exports[`"test" option matches snapshot for multiple \`test\` values ({Array<Reg
     },
   ],
   [
-    "async.async.js?ver=80be5ce1906c659d3ef4",
+    "async.async.js?ver=8bb94238bc82ebe7567e",
     194,
     {
-      "fullhash": "80be5ce1906c659d3ef4",
+      "fullhash": "8bb94238bc82ebe7567e",
       "immutable": true,
       "javascriptModule": false,
       "size": 194,
     },
   ],
   [
-    "main.js?var=80be5ce1906c659d3ef4",
-    16379,
+    "main.js?var=8bb94238bc82ebe7567e",
+    16413,
     {
-      "fullhash": "80be5ce1906c659d3ef4",
+      "fullhash": "8bb94238bc82ebe7567e",
       "immutable": true,
       "javascriptModule": false,
-      "size": 16379,
+      "size": 16413,
     },
   ],
 ]
@@ -184,10 +184,10 @@ exports[`"test" option matches snapshot with empty \`test\` value: assets 1`] = 
     },
   ],
   [
-    "async.async.js?ver=80be5ce1906c659d3ef4",
+    "async.async.js?ver=8bb94238bc82ebe7567e",
     194,
     {
-      "fullhash": "80be5ce1906c659d3ef4",
+      "fullhash": "8bb94238bc82ebe7567e",
       "immutable": true,
       "javascriptModule": false,
       "related": {
@@ -198,24 +198,24 @@ exports[`"test" option matches snapshot with empty \`test\` value: assets 1`] = 
   ],
   [
     "main.js.gz",
-    4112,
+    4124,
     {
       "compressed": true,
       "immutable": true,
-      "size": 4112,
+      "size": 4124,
     },
   ],
   [
-    "main.js?var=80be5ce1906c659d3ef4",
-    16379,
+    "main.js?var=8bb94238bc82ebe7567e",
+    16413,
     {
-      "fullhash": "80be5ce1906c659d3ef4",
+      "fullhash": "8bb94238bc82ebe7567e",
       "immutable": true,
       "javascriptModule": false,
       "related": {
         "gzipped": "main.js.gz",
       },
-      "size": 16379,
+      "size": 16413,
     },
   ],
 ]
@@ -225,7 +225,7 @@ exports[`"test" option matches snapshot with empty \`test\` value: errors 1`] = 
 
 exports[`"test" option matches snapshot with empty \`test\` value: warnings 1`] = `[]`;
 
-exports[`"test" option should work when no asset to compress : assets 1`] = `
+exports[`"test" option should work when no asset to compress: assets 1`] = `
 [
   [
     "09a1a1112c577c2794359715edfcb5ac.png",
@@ -246,28 +246,28 @@ exports[`"test" option should work when no asset to compress : assets 1`] = `
     },
   ],
   [
-    "async.async.js?ver=80be5ce1906c659d3ef4",
+    "async.async.js?ver=8bb94238bc82ebe7567e",
     194,
     {
-      "fullhash": "80be5ce1906c659d3ef4",
+      "fullhash": "8bb94238bc82ebe7567e",
       "immutable": true,
       "javascriptModule": false,
       "size": 194,
     },
   ],
   [
-    "main.js?var=80be5ce1906c659d3ef4",
-    16379,
+    "main.js?var=8bb94238bc82ebe7567e",
+    16413,
     {
-      "fullhash": "80be5ce1906c659d3ef4",
+      "fullhash": "8bb94238bc82ebe7567e",
       "immutable": true,
       "javascriptModule": false,
-      "size": 16379,
+      "size": 16413,
     },
   ],
 ]
 `;
 
-exports[`"test" option should work when no asset to compress : errors 1`] = `[]`;
+exports[`"test" option should work when no asset to compress: errors 1`] = `[]`;
 
-exports[`"test" option should work when no asset to compress : warnings 1`] = `[]`;
+exports[`"test" option should work when no asset to compress: warnings 1`] = `[]`;

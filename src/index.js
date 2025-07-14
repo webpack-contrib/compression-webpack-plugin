@@ -3,8 +3,8 @@
   Author Tobias Koppers @sokra
 */
 
-const path = require("path");
-const crypto = require("crypto");
+const crypto = require("node:crypto");
+const path = require("node:path");
 
 const { validate } = require("schema-utils");
 const serialize = require("serialize-javascript");
@@ -12,7 +12,9 @@ const serialize = require("serialize-javascript");
 const schema = require("./options.json");
 
 /** @typedef {import("schema-utils/declarations/validate").Schema} Schema */
+/** @typedef {import("webpack").AssetInfo} AssetInfo */
 /** @typedef {import("webpack").Compiler} Compiler */
+/** @typedef {import("webpack").PathData} PathData */
 /** @typedef {import("webpack").WebpackPluginInstance} WebpackPluginInstance */
 /** @typedef {import("webpack").Compilation} Compilation */
 /** @typedef {import("webpack").sources.Source} Source */
@@ -27,8 +29,11 @@ const schema = require("./options.json");
 /** @typedef {RegExp | string} Rule */
 /** @typedef {Rule[] | Rule} Rules */
 
+// eslint-disable-next-line jsdoc/no-restricted-syntax
+/** @typedef {any} EXPECTED_ANY */
+
 /**
- * @typedef {{ [key: string]: any }} CustomOptions
+ * @typedef {{ [key: string]: EXPECTED_ANY }} CustomOptions
  */
 
 /**
@@ -50,10 +55,6 @@ const schema = require("./options.json");
  */
 
 /**
- * @typedef {{[key: string]: any}} PathData
- */
-
-/**
  * @typedef {string | ((fileData: PathData) => string)} Filename
  */
 
@@ -63,14 +64,14 @@ const schema = require("./options.json");
 
 /**
  * @template T
- * @typedef {Object} BasePluginOptions
- * @property {Rules} [test]
- * @property {Rules} [include]
- * @property {Rules} [exclude]
- * @property {number} [threshold]
- * @property {number} [minRatio]
- * @property {DeleteOriginalAssets} [deleteOriginalAssets]
- * @property {Filename} [filename]
+ * @typedef {object} BasePluginOptions
+ * @property {Rules=} test include all assets that pass test assertion
+ * @property {Rules=} include include all assets matching any of these conditions
+ * @property {Rules=} exclude exclude all assets matching any of these conditions
+ * @property {number=} threshold only assets bigger than this size are processed, in bytes
+ * @property {number=} minRatio only assets that compress better than this ratio are processed (`minRatio = Compressed Size / Original Size`)
+ * @property {DeleteOriginalAssets=} deleteOriginalAssets whether to delete the original assets or not
+ * @property {Filename=} filename the target asset filename
  */
 
 /**
@@ -93,7 +94,7 @@ const schema = require("./options.json");
  */
 class CompressionPlugin {
   /**
-   * @param {BasePluginOptions<T> & DefinedDefaultAlgorithmAndOptions<T>} [options]
+   * @param {(BasePluginOptions<T> & DefinedDefaultAlgorithmAndOptions<T>)=} options options
    */
   constructor(options) {
     validate(/** @type {Schema} */ (schema), options || {}, {
@@ -143,8 +144,8 @@ class CompressionPlugin {
       /**
        * @type {typeof import("zlib")}
        */
-      // eslint-disable-next-line global-require
-      const zlib = require("zlib");
+
+      const zlib = require("node:zlib");
 
       /**
        * @private
@@ -182,16 +183,16 @@ class CompressionPlugin {
          * @type {CompressionOptions<T>}
          */
         ({
-          .../** @type {object} */ (defaultCompressionOptions),
-          .../** @type {object} */ (this.options.compressionOptions),
+          ...defaultCompressionOptions,
+          .../** @type {CustomOptions} */ (this.options.compressionOptions),
         });
     }
   }
 
   /**
    * @private
-   * @param {Buffer} input
-   * @returns {Promise<Buffer>}
+   * @param {Buffer} input input
+   * @returns {Promise<Buffer>} compressed buffer
    */
   runCompressionAlgorithm(input) {
     return new Promise((resolve, reject) => {
@@ -206,8 +207,7 @@ class CompressionPlugin {
           }
 
           if (!Buffer.isBuffer(result)) {
-            // @ts-ignore
-            resolve(Buffer.from(result));
+            resolve(Buffer.from(/** @type {string} */ (result)));
           } else {
             resolve(result);
           }
@@ -218,19 +218,31 @@ class CompressionPlugin {
 
   /**
    * @private
-   * @param {Compiler} compiler
-   * @param {Compilation} compilation
-   * @param {Record<string, Source>} assets
+   * @param {Compiler} compiler compiler
+   * @param {Compilation} compilation compilation
+   * @param {Record<string, Source>} assets assets
    * @returns {Promise<void>}
    */
   async compress(compiler, compilation, assets) {
     const cache = compilation.getCache("CompressionWebpackPlugin");
-    const assetsForMinify = (
+
+    /**
+     * @typedef {object} AssetForCompression
+     * @property {string} name name
+     * @property {Source} source source
+     * @property {{ source: Source, compressed: Buffer }} output output
+     * @property {AssetInfo} info asset info
+     * @property {Buffer} buffer buffer
+     * @property {ReturnType<ReturnType<Compilation["getCache"]>["getItemCache"]>} cacheItem cache item
+     * @property {string} relatedName related name
+     */
+
+    const assetsForCompression = (
       await Promise.all(
         Object.keys(assets).map(async (name) => {
-          const { info, source } = /** @type {Asset} */ (
-            compilation.getAsset(name)
-          );
+          const { info, source } =
+            /** @type {Asset} */
+            (compilation.getAsset(name));
 
           if (info.compressed) {
             return false;
@@ -238,7 +250,6 @@ class CompressionPlugin {
 
           if (
             !compiler.webpack.ModuleFilenameHelpers.matchObject.bind(
-              // eslint-disable-next-line no-undefined
               undefined,
               this.options,
             )(name)
@@ -306,7 +317,6 @@ class CompressionPlugin {
               buffer = source.source();
 
               if (!Buffer.isBuffer(buffer)) {
-                // eslint-disable-next-line no-param-reassign
                 buffer = Buffer.from(buffer);
               }
             }
@@ -319,17 +329,17 @@ class CompressionPlugin {
           return { name, source, info, buffer, output, cacheItem, relatedName };
         }),
       )
-    ).filter((assetForMinify) => Boolean(assetForMinify));
+    ).filter(Boolean);
 
     const { RawSource } = compiler.webpack.sources;
     const scheduledTasks = [];
 
-    for (const asset of assetsForMinify) {
+    for (const asset of assetsForCompression) {
       scheduledTasks.push(
         (async () => {
-          // @ts-ignore
           const { name, source, buffer, output, cacheItem, info, relatedName } =
-            asset;
+            /** @type {AssetForCompression} */
+            (asset);
 
           if (!output.source) {
             if (!output.compressed) {
@@ -359,6 +369,7 @@ class CompressionPlugin {
           const newFilename = compilation.getPath(this.options.filename, {
             filename: name,
           });
+          /** @type {AssetInfo} */
           const newInfo = { compressed: true };
 
           // TODO: possible problem when developer uses custom function, ideally we need to get parts of filename (i.e. name/base/ext/etc) in info
@@ -368,14 +379,13 @@ class CompressionPlugin {
             typeof this.options.filename === "string" &&
             /(\[name]|\[base]|\[file])/.test(this.options.filename)
           ) {
-            // @ts-ignore
             newInfo.immutable = true;
           }
 
           if (this.options.deleteOriginalAssets) {
             if (this.options.deleteOriginalAssets === "keep-source-map") {
               compilation.updateAsset(name, source, {
-                // @ts-ignore
+                // @ts-expect-error
                 related: { sourceMap: null },
               });
 
@@ -404,7 +414,7 @@ class CompressionPlugin {
   }
 
   /**
-   * @param {Compiler} compiler
+   * @param {Compiler} compiler compiler
    * @returns {void}
    */
   apply(compiler) {
@@ -428,8 +438,10 @@ class CompressionPlugin {
             "compression-webpack-plugin",
             (compressed, { green, formatFlag }) =>
               compressed
-                ? /** @type {Function} */ (green)(
-                    /** @type {Function} */ (formatFlag)("compressed"),
+                ? /** @type {((value: string | number) => string)} */
+                  (green)(
+                    /** @type {(prefix: string) => string} */
+                    (formatFlag)("compressed"),
                   )
                 : "",
           );

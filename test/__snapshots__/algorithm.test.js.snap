@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`"algorithm" option matches snapshot for \`gzip\` value ({String}): assets 1`] = `
 [
@@ -67,25 +67,25 @@ exports[`"algorithm" option matches snapshot for \`gzip\` value ({String}): asse
     },
   ],
   [
-    "main.3d33e8cae1a5b505b55e.js",
-    16218,
+    "main.4d75ca3dcb0ac1fb976b.js",
+    16252,
     {
-      "chunkhash": "3d33e8cae1a5b505b55e",
+      "chunkhash": "4d75ca3dcb0ac1fb976b",
       "immutable": true,
       "javascriptModule": false,
       "related": {
-        "gzipped": "main.3d33e8cae1a5b505b55e.js.gz",
+        "gzipped": "main.4d75ca3dcb0ac1fb976b.js.gz",
       },
-      "size": 16218,
+      "size": 16252,
     },
   ],
   [
-    "main.3d33e8cae1a5b505b55e.js.gz",
-    4087,
+    "main.4d75ca3dcb0ac1fb976b.js.gz",
+    4097,
     {
       "compressed": true,
       "immutable": true,
-      "size": 4087,
+      "size": 4097,
     },
   ],
 ]
@@ -164,25 +164,25 @@ exports[`"algorithm" option matches snapshot for custom function ({Function}): a
     },
   ],
   [
-    "main.3d33e8cae1a5b505b55e.js",
-    16218,
+    "main.4d75ca3dcb0ac1fb976b.js",
+    16252,
     {
-      "chunkhash": "3d33e8cae1a5b505b55e",
+      "chunkhash": "4d75ca3dcb0ac1fb976b",
       "immutable": true,
       "javascriptModule": false,
       "related": {
-        "gzed": "main.3d33e8cae1a5b505b55e.js.gz",
+        "gzed": "main.4d75ca3dcb0ac1fb976b.js.gz",
       },
-      "size": 16218,
+      "size": 16252,
     },
   ],
   [
-    "main.3d33e8cae1a5b505b55e.js.gz",
-    16218,
+    "main.4d75ca3dcb0ac1fb976b.js.gz",
+    16252,
     {
       "compressed": true,
       "immutable": true,
-      "size": 16218,
+      "size": 16252,
     },
   ],
 ]
@@ -231,13 +231,13 @@ exports[`"algorithm" option matches snapshot for custom function with error ({Fu
     },
   ],
   [
-    "main.3d33e8cae1a5b505b55e.js",
-    16218,
+    "main.4d75ca3dcb0ac1fb976b.js",
+    16252,
     {
-      "chunkhash": "3d33e8cae1a5b505b55e",
+      "chunkhash": "4d75ca3dcb0ac1fb976b",
       "immutable": true,
       "javascriptModule": false,
-      "size": 16218,
+      "size": 16252,
     },
   ],
 ]

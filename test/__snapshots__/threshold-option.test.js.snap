@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`"threshold" option matches snapshot for \`0\` value ({Number}): assets 1`] = `
 [
@@ -67,25 +67,25 @@ exports[`"threshold" option matches snapshot for \`0\` value ({Number}): assets 
     },
   ],
   [
-    "main.3d33e8cae1a5b505b55e.js",
-    16218,
+    "main.4d75ca3dcb0ac1fb976b.js",
+    16252,
     {
-      "chunkhash": "3d33e8cae1a5b505b55e",
+      "chunkhash": "4d75ca3dcb0ac1fb976b",
       "immutable": true,
       "javascriptModule": false,
       "related": {
-        "gzipped": "main.3d33e8cae1a5b505b55e.js.gz",
+        "gzipped": "main.4d75ca3dcb0ac1fb976b.js.gz",
       },
-      "size": 16218,
+      "size": 16252,
     },
   ],
   [
-    "main.3d33e8cae1a5b505b55e.js.gz",
-    4087,
+    "main.4d75ca3dcb0ac1fb976b.js.gz",
+    4097,
     {
       "compressed": true,
       "immutable": true,
-      "size": 4087,
+      "size": 4097,
     },
   ],
 ]
@@ -138,25 +138,25 @@ exports[`"threshold" option matches snapshot for \`8192\` value ({Number}): asse
     },
   ],
   [
-    "main.3d33e8cae1a5b505b55e.js",
-    16218,
+    "main.4d75ca3dcb0ac1fb976b.js",
+    16252,
     {
-      "chunkhash": "3d33e8cae1a5b505b55e",
+      "chunkhash": "4d75ca3dcb0ac1fb976b",
       "immutable": true,
       "javascriptModule": false,
       "related": {
-        "gzipped": "main.3d33e8cae1a5b505b55e.js.gz",
+        "gzipped": "main.4d75ca3dcb0ac1fb976b.js.gz",
       },
-      "size": 16218,
+      "size": 16252,
     },
   ],
   [
-    "main.3d33e8cae1a5b505b55e.js.gz",
-    4087,
+    "main.4d75ca3dcb0ac1fb976b.js.gz",
+    4097,
     {
       "compressed": true,
       "immutable": true,
-      "size": 4087,
+      "size": 4097,
     },
   ],
 ]

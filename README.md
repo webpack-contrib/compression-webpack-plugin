@@ -66,7 +66,7 @@ Finally, run `webpack` using the method you normally use (e.g., via CLI or an np
 Type:
 
 ```ts
-type test = string | RegExp | Array<string | RegExp>;
+type test = string | RegExp | (string | RegExp)[];
 ```
 
 Default: `undefined`
@@ -90,7 +90,7 @@ module.exports = {
 Type:
 
 ```ts
-type include = string | RegExp | Array<string | RegExp>;
+type include = string | RegExp | (string | RegExp)[];
 ```
 
 Default: `undefined`
@@ -114,7 +114,7 @@ module.exports = {
 Type:
 
 ```ts
-type exclude = string | RegExp | Array<string | RegExp>;
+type exclude = string | RegExp | (string | RegExp)[];
 ```
 
 Default: `undefined`
@@ -164,7 +164,7 @@ type algorithm =
               [Symbol.toPrimitive](hint: "string"): string;
             },
       ) => void,
-    ) => any);
+    ) => void);
 ```
 
 Defines the compression algorithm or function to use. Defaults to `gzip`.
@@ -212,7 +212,7 @@ module.exports = {
 Type:
 
 ```ts
-type compressionOptions = {
+interface compressionOptions {
   flush?: number;
   finishFlush?: number;
   chunkSize?: number;
@@ -223,7 +223,7 @@ type compressionOptions = {
   dictionary?: Buffer | TypedArray | DataView | ArrayBuffer;
   info?: boolean;
   maxOutputLength?: number;
-};
+}
 ```
 
 Default: `{ level: 9 }`
@@ -401,10 +401,9 @@ Example:
 module.exports = {
   plugins: [
     new CompressionPlugin({
-      deleteOriginalAssets: (assetName) => {
+      deleteOriginalAssets: (assetName) =>
         // Delete all assets except images
-        return !assetName.endsWith(".png") && !assetName.endsWith(".jpg");
-      },
+        !assetName.endsWith(".png") && !assetName.endsWith(".jpg"),
     }),
   ],
 };
@@ -500,7 +499,7 @@ You can take advantage of this built-in support for Brotli in Node 10.16.0 and l
 **webpack.config.js**
 
 ```js
-const zlib = require("zlib");
+const zlib = require("node:zlib");
 
 module.exports = {
   plugins: [
@@ -535,7 +534,7 @@ You can take advantage of this built-in support for zstd in Node 22.15.0 and lat
 **webpack.config.js**
 
 ```js
-const zlib = require("zlib");
+const zlib = require("node:zlib");
 
 module.exports = {
   plugins: [
@@ -563,7 +562,7 @@ You can find all Zstandard's options in [the relevant part of the zlib module do
 **webpack.config.js**
 
 ```js
-const zlib = require("zlib");
+const zlib = require("node:zlib");
 
 module.exports = {
   plugins: [

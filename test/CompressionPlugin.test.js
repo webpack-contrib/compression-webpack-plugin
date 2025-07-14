@@ -1,16 +1,16 @@
-import zlib from "zlib";
-import path from "path";
+import path from "node:path";
+import zlib from "node:zlib";
 
-import { GenerateSW, InjectManifest } from "workbox-webpack-plugin";
 import { StatsWriterPlugin } from "webpack-stats-plugin";
+import { GenerateSW, InjectManifest } from "workbox-webpack-plugin";
 
 import CompressionPlugin from "../src/index";
 
 import {
-  compile,
   CopyPluginWithAssetInfo,
-  ModifyExistingAsset,
   EmitNewAsset,
+  ModifyExistingAsset,
+  compile,
   getAssetsNameAndSize,
   getCompiler,
   getErrors,
@@ -24,7 +24,7 @@ describe("CompressionPlugin", () => {
       {},
       {
         output: {
-          path: `${__dirname}/dist`,
+          path: path.join(__dirname, "./dist"),
           filename: "[name].js?var=[contenthash]",
           chunkFilename: "[id].[name].js?ver=[contenthash]",
         },
@@ -47,7 +47,7 @@ describe("CompressionPlugin", () => {
       {
         devtool: "source-map",
         output: {
-          path: `${__dirname}/dist`,
+          path: path.join(__dirname, "./dist"),
           filename: "[name].js?var=[contenthash]",
           chunkFilename: "[id].[name].js?ver=[contenthash]",
         },
@@ -71,7 +71,7 @@ describe("CompressionPlugin", () => {
       {},
       {
         output: {
-          path: `${__dirname}/dist`,
+          path: path.join(__dirname, "./dist"),
           filename: "[name].js?var=[contenthash]",
           chunkFilename: "[id].[name].js?ver=[contenthash]",
         },
@@ -118,7 +118,7 @@ describe("CompressionPlugin", () => {
       {},
       {
         output: {
-          path: `${__dirname}/dist`,
+          path: path.join(__dirname, "./dist"),
           filename: "[name].js?var=[contenthash]",
           chunkFilename: "[id].[name].js?ver=[contenthash]",
         },
@@ -158,7 +158,7 @@ describe("CompressionPlugin", () => {
       {
         stats: "verbose",
         output: {
-          path: `${__dirname}/dist`,
+          path: path.join(__dirname, "./dist"),
           filename: "[name].js",
           chunkFilename: "[id].[name].js",
         },
@@ -184,7 +184,7 @@ describe("CompressionPlugin", () => {
       {
         stats: "verbose",
         output: {
-          path: `${__dirname}/dist`,
+          path: path.join(__dirname, "./dist"),
           filename: "[name].[contenthash].js",
           chunkFilename: "[id].[name].[contenthash].js",
         },
@@ -217,19 +217,13 @@ describe("CompressionPlugin", () => {
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
 
-    await new Promise(async (resolve) => {
-      const newStats = await compile(compiler);
+    const newStats = await compile(compiler);
 
-      expect(newStats.compilation.emittedAssets.size).toBe(0);
+    expect(newStats.compilation.emittedAssets.size).toBe(0);
 
-      expect(getAssetsNameAndSize(newStats, compiler)).toMatchSnapshot(
-        "assets",
-      );
-      expect(getWarnings(newStats)).toMatchSnapshot("errors");
-      expect(getErrors(newStats)).toMatchSnapshot("warnings");
-
-      resolve();
-    });
+    expect(getAssetsNameAndSize(newStats, compiler)).toMatchSnapshot("assets");
+    expect(getWarnings(newStats)).toMatchSnapshot("errors");
+    expect(getErrors(newStats)).toMatchSnapshot("warnings");
   });
 
   it('should work and use memory cache when the "cache" option is "true"', async () => {
@@ -256,19 +250,13 @@ describe("CompressionPlugin", () => {
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
 
-    await new Promise(async (resolve) => {
-      const newStats = await compile(compiler);
+    const newStats = await compile(compiler);
 
-      expect(newStats.compilation.emittedAssets.size).toBe(0);
+    expect(newStats.compilation.emittedAssets.size).toBe(0);
 
-      expect(getAssetsNameAndSize(newStats, compiler)).toMatchSnapshot(
-        "assets",
-      );
-      expect(getWarnings(newStats)).toMatchSnapshot("errors");
-      expect(getErrors(newStats)).toMatchSnapshot("warnings");
-
-      resolve();
-    });
+    expect(getAssetsNameAndSize(newStats, compiler)).toMatchSnapshot("assets");
+    expect(getWarnings(newStats)).toMatchSnapshot("errors");
+    expect(getErrors(newStats)).toMatchSnapshot("warnings");
   });
 
   it('should work and use memory cache when the "cache" option is "true" and the asset has been changed', async () => {
@@ -300,19 +288,13 @@ describe("CompressionPlugin", () => {
       content: "function changed() { /*! CHANGED */ }",
     }).apply(compiler);
 
-    await new Promise(async (resolve) => {
-      const newStats = await compile(compiler);
+    const newStats = await compile(compiler);
 
-      expect(newStats.compilation.emittedAssets.size).toBe(2);
+    expect(newStats.compilation.emittedAssets.size).toBe(2);
 
-      expect(getAssetsNameAndSize(newStats, compiler)).toMatchSnapshot(
-        "assets",
-      );
-      expect(getWarnings(newStats)).toMatchSnapshot("errors");
-      expect(getErrors(newStats)).toMatchSnapshot("warnings");
-
-      resolve();
-    });
+    expect(getAssetsNameAndSize(newStats, compiler)).toMatchSnapshot("assets");
+    expect(getWarnings(newStats)).toMatchSnapshot("errors");
+    expect(getErrors(newStats)).toMatchSnapshot("warnings");
   });
 
   it('should work and use memory cache when the "cache" option is "true" and the asset has been changed which filtered by the "minRation" option', async () => {
@@ -343,22 +325,16 @@ describe("CompressionPlugin", () => {
 
     new ModifyExistingAsset({
       name: "icon.png",
-      content: `1q!Q2w@W3e#e4r$r`.repeat(1000),
+      content: "1q!Q2w@W3e#e4r$r".repeat(1000),
     }).apply(compiler);
 
-    await new Promise(async (resolve) => {
-      const newStats = await compile(compiler);
+    const newStats = await compile(compiler);
 
-      expect(newStats.compilation.emittedAssets.size).toBe(2);
+    expect(newStats.compilation.emittedAssets.size).toBe(2);
 
-      expect(getAssetsNameAndSize(newStats, compiler)).toMatchSnapshot(
-        "assets",
-      );
-      expect(getWarnings(newStats)).toMatchSnapshot("errors");
-      expect(getErrors(newStats)).toMatchSnapshot("warnings");
-
-      resolve();
-    });
+    expect(getAssetsNameAndSize(newStats, compiler)).toMatchSnapshot("assets");
+    expect(getWarnings(newStats)).toMatchSnapshot("errors");
+    expect(getErrors(newStats)).toMatchSnapshot("warnings");
   });
 
   it('should work and use memory cache when the "cache" option is "true" with multiple plugins', async () => {
@@ -397,19 +373,13 @@ describe("CompressionPlugin", () => {
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
 
-    await new Promise(async (resolve) => {
-      const newStats = await compile(compiler);
+    const newStats = await compile(compiler);
 
-      expect(newStats.compilation.emittedAssets.size).toBe(0);
+    expect(newStats.compilation.emittedAssets.size).toBe(0);
 
-      expect(getAssetsNameAndSize(newStats, compiler)).toMatchSnapshot(
-        "assets",
-      );
-      expect(getWarnings(newStats)).toMatchSnapshot("errors");
-      expect(getErrors(newStats)).toMatchSnapshot("warnings");
-
-      resolve();
-    });
+    expect(getAssetsNameAndSize(newStats, compiler)).toMatchSnapshot("assets");
+    expect(getWarnings(newStats)).toMatchSnapshot("errors");
+    expect(getErrors(newStats)).toMatchSnapshot("warnings");
   });
 
   it('should work and do not use memory cache when the "cache" option is "false"', async () => {
@@ -438,19 +408,13 @@ describe("CompressionPlugin", () => {
     expect(getWarnings(stats)).toMatchSnapshot("warnings");
     expect(getErrors(stats)).toMatchSnapshot("errors");
 
-    await new Promise(async (resolve) => {
-      const newStats = await compile(compiler);
+    const newStats = await compile(compiler);
 
-      expect(newStats.compilation.emittedAssets.size).toBe(7);
+    expect(newStats.compilation.emittedAssets.size).toBe(7);
 
-      expect(getAssetsNameAndSize(newStats, compiler)).toMatchSnapshot(
-        "assets",
-      );
-      expect(getWarnings(newStats)).toMatchSnapshot("errors");
-      expect(getErrors(newStats)).toMatchSnapshot("warnings");
-
-      resolve();
-    });
+    expect(getAssetsNameAndSize(newStats, compiler)).toMatchSnapshot("assets");
+    expect(getWarnings(newStats)).toMatchSnapshot("errors");
+    expect(getErrors(newStats)).toMatchSnapshot("warnings");
   });
 
   it("should run plugin against assets added later by plugins", async () => {
@@ -477,13 +441,14 @@ describe("CompressionPlugin", () => {
   });
 
   // TODO broken on windows https://github.com/GoogleChrome/workbox/issues/2667
+  // eslint-disable-next-line jest/no-disabled-tests
   it.skip("should work with 'workbox-webpack-plugin' (GenerateSW)", async () => {
     const compiler = getCompiler(
       "./entry.js",
       {},
       {
         output: {
-          path: `${__dirname}/dist`,
+          path: path.join(__dirname, "./dist"),
           filename: "[name].js?var=[contenthash]",
           chunkFilename: "[id].[name].js?ver=[contenthash]",
         },
@@ -501,13 +466,14 @@ describe("CompressionPlugin", () => {
   });
 
   // TODO broken on windows https://github.com/GoogleChrome/workbox/issues/2667
+  // eslint-disable-next-line jest/no-disabled-tests
   it.skip("should work with 'workbox-webpack-plugin' (InjectManifest)", async () => {
     const compiler = getCompiler(
       "./entry.js",
       {},
       {
         output: {
-          path: `${__dirname}/dist`,
+          path: path.join(__dirname, "./dist"),
           filename: "[name].js?var=[contenthash]",
           chunkFilename: "[id].[name].js?ver=[contenthash]",
         },
