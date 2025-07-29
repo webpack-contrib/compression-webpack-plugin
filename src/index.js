@@ -385,7 +385,6 @@ class CompressionPlugin {
           if (this.options.deleteOriginalAssets) {
             if (this.options.deleteOriginalAssets === "keep-source-map") {
               compilation.updateAsset(name, source, {
-                // @ts-expect-error
                 related: { sourceMap: null },
               });
 
